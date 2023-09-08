@@ -1,0 +1,6 @@
+*
+!database/
+!debugbar/
+!public/
+!livewire-tmp/
+!.gitignore

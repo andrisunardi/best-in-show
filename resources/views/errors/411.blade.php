@@ -1,0 +1,6 @@
+@extends(Str::substr(Request::url(), 12, 3) == 'cms' ? 'layouts.cms.app' : 'layouts.app')
+
+@section("title", "411 - Length Required")
+@section("code", "411")
+@section("message", "Length Required")
+@section("description", 'The "Content-Length" is not defined. The server will not accept the request without it')
