@@ -1,0 +1,25 @@
+{
+    "short_name": "Laravel",
+    "name": "Laravel | DIW.co.id",
+    "description": "Template Laravel",
+    "icons": [
+        {
+            "src": "images/favicon.png",
+            "sizes": "400x400",
+            "type": "image/x-icon",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/logo.png",
+            "type": "image/png",
+            "sizes": "400x400",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "/",
+    "scope": ".",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "theme_color": "#FF0000",
+    "background_color": "#FF0000"
+}

@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# START REMOVE PUBLIC URL
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [L,QSA]
+# END REMOVE PUBLIC URL

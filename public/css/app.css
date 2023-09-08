@@ -1,0 +1,11 @@
+.pointer {
+    cursor: pointer;
+}
+
+.text-pre-wrap {
+    white-space: pre-wrap;
+}
+
+a {
+    text-decoration: none;
+}
