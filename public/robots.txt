@@ -2,4 +2,4 @@ User-agent: *
 Disallow:
 Crawl-delay: 1
 Allow: /
-Sitemap: https://www.laravel.diw.co.id/sitemap.xml
+Sitemap: https://www.bestinshow.co.id/sitemap.xml
