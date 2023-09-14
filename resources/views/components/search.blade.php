@@ -3,6 +3,7 @@
     'title' => trans('validation.attributes.search'),
     'icon' => 'fas fa-search',
     'type' => 'search',
+    'step' => null,
     'label' => true,
 ])
 
@@ -18,5 +19,5 @@
     @endif
 
     <input class="form-control" wire:model.live="{{ $key }}" id="{{ $key }}" type="{{ $type }}"
-        placeholder="{{ $title }}" />
+        step="{{ $step }}" placeholder="{{ $title }}" />
 </div>
