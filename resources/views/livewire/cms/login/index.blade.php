@@ -1,7 +1,7 @@
 @section('title', trans('index.login'))
 @section('icon', 'fas fa-sign-in-alt')
 
-<main class="bg-body-secondary">
+<main>
     <div class="bg-body-secondary">
         <div class="container">
             <div class="row justify-content-center align-items-center vh-100 mt-sm-5 mt-md-auto">

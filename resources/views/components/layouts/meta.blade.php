@@ -247,3 +247,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com" />
 <link rel="dns-prefetch" href="//www.googletagmanager.com" />
 <link rel="dns-prefetch" href="//www.googleadservices.com" />
+
+@if (!Route::is('cms.*'))
+    @vite('resources/css/app.css')
+@endif
