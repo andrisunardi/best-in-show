@@ -51,7 +51,7 @@ class RoleService
         return $role;
     }
 
-    public function edit(Role $role, $data): Role
+    public function edit(Role $role, array $data = []): Role
     {
         $permissionIds = $data['permission_ids'];
         Arr::pull($data, 'permission_ids');

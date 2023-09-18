@@ -86,7 +86,7 @@ class UserService
         return $user;
     }
 
-    public function edit(User $user, $data): User
+    public function edit(User $user, array $data = []): User
     {
         $roleIds = $data['role_ids'];
         Arr::pull($data, 'role_ids');
@@ -173,7 +173,7 @@ class UserService
         return true;
     }
 
-    public function editProfile(User $user, $data): User
+    public function editProfile(User $user, array $data = []): User
     {
         $data['image'] = (new LivewireUpload())->upload(
             file: $data['image'],
@@ -191,7 +191,7 @@ class UserService
         return $user;
     }
 
-    public function changePassword(User $user, $data): User
+    public function changePassword(User $user, array $data = []): User
     {
         $user->update(['password' => Hash::make($data['new_password'])]);
         $user->refresh();

@@ -51,7 +51,7 @@ class PermissionService
         return $permission;
     }
 
-    public function edit(Permission $permission, $data): Permission
+    public function edit(Permission $permission, array $data = []): Permission
     {
         $roleIds = $data['role_ids'];
         Arr::pull($data, 'role_ids');

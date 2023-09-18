@@ -40,7 +40,7 @@ class SettingService
         return Setting::create($data);
     }
 
-    public function edit(Setting $setting, $data): Setting
+    public function edit(Setting $setting, array $data = []): Setting
     {
         $setting->update($data);
         $setting->refresh();
