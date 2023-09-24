@@ -1,7 +1,7 @@
 @props([
     'class' => 'btn btn-sm btn-dark w-100',
-    'text' => trans('index.view'),
-    'icon' => 'fas fa-eye',
+    'text' => trans('index.detail'),
+    'icon' => 'fas fa-list',
     'href' => null,
     'target' => null,
     'navigate' => true,
