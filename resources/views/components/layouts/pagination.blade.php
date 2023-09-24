@@ -8,19 +8,19 @@
                     </li>
                 @else
                     <li class="page-item">
-                        <a draggable="false" class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev"
-                            wire:navigate>
+                        <button type="button" class="page-link" rel="prev" aria-label="{{ trans('index.previous') }}"
+                            wire:click="previousPage" wire:loading.attr="disabled">
                             {{ trans('index.previous') }}
-                        </a>
+                        </button>
                     </li>
                 @endif
 
                 @if ($paginator->hasMorePages())
                     <li class="page-item">
-                        <a draggable="false" class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next"
-                            wire:navigate>
+                        <button type="button" class="page-link" rel="next" aria-label="{{ trans('index.next') }}"
+                            wire:click="nextPage" wire:loading.attr="disabled">
                             {{ trans('index.next') }}
-                        </a>
+                        </button>
                     </li>
                 @else
                     <li class="page-item disabled" aria-disabled="true">
@@ -47,15 +47,17 @@
                 <ul class="pagination">
                     @if ($paginator->onFirstPage())
                         <li class="page-item disabled" aria-disabled="true" aria-label="{{ trans('index.previous') }}">
-                            <span class="page-link" aria-hidden="true">&lsaquo;</span>
+                            <span class="page-link" aria-hidden="true">
+                                {{ trans('index.previous') }}
+                            </span>
                         </li>
                     @else
                         <li class="page-item">
-                            <a draggable="false" class="page-link" wire:navigate
-                                href="{{ $paginator->previousPageUrl() }}" rel="prev"
-                                aria-label="{{ trans('index.previous') }}">
-                                &lsaquo;
-                            </a>
+                            <button type="button" class="page-link" rel="prev"
+                                aria-label="{{ trans('index.previous') }}" wire:click="previousPage"
+                                wire:loading.attr="disabled">
+                                {{ trans('index.previous') }}
+                            </button>
                         </li>
                     @endif
 
@@ -74,10 +76,10 @@
                                     </li>
                                 @else
                                     <li class="page-item">
-                                        <a draggable="false" class="page-link" href="{{ $url }}"
-                                            wire:navigate>
+                                        <button type="button" class="page-link" href="{{ $url }}"
+                                            wire:click="setPage({{ $page }})" wire:loading.attr="disabled">
                                             {{ $page }}
-                                        </a>
+                                        </button>
                                     </li>
                                 @endif
                             @endforeach
@@ -86,14 +88,15 @@
 
                     @if ($paginator->hasMorePages())
                         <li class="page-item">
-                            <a draggable="false" class="page-link" href="{{ $paginator->nextPageUrl() }}"
-                                rel="next" aria-label="{{ trans('index.next') }}" wire:navigate>
-                                &rsaquo;
-                            </a>
+                            <button type="button" class="page-link" rel="next"
+                                aria-label="{{ trans('index.next') }}" wire:click="nextPage"
+                                wire:loading.attr="disabled">
+                                {{ trans('index.next') }}
+                            </button>
                         </li>
                     @else
                         <li class="page-item disabled" aria-disabled="true" aria-label="{{ trans('index.next') }}">
-                            <span class="page-link" aria-hidden="true">&rsaquo;</span>
+                            <span class="page-link" aria-hidden="true">{{ trans('index.next') }}</span>
                         </li>
                     @endif
                 </ul>
