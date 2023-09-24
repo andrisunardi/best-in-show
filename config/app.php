@@ -32,6 +32,10 @@ return [
         // 'store'  => 'redis',
     ],
 
+    'roles' => ['Super User', 'User'],
+
+    'route_roles' => 'Super User|User',
+
     'cms_roles' => ['Super User', 'Admin'],
 
     'route_cms_roles' => 'Super User|Admin',
