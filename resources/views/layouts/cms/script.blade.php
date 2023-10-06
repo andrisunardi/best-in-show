@@ -1,5 +1,5 @@
-<script src="{{ asset('js/color-modes.js') }}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/cms/color-modes.js') }}"></script>
+<script src="{{ asset('js/cms/app.js') }}"></script>
 
 @livewireChartsScripts
 <script src="{{ asset('https://cdn.jsdelivr.net/npm/apexcharts') }}"></script>

@@ -9,11 +9,12 @@
     'maxlength' => null,
     'required' => false,
     'label' => true,
-    'autocapitalize' => 'on',
-    'autofocus' => false,
     'step' => null,
     'accept' => null,
     'helper' => null,
+    'autocapitalize' => 'on',
+    'autocomplete' => 'off',
+    'autofocus' => false,
 ])
 
 @if ($label)
@@ -30,7 +31,8 @@
         wire:model="{{ $key }}" id="{{ $key }}" type="{{ $type }}" min="{{ $min }}"
         max="{{ $max }}" minlength="{{ $minlength }}" maxlength="{{ $maxlength }}" step="{{ $step }}"
         accept="{{ $accept }}" placeholder="{{ $title }}" {{ $required ? 'required' : null }}
-        autocapitalize="{{ $autocapitalize }}" {{ $autofocus ? 'autofocus' : null }} />
+        autocapitalize="{{ $autocapitalize }}" autocomplete="{{ $autocomplete }}"
+        {{ $autofocus ? 'autofocus' : null }} />
 
     @error($key)
         <div class="invalid-feedback">{{ $message }}</div>
