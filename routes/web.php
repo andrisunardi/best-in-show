@@ -1,12 +1,12 @@
 <?php
 
 use App\Livewire\Home\HomePage;
-use App\Livewire\AboutUs\AboutUsPage;
-use App\Livewire\OurCompany\OurCompanyPage;
-use App\Livewire\Product\ProductPage;
-use App\Livewire\Product\ProductViewPage;
-use App\Livewire\Event\EventPage;
-use App\Livewire\Event\EventViewPage;
+// use App\Livewire\AboutUs\AboutUsPage;
+// use App\Livewire\OurCompany\OurCompanyPage;
+// use App\Livewire\Product\ProductPage;
+// use App\Livewire\Product\ProductViewPage;
+// use App\Livewire\Event\EventPage;
+// use App\Livewire\Event\EventViewPage;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -18,27 +18,27 @@ Route::any('locale/{locale}', function ($locale) {
 
 Route::any('', HomePage::class)->name('index');
 // Route::any('displaycontest', HomePage::class)->name('displaycontest');
-Route::any('about-us', AboutUsPage::class)->name('about-us');
-Route::any('our-company', OurCompanyPage::class)->name('our-company');
+// Route::any('about-us', AboutUsPage::class)->name('about-us');
+// Route::any('our-company', OurCompanyPage::class)->name('our-company');
 
-Route::group(['prefix' => 'product', 'as' => 'product.'], function () {
-    Route::any('', ProductPage::class)->name('index');
-    Route::any('{slug}', ProductViewPage::class)->name('view');
-});
+// Route::group(['prefix' => 'product', 'as' => 'product.'], function () {
+//     Route::any('', ProductPage::class)->name('index');
+//     Route::any('{slug}', ProductViewPage::class)->name('view');
+// });
 
-Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
-    Route::any('', EventPage::class)->name('index');
-    Route::any('{slug}', EventViewPage::class)->name('view');
-});
+// Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
+//     Route::any('', EventPage::class)->name('index');
+//     Route::any('{slug}', EventViewPage::class)->name('view');
+// });
 
-Route::group(['prefix' => 'promotion', 'as' => 'promotion.'], function () {
-    Route::any('', PromotionPage::class)->name('index');
-    Route::any('{slug}', PromotionViewPage::class)->name('view');
-});
+// Route::group(['prefix' => 'promotion', 'as' => 'promotion.'], function () {
+//     Route::any('', PromotionPage::class)->name('index');
+//     Route::any('{slug}', PromotionViewPage::class)->name('view');
+// });
 
-Route::any('faq', FaqPage::class)->name('faq');
-Route::any('want-to-open-a-pet-shop', WantToOpenAPetShopPage::class)->name('want-to-open-a-pet-shop');
-Route::any('faq', FaqPage::class)->name('faq');
+// Route::any('faq', FaqPage::class)->name('faq');
+// Route::any('want-to-open-a-pet-shop', WantToOpenAPetShopPage::class)->name('want-to-open-a-pet-shop');
+// Route::any('faq', FaqPage::class)->name('faq');
 
 //     $prefix = "Want To Open A Pet Shop";
 //     Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
@@ -137,7 +137,6 @@ Route::any('faq', FaqPage::class)->name('faq');
 //         });
 //     });
 // });
-
 
 // $prefix = "Ajax";
 // Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {

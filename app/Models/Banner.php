@@ -31,6 +31,28 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Banner withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Banner withoutTrashed()
  *
+ * @property int $id
+ * @property int|null $pet_id
+ * @property string|null $image
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner wherePetId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedById($value)
+ *
  * @mixin \Eloquent
  */
 class Banner extends Model

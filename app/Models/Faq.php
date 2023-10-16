@@ -27,6 +27,32 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Faq withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Faq withoutTrashed()
  *
+ * @property int $id
+ * @property string|null $question
+ * @property string|null $question_idn
+ * @property string|null $answer
+ * @property string|null $answer_idn
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereAnswer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereAnswerIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereQuestion($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereQuestionIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Faq whereUpdatedById($value)
+ *
  * @mixin \Eloquent
  */
 class Faq extends Model

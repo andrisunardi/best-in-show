@@ -4,7 +4,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 10.26.2.
+ * Generated for Laravel 10.28.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -18436,9 +18436,9 @@
          * @param mixed $value
          * @static 
          */ 
-        public static function yesno($value)
+        public static function yesNo($value)
         {
-                        return \Illuminate\Support\Str::yesno($value);
+                        return \Illuminate\Support\Str::yesNo($value);
         }
                     /**
          * 
@@ -18502,9 +18502,9 @@
          * @param mixed $value
          * @static 
          */ 
-        public static function successdanger($value)
+        public static function successDanger($value)
         {
-                        return \Illuminate\Support\Str::successdanger($value);
+                        return \Illuminate\Support\Str::successDanger($value);
         }
                     /**
          * 
@@ -18514,9 +18514,9 @@
          * @param mixed $symbol
          * @static 
          */ 
-        public static function formatsymbol($value, $symbol)
+        public static function formatSymbol($value, $symbol)
         {
-                        return \Illuminate\Support\Str::formatsymbol($value, $symbol);
+                        return \Illuminate\Support\Str::formatSymbol($value, $symbol);
         }
                     /**
          * 
@@ -18536,9 +18536,9 @@
          * @param mixed $value
          * @static 
          */ 
-        public static function logcolor($value)
+        public static function logColor($value)
         {
-                        return \Illuminate\Support\Str::logcolor($value);
+                        return \Illuminate\Support\Str::logColor($value);
         }
                     /**
          * 
@@ -18580,13 +18580,13 @@
          * @see \App\Providers\AppServiceProvider::register()
          * @param mixed $prefix
          * @param mixed $table
-         * @param mixed $date
          * @param mixed $digit
+         * @param mixed $date
          * @static 
          */ 
-        public static function code($prefix, $table, $date, $digit)
+        public static function code($prefix, $table, $digit, $date)
         {
-                        return \Illuminate\Support\Str::code($prefix, $table, $date, $digit);
+                        return \Illuminate\Support\Str::code($prefix, $table, $digit, $date);
         }
          
     }
@@ -21440,7 +21440,6 @@
             /**
      * 
      *
-     * @method static void setUpdateUri()
      * @see \Livewire\LivewireManager
      */ 
         class Livewire {
@@ -21703,6 +21702,26 @@
         {
                         /** @var \Livewire\LivewireManager $instance */
                         return $instance->withQueryParams($params);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function withCookie($name, $value)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->withCookie($name, $value);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function withCookies($cookies)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->withCookies($cookies);
         }
                     /**
          * 
@@ -22432,6 +22451,17 @@
         public static function layout($view, $params = [])
         {
                         return \Illuminate\View\View::layout($view, $params);
+        }
+                    /**
+         * 
+         *
+         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
+         * @param callable $callback
+         * @static 
+         */ 
+        public static function response($callback)
+        {
+                        return \Illuminate\View\View::response($callback);
         }
          
     }
@@ -23393,6 +23423,39 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->chunkById($count, $callback, $column, $alias);
+            }
+             
+                /**
+             * Chunk the results of a query by comparing IDs in descending order.
+             *
+             * @param int $count
+             * @param callable $callback
+             * @param string|null $column
+             * @param string|null $alias
+             * @return bool 
+             * @static 
+             */ 
+            public static function chunkByIdDesc($count, $callback, $column = null, $alias = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->chunkByIdDesc($count, $callback, $column, $alias);
+            }
+             
+                /**
+             * Chunk the results of a query by comparing IDs in a given order.
+             *
+             * @param int $count
+             * @param callable $callback
+             * @param string|null $column
+             * @param string|null $alias
+             * @param bool $descending
+             * @return bool 
+             * @static 
+             */ 
+            public static function orderedChunkById($count, $callback, $column = null, $alias = null, $descending = false)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->orderedChunkById($count, $callback, $column, $alias, $descending);
             }
              
                 /**

@@ -27,6 +27,36 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|PetShop withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|PetShop withoutTrashed()
  *
+ * @property int $id
+ * @property string|null $name
+ * @property string|null $gender
+ * @property string|null $address
+ * @property string|null $phone
+ * @property string|null $email
+ * @property string|null $message
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereGender($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereUpdatedById($value)
+ *
  * @mixin \Eloquent
  */
 class PetShop extends Model

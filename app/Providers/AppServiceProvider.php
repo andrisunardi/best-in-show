@@ -59,7 +59,7 @@ class AppServiceProvider extends ServiceProvider
             return '$ '.number_format($value, 0, ',', '.');
         });
 
-        Str::macro('yesno', function ($value) {
+        Str::macro('yesNo', function ($value) {
             return $value ? 'Yes' : 'No';
         });
 
@@ -83,11 +83,11 @@ class AppServiceProvider extends ServiceProvider
             return $value ? 'Subscribe' : 'Unsubscribe';
         });
 
-        Str::macro('successdanger', function ($value) {
+        Str::macro('successDanger', function ($value) {
             return $value == 1 ? 'success' : 'danger';
         });
 
-        Str::macro('formatsymbol', function ($value, $symbol) {
+        Str::macro('formatSymbol', function ($value, $symbol) {
             return Str::replace(['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '[', '}', ']', '|', '\\', ':', ';', '"', "'", '<', ',', '>', '.', '?', '/', ' '], $symbol, $value);
         });
 
@@ -114,7 +114,7 @@ class AppServiceProvider extends ServiceProvider
             return $color;
         });
 
-        Str::macro('logcolor', function ($value) {
+        Str::macro('logColor', function ($value) {
             if ($value == 1) {
                 $color = 'primary';
             }
@@ -154,7 +154,7 @@ class AppServiceProvider extends ServiceProvider
             return Setting::where('key', $value)->first()->value ?? null;
         });
 
-        Str::macro('code', function ($prefix, $table, $date, $digit) {
+        Str::macro('code', function ($prefix, $table, $digit, $date) {
             $data = DB::table($table)->latest('id')->first();
             $code = Str::afterLast($data?->code, $prefix);
 

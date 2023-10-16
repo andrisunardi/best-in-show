@@ -30,6 +30,26 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Slider withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Slider withoutTrashed()
  *
+ * @property int $id
+ * @property string|null $image
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereUpdatedById($value)
+ *
  * @mixin \Eloquent
  */
 class Slider extends Model

@@ -34,6 +34,40 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Event withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Event withoutTrashed()
  *
+ * @property int $id
+ * @property int|null $name
+ * @property string|null $name_idn
+ * @property string|null $description
+ * @property string|null $description_idn
+ * @property \Illuminate\Support\Carbon|null $date
+ * @property string|null $image
+ * @property string|null $video
+ * @property string|null $slug
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereDescriptionIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereNameIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereVideo($value)
+ *
  * @mixin \Eloquent
  */
 class Event extends Model

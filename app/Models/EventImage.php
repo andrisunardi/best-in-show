@@ -31,6 +31,28 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|EventImage withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|EventImage withoutTrashed()
  *
+ * @property int $id
+ * @property int|null $event_id
+ * @property string|null $image
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereEventId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereUpdatedById($value)
+ *
  * @mixin \Eloquent
  */
 class EventImage extends Model

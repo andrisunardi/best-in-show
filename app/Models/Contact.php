@@ -27,6 +27,50 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Contact withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact withoutTrashed()
  *
+ * @property int $id
+ * @property string|null $category
+ * @property string|null $message
+ * @property string|null $attachment
+ * @property string|null $first_name
+ * @property string|null $last_name
+ * @property string|null $email
+ * @property string|null $address
+ * @property string|null $city
+ * @property string|null $province
+ * @property string|null $postal_code
+ * @property string|null $platform
+ * @property string|null $phone_country
+ * @property string|null $phone
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereAttachment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereCategory($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereFirstName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereLastName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact wherePhoneCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact wherePlatform($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact wherePostalCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereProvince($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedById($value)
+ *
  * @mixin \Eloquent
  */
 class Contact extends Model

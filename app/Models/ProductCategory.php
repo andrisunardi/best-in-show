@@ -36,6 +36,36 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory withoutTrashed()
  *
+ * @property int $id
+ * @property int|null $pet_id
+ * @property int|null $product_type_id
+ * @property string|null $name
+ * @property string|null $name_idn
+ * @property string|null $image
+ * @property string|null $slug
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereNameIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory wherePetId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereProductTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedById($value)
+ *
  * @mixin \Eloquent
  */
 class ProductCategory extends Model

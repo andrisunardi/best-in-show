@@ -3,8 +3,17 @@
     'title' => trans('validation.attributes.search'),
     'icon' => 'fas fa-search',
     'type' => 'search',
-    'step' => null,
+    'min' => null,
+    'max' => null,
+    'minlength' => null,
+    'maxlength' => null,
+    'required' => false,
     'label' => true,
+    'autocapitalize' => 'on',
+    'autofocus' => false,
+    'step' => null,
+    'accept' => null,
+    'helper' => null,
 ])
 
 @if ($label)
@@ -13,11 +22,24 @@
 
 <div class="input-group">
     @if ($icon)
-        <div class="input-group-text">
-            <span class="{{ $icon }} fa-fw"></span>
-        </div>
+        <x-search.icon :key="$key" :icon="$icon" />
     @endif
 
     <input class="form-control" wire:model.live="{{ $key }}" id="{{ $key }}" type="{{ $type }}"
-        step="{{ $step }}" placeholder="{{ $title }}" />
+        min="{{ $min }}" max="{{ $max }}" minlength="{{ $minlength }}" maxlength="{{ $maxlength }}"
+        step="{{ $step }}" accept="{{ $accept }}" placeholder="{{ $title }}"
+        {{ $required ? 'required' : null }} autocapitalize="{{ $autocapitalize }}"
+        {{ $autofocus ? 'autofocus' : null }} />
+
+    @error($key)
+        <div class="invalid-feedback">{{ $message }}</div>
+    @else
+        <div class="valid-feedback">{{ trans('validation.success') }}</div>
+    @enderror
 </div>
+
+@if ($helper)
+    <div class="form-text mb-3">
+        {{ $helper }}
+    </div>
+@endif

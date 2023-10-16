@@ -27,6 +27,26 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|SignUp withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|SignUp withoutTrashed()
  *
+ * @property int $id
+ * @property string|null $email
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereUpdatedById($value)
+ *
  * @mixin \Eloquent
  */
 class SignUp extends Model

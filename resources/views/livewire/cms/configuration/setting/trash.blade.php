@@ -86,8 +86,8 @@
                                 <td class="text-wrap">{{ $setting->key }}</td>
                                 <td class="text-wrap">{!! $setting->value !!}</td>
                                 <td class="text-center">
-                                    <span class="badge bg-{{ Str::successdanger($setting->is_active) }}">
-                                        {{ Str::translate(Str::yesno($setting->is_active)) }}
+                                    <span class="badge bg-{{ Str::successDanger($setting->is_active) }}">
+                                        {{ Str::translate(Str::yesNo($setting->is_active)) }}
                                     </span>
                                 </td>
                                 <td>

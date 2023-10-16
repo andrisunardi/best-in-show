@@ -33,6 +33,52 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Product withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Product withoutTrashed()
  *
+ * @property int $id
+ * @property int|null $pet_id
+ * @property int|null $product_type_id
+ * @property int|null $product_category_id
+ * @property string|null $name
+ * @property string|null $name_idn
+ * @property string|null $description
+ * @property string|null $description_idn
+ * @property string|null $variant
+ * @property string|null $variant_idn
+ * @property string|null $size
+ * @property string|null $weight
+ * @property string|null $color
+ * @property string|null $image
+ * @property string|null $slug
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereColor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereDescriptionIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereNameIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product wherePetId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereProductCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereProductTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereSize($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereVariant($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereVariantIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereWeight($value)
+ *
  * @mixin \Eloquent
  */
 class Product extends Model

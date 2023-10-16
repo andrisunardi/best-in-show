@@ -40,6 +40,35 @@ use Spatie\Activitylog\Traits\LogsActivity;
  *
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ProductType> $productTypes
  * @property-read int|null $product_types_count
+ * @property int $id
+ * @property int|null $name
+ * @property int|null $name_idn
+ * @property int|null $product_image
+ * @property string|null $youtube
+ * @property string|null $image
+ * @property string|null $slug
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereNameIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereProductImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pet whereYoutube($value)
  *
  * @mixin \Eloquent
  */

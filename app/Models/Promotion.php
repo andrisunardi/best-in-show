@@ -30,6 +30,38 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion withoutTrashed()
  *
+ * @property int $id
+ * @property string|null $name
+ * @property string|null $name_idn
+ * @property string|null $description
+ * @property string|null $description_idn
+ * @property \Illuminate\Support\Carbon|null $date
+ * @property string|null $image
+ * @property string|null $slug
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereDescriptionIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereNameIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereUpdatedById($value)
+ *
  * @mixin \Eloquent
  */
 class Promotion extends Model

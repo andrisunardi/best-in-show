@@ -102,7 +102,7 @@ class SettingTest extends TestCase
         $response->assertSee(env('APP_CMS_URL')."/configuration/setting/view/{$this->setting->id}");
         $response->assertSee($this->setting->key);
         $response->assertSee($this->setting->value);
-        $response->assertSee(Str::yesno($this->setting->is_active));
+        $response->assertSee(Str::yesNo($this->setting->is_active));
         $response->assertSee('View');
         $response->assertSee(env('APP_CMS_URL')."/configuration/setting/view/{$this->setting->id}");
         $response->assertSee('Clone');

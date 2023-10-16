@@ -118,8 +118,8 @@
                                     @endforeach
                                 </td>
                                 <td class="text-center">
-                                    <span class="badge bg-{{ Str::successdanger($user->is_active) }}">
-                                        {{ Str::translate(Str::yesno($user->is_active)) }}
+                                    <span class="badge bg-{{ Str::successDanger($user->is_active) }}">
+                                        {{ Str::translate(Str::yesNo($user->is_active)) }}
                                     </span>
                                 </td>
                                 <td>

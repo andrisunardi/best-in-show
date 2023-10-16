@@ -89,8 +89,8 @@
                     <h6>{{ trans('index.active') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <span class="badge bg-{{ Str::successdanger($user->is_active) }}">
-                        {{ Str::translate(Str::yesno($user->is_active)) }}
+                    <span class="badge bg-{{ Str::successDanger($user->is_active) }}">
+                        {{ Str::translate(Str::yesNo($user->is_active)) }}
                     </span>
                 </div>
             </div>

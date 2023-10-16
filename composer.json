@@ -26,6 +26,7 @@
         "livewire/livewire": "^3.0",
         "maatwebsite/excel": "^3.1",
         "mobiledetect/mobiledetectlib": "^3.74",
+        "predis/predis": "^2.2",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-activitylog": "^4.7",
         "spatie/laravel-menu": "^4.1",

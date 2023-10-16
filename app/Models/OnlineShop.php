@@ -27,6 +27,36 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop withoutTrashed()
  *
+ * @property int $id
+ * @property string|null $name
+ * @property string|null $gender
+ * @property string|null $address
+ * @property string|null $phone
+ * @property bool|null $email
+ * @property bool|null $message
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereGender($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereUpdatedById($value)
+ *
  * @mixin \Eloquent
  */
 class OnlineShop extends Model

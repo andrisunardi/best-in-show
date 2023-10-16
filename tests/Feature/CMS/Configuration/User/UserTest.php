@@ -123,7 +123,7 @@ class UserTest extends TestCase
         $response->assertSee($this->user->email);
         $response->assertSee($this->user->phone);
         $response->assertSee($this->user->roles[0]->name);
-        $response->assertSee(Str::yesno($this->user->is_active));
+        $response->assertSee(Str::yesNo($this->user->is_active));
         $response->assertSee('View');
         $response->assertSee(env('APP_CMS_URL')."/configuration/user/view/{$this->user->id}");
         $response->assertSee('Clone');

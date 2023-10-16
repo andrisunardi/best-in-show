@@ -31,6 +31,28 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|EventVideo withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|EventVideo withoutTrashed()
  *
+ * @property int $id
+ * @property int|null $event_id
+ * @property string|null $video
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereEventId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereVideo($value)
+ *
  * @mixin \Eloquent
  */
 class EventVideo extends Model
