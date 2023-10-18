@@ -26,11 +26,11 @@
 
 @include('vendors.google-tag-manager')
 
-@include('vendors.pace')
-
 {{-- @include('vendors.livechat-tawk') --}}
 
-{{-- @include('vendors.lozad') --}}
+@include('vendors.lozad')
+
+@include('vendors.pace')
 
 @include('vendors.select2')
 

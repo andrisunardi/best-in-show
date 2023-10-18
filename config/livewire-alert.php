@@ -2,14 +2,14 @@
 
 return [
     'alert' => [
-        'position' => 'top-end',
+        'position' => 'center',
         'timer' => null,
-        'toast' => true,
+        'toast' => false,
         'text' => null,
         'showCancelButton' => false,
-        'showConfirmButton' => false,
-        'timerProgressBar' => true,
-        // 'allowOutsideClick' => false,
+        'showConfirmButton' => true,
+        'timerProgressBar' => false,
+        'allowOutsideClick' => false,
     ],
     'confirm' => [
         'icon' => 'warning',

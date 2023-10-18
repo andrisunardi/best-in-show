@@ -1,3 +1,3 @@
 @if ($errors->any())
-    {{ $this->alert('error', implode('', $errors->all(':message<br>'))) }}
+    {{ $this->alert('error', trans('index.form_validation'), ['html' => implode('', $errors->all(':message<br>'))]) }}
 @endif
