@@ -3,7 +3,7 @@
     xml:lang="{{ env('APP_LANGUAGE') }}" data-bs-theme="auto">
 
 <head>
-    <x-layouts.meta />
+    <x-components::layouts.meta />
 
     @stack('meta')
 

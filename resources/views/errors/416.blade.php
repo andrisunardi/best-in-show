@@ -1,4 +1,4 @@
-@extends('components.layouts.app')
+@extends('components::components.layouts.app')
 
 @section("title", "416 - Requested Range Not Satisfiable")
 @section("code", "416")

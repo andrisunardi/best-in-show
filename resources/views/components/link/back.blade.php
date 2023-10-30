@@ -5,4 +5,4 @@
     'href' => null,
 ])
 
-<x-link :class="$class" :text="$text" :icon="$icon" :href="url()->previous() == url()->current() ? $href : url()->previous()" />
+<x-components::link :class="$class" :text="$text" :icon="$icon" :href="url()->previous() == url()->current() ? $href : url()->previous()" />

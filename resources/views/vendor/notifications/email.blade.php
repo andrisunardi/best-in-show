@@ -1,4 +1,4 @@
-<x-mail::message>
+<x-components::mail::message>
 {{-- Greeting --}}
 @if (! empty($greeting))
 # {{ $greeting }}
@@ -24,7 +24,7 @@
         default => 'primary',
     };
 ?>
-<x-mail::button :url="$actionUrl" :color="$color">
+<x-components::mail::button :url="$actionUrl" :color="$color">
 {{ $actionText }}
 </x-mail::button>
 @endisset
@@ -45,7 +45,7 @@
 
 {{-- Subcopy --}}
 @isset($actionText)
-<x-slot:subcopy>
+<x-components::slot:subcopy>
 @lang(
     "If you're having trouble clicking the \":actionText\" button, copy and paste the URL below\n".
     'into your web browser:',

@@ -1,4 +1,4 @@
-@extends('components.layouts.app')
+@extends('components::components.layouts.app')
 
 @section("title", "401 - Unauthorized")
 @section("code", "401")

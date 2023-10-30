@@ -6,4 +6,4 @@
     'navigate' => false,
 ])
 
-<x-link :class="$class" :text="$text" :href="$href" :target="$target" :navigate="$navigate" />
+<x-components::link :class="$class" :text="$text" :href="$href" :target="$target" :navigate="$navigate" />

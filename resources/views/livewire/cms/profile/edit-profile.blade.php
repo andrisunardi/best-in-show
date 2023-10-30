@@ -16,42 +16,42 @@
 
                     <form wire:submit.prevent="submit" role="form" autocomplete="off">
 
-                        <x-form.alert />
+                        <x-components::form.alert />
 
                         <div class="row">
                             <div class="col-sm-6 mb-3">
-                                <x-form.name :icon="'fas fa-id-card'" :maxlength="50" :required="true" :autofocus="true" />
+                                <x-components::form.name :icon="'fas fa-id-card'" :maxlength="50" :required="true" :autofocus="true" />
                             </div>
 
                             <div class="col-sm-6 mb-3">
-                                <x-form.username :maxlength="50" :required="true" />
+                                <x-components::form.username :maxlength="50" :required="true" />
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-sm-6 mb-3">
-                                <x-form.email :maxlength="50" :required="true" :autocapitalize="'none'" />
+                                <x-components::form.email :maxlength="50" :required="true" :autocapitalize="'none'" />
                             </div>
 
                             <div class="col-sm-6 mb-3">
-                                <x-form.phone :maxlength="15" :required="true" />
+                                <x-components::form.phone :maxlength="15" :required="true" />
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-sm-6 mb-3">
-                                <x-form.image />
+                                <x-components::form.image />
 
-                                <x-preview.image :image="$image" :data="Auth::user()" />
+                                <x-components::preview.image :image="$image" :data="Auth::user()" />
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-6 col-sm-auto">
-                                <x-form.submit />
+                                <x-components::form.submit />
                             </div>
                             <div class="col-6 col-sm-auto">
-                                <x-form.reset />
+                                <x-components::form.reset />
                             </div>
                         </div>
 

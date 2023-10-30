@@ -1,4 +1,4 @@
-@extends('components.layouts.app')
+@extends('components::components.layouts.app')
 
 @section("title", "428 - Precondition Required")
 @section("code", "428")

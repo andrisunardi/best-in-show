@@ -11,7 +11,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-6 col-sm-auto mb-3">
-                    <x-link.back :href="route('cms.configuration.user.index')" />
+                    <x-components::link.back :href="route('cms.configuration.user.index')" />
                 </div>
             </div>
 
@@ -30,15 +30,15 @@
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-4 col-xl-3">
                     @if ($user->checkImage())
-                        <x-image :src="$user->assetImage()" :alt="$user->altImage()" />
+                        <x-components::image :src="$user->assetImage()" :alt="$user->altImage()" />
 
                         <div class="row my-3">
                             <div class="col-6">
-                                <x-link.download :href="$user->assetImage()" />
+                                <x-components::link.download :href="$user->assetImage()" />
                             </div>
                             @can('User Edit')
                                 <div class="col-6">
-                                    <x-link.delete :href="route('cms.configuration.user.delete-image', [
+                                    <x-components::link.delete :href="route('cms.configuration.user.delete-image', [
                                         'user' => $user->id,
                                     ])" />
                                 </div>
@@ -62,7 +62,7 @@
                     <h6>{{ trans('index.email') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <x-link.email :value="$user->email" />
+                    <x-components::link.email :value="$user->email" />
                 </div>
             </div>
 
@@ -71,7 +71,7 @@
                     <h6>{{ trans('index.phone') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <x-link.phone :value="$user->phone" />
+                    <x-components::link.phone :value="$user->phone" />
                 </div>
             </div>
 
@@ -89,8 +89,8 @@
                     <h6>{{ trans('index.active') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <span class="badge bg-{{ Str::successDanger($user->is_active) }}">
-                        {{ Str::translate(Str::yesNo($user->is_active)) }}
+                    <span class="badge bg-{{ Utils::successDanger($user->is_active) }}">
+                        {{ Utils::translate(Utils::yesNo($user->is_active)) }}
                     </span>
                 </div>
             </div>
@@ -103,12 +103,12 @@
                     @foreach ($user->roles as $role)
                         <div>
                             {{ $loop->iteration }}.
-                            <x-link.relation :text="$role->name" :href="route('cms.configuration.role.view', ['role' => $role->id])" />
+                            <x-components::link.relation :text="$role->name" :href="route('cms.configuration.role.view', ['role' => $role->id])" />
                         </div>
                         @foreach ($role->permissions as $permission)
                             <div class="ms-3">
                                 {{ $loop->iteration }}.
-                                <x-link.relation :text="$permission->name" :href="route('cms.configuration.permission.view', [
+                                <x-components::link.relation :text="$permission->name" :href="route('cms.configuration.permission.view', [
                                     'permission' => $permission->id,
                                 ])" />
                             </div>
@@ -123,7 +123,7 @@
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                     @if ($user->createdBy)
-                        <x-link.user :data="$user->createdBy" />
+                        <x-components::link.user :data="$user->createdBy" />
                     @endif
                 </div>
             </div>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                     @if ($user->updatedBy)
-                        <x-link.user :data="$user->updatedBy" />
+                        <x-components::link.user :data="$user->updatedBy" />
                     @endif
                 </div>
             </div>
@@ -146,7 +146,7 @@
                     </div>
                     <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                         @if ($user->deletedBy)
-                            <x-link.user :data="$user->deletedBy" />
+                            <x-components::link.user :data="$user->deletedBy" />
                         @endif
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                 @if ($user->trashed())
                     @can('User Restore')
                         <div class="col-12 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.restore :href="route('cms.configuration.user.restore', [
+                            <x-components::link.restore :href="route('cms.configuration.user.restore', [
                                 'user' => $user->id,
                             ])" />
                         </div>
@@ -205,7 +205,7 @@
 
                     @can('User Delete Permanent')
                         <div class="col-12 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.delete-permanent :href="route('cms.configuration.user.delete-permanent', [
+                            <x-components::link.delete-permanent :href="route('cms.configuration.user.delete-permanent', [
                                 'user' => $user->id,
                             ])" />
                         </div>
@@ -213,7 +213,7 @@
                 @else
                     @can('User Active')
                         <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.active :href="route('cms.configuration.user.active', [
+                            <x-components::link.active :href="route('cms.configuration.user.active', [
                                 'user' => $user->id,
                             ])" :value="$user->is_active" />
                         </div>
@@ -221,7 +221,7 @@
 
                     @can('User Clone')
                         <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.clone :href="route('cms.configuration.user.clone', [
+                            <x-components::link.clone :href="route('cms.configuration.user.clone', [
                                 'user' => $user->id,
                             ])" />
                         </div>
@@ -229,7 +229,7 @@
 
                     @can('User Edit')
                         <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.edit :href="route('cms.configuration.user.edit', [
+                            <x-components::link.edit :href="route('cms.configuration.user.edit', [
                                 'user' => $user->id,
                             ])" />
                         </div>
@@ -237,7 +237,7 @@
 
                     @can('User Delete')
                         <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.delete :href="route('cms.configuration.user.delete', [
+                            <x-components::link.delete :href="route('cms.configuration.user.delete', [
                                 'user' => $user->id,
                             ])" />
                         </div>

@@ -8,13 +8,13 @@
             @role($menu['roles'])
                 @can($menu['permissions'])
                     @if ($menu['subMenus'])
-                        <optgroup label="{{ Str::translate($menu['name']) }}">
+                        <optgroup label="{{ Utils::translate($menu['name']) }}">
                             @foreach ($menu['subMenus'] as $subMenu)
                                 @role($subMenu['roles'])
                                     @can($subMenu['permissions'])
                                         <option value="{{ $subMenu['route'] }}"
                                             {{ Route::is($subMenu['route']) || Route::is(Str::before($subMenu['route'], '.index') . '.*') ? 'selected' : null }}>
-                                            {{ Str::translate($subMenu['name']) }}
+                                            {{ Utils::translate($subMenu['name']) }}
                                         </option>
                                     @endcan
                                 @endrole
@@ -23,7 +23,7 @@
                     @else
                         <option value="{{ $menu['route'] }}"
                             {{ Route::is($menu['route']) || Route::is(Str::before($menu['route'], '.index') . '.*') ? 'selected' : null }}>
-                            {{ Str::translate($menu['name']) }}
+                            {{ Utils::translate($menu['name']) }}
                         </option>
                     @endif
                 @endcan

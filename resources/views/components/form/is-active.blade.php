@@ -3,4 +3,4 @@
     'title' => trans('validation.attributes.is_active'),
 ])
 
-<x-form.boolean :key="$key" :title="$title" />
+<x-components::form.boolean :key="$key" :title="$title" />

@@ -13,6 +13,11 @@ Breadcrumbs::for('livewire.message', function (BreadcrumbTrail $trail) {
     $trail->push(trans('index.message'), null, ['icon' => 'fas fa-message']);
 });
 
+Breadcrumbs::for('livewire.update', function (BreadcrumbTrail $trail) {
+    $trail->parent('index');
+    $trail->push(trans('index.update'), null, ['icon' => 'fas fa-edit']);
+});
+
 Breadcrumbs::for('livewire.preview-file', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
     $trail->push(trans('index.preview_file'), null, ['icon' => 'fas fa-photo-film']);

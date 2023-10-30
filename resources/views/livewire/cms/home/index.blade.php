@@ -13,7 +13,7 @@
                                 <div class="mt-3">
                                     <h4>{{ $menu['total'] }}</h4>
                                 </div>
-                                <div>{{ Str::translate($menu['name']) }}</div>
+                                <div>{{ Utils::translate($menu['name']) }}</div>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a draggable="false" wire:navigate class="small text-white stretched-link"

@@ -1,4 +1,4 @@
-@extends('components.layouts.app')
+@extends('components::components.layouts.app')
 
 @section("title", "431 - Request Header Fields Too Large")
 @section("code", "431")

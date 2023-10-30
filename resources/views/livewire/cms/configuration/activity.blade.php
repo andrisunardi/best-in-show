@@ -11,49 +11,49 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.select :key="'log_name'" :title="trans('validation.attributes.log_name')" :icon="'fas fa-font'" :datas="$activityLogNames" />
+                    <x-components::search.select :key="'log_name'" :title="trans('validation.attributes.log_name')" :icon="'fas fa-font'" :datas="$activityLogNames" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'description'" :title="trans('validation.attributes.description')" :icon="'fas fa-file-lines'" />
+                    <x-components::search :key="'description'" :title="trans('validation.attributes.description')" :icon="'fas fa-file-lines'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.select :key="'event'" :title="trans('validation.attributes.event')" :icon="'fas fa-font'" :datas="$activityEvents" />
+                    <x-components::search.select :key="'event'" :title="trans('validation.attributes.event')" :icon="'fas fa-font'" :datas="$activityEvents" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.select :key="'subject_type'" :title="trans('validation.attributes.subject_type')" :icon="'fas fa-list'" :datas="$activitySubjectTypes" />
+                    <x-components::search.select :key="'subject_type'" :title="trans('validation.attributes.subject_type')" :icon="'fas fa-list'" :datas="$activitySubjectTypes" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'subject_id'" :title="trans('validation.attributes.subject_id')" :icon="'fas fa-barcode'" />
+                    <x-components::search :key="'subject_id'" :title="trans('validation.attributes.subject_id')" :icon="'fas fa-barcode'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.select :key="'causer_type'" :title="trans('validation.attributes.causer_type')" :icon="'fas fa-list'" :datas="$activityCauserTypes" />
+                    <x-components::search.select :key="'causer_type'" :title="trans('validation.attributes.causer_type')" :icon="'fas fa-list'" :datas="$activityCauserTypes" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'causer_id'" :title="trans('validation.attributes.causer_id')" :icon="'fas fa-barcode'" />
+                    <x-components::search :key="'causer_id'" :title="trans('validation.attributes.causer_id')" :icon="'fas fa-barcode'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'properties'" :title="trans('validation.attributes.properties')" :icon="'fas fa-file-lines'" />
+                    <x-components::search :key="'properties'" :title="trans('validation.attributes.properties')" :icon="'fas fa-file-lines'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'batch_uuid'" :title="trans('validation.attributes.batch_uuid')" :icon="'fas fa-barcode'" />
+                    <x-components::search :key="'batch_uuid'" :title="trans('validation.attributes.batch_uuid')" :icon="'fas fa-barcode'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.select :key="'user_id'" :title="trans('validation.attributes.user_id')" :icon="'fas fa-user'" :datas="$users" />
+                    <x-components::search.select :key="'user_id'" :title="trans('validation.attributes.user_id')" :icon="'fas fa-user'" :datas="$users" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-auto">
-                    <x-form.reset :text="trans('index.reset_filter')" />
+                    <x-components::form.reset :text="trans('index.reset_filter')" />
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
                                 <td class="text-center">{{ $activity->id }}</td>
                                 <td class="text-center">{{ $activity->log_name }}</td>
                                 <td class="text-wrap">{{ $activity->description }}</td>
-                                <td class="text-center">{{ Str::translate($activity->event) }}</td>
+                                <td class="text-center">{{ Utils::translate($activity->event) }}</td>
                                 <td>
                                     @if ($activity->subject_id)
                                         <div>{{ Str::after($activity->subject_type, 'App\Models\\') }}</div>
@@ -102,7 +102,7 @@
                                 </td>
                                 <td>
                                     @if ($activity->causer)
-                                        <x-link.relation :text="$activity->causer->name" :href="route('cms.configuration.user.view', [
+                                        <x-components::link.relation :text="$activity->causer->name" :href="route('cms.configuration.user.view', [
                                             'user' => $activity->causer->id,
                                         ])" />
                                     @endif
@@ -140,7 +140,7 @@
                 </table>
             </div>
 
-            {{ $activities->links('components.layouts.pagination') }}
+            {{ $activities->links('components::components.layouts.pagination') }}
         </div>
 
         <div class="card-footer bg-primary-subtle"></div>

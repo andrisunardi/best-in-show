@@ -1,4 +1,4 @@
-<x-mail::message>
+<x-components::mail::message>
     Database Backup Daily
 
     Date : {{ now()->isoFormat('dddd, DD MMMM YYYY') }}

@@ -6,4 +6,4 @@
     'navigate' => false,
 ])
 
-<x-link :class="$class" :text="$value" :href="'https://api.whatsapp.com/send?phone=' . Str::phone($value) . '&text=' . $text" :target="$target" :navigate="$navigate" />
+<x-components::link :class="$class" :text="$value" :href="'https://api.whatsapp.com/send?phone=' . Utils::phone($value) . '&text=' . $text" :target="$target" :navigate="$navigate" />

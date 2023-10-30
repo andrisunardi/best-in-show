@@ -11,12 +11,12 @@
 ])
 
 @if ($label)
-    <x-form.label :key="$key" :title="$title" :required="$required" />
+    <x-components::form.label :key="$key" :title="$title" :required="$required" />
 @endif
 
 <div class="input-group">
     @if ($icon)
-        <x-form.icon :key="$key" :icon="$icon" />
+        <x-components::form.icon :key="$key" :icon="$icon" />
     @endif
 
     <select
@@ -26,7 +26,7 @@
         <option value="">{{ trans('index.select') }} {{ $title }}</option>
         @foreach ($datas as $data)
             <option value="{{ $data->$valueAttribute }}" {{ $data->$valueAttribute == $this->$key ? 'selected' : null }}>
-                {{ Str::translate($data->$textAttribute) }}
+                {{ Utils::translate($data->$textAttribute) }}
             </option>
         @endforeach
     </select>

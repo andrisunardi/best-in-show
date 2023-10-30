@@ -11,21 +11,21 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'key'" :title="trans('validation.attributes.key')" :icon="'fas fa-key'" />
+                    <x-components::search :key="'key'" :title="trans('validation.attributes.key')" :icon="'fas fa-key'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'value'" :title="trans('validation.attributes.value')" :icon="'fas fa-file-lines'" />
+                    <x-components::search :key="'value'" :title="trans('validation.attributes.value')" :icon="'fas fa-file-lines'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.is-active />
+                    <x-components::search.is-active />
                 </div>
             </div>
 
             <div class="row mt-2">
                 <div class="col-auto">
-                    <x-form.reset :text="trans('index.reset_filter')" />
+                    <x-components::form.reset :text="trans('index.reset_filter')" />
                 </div>
             </div>
         </div>
@@ -42,13 +42,13 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-12 col-sm-auto mb-3">
-                    <x-link.back :href="route('cms.configuration.setting.index')" />
+                    <x-components::link.back :href="route('cms.configuration.setting.index')" />
                 </div>
 
                 @can('Setting Restore')
                     @if ($settings->count())
                         <div class="col-12 col-sm-auto mb-3">
-                            <x-link.restore-all :href="route('cms.configuration.setting.restore-all')" />
+                            <x-components::link.restore-all :href="route('cms.configuration.setting.restore-all')" />
                         </div>
                     @endif
                 @endcan
@@ -56,7 +56,7 @@
                 @can('Setting Delete Permanent')
                     @if ($settings->count())
                         <div class="col-12 col-sm-auto mb-3">
-                            <x-link.delete-permanent-all :href="route('cms.configuration.setting.delete-permanent-all')" />
+                            <x-components::link.delete-permanent-all :href="route('cms.configuration.setting.delete-permanent-all')" />
                         </div>
                     @endif
                 @endcan
@@ -81,13 +81,13 @@
                                     {{ ($settings->currentPage() - 1) * $settings->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-link.id :href="route('cms.configuration.setting.view', ['setting' => $setting->id])" :text="$setting->id" />
+                                    <x-components::link.id :href="route('cms.configuration.setting.view', ['setting' => $setting->id])" :text="$setting->id" />
                                 </td>
                                 <td class="text-wrap">{{ $setting->key }}</td>
                                 <td class="text-wrap">{!! $setting->value !!}</td>
                                 <td class="text-center">
-                                    <span class="badge bg-{{ Str::successDanger($setting->is_active) }}">
-                                        {{ Str::translate(Str::yesNo($setting->is_active)) }}
+                                    <span class="badge bg-{{ Utils::successDanger($setting->is_active) }}">
+                                        {{ Utils::translate(Utils::yesNo($setting->is_active)) }}
                                     </span>
                                 </td>
                                 <td>
@@ -100,14 +100,14 @@
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         @can('Setting Restore')
                                             <li>
-                                                <x-link.restore :class="'dropdown-item'" :href="route('cms.configuration.setting.restore', [
+                                                <x-components::link.restore :class="'dropdown-item'" :href="route('cms.configuration.setting.restore', [
                                                     'setting' => $setting->id,
                                                 ])" />
                                             </li>
                                         @endcan
                                         @can('Setting Delete Permanent')
                                             <li>
-                                                <x-link.delete-permanent :class="'dropdown-item'" :href="route('cms.configuration.setting.delete-permanent', [
+                                                <x-components::link.delete-permanent :class="'dropdown-item'" :href="route('cms.configuration.setting.delete-permanent', [
                                                     'setting' => $setting->id,
                                                 ])" />
                                             </li>
@@ -126,7 +126,7 @@
                 </table>
             </div>
 
-            {{ $settings->links('components.layouts.pagination') }}
+            {{ $settings->links('components::components.layouts.pagination') }}
         </div>
 
         <div class="card-footer bg-danger-subtle"></div>

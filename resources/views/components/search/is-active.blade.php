@@ -4,4 +4,4 @@
     'type' => 'checkbox',
 ])
 
-<x-search.boolean :key="$key" :title="$title" :type="$type" />
+<x-components::search.boolean :key="$key" :title="$title" :type="$type" />

@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
+use Andrisunardi\Library\Libraries\LivewireUpload;
 use App\Models\User;
-use App\Utils\LivewireUpload;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -49,7 +49,7 @@ class UserService
 
         $data['password'] = Hash::make($data['password']);
 
-        $data['image'] = (new LivewireUpload())->upload(
+        $data['image'] = LivewireUpload::upload(
             file: $data['image'],
             name: $data['name'],
             disk: 'images',
@@ -70,7 +70,7 @@ class UserService
 
         $data['password'] = Hash::make($data['password']);
 
-        $data['image'] = (new LivewireUpload())->upload(
+        $data['image'] = LivewireUpload::upload(
             file: $data['image'],
             name: $data['name'],
             disk: 'images',
@@ -91,7 +91,7 @@ class UserService
         $roleIds = $data['role_ids'];
         Arr::pull($data, 'role_ids');
 
-        $data['image'] = (new LivewireUpload())->upload(
+        $data['image'] = LivewireUpload::upload(
             file: $data['image'],
             name: $data['name'],
             disk: 'images',
@@ -175,7 +175,7 @@ class UserService
 
     public function editProfile(User $user, array $data = []): User
     {
-        $data['image'] = (new LivewireUpload())->upload(
+        $data['image'] = LivewireUpload::upload(
             file: $data['image'],
             name: $data['name'],
             disk: 'images',

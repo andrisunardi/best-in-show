@@ -10,12 +10,12 @@
 ])
 
 @if ($label)
-    <x-form.label :key="$key" :title="$title" />
+    <x-components::form.label :key="$key" :title="$title" />
 @endif
 
 <div class="input-group">
     @if ($icon)
-        <x-search.icon :icon="$icon" />
+        <x-components::search.icon :icon="$icon" />
     @endif
 
     <select class="form-select select2" wire:model="{{ $key }}" id="{{ $key }}"

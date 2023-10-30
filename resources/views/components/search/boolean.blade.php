@@ -8,7 +8,7 @@
 ])
 
 @if ($label)
-    <x-form.label :key="$key" :title="$title" />
+    <x-components::form.label :key="$key" :title="$title" />
 @endif
 
 <div class="form-check">

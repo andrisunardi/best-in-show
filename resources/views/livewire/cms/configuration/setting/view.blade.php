@@ -11,7 +11,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-6 col-sm-auto mb-3">
-                    <x-link.back :href="route('cms.configuration.setting.index')" />
+                    <x-components::link.back :href="route('cms.configuration.setting.index')" />
                 </div>
             </div>
 
@@ -47,8 +47,8 @@
                     <h6>{{ trans('index.active') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <span class="badge bg-{{ Str::successDanger($setting->is_active) }}">
-                        {{ Str::translate(Str::yesNo($setting->is_active)) }}
+                    <span class="badge bg-{{ Utils::successDanger($setting->is_active) }}">
+                        {{ Utils::translate(Utils::yesNo($setting->is_active)) }}
                     </span>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                     @if ($setting->createdBy)
-                        <x-link.user :data="$setting->createdBy" />
+                        <x-components::link.user :data="$setting->createdBy" />
                     @endif
                 </div>
             </div>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                     @if ($setting->updatedBy)
-                        <x-link.user :data="$setting->updatedBy" />
+                        <x-components::link.user :data="$setting->updatedBy" />
                     @endif
                 </div>
             </div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                         @if ($setting->deletedBy)
-                            <x-link.user :data="$setting->deletedBy" />
+                            <x-components::link.user :data="$setting->deletedBy" />
                         @endif
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                 @if ($setting->trashed())
                     @can('Setting Restore')
                         <div class="col-12 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.restore :href="route('cms.configuration.setting.restore', [
+                            <x-components::link.restore :href="route('cms.configuration.setting.restore', [
                                 'setting' => $setting->id,
                             ])" />
                         </div>
@@ -141,7 +141,7 @@
 
                     @can('Setting Delete Permanent')
                         <div class="col-12 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.delete-permanent :href="route('cms.configuration.setting.delete-permanent', [
+                            <x-components::link.delete-permanent :href="route('cms.configuration.setting.delete-permanent', [
                                 'setting' => $setting->id,
                             ])" />
                         </div>
@@ -149,7 +149,7 @@
                 @else
                     @can('Setting Active')
                         <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.active :href="route('cms.configuration.setting.active', [
+                            <x-components::link.active :href="route('cms.configuration.setting.active', [
                                 'setting' => $setting->id,
                             ])" :value="$setting->is_active" />
                         </div>
@@ -157,7 +157,7 @@
 
                     @can('Setting Clone')
                         <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.clone :href="route('cms.configuration.setting.clone', [
+                            <x-components::link.clone :href="route('cms.configuration.setting.clone', [
                                 'setting' => $setting->id,
                             ])" />
                         </div>
@@ -165,7 +165,7 @@
 
                     @can('Setting Edit')
                         <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.edit :href="route('cms.configuration.setting.edit', [
+                            <x-components::link.edit :href="route('cms.configuration.setting.edit', [
                                 'setting' => $setting->id,
                             ])" />
                         </div>
@@ -173,7 +173,7 @@
 
                     @can('Setting Delete')
                         <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                            <x-link.delete :href="route('cms.configuration.setting.delete', [
+                            <x-components::link.delete :href="route('cms.configuration.setting.delete', [
                                 'setting' => $setting->id,
                             ])" />
                         </div>

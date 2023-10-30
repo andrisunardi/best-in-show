@@ -11,21 +11,21 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'key'" :title="trans('validation.attributes.key')" :icon="'fas fa-key'" />
+                    <x-components::search :key="'key'" :title="trans('validation.attributes.key')" :icon="'fas fa-key'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'value'" :title="trans('validation.attributes.value')" :icon="'fas fa-file-lines'" />
+                    <x-components::search :key="'value'" :title="trans('validation.attributes.value')" :icon="'fas fa-file-lines'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.is-active />
+                    <x-components::search.is-active />
                 </div>
             </div>
 
             <div class="row mt-2">
                 <div class="col-auto">
-                    <x-form.reset :text="trans('index.reset_filter')" />
+                    <x-components::form.reset :text="trans('index.reset_filter')" />
                 </div>
             </div>
         </div>
@@ -43,13 +43,13 @@
             <div class="row">
                 @can('Setting Add')
                     <div class="col-6 col-sm-auto mb-3">
-                        <x-link.add :href="route('cms.configuration.setting.add')" />
+                        <x-components::link.add :href="route('cms.configuration.setting.add')" />
                     </div>
                 @endcan
 
                 @can('Setting Trash')
                     <div class="col-6 col-sm-auto mb-3">
-                        <x-link.trash :href="route('cms.configuration.setting.trash')" />
+                        <x-components::link.trash :href="route('cms.configuration.setting.trash')" />
                     </div>
                 @endcan
             </div>
@@ -73,13 +73,13 @@
                                     {{ ($settings->currentPage() - 1) * $settings->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-link.id :href="route('cms.configuration.setting.view', ['setting' => $setting->id])" :text="$setting->id" />
+                                    <x-components::link.id :href="route('cms.configuration.setting.view', ['setting' => $setting->id])" :text="$setting->id" />
                                 </td>
                                 <td class="text-wrap">{{ $setting->key }}</td>
                                 <td class="text-wrap">{!! $setting->value !!}</td>
                                 <td class="text-center">
-                                    <span class="badge bg-{{ Str::successDanger($setting->is_active) }}">
-                                        {{ Str::translate(Str::yesNo($setting->is_active)) }}
+                                    <span class="badge bg-{{ Utils::successDanger($setting->is_active) }}">
+                                        {{ Utils::translate(Utils::yesNo($setting->is_active)) }}
                                     </span>
                                 </td>
                                 <td>
@@ -92,35 +92,35 @@
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         @can('Setting View')
                                             <li>
-                                                <x-link.view :class="'dropdown-item'" :href="route('cms.configuration.setting.view', [
+                                                <x-components::link.view :class="'dropdown-item'" :href="route('cms.configuration.setting.view', [
                                                     'setting' => $setting->id,
                                                 ])" />
                                             </li>
                                         @endcan
                                         @can('Setting Clone')
                                             <li>
-                                                <x-link.clone :class="'dropdown-item'" :href="route('cms.configuration.setting.clone', [
+                                                <x-components::link.clone :class="'dropdown-item'" :href="route('cms.configuration.setting.clone', [
                                                     'setting' => $setting->id,
                                                 ])" />
                                             </li>
                                         @endcan
                                         @can('Setting Edit')
                                             <li>
-                                                <x-link.edit :class="'dropdown-item'" :href="route('cms.configuration.setting.edit', [
+                                                <x-components::link.edit :class="'dropdown-item'" :href="route('cms.configuration.setting.edit', [
                                                     'setting' => $setting->id,
                                                 ])" />
                                             </li>
                                         @endcan
                                         @can('Setting Active')
                                             <li>
-                                                <x-link.active :class="'dropdown-item'" :href="route('cms.configuration.setting.active', [
+                                                <x-components::link.active :class="'dropdown-item'" :href="route('cms.configuration.setting.active', [
                                                     'setting' => $setting->id,
                                                 ])" :value="$setting->is_active" />
                                             </li>
                                         @endcan
                                         @can('Setting Delete')
                                             <li>
-                                                <x-link.delete :class="'dropdown-item'" :href="route('cms.configuration.setting.delete', [
+                                                <x-components::link.delete :class="'dropdown-item'" :href="route('cms.configuration.setting.delete', [
                                                     'setting' => $setting->id,
                                                 ])" />
                                             </li>
@@ -139,7 +139,7 @@
                 </table>
             </div>
 
-            {{ $settings->links('components.layouts.pagination') }}
+            {{ $settings->links('components::components.layouts.pagination') }}
         </div>
 
         <div class="card-footer bg-primary-subtle"></div>

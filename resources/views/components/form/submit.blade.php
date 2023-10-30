@@ -6,4 +6,4 @@
     'color' => 'primary',
 ])
 
-<x-button :key="$key" :text="$text" :type="'submit'" :icon="$icon" :color="$color" />
+<x-components::button :key="$key" :text="$text" :type="'submit'" :icon="$icon" :color="$color" />

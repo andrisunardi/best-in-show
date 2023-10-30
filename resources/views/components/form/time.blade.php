@@ -8,5 +8,5 @@
     'label' => true,
 ])
 
-<x-form.input :key="$key" :title="$title" :icon="$icon" :type="$type" :step="$step"
+<x-components::form.input :key="$key" :title="$title" :icon="$icon" :type="$type" :step="$step"
     :required="$required" :label="$label" />

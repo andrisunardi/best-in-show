@@ -2,10 +2,10 @@
 
 namespace App\Livewire\CMS\Configuration\User;
 
+use Andrisunardi\Library\Utils;
 use App\Livewire\CMS\Component;
 use App\Models\User;
 use App\Services\UserService;
-use Illuminate\Support\Str;
 
 class UserActive extends Component
 {
@@ -15,7 +15,7 @@ class UserActive extends Component
 
         $this->flash(
             'success',
-            trans('index.user')." - {$user->id} - ".Str::translate(Str::active($user->is_active)),
+            trans('index.user')." - {$user->id} - ".Utils::translate(Utils::active($user->is_active)),
         );
 
         return redirect(url()->previous());

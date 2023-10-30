@@ -17,12 +17,12 @@
 ])
 
 @if ($label)
-    <x-form.label :key="$key" :title="$title" />
+    <x-components::form.label :key="$key" :title="$title" />
 @endif
 
 <div class="input-group">
     @if ($icon)
-        <x-search.icon :key="$key" :icon="$icon" />
+        <x-components::search.icon :key="$key" :icon="$icon" />
     @endif
 
     <input class="form-control" wire:model.live="{{ $key }}" id="{{ $key }}" type="{{ $type }}"

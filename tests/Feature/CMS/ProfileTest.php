@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\CMS;
 
+use Andrisunardi\Library\Utils;
 use App\Livewire\CMS\Profile\ProfilePage;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class ProfileTest extends TestCase
@@ -81,7 +81,7 @@ class ProfileTest extends TestCase
         $response->assertSee('Phone');
         $response->assertSee(Auth::user()->phone);
         $response->assertSee('Active');
-        $response->assertSee(Str::active(Auth::user()->is_active));
+        $response->assertSee(Utils::active(Auth::user()->is_active));
         $response->assertSee('Created By');
         $response->assertSee(Auth::user()->createdBy?->name);
         $response->assertSee('Updated By');
@@ -103,7 +103,7 @@ class ProfileTest extends TestCase
         $response->assertSee($lastActivity->log_name);
         $response->assertSee($lastActivity->subject_id);
         $response->assertSee($lastActivity->subject?->name);
-        $response->assertSee(Str::translate($lastActivity->event));
+        $response->assertSee(Utils::translate($lastActivity->event));
         $response->assertSee($lastActivity->description);
         $response->assertSee($lastActivity->causer?->name);
         $response->assertSee($lastActivity->created_at->isoFormat('LLLL'));

@@ -18,12 +18,12 @@
 ])
 
 @if ($label)
-    <x-form.label :key="$key" :title="$title" :required="$required" />
+    <x-components::form.label :key="$key" :title="$title" :required="$required" />
 @endif
 
 <div class="input-group">
     @if ($icon)
-        <x-form.icon :key="$key" :icon="$icon" />
+        <x-components::form.icon :key="$key" :icon="$icon" />
     @endif
 
     <input

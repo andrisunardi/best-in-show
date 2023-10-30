@@ -11,7 +11,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-6 col-sm-auto mb-3">
-                    <x-link.back :href="route('cms.configuration.permission.index')" />
+                    <x-components::link.back :href="route('cms.configuration.permission.index')" />
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
                     <h6>{{ trans('index.total') }} {{ trans('index.role') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <x-link.relation :href="route('cms.configuration.role.index', ['permission_id' => $permission->id])" :text="$permission->roles->count()" />
+                    <x-components::link.relation :href="route('cms.configuration.role.index', ['permission_id' => $permission->id])" :text="$permission->roles->count()" />
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
                     <h6>{{ trans('index.total') }} {{ trans('index.user') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <x-link.relation :href="route('cms.configuration.user.index', ['permission_id' => $permission->id])" :text="$permission->users->count()" />
+                    <x-components::link.relation :href="route('cms.configuration.user.index', ['permission_id' => $permission->id])" :text="$permission->users->count()" />
                 </div>
             </div>
 
@@ -89,7 +89,7 @@
             <div class="row mt-3">
                 @can('Permission Clone')
                     <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                        <x-link.clone :href="route('cms.configuration.permission.clone', [
+                        <x-components::link.clone :href="route('cms.configuration.permission.clone', [
                             'permission' => $permission->id,
                         ])" />
                     </div>
@@ -97,7 +97,7 @@
 
                 @can('Permission Edit')
                     <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                        <x-link.edit :href="route('cms.configuration.permission.edit', [
+                        <x-components::link.edit :href="route('cms.configuration.permission.edit', [
                             'permission' => $permission->id,
                         ])" />
                     </div>
@@ -105,7 +105,7 @@
 
                 @can('Permission Delete')
                     <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                        <x-link.delete :href="route('cms.configuration.permission.delete', [
+                        <x-components::link.delete :href="route('cms.configuration.permission.delete', [
                             'permission' => $permission->id,
                         ])" />
                     </div>

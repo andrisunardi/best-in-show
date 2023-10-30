@@ -6,4 +6,4 @@
     'label' => true,
 ])
 
-<x-search :key="$key" :title="$title" :icon="$icon" :type="$type" :label="$label" />
+<x-components::search :key="$key" :title="$title" :icon="$icon" :type="$type" :label="$label" />

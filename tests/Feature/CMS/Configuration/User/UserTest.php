@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\CMS\Configuration\User;
 
+use Andrisunardi\Library\Utils;
 use App\Livewire\CMS\Configuration\User\UserPage;
 use App\Models\User;
-use Illuminate\Support\Str;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
@@ -123,14 +123,14 @@ class UserTest extends TestCase
         $response->assertSee($this->user->email);
         $response->assertSee($this->user->phone);
         $response->assertSee($this->user->roles[0]->name);
-        $response->assertSee(Str::yesNo($this->user->is_active));
+        $response->assertSee(Utils::yesNo($this->user->is_active));
         $response->assertSee('View');
         $response->assertSee(env('APP_CMS_URL')."/configuration/user/view/{$this->user->id}");
         $response->assertSee('Clone');
         $response->assertSee(env('APP_CMS_URL')."/configuration/user/clone/{$this->user->id}");
         $response->assertSee('Edit');
         $response->assertSee(env('APP_CMS_URL')."/configuration/user/edit/{$this->user->id}");
-        $response->assertSee(Str::active(! $this->user->is_active));
+        $response->assertSee(Utils::active(! $this->user->is_active));
         $response->assertSee(env('APP_CMS_URL')."/configuration/user/active/{$this->user->id}");
         $response->assertSee('Delete');
         $response->assertSee(env('APP_CMS_URL')."/configuration/user/delete/{$this->user->id}");

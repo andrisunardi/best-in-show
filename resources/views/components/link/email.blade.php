@@ -4,4 +4,4 @@
     'navigate' => false,
 ])
 
-<x-link :class="$class" :text="$value" :href="'mailto:' . $value" :navigate="$navigate" />
+<x-components::link :class="$class" :text="$value" :href="'mailto:' . $value" :navigate="$navigate" />

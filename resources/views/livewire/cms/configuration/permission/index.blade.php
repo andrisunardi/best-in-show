@@ -11,21 +11,21 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.select :key="'role_id'" :title="trans('validation.attributes.role_id')" :icon="'fas fa-briefcase'" :datas="$roles" />
+                    <x-components::search.select :key="'role_id'" :title="trans('validation.attributes.role_id')" :icon="'fas fa-briefcase'" :datas="$roles" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'name'" :title="trans('validation.attributes.name')" :icon="'fas fa-key'" />
+                    <x-components::search :key="'name'" :title="trans('validation.attributes.name')" :icon="'fas fa-key'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'guard_name'" :title="trans('validation.attributes.guard_name')" :icon="'fas fa-shield'" />
+                    <x-components::search :key="'guard_name'" :title="trans('validation.attributes.guard_name')" :icon="'fas fa-shield'" />
                 </div>
             </div>
 
             <div class="row mt-2">
                 <div class="col-auto">
-                    <x-form.reset :text="trans('index.reset_filter')" />
+                    <x-components::form.reset :text="trans('index.reset_filter')" />
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
             <div class="row">
                 @can('Permission Add')
                     <div class="col-6 col-sm-auto mb-3">
-                        <x-link.add :href="route('cms.configuration.permission.add')" />
+                        <x-components::link.add :href="route('cms.configuration.permission.add')" />
                     </div>
                 @endcan
             </div>
@@ -68,19 +68,19 @@
                                     {{ ($permissions->currentPage() - 1) * $permissions->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-link.id :href="route('cms.configuration.permission.view', [
+                                    <x-components::link.id :href="route('cms.configuration.permission.view', [
                                         'permission' => $permission->id,
                                     ])" :text="$permission->id" />
                                 </td>
                                 <td class="text-wrap">{{ $permission->name }}</td>
                                 <td class="text-center">{{ $permission->guard_name }}</td>
                                 <td class="text-center">
-                                    <x-link.relation :href="route('cms.configuration.role.index', [
+                                    <x-components::link.relation :href="route('cms.configuration.role.index', [
                                         'permission_id' => $permission->id,
                                     ])" :text="$permission->roles->count()" />
                                 </td>
                                 <td class="text-center">
-                                    <x-link.relation :href="route('cms.configuration.user.index', [
+                                    <x-components::link.relation :href="route('cms.configuration.user.index', [
                                         'permission_id' => $permission->id,
                                     ])" :text="$permission->users->count()" />
                                 </td>
@@ -94,28 +94,28 @@
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         @can('Permission View')
                                             <li>
-                                                <x-link.view :class="'dropdown-item'" :href="route('cms.configuration.permission.view', [
+                                                <x-components::link.view :class="'dropdown-item'" :href="route('cms.configuration.permission.view', [
                                                     'permission' => $permission->id,
                                                 ])" />
                                             </li>
                                         @endcan
                                         @can('Permission Clone')
                                             <li>
-                                                <x-link.clone :class="'dropdown-item'" :href="route('cms.configuration.permission.clone', [
+                                                <x-components::link.clone :class="'dropdown-item'" :href="route('cms.configuration.permission.clone', [
                                                     'permission' => $permission->id,
                                                 ])" />
                                             </li>
                                         @endcan
                                         @can('Permission Edit')
                                             <li>
-                                                <x-link.edit :class="'dropdown-item'" :href="route('cms.configuration.permission.edit', [
+                                                <x-components::link.edit :class="'dropdown-item'" :href="route('cms.configuration.permission.edit', [
                                                     'permission' => $permission->id,
                                                 ])" />
                                             </li>
                                         @endcan
                                         @can('Permission Delete')
                                             <li>
-                                                <x-link.delete :class="'dropdown-item'" :href="route('cms.configuration.permission.delete', [
+                                                <x-components::link.delete :class="'dropdown-item'" :href="route('cms.configuration.permission.delete', [
                                                     'permission' => $permission->id,
                                                 ])" />
                                             </li>
@@ -134,7 +134,7 @@
                 </table>
             </div>
 
-            {{ $permissions->links('components.layouts.pagination') }}
+            {{ $permissions->links('components::components.layouts.pagination') }}
         </div>
 
         <div class="card-footer bg-primary-subtle"></div>

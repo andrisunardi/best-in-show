@@ -20,33 +20,33 @@
                         <div class="card-body">
                             <form wire:submit.prevent="submit" role="form" autocomplete="off">
 
-                                <x-form.alert />
+                                <x-components::form.alert />
 
                                 <div class="mb-3">
-                                    <x-form.username :maxlength="50" :required="true" :autocapitalize="'none'"
+                                    <x-components::form.username :maxlength="50" :required="true" :autocapitalize="'none'"
                                         :autofocus="true" />
                                 </div>
 
                                 <div class="mb-3">
-                                    <x-form.email :maxlength="50" :required="true" :autocapitalize="'none'" />
+                                    <x-components::form.email :maxlength="50" :required="true" :autocapitalize="'none'" />
                                 </div>
 
                                 <div class="mb-3">
-                                    <x-form.phone :maxlength="15" :required="true" :autocapitalize="'none'" />
+                                    <x-components::form.phone :maxlength="15" :required="true" :autocapitalize="'none'" />
                                 </div>
 
                                 <div class="mb-3">
-                                    <x-form.boolean :key="'confirm_reset'" :title="trans('validation.attributes.confirm_reset')" :type="'checkbox'"
+                                    <x-components::form.boolean :key="'confirm_reset'" :title="trans('validation.attributes.confirm_reset')" :type="'checkbox'"
                                         :text="trans('index.confirm_reset')" :second="false" :label="false" />
                                 </div>
 
                                 <div class="row align-items-center justify-content-between">
                                     <div class="col">
-                                        <x-link :class="'small text-decoration-none'" :text="trans('index.back_to_login_page')" :icon="'fas fa-arrow-left'"
+                                        <x-components::link :class="'small text-decoration-none'" :text="trans('index.back_to_login_page')" :icon="'fas fa-arrow-left'"
                                             :href="route('cms.login')" />
                                     </div>
                                     <div class="col">
-                                        <x-form.submit :text="trans('index.send_request')" :icon="'fas fa-paper-plane'" />
+                                        <x-components::form.submit :text="trans('index.send_request')" :icon="'fas fa-paper-plane'" />
                                     </div>
                                 </div>
                             </form>

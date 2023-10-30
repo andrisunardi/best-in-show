@@ -51,7 +51,7 @@
                         @endforelse
                     </div>
 
-                    {{ $activities->links('components.layouts.pagination') }}
+                    {{ $activities->links('components::components.layouts.pagination') }}
                 </div>
 
                 <div class="card-footer bg-info"></div>

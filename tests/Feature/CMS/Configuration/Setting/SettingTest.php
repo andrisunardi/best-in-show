@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\CMS\Configuration\Setting;
 
+use Andrisunardi\Library\Utils;
 use App\Livewire\CMS\Configuration\Setting\SettingPage;
 use App\Models\Setting;
-use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class SettingTest extends TestCase
@@ -102,14 +102,14 @@ class SettingTest extends TestCase
         $response->assertSee(env('APP_CMS_URL')."/configuration/setting/view/{$this->setting->id}");
         $response->assertSee($this->setting->key);
         $response->assertSee($this->setting->value);
-        $response->assertSee(Str::yesNo($this->setting->is_active));
+        $response->assertSee(Utils::yesNo($this->setting->is_active));
         $response->assertSee('View');
         $response->assertSee(env('APP_CMS_URL')."/configuration/setting/view/{$this->setting->id}");
         $response->assertSee('Clone');
         $response->assertSee(env('APP_CMS_URL')."/configuration/setting/clone/{$this->setting->id}");
         $response->assertSee('Edit');
         $response->assertSee(env('APP_CMS_URL')."/configuration/setting/edit/{$this->setting->id}");
-        $response->assertSee(Str::active(! $this->setting->is_active));
+        $response->assertSee(Utils::active(! $this->setting->is_active));
         $response->assertSee(env('APP_CMS_URL')."/configuration/setting/active/{$this->setting->id}");
         $response->assertSee('Delete');
         $response->assertSee(env('APP_CMS_URL')."/configuration/setting/delete/{$this->setting->id}");

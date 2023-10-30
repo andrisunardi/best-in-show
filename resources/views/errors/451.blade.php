@@ -1,4 +1,4 @@
-@extends('components.layouts.app')
+@extends('components::components.layouts.app')
 
 @section("title", "451 - Unavailable For Legal Reasons")
 @section("code", "451")

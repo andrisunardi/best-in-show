@@ -16,29 +16,29 @@
 
                     <form wire:submit.prevent="submit" role="form" autocomplete="off">
 
-                        <x-form.alert />
+                        <x-components::form.alert />
 
                         <div class="mb-3">
-                            <x-form.password :key="'current_password'" :title="trans('validation.attributes.current_password')" :icon="'fas fa-lock'" :maxlength="50"
+                            <x-components::form.password :key="'current_password'" :title="trans('validation.attributes.current_password')" :icon="'fas fa-lock'" :maxlength="50"
                                 :required="true" :autocapitalize="'none'" :autofocus="true" />
                         </div>
 
                         <div class="mb-3">
-                            <x-form.password :key="'new_password'" :title="trans('validation.attributes.new_password')" :icon="'fas fa-lock'" :maxlength="50"
+                            <x-components::form.password :key="'new_password'" :title="trans('validation.attributes.new_password')" :icon="'fas fa-lock'" :maxlength="50"
                                 :required="true" :autocapitalize="'none'" />
                         </div>
 
                         <div class="mb-3">
-                            <x-form.password :key="'confirm_password'" :title="trans('validation.attributes.confirm_password')" :icon="'fas fa-lock'" :maxlength="50"
+                            <x-components::form.password :key="'confirm_password'" :title="trans('validation.attributes.confirm_password')" :icon="'fas fa-lock'" :maxlength="50"
                                 :required="true" :autocapitalize="'none'" />
                         </div>
 
                         <div class="row">
                             <div class="col-6 col-sm-auto">
-                                <x-form.submit />
+                                <x-components::form.submit />
                             </div>
                             <div class="col-6 col-sm-auto">
-                                <x-form.reset />
+                                <x-components::form.reset />
                             </div>
                         </div>
 

@@ -2,7 +2,7 @@
 
 return [
 
-    'view' => 'components/layouts/breadcrumbs-render',
+    'view' => 'components::components/layouts/breadcrumbs-render',
 
     'files' => base_path('routes/breadcrumbs.php'),
 

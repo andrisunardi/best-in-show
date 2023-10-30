@@ -6,4 +6,4 @@
     'confirm' => false,
 ])
 
-<x-button :key="$key" :text="$text" :icon="$icon" :color="$color" :confirm="$confirm" />
+<x-components::button :key="$key" :text="$text" :icon="$icon" :color="$color" :confirm="$confirm" />

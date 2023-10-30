@@ -12,5 +12,5 @@
     'autofocus' => false,
 ])
 
-<x-form.input :key="$key" :title="$title" :icon="$icon" :type="$type" :min="$min"
+<x-components::form.input :key="$key" :title="$title" :icon="$icon" :type="$type" :min="$min"
     :max="$max" :minlength="$minlength" :maxlength="$maxlength" :required="$required" :label="$label" :autofocus="$autofocus" />

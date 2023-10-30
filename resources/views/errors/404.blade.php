@@ -1,4 +1,4 @@
-@extends('components.layouts.app')
+@extends('components::components.layouts.app')
 
 @section('title', '404 - Not Found')
 @section('code', '404')

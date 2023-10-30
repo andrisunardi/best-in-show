@@ -11,21 +11,21 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.select :key="'permission_id'" :title="trans('validation.attributes.permission_id')" :icon="'fas fa-briefcase'" :datas="$permissions" />
+                    <x-components::search.select :key="'permission_id'" :title="trans('validation.attributes.permission_id')" :icon="'fas fa-briefcase'" :datas="$permissions" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'name'" :title="trans('validation.attributes.name')" :icon="'fas fa-briefcase'" />
+                    <x-components::search :key="'name'" :title="trans('validation.attributes.name')" :icon="'fas fa-briefcase'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'guard_name'" :title="trans('validation.attributes.guard_name')" :icon="'fas fa-shield'" />
+                    <x-components::search :key="'guard_name'" :title="trans('validation.attributes.guard_name')" :icon="'fas fa-shield'" />
                 </div>
             </div>
 
             <div class="row mt-2">
                 <div class="col-auto">
-                    <x-form.reset :text="trans('index.reset_filter')" />
+                    <x-components::form.reset :text="trans('index.reset_filter')" />
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
             <div class="row">
                 @can('Role Add')
                     <div class="col-6 col-sm-auto mb-3">
-                        <x-link.add :href="route('cms.configuration.role.add')" />
+                        <x-components::link.add :href="route('cms.configuration.role.add')" />
                     </div>
                 @endcan
             </div>
@@ -68,15 +68,15 @@
                                     {{ ($roles->currentPage() - 1) * $roles->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-link.id :href="route('cms.configuration.role.view', ['role' => $role->id])" :text="$role->id" />
+                                    <x-components::link.id :href="route('cms.configuration.role.view', ['role' => $role->id])" :text="$role->id" />
                                 </td>
                                 <td class="text-wrap">{{ $role->name }}</td>
                                 <td class="text-center">{{ $role->guard_name }}</td>
                                 <td class="text-center">
-                                    <x-link.relation :href="route('cms.configuration.permission.index', ['role_id' => $role->id])" :text="$role->permissions->count()" />
+                                    <x-components::link.relation :href="route('cms.configuration.permission.index', ['role_id' => $role->id])" :text="$role->permissions->count()" />
                                 </td>
                                 <td class="text-center">
-                                    <x-link.relation :href="route('cms.configuration.user.index', ['role_id' => $role->id])" :text="$role->users->count()" />
+                                    <x-components::link.relation :href="route('cms.configuration.user.index', ['role_id' => $role->id])" :text="$role->users->count()" />
                                 </td>
                                 <td>
                                     <button class="btn btn-sm btn-outline-primary dropdown-toggle" role="button"
@@ -88,28 +88,28 @@
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         @can('Role View')
                                             <li>
-                                                <x-link.view :class="'dropdown-item'" :href="route('cms.configuration.role.view', [
+                                                <x-components::link.view :class="'dropdown-item'" :href="route('cms.configuration.role.view', [
                                                     'role' => $role->id,
                                                 ])" />
                                             </li>
                                         @endcan
                                         @can('Role Clone')
                                             <li>
-                                                <x-link.clone :class="'dropdown-item'" :href="route('cms.configuration.role.clone', [
+                                                <x-components::link.clone :class="'dropdown-item'" :href="route('cms.configuration.role.clone', [
                                                     'role' => $role->id,
                                                 ])" />
                                             </li>
                                         @endcan
                                         @can('Role Edit')
                                             <li>
-                                                <x-link.edit :class="'dropdown-item'" :href="route('cms.configuration.role.edit', [
+                                                <x-components::link.edit :class="'dropdown-item'" :href="route('cms.configuration.role.edit', [
                                                     'role' => $role->id,
                                                 ])" />
                                             </li>
                                         @endcan
                                         @can('Role Delete')
                                             <li>
-                                                <x-link.delete :class="'dropdown-item'" :href="route('cms.configuration.role.delete', [
+                                                <x-components::link.delete :class="'dropdown-item'" :href="route('cms.configuration.role.delete', [
                                                     'role' => $role->id,
                                                 ])" />
                                             </li>
@@ -128,7 +128,7 @@
                 </table>
             </div>
 
-            {{ $roles->links('components.layouts.pagination') }}
+            {{ $roles->links('components::components.layouts.pagination') }}
         </div>
 
         <div class="card-footer bg-primary-subtle"></div>

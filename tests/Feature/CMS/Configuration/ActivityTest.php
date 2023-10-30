@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\CMS\Configuration;
 
+use Andrisunardi\Library\Utils;
 use App\Livewire\CMS\Configuration\ActivityPage;
-use Illuminate\Support\Str;
 use Spatie\Activitylog\Models\Activity;
 use Tests\TestCase;
 
@@ -120,7 +120,7 @@ class ActivityTest extends TestCase
         $response->assertSee($this->activity->id);
         $response->assertSee($this->activity->log_name);
         $response->assertSee($this->activity->description);
-        $response->assertSee(Str::translate($this->activity->event));
+        $response->assertSee(Utils::translate($this->activity->event));
         $response->assertSee($this->activity->subject->id);
         $response->assertSee($this->activity->subject->name);
         $response->assertSee($this->activity->causer->id);

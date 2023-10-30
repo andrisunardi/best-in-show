@@ -1,4 +1,4 @@
-<x-mail::message>
+<x-components::mail::message>
     CONTACT
 
     Name : {{ $contact->name }}

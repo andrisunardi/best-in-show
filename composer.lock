@@ -4,8 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb16777e303ae080e40dbb4ee797ed97",
+    "content-hash": "34c90221fa917387b1fd64db40d9e74e",
     "packages": [
+        {
+            "name": "andrisunardi/library",
+            "version": "v1.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andrisunardi/library.git",
+                "reference": "b2e1a771fc1964b82563b467ae0c3b9f6258aada"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andrisunardi/library/zipball/b2e1a771fc1964b82563b467ae0c3b9f6258aada",
+                "reference": "b2e1a771fc1964b82563b467ae0c3b9f6258aada",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^10.28",
+                "livewire/livewire": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Andrisunardi\\Library\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andri Sunardi",
+                    "email": "info@andrisunardi.com"
+                }
+            ],
+            "description": "Library Andri Sunardi",
+            "support": {
+                "issues": "https://github.com/andrisunardi/library/issues",
+                "source": "https://github.com/andrisunardi/library/tree/v1.0.11"
+            },
+            "time": "2023-10-26T13:37:33+00:00"
+        },
         {
             "name": "asantibanez/livewire-charts",
             "version": "v3.0.0",

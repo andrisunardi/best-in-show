@@ -11,38 +11,38 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'name'" :title="trans('validation.attributes.name')" :icon="'fas fa-id-card'" />
+                    <x-components::search :key="'name'" :title="trans('validation.attributes.name')" :icon="'fas fa-id-card'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'email'" :title="trans('validation.attributes.email')" :icon="'fas fa-envelope'" />
+                    <x-components::search :key="'email'" :title="trans('validation.attributes.email')" :icon="'fas fa-envelope'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'phone'" :title="trans('validation.attributes.phone')" :icon="'fas fa-phone'" />
+                    <x-components::search :key="'phone'" :title="trans('validation.attributes.phone')" :icon="'fas fa-phone'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search :key="'username'" :title="trans('validation.attributes.username')" :icon="'fas fa-user'" />
+                    <x-components::search :key="'username'" :title="trans('validation.attributes.username')" :icon="'fas fa-user'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.select :key="'role_id'" :title="trans('validation.attributes.role_id')" :icon="'fas fa-briefcase'" :datas="$roles" />
+                    <x-components::search.select :key="'role_id'" :title="trans('validation.attributes.role_id')" :icon="'fas fa-briefcase'" :datas="$roles" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.select :key="'permission_name'" :title="trans('validation.attributes.permission_name')" :icon="'fas fa-key'" :datas="$permissions"
+                    <x-components::search.select :key="'permission_name'" :title="trans('validation.attributes.permission_name')" :icon="'fas fa-key'" :datas="$permissions"
                         :valueAttribute="'name'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-search.is-active />
+                    <x-components::search.is-active />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-auto">
-                    <x-form.reset :text="trans('index.reset_filter')" />
+                    <x-components::form.reset :text="trans('index.reset_filter')" />
                 </div>
             </div>
         </div>
@@ -59,13 +59,13 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-12 col-sm-auto mb-3">
-                    <x-link.back :href="route('cms.configuration.user.index')" />
+                    <x-components::link.back :href="route('cms.configuration.user.index')" />
                 </div>
 
                 @can('User Restore')
                     @if ($users->count())
                         <div class="col-12 col-sm-auto mb-3">
-                            <x-link.restore-all :href="route('cms.configuration.user.restore-all')" />
+                            <x-components::link.restore-all :href="route('cms.configuration.user.restore-all')" />
                         </div>
                     @endif
                 @endcan
@@ -73,7 +73,7 @@
                 @can('User Delete Permanent')
                     @if ($users->count())
                         <div class="col-12 col-sm-auto mb-3">
-                            <x-link.delete-permanent-all :href="route('cms.configuration.user.delete-permanent-all')" />
+                            <x-components::link.delete-permanent-all :href="route('cms.configuration.user.delete-permanent-all')" />
                         </div>
                     @endif
                 @endcan
@@ -102,32 +102,32 @@
                                     {{ ($users->currentPage() - 1) * $users->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-link.id :href="route('cms.configuration.user.view', ['user' => $user->id])" :text="$user->id" />
+                                    <x-components::link.id :href="route('cms.configuration.user.view', ['user' => $user->id])" :text="$user->id" />
                                 </td>
                                 <td>
                                     @if ($user->checkImage())
-                                        <x-image :src="$user->assetImage()" :alt="$user->altImage()" />
+                                        <x-components::image :src="$user->assetImage()" :alt="$user->altImage()" />
                                     @endif
                                 </td>
                                 <td class="text-wrap">{{ $user->name }}</td>
                                 <td class="text-wrap">
-                                    <x-link.email :value="$user->email" />
+                                    <x-components::link.email :value="$user->email" />
                                 </td>
                                 <td class="text-wrap">
-                                    <x-link.phone :value="$user->phone" />
+                                    <x-components::link.phone :value="$user->phone" />
                                 </td>
                                 <td class="text-wrap">{{ $user->username }}</td>
                                 <td class="text-wrap">
                                     @foreach ($user->roles as $role)
                                         <div>
                                             {{ $loop->iteration }}.
-                                            <x-link.relation :text="$role->name" :href="route('cms.configuration.role.view', ['role' => $role->id])" />
+                                            <x-components::link.relation :text="$role->name" :href="route('cms.configuration.role.view', ['role' => $role->id])" />
                                         </div>
                                     @endforeach
                                 </td>
                                 <td class="text-center">
-                                    <span class="badge bg-{{ Str::successDanger($user->is_active) }}">
-                                        {{ Str::translate(Str::yesNo($user->is_active)) }}
+                                    <span class="badge bg-{{ Utils::successDanger($user->is_active) }}">
+                                        {{ Utils::translate(Utils::yesNo($user->is_active)) }}
                                     </span>
                                 </td>
                                 <td>
@@ -140,14 +140,14 @@
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         @can('User Restore')
                                             <li>
-                                                <x-link.restore :class="'dropdown-item'" :href="route('cms.configuration.user.restore', [
+                                                <x-components::link.restore :class="'dropdown-item'" :href="route('cms.configuration.user.restore', [
                                                     'user' => $user->id,
                                                 ])" />
                                             </li>
                                         @endcan
                                         @can('User Delete Permanent')
                                             <li>
-                                                <x-link.delete-permanent :class="'dropdown-item'" :href="route('cms.configuration.user.delete-permanent', [
+                                                <x-components::link.delete-permanent :class="'dropdown-item'" :href="route('cms.configuration.user.delete-permanent', [
                                                     'user' => $user->id,
                                                 ])" />
                                             </li>
@@ -166,7 +166,7 @@
                 </table>
             </div>
 
-            {{ $users->links('components.layouts.pagination') }}
+            {{ $users->links('components::components.layouts.pagination') }}
         </div>
 
         <div class="card-footer bg-danger-subtle"></div>

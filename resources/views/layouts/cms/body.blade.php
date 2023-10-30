@@ -18,7 +18,7 @@
                             </div>
                             <div>
                                 <div class="bg-body-secondary rounded px-3">
-                                    @include('components.layouts.breadcrumbs')
+                                    <x-components::layouts.breadcrumbs />
                                 </div>
                             </div>
                         </div>

@@ -5,12 +5,12 @@
     <script type="text/javascript">
         (function () {
             var options = {
-                whatsapp: "{{ Str::phone(env("CONTACT_WHATSAPP")) }}",
+                whatsapp: "{{ Utils::phone(env("CONTACT_WHATSAPP")) }}",
                 facebook: "{{ env("FACEBOOK_PAGE") }}",
                 instagram: "{{ env("SOCIAL_MEDIA_INSTAGRAM") }}",
                 email: "{{ env("CONTACT_EMAIL") }}",
-                call: "{{ Str::phone(env("CONTACT_PHONE")) }}",
-                sms: "{{ Str::phone(env("CONTACT_PHONE")) }}",
+                call: "{{ Utils::phone(env("CONTACT_PHONE")) }}",
+                sms: "{{ Utils::phone(env("CONTACT_PHONE")) }}",
                 link: "{{ env("APP_URL") }}",
                 greeting_message: "{{ trans("index.welcome_to") }} {{ env("APP_TITLE") }}",
                 disable_branding: "yes",

@@ -11,37 +11,37 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-6 col-sm-auto mb-3">
-                    <x-link.back :href="route('cms.configuration.setting.index')" />
+                    <x-components::link.back :href="route('cms.configuration.setting.index')" />
                 </div>
             </div>
 
             <form wire:submit.prevent="submit" role="form" autocomplete="off">
 
-                <x-form.alert />
+                <x-components::form.alert />
 
                 <div class="row">
                     <div class="col-sm-6 mb-3">
-                        <x-form.name :key="'key'" :title="trans('validation.attributes.key')" :icon="'fas fa-key'" :maxlength="50"
+                        <x-components::form.name :key="'key'" :title="trans('validation.attributes.key')" :icon="'fas fa-key'" :maxlength="50"
                             :required="true" :autofocus="true" />
                     </div>
 
                     <div class="col-sm-6 mb-3">
-                        <x-form.textarea :key="'value'" :title="trans('validation.attributes.value')" :required="true" />
+                        <x-components::form.textarea :key="'value'" :title="trans('validation.attributes.value')" :required="true" />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6 mb-3">
-                        <x-form.is-active />
+                        <x-components::form.is-active />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6 col-sm-auto">
-                        <x-form.submit />
+                        <x-components::form.submit />
                     </div>
                     <div class="col-6 col-sm-auto">
-                        <x-form.reset />
+                        <x-components::form.reset />
                     </div>
                 </div>
             </form>

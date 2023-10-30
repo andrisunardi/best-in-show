@@ -20,28 +20,28 @@
                         <div class="card-body">
                             <form wire:submit.prevent="submit" role="form" autocomplete="off">
 
-                                <x-form.alert />
+                                <x-components::form.alert />
 
                                 <div class="mb-3">
-                                    <x-form.username :maxlength="50" :required="true" :autocapitalize="'none'"
+                                    <x-components::form.username :maxlength="50" :required="true" :autocapitalize="'none'"
                                         :autofocus="true" />
                                 </div>
 
                                 <div class="mb-3">
-                                    <x-form.password :maxlength="50" :required="true" :autocapitalize="'none'" />
+                                    <x-components::form.password :maxlength="50" :required="true" :autocapitalize="'none'" />
                                 </div>
 
                                 <div class="mb-3">
-                                    <x-form.boolean :key="'remember'" :title="trans('validation.attributes.remember')" :type="'checkbox'"
+                                    <x-components::form.boolean :key="'remember'" :title="trans('validation.attributes.remember')" :type="'checkbox'"
                                         :text="trans('index.stay_login')" :second="false" :required="false" :label="false" />
                                 </div>
 
                                 <div class="row align-items-center justify-content-between">
                                     <div class="col">
-                                        <x-link :class="'small text-decoration-none'" :text="trans('index.forgot_password')" :href="route('cms.forgot-password')" />
+                                        <x-components::link :class="'small text-decoration-none'" :text="trans('index.forgot_password')" :href="route('cms.forgot-password')" />
                                     </div>
                                     <div class="col">
-                                        <x-form.submit :text="trans('index.login')" :icon="'fas fa-sign-in-alt'" />
+                                        <x-components::form.submit :text="trans('index.login')" :icon="'fas fa-sign-in-alt'" />
                                     </div>
                                 </div>
                             </form>

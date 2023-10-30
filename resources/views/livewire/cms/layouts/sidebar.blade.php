@@ -26,7 +26,7 @@
                                 href="#{{ Str::slug($menu['name']) }}-sidebar" data-bs-toggle="collapse">
                                 <span>
                                     <span class="{{ $menu['icon'] }} fa-fw me-1"></span>
-                                    <span>{{ Str::translate($menu['name']) }}</span>
+                                    <span>{{ Utils::translate($menu['name']) }}</span>
                                 </span>
                                 <span class="fas fa-caret-down"></span>
                             </a>
@@ -45,7 +45,7 @@
                                                         href="{{ route($subMenu['route']) }}" wire:navigate>
                                                         <span class="ms-4">
                                                             <span class="{{ $subMenu['icon'] }} fa-fw me-1"></span>
-                                                            <span>{{ Str::translate($subMenu['name']) }}</span>
+                                                            <span>{{ Utils::translate($subMenu['name']) }}</span>
                                                         </span>
                                                     </a>
                                                 </li>
@@ -64,7 +64,7 @@
                                     href="{{ route($menu['route']) }}" wire:navigate>
                                     <span>
                                         <span class="{{ $menu['icon'] }} fa-fw me-1"></span>
-                                        <span>{{ Str::translate($menu['name']) }}</span>
+                                        <span>{{ Utils::translate($menu['name']) }}</span>
                                     </span>
                                 </a>
                             </li>

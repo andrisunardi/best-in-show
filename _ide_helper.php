@@ -18352,242 +18352,6 @@
      *
      */ 
         class Str {
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function phone($value)
-        {
-                        return \Illuminate\Support\Str::phone($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function oddEven($value)
-        {
-                        return \Illuminate\Support\Str::oddEven($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function percentage($value)
-        {
-                        return \Illuminate\Support\Str::percentage($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function thousand($value)
-        {
-                        return \Illuminate\Support\Str::thousand($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function rupiah($value)
-        {
-                        return \Illuminate\Support\Str::rupiah($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function idr($value)
-        {
-                        return \Illuminate\Support\Str::idr($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function dollar($value)
-        {
-                        return \Illuminate\Support\Str::dollar($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function yesNo($value)
-        {
-                        return \Illuminate\Support\Str::yesNo($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function active($value)
-        {
-                        return \Illuminate\Support\Str::active($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function show($value)
-        {
-                        return \Illuminate\Support\Str::show($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function public($value)
-        {
-                        return \Illuminate\Support\Str::public($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function pastor($value)
-        {
-                        return \Illuminate\Support\Str::pastor($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function subscribe($value)
-        {
-                        return \Illuminate\Support\Str::subscribe($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function successDanger($value)
-        {
-                        return \Illuminate\Support\Str::successDanger($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @param mixed $symbol
-         * @static 
-         */ 
-        public static function formatSymbol($value, $symbol)
-        {
-                        return \Illuminate\Support\Str::formatSymbol($value, $symbol);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function color($value)
-        {
-                        return \Illuminate\Support\Str::color($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function logColor($value)
-        {
-                        return \Illuminate\Support\Str::logColor($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @param mixed $precision
-         * @static 
-         */ 
-        public static function formatBytes($value, $precision = 2)
-        {
-                        return \Illuminate\Support\Str::formatBytes($value, $precision);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function translate($value)
-        {
-                        return \Illuminate\Support\Str::translate($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $value
-         * @static 
-         */ 
-        public static function setting($value)
-        {
-                        return \Illuminate\Support\Str::setting($value);
-        }
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param mixed $prefix
-         * @param mixed $table
-         * @param mixed $digit
-         * @param mixed $date
-         * @static 
-         */ 
-        public static function code($prefix, $table, $digit, $date)
-        {
-                        return \Illuminate\Support\Str::code($prefix, $table, $digit, $date);
-        }
          
     }
             /**
@@ -20672,6 +20436,17 @@
                         /** @var \ZanySoft\Zip\Zip $instance */
                         return $instance->close();
         }
+         
+    }
+     
+}
+
+    namespace Andrisunardi\Library { 
+            /**
+     * 
+     *
+     */ 
+        class Utils {
          
     }
      
@@ -26432,6 +26207,7 @@ namespace  {
             class PDF extends \Barryvdh\DomPDF\Facade\Pdf {}
             class QrCode extends \SimpleSoftwareIO\QrCode\Facades\QrCode {}
             class Zip extends \ZanySoft\Zip\Facades\Zip {}
+            class Utils extends \Andrisunardi\Library\Utils {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class Pdf extends \Barryvdh\DomPDF\Facade\Pdf {}
             class Breadcrumbs extends \Diglactic\Breadcrumbs\Breadcrumbs {}

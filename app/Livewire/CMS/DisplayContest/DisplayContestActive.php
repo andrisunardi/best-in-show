@@ -2,10 +2,10 @@
 
 namespace App\Livewire\CMS\Configuration\Setting;
 
+use Andrisunardi\Library\Utils;
 use App\Livewire\CMS\Component;
 use App\Models\Setting;
 use App\Services\SettingService;
-use Illuminate\Support\Str;
 
 class SettingActive extends Component
 {
@@ -15,7 +15,7 @@ class SettingActive extends Component
 
         $this->flash(
             'success',
-            trans('index.setting')." - {$setting->id} - ".Str::translate(Str::active($setting->is_active)),
+            trans('index.setting')." - {$setting->id} - ".Utils::translate(Utils::active($setting->is_active)),
         );
 
         return redirect(url()->previous());

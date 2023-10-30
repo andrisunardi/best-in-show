@@ -5,4 +5,4 @@
     'href' => null,
 ])
 
-<x-link :class="$class" :text="$text" :icon="$icon" :href="$href" />
+<x-components::link :class="$class" :text="$text" :icon="$icon" :href="$href" />

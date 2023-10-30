@@ -10,5 +10,5 @@
     'autofocus' => false,
 ])
 
-<x-form.textarea :key="$key" :title="$title" :icon="$icon" :minlength="$minlength"
+<x-components::form.textarea :key="$key" :title="$title" :icon="$icon" :minlength="$minlength"
     :maxlength="$maxlength" :required="$required" :label="$label" :autocapitalize="$autocapitalize" :autofocus="$autofocus" />
