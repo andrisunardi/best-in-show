@@ -51,6 +51,7 @@ return [
         App\Providers\TelescopeServiceProvider::class,
 
         Andrisunardi\Library\LibraryServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
@@ -66,8 +67,8 @@ return [
         'Menu' => Spatie\Menu\Laravel\Facades\Menu::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-        'Zip' => ZanySoft\Zip\Facades\Zip::class,
         'Utils' => Andrisunardi\Library\Utils::class,
+        'Zip' => ZanySoft\Zip\Facades\Zip::class,
     ])->toArray(),
 
 ];

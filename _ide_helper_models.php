@@ -29,7 +29,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Banner query()
  * @method static \Illuminate\Database\Eloquent\Builder|Banner withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Banner withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property int|null $pet_id
  * @property string|null $image
@@ -50,6 +49,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Banner wherePetId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class Banner extends \Eloquent {}
 }
@@ -71,7 +71,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Contact query()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property string|null $category
  * @property string|null $message
@@ -114,6 +113,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereProvince($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class Contact extends \Eloquent {}
 }
@@ -163,7 +163,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Event query()
  * @method static \Illuminate\Database\Eloquent\Builder|Event withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Event withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property int|null $name
  * @property string|null $name_idn
@@ -196,6 +195,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereUpdatedById($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereVideo($value)
+ * @mixin \Eloquent
  */
 	class Event extends \Eloquent {}
 }
@@ -219,7 +219,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|EventImage query()
  * @method static \Illuminate\Database\Eloquent\Builder|EventImage withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|EventImage withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property int|null $event_id
  * @property string|null $image
@@ -240,6 +239,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|EventImage whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class EventImage extends \Eloquent {}
 }
@@ -263,7 +263,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|EventVideo query()
  * @method static \Illuminate\Database\Eloquent\Builder|EventVideo withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|EventVideo withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property int|null $event_id
  * @property string|null $video
@@ -284,6 +283,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereUpdatedById($value)
  * @method static \Illuminate\Database\Eloquent\Builder|EventVideo whereVideo($value)
+ * @mixin \Eloquent
  */
 	class EventVideo extends \Eloquent {}
 }
@@ -305,7 +305,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Faq query()
  * @method static \Illuminate\Database\Eloquent\Builder|Faq withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Faq withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property string|null $question
  * @property string|null $question_idn
@@ -330,6 +329,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Faq whereQuestionIdn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Faq whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Faq whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class Faq extends \Eloquent {}
 }
@@ -351,7 +351,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop query()
  * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property string|null $name
  * @property string|null $gender
@@ -380,6 +379,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OnlineShop whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class OnlineShop extends \Eloquent {}
 }
@@ -411,7 +411,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Pet withoutTrashed()
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ProductType> $productTypes
  * @property-read int|null $product_types_count
- * @mixin \Eloquent
  * @property int $id
  * @property int|null $name
  * @property int|null $name_idn
@@ -440,6 +439,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Pet whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pet whereUpdatedById($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pet whereYoutube($value)
+ * @mixin \Eloquent
  */
 	class Pet extends \Eloquent {}
 }
@@ -461,7 +461,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|PetShop query()
  * @method static \Illuminate\Database\Eloquent\Builder|PetShop withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|PetShop withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property string|null $name
  * @property string|null $gender
@@ -490,6 +489,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|PetShop wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PetShop whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class PetShop extends \Eloquent {}
 }
@@ -515,7 +515,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Product query()
  * @method static \Illuminate\Database\Eloquent\Builder|Product withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Product withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property int|null $pet_id
  * @property int|null $product_type_id
@@ -560,6 +559,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereVariant($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereVariantIdn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereWeight($value)
+ * @mixin \Eloquent
  */
 	class Product extends \Eloquent {}
 }
@@ -588,7 +588,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory query()
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property int|null $pet_id
  * @property int|null $product_type_id
@@ -617,6 +616,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class ProductCategory extends \Eloquent {}
 }
@@ -645,7 +645,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType query()
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property int|null $pet_id
  * @property string|null $name
@@ -672,6 +671,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class ProductType extends \Eloquent {}
 }
@@ -694,7 +694,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion query()
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property string|null $name
  * @property string|null $name_idn
@@ -725,6 +724,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class Promotion extends \Eloquent {}
 }
@@ -789,7 +789,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|SignUp query()
  * @method static \Illuminate\Database\Eloquent\Builder|SignUp withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|SignUp withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property string|null $email
  * @property bool|null $is_active
@@ -808,6 +807,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SignUp whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class SignUp extends \Eloquent {}
 }
@@ -830,7 +830,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Slider query()
  * @method static \Illuminate\Database\Eloquent\Builder|Slider withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Slider withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property string|null $image
  * @property bool|null $is_active
@@ -849,6 +848,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Slider whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Slider whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Slider whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class Slider extends \Eloquent {}
 }
@@ -870,7 +870,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Store query()
  * @method static \Illuminate\Database\Eloquent\Builder|Store withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Store withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property string|null $category
  * @property string|null $name
@@ -897,6 +896,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Store whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Store whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Store whereUpdatedById($value)
+ * @mixin \Eloquent
  */
 	class Store extends \Eloquent {}
 }
