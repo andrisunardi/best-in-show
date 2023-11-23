@@ -6,7 +6,7 @@
             <p class="lead">@yield('description')</p>
             <div class="mt-4">
                 <a draggable="false" class="btn btn-secondary"
-                    href="{{ url()->previous() == url()->current() ? route('cms.index') : url()->previous() }}"
+                    href="{{ url()->previous() == url()->current() ? route('index') : url()->previous() }}"
                     wire:navigate>
                     <span class="fas fa-arrow-left fa-fw"></span>
                     <span class="fw-bold">Back To Previous Page</span>
