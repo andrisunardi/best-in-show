@@ -21,40 +21,20 @@ class RouteServiceProvider extends ServiceProvider
         $this->routes(function () {
             Route::middleware('api')
                 ->namespace("App\Http\Controllers\API")
+                ->prefix('api')
                 ->name('api')
                 ->as('api.')
-                ->domain('api.'.env('APP_DOMAIN'))
-                ->group(base_path('routes/api.php'));
-
-            Route::middleware('api')
-                ->namespace("App\Http\Controllers\API")
-                ->name('api')
-                ->as('api.')
-                ->domain('www.api.'.env('APP_DOMAIN'))
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
                 ->namespace("App\Livewire\CMS")
+                ->prefix('cms')
                 ->name('cms')
                 ->as('cms.')
-                ->domain('cms.'.env('APP_DOMAIN'))
-                ->group(base_path('routes/cms.php'));
-
-            Route::middleware('web')
-                ->namespace("App\Livewire\CMS")
-                ->name('cms')
-                ->as('cms.')
-                ->domain('www.cms.'.env('APP_DOMAIN'))
                 ->group(base_path('routes/cms.php'));
 
             Route::middleware('web')
                 ->namespace("App\Livewire")
-                ->domain(env('APP_DOMAIN'))
-                ->group(base_path('routes/web.php'));
-
-            Route::middleware('web')
-                ->namespace("App\Livewire")
-                ->domain('www.'.env('APP_DOMAIN'))
                 ->group(base_path('routes/web.php'));
         });
     }
