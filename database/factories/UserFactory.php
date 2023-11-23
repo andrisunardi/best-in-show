@@ -35,19 +35,17 @@ class UserFactory extends Factory
 
     public function image(): static
     {
-        $name = fake()->unique()->name();
-        $slug = Str::slug($name);
-        $image = "{$slug}.png";
+        return $this->state(function (array $attributes) {
+            $image = Str::slug($attributes['name']).'.png';
 
-        File::copy(
-            public_path('images/image.png'),
-            public_path("images/user/{$image}"),
-        );
+            File::copy(
+                public_path('images/image.png'),
+                public_path("images/user/{$image}"),
+            );
 
-        return $this->state(fn () => [
-            'name' => $name,
-            'image' => $image,
-            'is_active' => true,
-        ]);
+            return [
+                'image' => $image,
+            ];
+        });
     }
 }
