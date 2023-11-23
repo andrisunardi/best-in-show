@@ -15,13 +15,13 @@ class SettingFactory extends Factory
         ];
     }
 
-    public function active()
+    public function active(): static
     {
-        return $this->state(fn ($attributes) => ['is_active' => true]);
+        return $this->state(fn () => ['is_active' => true]);
     }
 
-    public function inActive()
+    public function inActive(): static
     {
-        return $this->state(fn ($attributes) => ['is_active' => false]);
+        return $this->state(fn () => ['is_active' => false]);
     }
 }

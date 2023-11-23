@@ -11,6 +11,30 @@ class UserFactory extends Factory
 {
     public function definition(): array
     {
+        return [
+            'name' => fake()->name(),
+            'email' => fake()->unique()->freeEmail(),
+            'phone' => fake()->unique()->phoneNumber(),
+            'username' => fake()->unique()->userName(),
+            'password' => Hash::make(12345678),
+            'image' => null,
+            'remember_token' => Str::random(10),
+            'is_active' => fake()->boolean(),
+        ];
+    }
+
+    public function active(): static
+    {
+        return $this->state(fn () => ['is_active' => true]);
+    }
+
+    public function inActive(): static
+    {
+        return $this->state(fn () => ['is_active' => false]);
+    }
+
+    public function image(): static
+    {
         $name = fake()->unique()->name();
         $slug = Str::slug($name);
         $image = "{$slug}.png";
@@ -20,25 +44,10 @@ class UserFactory extends Factory
             public_path("images/user/{$image}"),
         );
 
-        return [
+        return $this->state(fn () => [
             'name' => $name,
-            'email' => fake()->unique()->freeEmail(),
-            'phone' => fake()->unique()->phoneNumber(),
-            'username' => fake()->unique()->userName(),
-            'password' => Hash::make(12345678),
             'image' => $image,
-            'remember_token' => Str::random(10),
-            'is_active' => fake()->boolean(),
-        ];
-    }
-
-    public function active()
-    {
-        return $this->state(fn ($attributes) => ['is_active' => true]);
-    }
-
-    public function inActive()
-    {
-        return $this->state(fn ($attributes) => ['is_active' => false]);
+            'is_active' => true,
+        ]);
     }
 }
