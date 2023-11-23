@@ -70,7 +70,7 @@
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
                                 <a draggable="false" class="dropdown-item"
-                                    href="{{ route('cms.locale', ['locale' => 'en']) }}" wire:navigate>
+                                    href="{{ route('cms.locale', ['locale' => 'en']) }}">
                                     <img draggable="false" class="me-1 rounded" width="30" height="20"
                                         src="{{ asset('images/flag/en.webp') }}"
                                         alt="{{ trans('index.flag') }}  - {{ trans('index.english') }} - {{ env('APP_TITLE') }}">
@@ -79,7 +79,7 @@
                             </li>
                             <li>
                                 <a draggable="false" class="dropdown-item"
-                                    href="{{ route('cms.locale', ['locale' => 'id']) }}" wire:navigate>
+                                    href="{{ route('cms.locale', ['locale' => 'id']) }}">
                                     <img draggable="false" class="me-1 rounded" width="30" height="20"
                                         src="{{ asset('images/flag/id.webp') }}"
                                         alt="{{ trans('index.flag') }}  - {{ trans('index.indonesia') }} - {{ env('APP_TITLE') }}">
