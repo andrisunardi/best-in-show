@@ -14,10 +14,9 @@ class SettingRestore extends Component
 
         (new SettingService())->restore(setting: $setting);
 
-        $this->flash(
-            'success',
-            trans('index.setting')." - {$setting->id} - ".trans('index.restored'),
-        );
+        $this->flash('success', trans('index.restore_success'), [
+            'html' => trans('index.setting')." - {$setting->id} - ".trans('index.restored'),
+        ]);
 
         return redirect(url()->previous());
     }

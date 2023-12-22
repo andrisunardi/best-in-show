@@ -12,10 +12,9 @@ class SettingDelete extends Component
     {
         (new SettingService())->delete(setting: $setting);
 
-        $this->flash(
-            'success',
-            trans('index.setting')." - {$setting->id} - ".trans('index.deleted'),
-        );
+        $this->flash('success', trans('index.delete_success'), [
+            'html' => trans('index.setting')." - {$setting->id} - ".trans('index.deleted'),
+        ]);
 
         return redirect(url()->previous());
     }

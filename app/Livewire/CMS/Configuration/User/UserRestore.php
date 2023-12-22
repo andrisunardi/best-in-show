@@ -14,10 +14,9 @@ class UserRestore extends Component
 
         (new UserService())->restore(user: $user);
 
-        $this->flash(
-            'success',
-            trans('index.user')." - {$user->id} - ".trans('index.restored'),
-        );
+        $this->flash('success', trans('index.restore_success'), [
+            'html' => trans('index.user')." - {$user->id} - ".trans('index.restored'),
+        ]);
 
         return redirect(url()->previous());
     }

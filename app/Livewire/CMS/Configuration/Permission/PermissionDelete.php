@@ -12,10 +12,9 @@ class PermissionDelete extends Component
     {
         (new PermissionService())->delete(permission: $permission);
 
-        $this->flash(
-            'success',
-            trans('index.permission')." - {$permission->id} - ".trans('index.deleted'),
-        );
+        $this->flash('success', trans('index.delete_success'), [
+            'html' => trans('index.permission')." - {$permission->id} - ".trans('index.deleted'),
+        ]);
 
         return $this->redirect(route('cms.configuration.permission.index'), navigate: true);
     }

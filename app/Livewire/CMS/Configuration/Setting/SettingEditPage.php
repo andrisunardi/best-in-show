@@ -43,10 +43,9 @@ class SettingEditPage extends Component
     {
         $setting = (new SettingService())->edit(setting: $this->setting, data: $this->validate());
 
-        $this->flash(
-            'success',
-            trans('index.setting')." - {$setting->id} - ".trans('index.edited'),
-        );
+        $this->flash('success', trans('index.edit_success'), [
+            'html' => trans('index.setting')." - {$setting->id} - ".trans('index.edited'),
+        ]);
 
         return redirect()->route('cms.configuration.setting.index');
     }

@@ -56,10 +56,9 @@ class UserAddPage extends Component
     {
         $user = (new UserService())->add(data: $this->validate());
 
-        $this->flash(
-            'success',
-            trans('index.user')." - {$user->id} - ".trans('index.added'),
-        );
+        $this->flash('success', trans('index.add_success'), [
+            'html' => trans('index.user')." - {$user->id} - ".trans('index.added'),
+        ]);
 
         return $this->redirect(route('cms.configuration.user.index'), navigate: true);
     }

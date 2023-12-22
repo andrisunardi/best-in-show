@@ -44,10 +44,9 @@ class RoleClonePage extends Component
     {
         $role = (new RoleService())->clone(data: $this->validate(), role: $this->role);
 
-        $this->flash(
-            'success',
-            trans('index.role')." - {$role->id} - ".trans('index.cloned'),
-        );
+        $this->flash('success', trans('index.clone_success'), [
+            'html' => trans('index.role')." - {$role->id} - ".trans('index.cloned'),
+        ]);
 
         return $this->redirect(route('cms.configuration.role.index'), navigate: true);
     }

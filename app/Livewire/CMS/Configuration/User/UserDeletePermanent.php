@@ -15,10 +15,9 @@ class UserDeletePermanent extends Component
 
         (new UserService())->deletePermanent(user: $user);
 
-        $this->flash(
-            'success',
-            trans('index.user')." - {$user->id} - ".trans('index.deleted_permanently'),
-        );
+        $this->flash('success', trans('index.delete_permanent_success'), [
+            'html' => trans('index.user')." - {$user->id} - ".trans('index.deleted_permanently'),
+        ]);
 
         if (Str::endsWith(url()->previous(), 'trash')) {
             return $this->redirect(route('cms.configuration.user.trash'), navigate: true);

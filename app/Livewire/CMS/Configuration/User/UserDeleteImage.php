@@ -12,10 +12,9 @@ class UserDeleteImage extends Component
     {
         (new UserService())->deleteImage(user: $user);
 
-        $this->flash(
-            'success',
-            trans('index.user')." - {$user->id} - ".trans('index.image').' '.trans('index.deleted'),
-        );
+        $this->flash('success', trans('index.delete_success'), [
+            'html' => trans('index.user')." - {$user->id} - ".trans('index.image').' '.trans('index.deleted'),
+        ]);
 
         return redirect(url()->previous());
     }

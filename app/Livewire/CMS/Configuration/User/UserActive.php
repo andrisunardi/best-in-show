@@ -13,10 +13,9 @@ class UserActive extends Component
     {
         (new UserService())->active(user: $user);
 
-        $this->flash(
-            'success',
-            trans('index.user')." - {$user->id} - ".Utils::translate(Utils::active($user->is_active)),
-        );
+        $this->flash('success', trans('index.active_success'), [
+            'html' => trans('index.user')." - {$user->id} - ".Utils::translate(Utils::active($user->is_active)),
+        ]);
 
         return redirect(url()->previous());
     }

@@ -65,10 +65,9 @@ class UserClonePage extends Component
     {
         $user = (new UserService())->clone(data: $this->validate(), user: $this->user);
 
-        $this->flash(
-            'success',
-            trans('index.user')." - {$user->id} - ".trans('index.cloned'),
-        );
+        $this->flash('success', trans('index.clone_success'), [
+            'html' => trans('index.user')." - {$user->id} - ".trans('index.cloned'),
+        ]);
 
         return $this->redirect(route('cms.configuration.user.index'), navigate: true);
     }

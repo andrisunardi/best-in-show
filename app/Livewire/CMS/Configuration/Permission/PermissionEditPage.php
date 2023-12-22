@@ -44,10 +44,9 @@ class PermissionEditPage extends Component
     {
         $permission = (new PermissionService())->edit(permission: $this->permission, data: $this->validate());
 
-        $this->flash(
-            'success',
-            trans('index.permission')." - {$permission->id} - ".trans('index.edited'),
-        );
+        $this->flash('success', trans('index.edit_success'), [
+            'html' => trans('index.permission')." - {$permission->id} - ".trans('index.edited'),
+        ]);
 
         return $this->redirect(route('cms.configuration.permission.index'), navigate: true);
     }

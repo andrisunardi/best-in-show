@@ -13,10 +13,9 @@ class SettingActive extends Component
     {
         (new SettingService())->active(setting: $setting);
 
-        $this->flash(
-            'success',
-            trans('index.setting')." - {$setting->id} - ".Utils::translate(Utils::active($setting->is_active)),
-        );
+        $this->flash('success', trans('index.active_success'), [
+            'html' => trans('index.setting')." - {$setting->id} - ".Utils::translate(Utils::active($setting->is_active)),
+        ]);
 
         return redirect(url()->previous());
     }

@@ -65,10 +65,9 @@ class UserEditPage extends Component
     {
         $user = (new UserService())->edit(user: $this->user, data: $this->validate());
 
-        $this->flash(
-            'success',
-            trans('index.user')." - {$user->id} - ".trans('index.edited'),
-        );
+        $this->flash('success', trans('index.edit_success'), [
+            'html' => trans('index.user')." - {$user->id} - ".trans('index.edited'),
+        ]);
 
         return $this->redirect(route('cms.configuration.user.index'), navigate: true);
     }

@@ -35,10 +35,9 @@ class SettingAddPage extends Component
     {
         $setting = (new SettingService())->add(data: $this->validate());
 
-        $this->flash(
-            'success',
-            trans('index.setting')." - {$setting->id} - ".trans('index.added'),
-        );
+        $this->flash('success', trans('index.add_success'), [
+            'html' => trans('index.setting')." - {$setting->id} - ".trans('index.added'),
+        ]);
 
         return redirect()->route('cms.configuration.setting.index');
     }

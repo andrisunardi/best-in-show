@@ -11,10 +11,9 @@ class SettingDeletePermanentAll extends Component
     {
         (new SettingService())->deletePermanentAll();
 
-        $this->flash(
-            'success',
-            trans('index.all').' - '.trans('index.setting').' - '.trans('index.deleted_permanently'),
-        );
+        $this->flash('success', trans('index.delete_permanent_success'), [
+            'html' => trans('index.all').' - '.trans('index.setting').' - '.trans('index.deleted_permanently'),
+        ]);
 
         return redirect()->route('cms.configuration.setting.trash');
     }

@@ -44,10 +44,9 @@ class PermissionClonePage extends Component
     {
         $permission = (new PermissionService())->clone(data: $this->validate(), permission: $this->permission);
 
-        $this->flash(
-            'success',
-            trans('index.permission')." - {$permission->id} - ".trans('index.cloned'),
-        );
+        $this->flash('success', trans('index.clone_success'), [
+            'html' => trans('index.permission')." - {$permission->id} - ".trans('index.cloned'),
+        ]);
 
         return $this->redirect(route('cms.configuration.permission.index'), navigate: true);
     }

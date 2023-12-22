@@ -11,10 +11,9 @@ class SettingRestoreAll extends Component
     {
         (new SettingService())->restoreAll();
 
-        $this->flash(
-            'success',
-            trans('index.all').' - '.trans('index.setting').' - '.trans('index.restored'),
-        );
+        $this->flash('success', trans('index.restore_success'), [
+            'html' => trans('index.all').' - '.trans('index.setting').' - '.trans('index.restored'),
+        ]);
 
         return redirect()->route('cms.configuration.setting.trash');
     }

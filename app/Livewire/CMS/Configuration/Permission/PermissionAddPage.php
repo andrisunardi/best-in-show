@@ -36,10 +36,9 @@ class PermissionAddPage extends Component
     {
         $permission = (new PermissionService())->add(data: $this->validate());
 
-        $this->flash(
-            'success',
-            trans('index.permission')." - {$permission->id} - ".trans('index.added'),
-        );
+        $this->flash('success', trans('index.add_success'), [
+            'html' => trans('index.permission')." - {$permission->id} - ".trans('index.added'),
+        ]);
 
         return $this->redirect(route('cms.configuration.permission.index'), navigate: true);
     }

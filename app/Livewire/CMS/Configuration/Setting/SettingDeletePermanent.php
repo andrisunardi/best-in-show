@@ -15,10 +15,9 @@ class SettingDeletePermanent extends Component
 
         (new SettingService())->deletePermanent(setting: $setting);
 
-        $this->flash(
-            'success',
-            trans('index.setting')." - {$setting->id} - ".trans('index.deleted_permanently'),
-        );
+        $this->flash('success', trans('index.delete_permanent_success'), [
+            'html' => trans('index.setting')." - {$setting->id} - ".trans('index.deleted_permanently'),
+        ]);
 
         if (Str::endsWith(url()->previous(), 'trash')) {
             return redirect()->route('cms.configuration.setting.trash');

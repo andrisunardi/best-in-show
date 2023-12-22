@@ -36,10 +36,9 @@ class RoleAddPage extends Component
     {
         $role = (new RoleService())->add(data: $this->validate());
 
-        $this->flash(
-            'success',
-            trans('index.role')." - {$role->id} - ".trans('index.added'),
-        );
+        $this->flash('success', trans('index.add_success'), [
+            'html' => trans('index.role')." - {$role->id} - ".trans('index.added'),
+        ]);
 
         return $this->redirect(route('cms.configuration.role.index'), navigate: true);
     }

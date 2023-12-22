@@ -43,10 +43,9 @@ class SettingClonePage extends Component
     {
         $setting = (new SettingService())->clone(data: $this->validate(), setting: $this->setting);
 
-        $this->flash(
-            'success',
-            trans('index.setting')." - {$setting->id} - ".trans('index.cloned'),
-        );
+        $this->flash('success', trans('index.clone_success'), [
+            'html' => trans('index.setting')." - {$setting->id} - ".trans('index.cloned'),
+        ]);
 
         return redirect()->route('cms.configuration.setting.index');
     }

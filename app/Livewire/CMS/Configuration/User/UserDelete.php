@@ -12,10 +12,9 @@ class UserDelete extends Component
     {
         (new UserService())->delete(user: $user);
 
-        $this->flash(
-            'success',
-            trans('index.user')." - {$user->id} - ".trans('index.deleted'),
-        );
+        $this->flash('success', trans('index.delete_success'), [
+            'html' => trans('index.user')." - {$user->id} - ".trans('index.deleted'),
+        ]);
 
         return redirect(url()->previous());
     }

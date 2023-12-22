@@ -12,10 +12,9 @@ class RoleDelete extends Component
     {
         (new RoleService())->delete(role: $role);
 
-        $this->flash(
-            'success',
-            trans('index.role')." - {$role->id} - ".trans('index.deleted'),
-        );
+        $this->flash('success', trans('index.delete_success'), [
+            'html' => trans('index.role')." - {$role->id} - ".trans('index.deleted'),
+        ]);
 
         return $this->redirect(route('cms.configuration.role.index'), navigate: true);
     }
