@@ -52,7 +52,9 @@ class EditProfilePage extends Component
         $this->resetFields();
         $this->resetValidation();
 
-        $this->alert('success', trans('index.your_profile_has_been_successfully_updated'));
+        return $this->alert('success', trans('index.edit_profile_success'), [
+            'html' => trans('index.your_profile_has_been_successfully_updated'),
+        ]);
     }
 
     public function render()

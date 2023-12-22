@@ -12,7 +12,9 @@ class Logout extends Component
         Auth::logout();
         Session::flush();
 
-        $this->flash('success', trans('index.you_have_been_successfully_logged_out'));
+        $this->flash('success', trans('index.logout_success'), [
+            'html' => trans('index.you_have_been_successfully_logged_out'),
+        ]);
 
         return $this->redirect(route('cms.login'), navigate: true);
     }

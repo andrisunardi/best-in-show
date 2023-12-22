@@ -20,7 +20,9 @@ class ForgotPasswordPage extends Component
     public function mount()
     {
         if (Auth::check()) {
-            $this->flash('info', trans('index.you_already_login'));
+            $this->flash('info', trans('index.login_failed'), [
+                'html' => trans('index.you_already_login'),
+            ]);
 
             return $this->redirect(route('cms.index'), navigate: true);
         }
@@ -47,12 +49,16 @@ class ForgotPasswordPage extends Component
             ->first();
 
         if (! $user) {
-            return $this->alert('error', trans('index.username_or_email_or_phone_is_invalid'));
+            return $this->alert('error', trans('index.forgot_password_failed'), [
+                'html' => trans('index.username_or_email_or_phone_is_invalid'),
+            ]);
         }
 
         $password = (new UserService())->resetPassword($user);
 
-        $this->flash('success', trans('validation.attributes.new_password')." : {$password}");
+        $this->flash('success', trans('index.forgot_password_success'), [
+            'html' => trans('validation.attributes.new_password')." : {$password}",
+        ]);
 
         return $this->redirect(route('cms.login'), navigate: true);
     }
