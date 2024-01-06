@@ -2,7 +2,7 @@
 @section('icon', 'fas fa-home')
 
 <main>
-    <h1 class="text-3xl font-bold ">
+    <h1 class="text-5xl font-bold text-blue-600">
         Hello world!
     </h1>
 </main>

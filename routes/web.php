@@ -1,7 +1,7 @@
 <?php
 
 use App\Livewire\Home\HomePage;
-// use App\Livewire\AboutUs\AboutUsPage;
+use App\Livewire\AboutUs\AboutUsPage;
 // use App\Livewire\OurCompany\OurCompanyPage;
 // use App\Livewire\Product\ProductPage;
 // use App\Livewire\Product\ProductViewPage;
@@ -18,7 +18,7 @@ Route::any('locale/{locale}', function ($locale) {
 
 Route::any('', HomePage::class)->name('index');
 // Route::any('displaycontest', HomePage::class)->name('displaycontest');
-// Route::any('about-us', AboutUsPage::class)->name('about-us');
+Route::any('about-us', AboutUsPage::class)->name('about-us');
 // Route::any('our-company', OurCompanyPage::class)->name('our-company');
 
 // Route::group(['prefix' => 'product', 'as' => 'product.'], function () {
