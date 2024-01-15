@@ -1,7 +1,7 @@
 <?php
 
-use App\Livewire\Home\HomePage;
 use App\Livewire\AboutUs\AboutUsPage;
+use App\Livewire\Home\HomePage;
 // use App\Livewire\OurCompany\OurCompanyPage;
 // use App\Livewire\Product\ProductPage;
 // use App\Livewire\Product\ProductViewPage;

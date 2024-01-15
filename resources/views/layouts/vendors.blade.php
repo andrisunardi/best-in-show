@@ -1,6 +1,6 @@
 @include('vendors.jquery')
 
-@include('vendors.bootstrap')
+{{-- @include('vendors.bootstrap') --}}
 
 {{-- @include('vendors.autonumeric') --}}
 
