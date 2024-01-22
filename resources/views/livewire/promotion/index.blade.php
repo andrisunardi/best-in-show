@@ -1,5 +1,5 @@
-@section('title', trans('index.about_us'))
-@section('icon', 'fas fa-building')
+@section('title', trans('index.promotion'))
+@section('icon', 'fas fa-gifts')
 
 <main>
 </main>
