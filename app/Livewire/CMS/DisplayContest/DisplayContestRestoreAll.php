@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Livewire\CMS\Configuration\Setting;
+namespace App\Livewire\CMS\DisplayContest;
 
 use App\Livewire\CMS\Component;
-use App\Services\SettingService;
+use App\Services\DisplayContestService;
 
-class SettingRestoreAll extends Component
+class DisplayContestRestoreAll extends Component
 {
     public function mount()
     {
-        (new SettingService())->restoreAll();
+        (new DisplayContestService())->restoreAll();
 
         $this->flash(
             'success',
-            trans('index.all').' - '.trans('index.setting').' - '.trans('index.restored'),
+            trans('index.all').' - '.trans('index.displayContest').' - '.trans('index.restored'),
         );
 
-        return redirect()->route('cms.configuration.setting.trash');
+        return redirect()->route('cms.configuration.displayContest.trash');
     }
 }

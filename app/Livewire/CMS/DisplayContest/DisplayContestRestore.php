@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Livewire\CMS\Configuration\Setting;
+namespace App\Livewire\CMS\DisplayContest;
 
 use App\Livewire\CMS\Component;
-use App\Models\Setting;
-use App\Services\SettingService;
+use App\Models\DisplayContest;
+use App\Services\DisplayContestService;
 
-class SettingRestore extends Component
+class DisplayContestRestore extends Component
 {
-    public function mount($setting)
+    public function mount($displayContest)
     {
-        $setting = Setting::onlyTrashed()->findOrFail($setting);
+        $displayContest = DisplayContest::onlyTrashed()->findOrFail($displayContest);
 
-        (new SettingService())->restore(setting: $setting);
+        (new DisplayContestService())->restore(displayContest: $displayContest);
 
         $this->flash(
             'success',
-            trans('index.setting')." - {$setting->id} - ".trans('index.restored'),
+            trans('index.displayContest')." - {$displayContest->id} - ".trans('index.restored'),
         );
 
         return redirect(url()->previous());

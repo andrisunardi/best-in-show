@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire\CMS\Configuration\Setting;
+namespace App\Livewire\CMS\DisplayContest;
 
 use App\Livewire\CMS\Component;
-use App\Services\SettingService;
+use App\Services\DisplayContestService;
 
-class SettingTrashPage extends Component
+class DisplayContestTrashPage extends Component
 {
     public $key = '';
 
@@ -35,9 +35,9 @@ class SettingTrashPage extends Component
         ]);
     }
 
-    public function getSettings()
+    public function getDisplayContests()
     {
-        return (new SettingService())->index(
+        return (new DisplayContestService())->index(
             key: $this->key,
             value: $this->value,
             is_active: $this->is_active,
@@ -47,8 +47,8 @@ class SettingTrashPage extends Component
 
     public function render()
     {
-        return view('livewire.cms.configuration.setting.trash', [
-            'settings' => $this->getSettings(),
+        return view('livewire.cms.configuration.displayContest.trash', [
+            'displayContests' => $this->getDisplayContests(),
         ]);
     }
 }

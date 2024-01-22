@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Livewire\CMS\Configuration\Setting;
+namespace App\Livewire\CMS\DisplayContest;
 
 use App\Livewire\CMS\Component;
-use App\Models\Setting;
-use App\Services\SettingService;
+use App\Models\DisplayContest;
+use App\Services\DisplayContestService;
 
-class SettingClonePage extends Component
+class DisplayContestClonePage extends Component
 {
     public $setting;
 
@@ -16,7 +16,7 @@ class SettingClonePage extends Component
 
     public $is_active = true;
 
-    public function mount(Setting $setting)
+    public function mount(DisplayContest $setting)
     {
         $this->key = "{$setting->key} (Copy)";
         $this->value = $setting->value;
@@ -41,7 +41,7 @@ class SettingClonePage extends Component
 
     public function submit()
     {
-        $setting = (new SettingService())->clone(data: $this->validate(), setting: $this->setting);
+        $setting = (new DisplayContestService())->clone(data: $this->validate(), setting: $this->setting);
 
         $this->flash(
             'success',

@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Livewire\CMS\Configuration\Setting;
+namespace App\Livewire\CMS\DisplayContest;
 
 use Andrisunardi\Library\Utils;
 use App\Livewire\CMS\Component;
-use App\Models\Setting;
-use App\Services\SettingService;
+use App\Models\DisplayContest;
+use App\Services\DisplayContestService;
 
-class SettingActive extends Component
+class DisplayContestActive extends Component
 {
-    public function mount(Setting $setting)
+    public function mount(DisplayContest $setting)
     {
-        (new SettingService())->active(setting: $setting);
+        (new DisplayContestService())->active(setting: $setting);
 
         $this->flash(
             'success',

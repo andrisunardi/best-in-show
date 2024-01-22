@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Livewire\CMS\Configuration\Setting;
+namespace App\Livewire\CMS\DisplayContest;
 
 use App\Livewire\CMS\Component;
-use App\Services\SettingService;
+use App\Services\DisplayContestService;
 
-class SettingDeletePermanentAll extends Component
+class DisplayContestDeletePermanentAll extends Component
 {
     public function mount()
     {
-        (new SettingService())->deletePermanentAll();
+        (new DisplayContestService())->deletePermanentAll();
 
         $this->flash(
             'success',
-            trans('index.all').' - '.trans('index.setting').' - '.trans('index.deleted_permanently'),
+            trans('index.all').' - '.trans('index.displayContest').' - '.trans('index.deleted_permanently'),
         );
 
-        return redirect()->route('cms.configuration.setting.trash');
+        return redirect()->route('cms.configuration.displayContest.trash');
     }
 }

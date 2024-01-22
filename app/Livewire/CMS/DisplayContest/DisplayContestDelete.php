@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Livewire\CMS\Configuration\Setting;
+namespace App\Livewire\CMS\DisplayContest;
 
 use App\Livewire\CMS\Component;
-use App\Models\Setting;
-use App\Services\SettingService;
+use App\Models\DisplayContest;
+use App\Services\DisplayContestService;
 
-class SettingDelete extends Component
+class DisplayContestDelete extends Component
 {
-    public function mount(Setting $setting)
+    public function mount(DisplayContest $displayContest)
     {
-        (new SettingService())->delete(setting: $setting);
+        (new DisplayContestService())->delete(displayContest: $displayContest);
 
         $this->flash(
             'success',
-            trans('index.setting')." - {$setting->id} - ".trans('index.deleted'),
+            trans('index.displayContest')." - {$displayContest->id} - ".trans('index.deleted'),
         );
 
         return redirect(url()->previous());

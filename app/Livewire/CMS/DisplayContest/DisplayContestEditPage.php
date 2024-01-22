@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Livewire\CMS\Configuration\Setting;
+namespace App\Livewire\CMS\DisplayContest;
 
 use App\Livewire\CMS\Component;
-use App\Models\Setting;
-use App\Services\SettingService;
+use App\Models\DisplayContest;
+use App\Services\DisplayContestService;
 
-class SettingEditPage extends Component
+class DisplayContestEditPage extends Component
 {
-    public $setting;
+    public $displayContest;
 
     public $key;
 
@@ -16,24 +16,24 @@ class SettingEditPage extends Component
 
     public $is_active = true;
 
-    public function mount(Setting $setting)
+    public function mount(DisplayContest $displayContest)
     {
-        $this->key = $setting->key;
-        $this->value = $setting->value;
-        $this->is_active = $setting->is_active;
+        $this->key = $displayContest->key;
+        $this->value = $displayContest->value;
+        $this->is_active = $displayContest->is_active;
     }
 
     public function resetFields()
     {
-        $this->key = $this->setting->key;
-        $this->value = $this->setting->value;
-        $this->is_active = $this->setting->is_active;
+        $this->key = $this->displayContest->key;
+        $this->value = $this->displayContest->value;
+        $this->is_active = $this->displayContest->is_active;
     }
 
     public function rules()
     {
         return [
-            'key' => "required|string|max:50|unique:settings,key,{$this->setting->id}",
+            'key' => "required|string|max:50|unique:displayContests,key,{$this->displayContest->id}",
             'value' => 'required|string|max:65535',
             'is_active' => 'required|boolean',
         ];
@@ -41,18 +41,18 @@ class SettingEditPage extends Component
 
     public function submit()
     {
-        $setting = (new SettingService())->edit(setting: $this->setting, data: $this->validate());
+        $displayContest = (new DisplayContestService())->edit(displayContest: $this->displayContest, data: $this->validate());
 
         $this->flash(
             'success',
-            trans('index.setting')." - {$setting->id} - ".trans('index.edited'),
+            trans('index.displayContest')." - {$displayContest->id} - ".trans('index.edited'),
         );
 
-        return redirect()->route('cms.configuration.setting.index');
+        return redirect()->route('cms.configuration.displayContest.index');
     }
 
     public function render()
     {
-        return view('livewire.cms.configuration.setting.edit');
+        return view('livewire.cms.configuration.displayContest.edit');
     }
 }

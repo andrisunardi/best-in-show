@@ -1,29 +1,29 @@
 <?php
 
-namespace App\Livewire\CMS\Configuration\Setting;
+namespace App\Livewire\CMS\DisplayContest;
 
 use App\Livewire\CMS\Component;
-use App\Models\Setting;
-use App\Services\SettingService;
+use App\Models\DisplayContest;
+use App\Services\DisplayContestService;
 use Illuminate\Support\Str;
 
-class SettingDeletePermanent extends Component
+class DisplayContestDeletePermanent extends Component
 {
-    public function mount($setting)
+    public function mount($displayContest)
     {
-        $setting = Setting::onlyTrashed()->findOrFail($setting);
+        $displayContest = DisplayContest::onlyTrashed()->findOrFail($displayContest);
 
-        (new SettingService())->deletePermanent(setting: $setting);
+        (new DisplayContestService())->deletePermanent(displayContest: $displayContest);
 
         $this->flash(
             'success',
-            trans('index.setting')." - {$setting->id} - ".trans('index.deleted_permanently'),
+            trans('index.displayContest')." - {$displayContest->id} - ".trans('index.deleted_permanently'),
         );
 
         if (Str::endsWith(url()->previous(), 'trash')) {
-            return redirect()->route('cms.configuration.setting.trash');
+            return redirect()->route('cms.configuration.displayContest.trash');
         }
 
-        return redirect()->route('cms.configuration.setting.index');
+        return redirect()->route('cms.configuration.displayContest.index');
     }
 }

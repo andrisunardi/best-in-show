@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire\CMS\Configuration\Setting;
+namespace App\Livewire\CMS\DisplayContest;
 
 use App\Livewire\CMS\Component;
-use App\Services\SettingService;
+use App\Services\DisplayContestService;
 
-class SettingAddPage extends Component
+class DisplayContestAddPage extends Component
 {
     public $key;
 
@@ -25,7 +25,7 @@ class SettingAddPage extends Component
     public function rules()
     {
         return [
-            'key' => 'required|string|max:100|unique:settings,key',
+            'key' => 'required|string|max:100|unique:displayContests,key',
             'value' => 'required|string|max:65535',
             'is_active' => 'required|boolean',
         ];
@@ -33,18 +33,18 @@ class SettingAddPage extends Component
 
     public function submit()
     {
-        $setting = (new SettingService())->add(data: $this->validate());
+        $displayContest = (new DisplayContestService())->add(data: $this->validate());
 
         $this->flash(
             'success',
-            trans('index.setting')." - {$setting->id} - ".trans('index.added'),
+            trans('index.displayContest')." - {$displayContest->id} - ".trans('index.added'),
         );
 
-        return redirect()->route('cms.configuration.setting.index');
+        return redirect()->route('cms.configuration.displayContest.index');
     }
 
     public function render()
     {
-        return view('livewire.cms.configuration.setting.add');
+        return view('livewire.cms.configuration.displayContest.add');
     }
 }
