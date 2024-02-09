@@ -14,6 +14,7 @@
         "barryvdh/laravel-debugbar": "^3.9",
         "barryvdh/laravel-dompdf": "*",
         "barryvdh/laravel-ide-helper": "^2.13",
+        "buglinjo/laravel-webp": "^2.3",
         "diglactic/laravel-breadcrumbs": "^8.1",
         "garygreen/pretty-routes": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
