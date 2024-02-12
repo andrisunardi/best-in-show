@@ -1,0 +1,447 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* npx tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --watch --minify */
+
+@layer base {
+  @font-face {
+    font-family: Poppins-Light;
+    src: url("../fonts/Poppins-Light.ttf") format('truetype');
+  }
+  @font-face {
+    font-family: Poppins-Regular;
+    src: url("../fonts/Poppins-Regular.ttf") format('truetype');
+  }
+  @font-face {
+    font-family: Poppins-Medium;
+    src: url("../fonts/Poppins-Medium.ttf") format('truetype');
+  }
+  @font-face {
+    font-family: Poppins-SemiBold;
+    src: url("../fonts/Poppins-SemiBold.ttf") format('truetype');
+  }
+  @font-face {
+    font-family: Poppins-Bold;
+    src: url("../fonts/Poppins-Bold.ttf") format('truetype');
+  }
+  @font-face {
+    font-family: Poppins-ExtraBold;
+    src: url("../fonts/Poppins-ExtraBold.ttf") format('truetype');
+  }
+  @font-face {
+    font-family: Poppins-Italic;
+    src: url("../fonts/Poppins-Italic.ttf") format('truetype');
+  }
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/MaterialIcons-Regular.ttf') format('truetype');
+  }
+  body, html {
+    @apply m-0 p-0;
+  }
+  main {
+    @apply mt-7;
+  }
+}
+
+@layer components {
+  .container-fluid {
+    @apply w-full mx-auto px-4
+  }
+  .page-heading-1 {
+    @apply text-3xl lg:text-[32px] leading-9 font-poppins-m;
+  }
+  .page-heading-2 {
+    @apply text-2xl lg:text-[32px] font-poppins-sb;
+  }
+  .divider {
+    @apply w-32 h-[2px] bg-primaryRed;
+  }
+  #overlay {
+    @apply fixed inset-0 bg-black/60 z-40;
+  }
+  
+  .global-banner {
+    @apply relative w-full h-[300px] md:h-[415px];
+  }
+  .global-banner .placement {
+    @apply w-full absolute top-1/2 left-1/2 translate-50;
+  }
+  .global-banner .placement h1 {
+    @apply text-primaryWhite text-center text-2xl md:text-5xl font-poppins-r;
+  }
+
+  .breadcrumb ol {
+    @apply list-none p-0 inline-flex;
+  }
+  .breadcrumb ol li {
+    @apply flex items-center;
+  }
+  .breadcrumb ol li a {
+    @apply text-[#BDBDBD] hover:underline font-poppins-m;
+  }
+  .breadcrumb ol li span.current {
+    @apply text-primaryBlack font-poppins-m;
+  }
+
+  /* header */
+  .top-accent {
+    @apply w-full h-8 lg:h-[50px] bg-primaryRed;
+  }
+  .header-container {
+    @apply mt-4 px-6 lg:px-9;
+  }
+  .header-container .header-wrapper {
+    @apply flex justify-between items-center;
+  }
+  .header-container .header-wrapper img {
+    @apply w-1/2 lg:w-[378px] lg:mx-auto;
+  }
+  form.navbar-form {
+    @apply lg:float-right;
+  }
+  form.navbar-form .form-group {
+    @apply relative;
+  }
+  form.navbar-form .form-group .icon-placeholder {
+    @apply absolute top-1/2 left-4 -translate-y-1/2 text-primaryGray text-xl;
+  }
+  form.navbar-form .form-group input[type="text"] {
+    @apply max-lg:w-full py-2 pr-4 pl-10 bg-[#D5D4D4] lg:bg-[#F2F2F2] rounded-full outline-none focus:outline-blue-400 text-primaryBlack placeholder:text-primaryGray text-xs font-poppins-r;
+  }
+  ul.menu-list {
+    @apply mx-auto text-center;
+  }
+  ul.menu-list li {
+    @apply inline-block mr-8;
+  }
+  ul.menu-list li:last-child {
+    @apply mr-0;
+  }
+  ul.menu-list li a {
+    @apply py-0 px-1 my-0 -mx-1 text-primaryBlack hover:text-primaryWhite font-poppins-sb;
+    padding: 0 .25rem;
+    margin: 0 -.25rem;
+    box-shadow: inset 0 0 0 0 #EA3223;
+    transition: color .5s ease-in-out, box-shadow .3s ease-in-out;
+  }
+  ul.menu-list li a:hover {
+    box-shadow: inset 200px 0 0 0 #EA3223;;
+  }
+  button#hamburger-button {
+    @apply text-primaryBlack;
+  }
+  button#hamburger-button i {
+    @apply material-icons rounded-icon text-2xl;
+  }
+  #sidemenu {
+    @apply fixed w-4/5 h-screen overflow-y-auto bg-primaryWhite duration-500 ease-in-out z-50;
+  }
+  button#sidemenu-close {
+    @apply float-right text-primaryBlack;
+  }
+  button#sidemenu-close i {
+    @apply material-icons rounded-icon text-xl;
+  }
+  ul.sidemenu-list {
+    @apply mb-10;
+  }
+  ul.sidemenu-list li {
+    @apply py-4 border-b border-primaryRed;
+  }
+  ul.sidemenu-list li a {
+    @apply text-primaryBlack font-poppins-sb;
+  }
+
+  /* home page */
+  .btn-intro-category {
+    @apply w-full md:w-36 py-2 bg-secondaryRed hover:bg-primaryRed duration-200 rounded-full shadow-shadowButton text-center text-primaryWhite font-poppins-m;
+  }
+  section#homeProduct {
+    @apply mt-14;
+  }
+  .gridview-category {
+    @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+  }
+  .gridview-category .grid-item a.category-thumbnail {
+    @apply relative block bg-center w-full h-[220px] rounded-[10px] shadow-shadowCard hover:scale-105 duration-200;
+  }
+  .gridview-category .grid-item a.category-link {
+    @apply underline text-primaryBlack hover:text-primaryRed duration-200 font-poppins-m;
+  }
+  section#homeInfo {
+    @apply mt-14;
+  }
+  .gridview-brand-info {
+    @apply grid grid-cols-1 lg:grid-cols-3 max-lg:gap-10;
+  }
+  .gridview-brand-info .grid-item:first-child {
+    @apply lg:pr-6;
+  }
+  .gridview-brand-info .grid-item:nth-child(2) {
+    @apply lg:px-6 lg:border-x-[3px] lg:border-[#BDBDBD];
+  }
+  .gridview-brand-info .grid-item:last-child {
+    @apply lg:pl-6;
+  }
+  .gridview-brand-info .grid-item .item-title {
+    @apply text-primaryGray font-poppins-sb;
+  }
+  .gridview-brand-info .grid-item .item-caption {
+    @apply text-primaryGray text-sm font-poppins-r;
+  }
+  .gridview-brand-info .grid-item .item-link {
+    @apply underline text-primaryGray hover:text-primaryBlack duration-200 text-sm font-poppins-m;
+  }
+
+  /* about page */
+  .about-section {
+    @apply mt-14;
+  }
+  .about-section.colored {
+    @apply py-4 bg-primaryRed/10;
+  }
+  img.about-items {
+    @apply rounded-[20px] w-full;
+  }
+  button.btn-about-tab {
+    @apply p-2 lg:p-3 rounded-[20px] text-primaryGray text-base lg:text-xl font-poppins-r;
+  }
+  button.btn-about-tab.active {
+    @apply bg-primaryRed/10 text-primaryBlack font-poppins-sb;
+  }
+
+  /* article page */
+  .article-image-thumbnail {
+    @apply w-full h-auto aspect-video rounded-[20px] shadow-shadowButton;
+  }
+  .article-trending-date {
+    @apply text-primaryGray text-sm font-poppins-r;
+  }
+  .article-trending-title {
+    @apply my-3 text-primaryBlack text-xl md:text-3xl font-poppins-sb;
+  }
+  .article-trending-preview {
+    @apply text-disabled text-sm md:text-base font-poppins-r;
+  }
+  .article-readmore {
+    @apply text-secondaryRed hover:text-primaryRed duration-200 hover:underline font-poppins-sb;
+  }
+  .gridview-article {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-4 md:gap-x-6;
+  }
+  .article-latest-date {
+    @apply text-primaryGray text-sm font-poppins-r;
+  }
+  .article-latest-title {
+    @apply my-3 text-primaryBlack text-lg font-poppins-sb;
+  }
+  .article-latest-preview {
+    @apply text-disabled text-sm md:text-base font-poppins-r;
+  }
+  
+  /* article detail page */
+  .article-detail-cover {
+    @apply bg-no-repeat bg-center bg-cover w-full aspect-wide rounded-[20px];
+  }
+  .articles-arrow i {
+    @apply text-primaryBlack text-2xl;
+  }
+  article {
+    @apply text-[#333333] text-sm lg:text-base font-poppins-r;
+  }
+
+  /* activities page */
+  .gridview-activities {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-6;
+  }
+  .gridview-activities .activities-item .cover-image {
+    @apply bg-no-repeat bg-center bg-cover w-full h-auto aspect-square rounded-[20px] shadow-shadowButton;
+  }
+  .gridview-activities .activities-item a.activity-title {
+    @apply block mt-3 text-primaryBlack hover:text-primaryRed duration-200 text-lg font-poppins-m;
+  }
+  .gridview-activities .activities-item .activity-detail {
+    @apply flex items-center gap-2;
+  }
+  .gridview-activities .activities-item .activity-detail i {
+    @apply material-icons rounded-icon text-xl text-primaryRed;
+  }
+  .gridview-activities .activities-item .activity-detail p {
+    @apply break-words text-primaryBlack font-poppins-sb;
+  }
+
+  /* contact page */
+  .contact-banner-detail {
+    @apply hidden lg:flex justify-between items-center;
+  }
+  .contact-banner-flexview {
+    @apply w-1/3 flex flex-col items-center;
+  }
+  .contact-banner-flexview .icon-wrapper {
+    @apply relative w-10 h-10 rounded-full border border-primaryWhite;
+  }
+  .contact-banner-flexview .icon-wrapper i {
+    @apply material-icons rounded-icon text-xl text-primaryWhite;
+  }
+  .contact-banner-flexview a {
+    @apply block mt-3 text-primaryWhite underline font-poppins-m;
+  }
+  .contact-form-card {
+    @apply w-full p-6 rounded-[20px] shadow-shadowButton;
+  }
+  .gridview-contact {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-4;
+  }
+  form#contact-form .form-group label {
+    @apply block mb-3 text-[#4F4F4F] font-poppins-r;
+  }
+  form#contact-form .form-group input[type="text"],
+  form#contact-form .form-group input[type="email"],
+  form#contact-form .form-group input[type="number"],
+  form#contact-form .form-group select,
+  form#contact-form .form-group textarea {
+    @apply w-full p-3 rounded-[20px] border border-primaryBlack outline-none focus:outline-blue-400 text-primaryBlack placeholder:text-primaryGray font-poppins-r;
+  }
+  form#contact-form .form-group input[type="file"] {
+    @apply block w-full text-primaryGray border border-primaryBlack rounded-[20px] focus:outline-none font-poppins-r;
+  }
+  form#contact-form .form-group input[type="file"]::file-selector-button {
+    @apply py-3 bg-[#D9D9D9] hover:bg-[#C3C1C1] duration-200 border-0 border-r-[1px] border-primaryBlack cursor-pointer rounded-l-[20px];
+  }
+  .btn-contact {
+    @apply w-36 py-3 border duration-200 rounded-[10px];
+  }
+  .btn-contact.cancel {
+    @apply bg-transparent hover:bg-primaryGray border-primaryGray text-primaryGray hover:text-primaryBlack font-poppins-r;
+  }
+  .btn-contact.send {
+    @apply bg-primaryRed hover:bg-secondaryRed border-primaryRed text-primaryWhite hover:text-primaryWhite font-poppins-sb;
+  }
+
+  /* promotion page */
+  .gridview-promotion {
+    @apply grid grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-4;
+  }
+  .gridview-promotion-item img {
+    @apply w-full rounded-[20px] shadow-shadowButton;
+  }
+  .gridview-promotion-item p.promo-date {
+    @apply text-primaryGray text-xs lg:text-sm font-poppins-r;
+  }
+  .gridview-promotion-item p.promo-title {
+    @apply mt-2 text-primaryBlack text-base lg:text-lg font-poppins-sb;
+  }
+
+  /* promotion detail page */
+  .promotion-detail {
+    @apply flex flex-col lg:flex-row justify-between gap-8;
+  }
+  .promotion-detail .promo-cover {
+    @apply w-full lg:w-1/3;
+  }
+  .promotion-detail .promo-cover img {
+    @apply w-3/4 md:w-1/2 lg:w-full mx-auto rounded-[20px] shadow-shadowButton;
+  }
+  .promotion-detail .promo-description {
+    @apply w-full lg:w-2/3;
+  }
+  .promotion-detail .promo-description p.promo-date {
+    @apply text-primaryGray text-sm font-poppins-r;
+  }
+  .promotion-detail .promo-description h1.promo-title {
+    @apply text-primaryBlack text-xl lg:text-[32px] font-poppins-sb;
+  }
+  .promotion-detail .promo-description p.promo-caption {
+    @apply text-primaryBlack text-sm lg:text-base font-poppins-r;
+  }
+  .promotion-detail .promo-description .promo-inclusions {
+    @apply mb-6;
+  }
+  .promotion-detail .promo-description .promo-inclusions:last-child {
+    @apply mb-0;
+  }
+  .promotion-detail .promo-description .promo-inclusions p.inclusion {
+    @apply text-primaryBlack text-sm lg:text-base font-poppins-m;
+  }
+  .promotion-detail .promo-description .promo-inclusions .btn-inclusion {
+    @apply mt-2 p-2 bg-primaryRed hover:bg-secondaryRed rounded-[10px] duration-200 text-primaryWhite text-xs lg:text-base;
+  }
+  .promotion-detail .promo-description .promo-inclusions .btn-inclusion i {
+    @apply material-icons rounded-icon text-xl lg:text-2xl;
+  }
+
+  /* footer */
+  footer {
+    @apply mt-24 py-14 bg-primaryRed;
+  }
+  .flexview-footer {
+    @apply flex flex-col lg:flex-row justify-between max-lg:gap-10;
+  }
+  .footer-location-detail {
+    @apply flex flex-col lg:flex-row justify-between lg:items-center gap-4;
+  }
+  .footer-item h5 {
+    @apply text-primaryWhite font-poppins-sb;
+  }
+  .footer-item ul.footer-menu {
+    @apply mt-4;
+  }
+  .footer-item ul.footer-menu li {
+    @apply mb-4;
+  }
+  .footer-item ul.footer-menu li:last-child {
+    @apply mb-0;
+  }
+  .footer-item ul.footer-menu li a {
+    @apply text-primaryWhite hover:underline font-poppins-r;
+  }
+  .footer-item ul.footer-company-detail {
+    @apply mt-4;
+  }
+  .footer-item ul.footer-company-detail li {
+    @apply mb-2;
+  }
+  .footer-item ul.footer-company-detail li:last-child {
+    @apply mb-0;
+  }
+  .footer-item ul.footer-company-detail li a, .footer-item ul.footer-company-detail li p {
+    @apply text-primaryWhite hover:underline text-sm font-poppins-r;
+  }
+}
+
+@layer utilities {
+  .translate-50 {
+    transform: translate(-50%, -50%);
+  }
+  span.asterisk::after {
+    content: "*";
+    color: #EB5757;
+  }
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    /* line-height: 1; */
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased; /* Support for all WebKit browsers. */
+    text-rendering: optimizeLegibility; /* Support for Safari and Chrome. */
+    -moz-osx-font-smoothing: grayscale; /* Support for Firefox. */
+    font-feature-settings: 'liga'; /* Support for IE. */
+  }
+  .material-icons.rounded-icon {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+}

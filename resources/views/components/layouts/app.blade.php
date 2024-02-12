@@ -16,6 +16,8 @@
 
     @vite('resources/css/app.css')
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+
     @if (Route::is('cms.*') || explode('.', request()->getHost())[1] == 'cms')
         @include('layouts.cms.vendors')
     @else
@@ -44,11 +46,9 @@
         @include('layouts.script')
     @endif
 
-    @stack('script')
+    <script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
 
-    <h1 class="text-3xl font-bold underline text-blue-600">
-        Hello world!
-    </h1>
+    @stack('script')
 </body>
 
 </html>
