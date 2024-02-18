@@ -103,12 +103,12 @@
                     @foreach ($user->roles as $role)
                         <div>
                             {{ $loop->iteration }}.
-                            <x-components::link.relation :text="$role->name" :href="route('cms.configuration.role.view', ['role' => $role->id])" />
+                            <x-components::link :text="$role->name" :href="route('cms.configuration.role.view', ['role' => $role->id])" />
                         </div>
                         @foreach ($role->permissions as $permission)
                             <div class="ms-3">
                                 {{ $loop->iteration }}.
-                                <x-components::link.relation :text="$permission->name" :href="route('cms.configuration.permission.view', [
+                                <x-components::link :text="$permission->name" :href="route('cms.configuration.permission.view', [
                                     'permission' => $permission->id,
                                 ])" />
                             </div>

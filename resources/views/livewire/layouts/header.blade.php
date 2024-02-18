@@ -49,7 +49,10 @@
             <div class="header-wrapper">
                 <div class="hidden lg:block w-2/6">&nbsp;</div>
                 <div class="lg:w-4/6">
-                    <img src="{{ asset("assets/images/logo/bis-logo.webp") }}" alt="Best In Show" />
+                    <a draggable="false" href="{{ route('index') }}">
+                        <img draggable="false" src="{{ asset('assets/images/logo/bis-logo.webp') }}"
+                            alt="{{ trans('index.logo') }} - {{ env('APP_TITLE') }}" />
+                    </a>
                 </div>
 
                 <div class="hidden lg:block w-2/6">
@@ -89,10 +92,14 @@
                     <a href="#">LAIN-LAIN</a>
                 </li>
                 <li>
-                    <a href="#">TENTANG KAMI</a>
+                    <a draggable="false" href="{{ route('about-us') }}" class="uppercase">
+                        {{ trans("index.about_us") }}
+                    </a>
                 </li>
                 <li>
-                    <a href="#">HUBUNGI KAMI</a>
+                    <a draggable="false" href="{{ route('contact-us') }}" class="uppercase">
+                        {{ trans("index.contact_us") }}
+                    </a>
                 </li>
             </ul>
         </div>

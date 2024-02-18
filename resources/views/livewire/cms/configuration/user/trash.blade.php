@@ -102,7 +102,7 @@
                                     {{ ($users->currentPage() - 1) * $users->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-components::link.id :href="route('cms.configuration.user.view', ['user' => $user->id])" :text="$user->id" />
+                                    <x-components::link :href="route('cms.configuration.user.view', ['user' => $user->id])" :text="$user->id" />
                                 </td>
                                 <td>
                                     @if ($user->checkImage())
@@ -121,7 +121,7 @@
                                     @foreach ($user->roles as $role)
                                         <div>
                                             {{ $loop->iteration }}.
-                                            <x-components::link.relation :text="$role->name" :href="route('cms.configuration.role.view', ['role' => $role->id])" />
+                                            <x-components::link :text="$role->name" :href="route('cms.configuration.role.view', ['role' => $role->id])" />
                                         </div>
                                     @endforeach
                                 </td>

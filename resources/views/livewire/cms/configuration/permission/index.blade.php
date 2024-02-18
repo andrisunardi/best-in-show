@@ -68,19 +68,19 @@
                                     {{ ($permissions->currentPage() - 1) * $permissions->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-components::link.id :href="route('cms.configuration.permission.view', [
+                                    <x-components::link :href="route('cms.configuration.permission.view', [
                                         'permission' => $permission->id,
                                     ])" :text="$permission->id" />
                                 </td>
                                 <td class="text-wrap">{{ $permission->name }}</td>
                                 <td class="text-center">{{ $permission->guard_name }}</td>
                                 <td class="text-center">
-                                    <x-components::link.relation :href="route('cms.configuration.role.index', [
+                                    <x-components::link :href="route('cms.configuration.role.index', [
                                         'permission_id' => $permission->id,
                                     ])" :text="$permission->roles->count()" />
                                 </td>
                                 <td class="text-center">
-                                    <x-components::link.relation :href="route('cms.configuration.user.index', [
+                                    <x-components::link :href="route('cms.configuration.user.index', [
                                         'permission_id' => $permission->id,
                                     ])" :text="$permission->users->count()" />
                                 </td>

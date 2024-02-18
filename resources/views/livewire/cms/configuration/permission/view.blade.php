@@ -47,7 +47,7 @@
                     <h6>{{ trans('index.total') }} {{ trans('index.role') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <x-components::link.relation :href="route('cms.configuration.role.index', ['permission_id' => $permission->id])" :text="$permission->roles->count()" />
+                    <x-components::link :href="route('cms.configuration.role.index', ['permission_id' => $permission->id])" :text="$permission->roles->count()" />
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
                     <h6>{{ trans('index.total') }} {{ trans('index.user') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <x-components::link.relation :href="route('cms.configuration.user.index', ['permission_id' => $permission->id])" :text="$permission->users->count()" />
+                    <x-components::link :href="route('cms.configuration.user.index', ['permission_id' => $permission->id])" :text="$permission->users->count()" />
                 </div>
             </div>
 

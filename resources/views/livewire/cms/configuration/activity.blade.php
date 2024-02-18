@@ -102,7 +102,7 @@
                                 </td>
                                 <td>
                                     @if ($activity->causer)
-                                        <x-components::link.relation :text="$activity->causer->name" :href="route('cms.configuration.user.view', [
+                                        <x-components::link :text="$activity->causer->name" :href="route('cms.configuration.user.view', [
                                             'user' => $activity->causer->id,
                                         ])" />
                                     @endif

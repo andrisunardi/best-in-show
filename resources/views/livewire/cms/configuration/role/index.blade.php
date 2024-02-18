@@ -68,15 +68,15 @@
                                     {{ ($roles->currentPage() - 1) * $roles->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-components::link.id :href="route('cms.configuration.role.view', ['role' => $role->id])" :text="$role->id" />
+                                    <x-components::link :href="route('cms.configuration.role.view', ['role' => $role->id])" :text="$role->id" />
                                 </td>
                                 <td class="text-wrap">{{ $role->name }}</td>
                                 <td class="text-center">{{ $role->guard_name }}</td>
                                 <td class="text-center">
-                                    <x-components::link.relation :href="route('cms.configuration.permission.index', ['role_id' => $role->id])" :text="$role->permissions->count()" />
+                                    <x-components::link :href="route('cms.configuration.permission.index', ['role_id' => $role->id])" :text="$role->permissions->count()" />
                                 </td>
                                 <td class="text-center">
-                                    <x-components::link.relation :href="route('cms.configuration.user.index', ['role_id' => $role->id])" :text="$role->users->count()" />
+                                    <x-components::link :href="route('cms.configuration.user.index', ['role_id' => $role->id])" :text="$role->users->count()" />
                                 </td>
                                 <td>
                                     <button class="btn btn-sm btn-outline-primary dropdown-toggle" role="button"

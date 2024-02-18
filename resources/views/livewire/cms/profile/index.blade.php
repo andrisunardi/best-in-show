@@ -75,7 +75,7 @@
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-9">
                             @if (Auth::user()->createdBy)
-                                <x-components::link.relation :text="Auth::user()->createdBy->name" :href="route('cms.configuration.user.view', [
+                                <x-components::link :text="Auth::user()->createdBy->name" :href="route('cms.configuration.user.view', [
                                     'user' => Auth::user()->createdBy->id,
                                 ])" />
                             @endif
@@ -88,7 +88,7 @@
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-9">
                             @if (Auth::user()->updatedBy)
-                                <x-components::link.relation :text="Auth::user()->updatedBy->name" :href="route('cms.configuration.user.view', [
+                                <x-components::link :text="Auth::user()->updatedBy->name" :href="route('cms.configuration.user.view', [
                                     'user' => Auth::user()->updatedBy->id,
                                 ])" />
                             @endif
@@ -180,12 +180,12 @@
                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                 <div class="ms-2 me-auto">
                                     <div class="fw-bold">
-                                        <x-components::link.relation :text="$role->name" :href="route('cms.configuration.role.view', ['role' => $role->id])" />
+                                        <x-components::link :text="$role->name" :href="route('cms.configuration.role.view', ['role' => $role->id])" />
                                     </div>
                                     @foreach ($role->permissions as $permission)
                                         <div>
                                             {{ $loop->iteration }}.
-                                            <x-components::link.relation :text="$permission->name" :href="route('cms.configuration.permission.view', [
+                                            <x-components::link :text="$permission->name" :href="route('cms.configuration.permission.view', [
                                                 'permission' => $permission->id,
                                             ])" />
                                         </div>

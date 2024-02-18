@@ -81,7 +81,7 @@
                                     {{ ($settings->currentPage() - 1) * $settings->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-components::link.id :href="route('cms.configuration.setting.view', ['setting' => $setting->id])" :text="$setting->id" />
+                                    <x-components::link :href="route('cms.configuration.setting.view', ['setting' => $setting->id])" :text="$setting->id" />
                                 </td>
                                 <td class="text-wrap">{{ $setting->key }}</td>
                                 <td class="text-wrap">{!! $setting->value !!}</td>
