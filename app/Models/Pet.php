@@ -70,6 +70,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Pet whereUpdatedById($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pet whereYoutube($value)
  *
+ * @property-read mixed $product_image_url
+ *
  * @mixin \Eloquent
  */
 class Pet extends Model
@@ -97,9 +99,9 @@ class Pet extends Model
     protected $table = 'pets';
 
     protected $casts = [
-        'name' => 'integer',
-        'name_idn' => 'integer',
-        'product_image' => 'integer',
+        'name' => 'string',
+        'name_idn' => 'string',
+        'product_image' => 'string',
         'youtube' => 'string',
         'image' => 'string',
         'slug' => 'string',
@@ -161,17 +163,17 @@ class Pet extends Model
 
     public function getTranslateNameAttribute()
     {
-        return App::isLocale('en') ? $this->title : $this->title_idn;
+        return App::isLocale('en') ? $this->name : $this->name_idn;
     }
 
     public function altImage()
     {
-        return trans('index.banner')." - {$this->id} - ".env('APP_TITLE');
+        return trans('index.pet')." - {$this->id} - ".env('APP_TITLE');
     }
 
     public function checkImage()
     {
-        if ($this->image && File::exists(public_path("images/banner/{$this->image}"))) {
+        if ($this->image && File::exists(public_path("images/pet/{$this->image}"))) {
             return true;
         }
     }
@@ -179,29 +181,66 @@ class Pet extends Model
     public function assetImage()
     {
         if ($this->checkImage()) {
-            return asset("images/banner/{$this->image}");
+            return asset("images/pet/{$this->image}");
         }
 
-        return asset('images/banner.png');
+        return asset('images/image-not-available.png');
     }
 
     public function deleteImage()
     {
         if ($this->checkImage()) {
-            File::delete(public_path("images/banner/{$this->image}"));
+            File::delete(public_path("images/pet/{$this->image}"));
         }
     }
 
     public function getImageUrlAttribute()
     {
         if ($this->checkImage()) {
-            return URL::to('/')."/images/banner/{$this->image}";
+            return URL::to('/')."/images/pet/{$this->image}";
         }
 
         return null;
     }
 
-    public $appends = ['image_url'];
+    public function altProductImage()
+    {
+        return trans('index.product_image')." - {$this->id} - ".env('APP_TITLE');
+    }
+
+    public function checkProductImage()
+    {
+        if ($this->product_image && File::exists(public_path("images/product-image/{$this->product_image}"))) {
+            return true;
+        }
+    }
+
+    public function assetProductImage()
+    {
+        if ($this->checkProductImage()) {
+            return asset("images/product-image/{$this->product_image}");
+        }
+
+        return asset('images/image-not-available.png');
+    }
+
+    public function deleteProductImage()
+    {
+        if ($this->checkProductImage()) {
+            File::delete(public_path("images/product-image/{$this->product_image}"));
+        }
+    }
+
+    public function getProductImageUrlAttribute()
+    {
+        if ($this->checkProductImage()) {
+            return URL::to('/')."/images/product-image/{$this->product_image}";
+        }
+
+        return null;
+    }
+
+    public $appends = ['image_url', 'product_image_url'];
 
     public function productTypes()
     {

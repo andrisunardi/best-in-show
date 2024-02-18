@@ -3,40 +3,54 @@
     <div id="sidemenu" style="right: -100%;">
         <div class="p-4">
             <button type="button" id="sidemenu-close">
-                <i>close</i>
+                <i>{{ trans('index.close') }}</i>
             </button>
             <div class="clear-both"></div>
 
             <ul class="sidemenu-list">
+                @foreach ($pets as $pet)
+                    <li>
+                        <a draggable="false" class="uppercase" href="{{ route('pet.view', ['slug' => $pet->slug]) }}">
+                            {{ $pet->translate_name }}
+                        </a>
+                    </li>
+                @endforeach
                 <li>
-                    <a href="#">ANJING</a>
+                    <a draggable="false" class="uppercase" href="{{ route('product.index') }}">
+                        {{ trans('index.product') }}
+                    </a>
                 </li>
                 <li>
-                    <a href="#">KUCING</a>
+                    <a draggable="false" class="uppercase" href="{{ route('event.index') }}">
+                        {{ trans('index.event') }}
+                    </a>
                 </li>
                 <li>
-                    <a href="#">PRODUK</a>
+                    <a draggable="false" class="uppercase" href="#">
+                        {{ trans('index.others') }}
+                    </a>
                 </li>
                 <li>
-                    <a href="#">TEMPAT MEMBELI</a>
+                    <a draggable="false" class="uppercase" href="{{ route('about-us') }}">
+                        {{ trans('index.about_us') }}
+                    </a>
                 </li>
                 <li>
-                    <a href="#">LAIN-LAIN</a>
-                </li>
-                <li>
-                    <a href="#">TENTANG KAMI</a>
-                </li>
-                <li>
-                    <a href="#">HUBUNGI KAMI</a>
+                    <a draggable="false" class="uppercase" href="{{ route('contact-us') }}">
+                        {{ trans('index.contact_us') }}
+                    </a>
                 </li>
             </ul>
 
             <form class="navbar-form">
                 <div class="form-group">
                     <div class="icon-placeholder">
-                        <i class="material-icons rounded-icon">search</i>
+                        <i class="material-icons rounded-icon">
+                            {{ trans('index.search') }}
+                        </i>
                     </div>
-                    <input type="text" placeholder="Cari Produk atau Artikel" />
+                    <input type="text"
+                        placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.or') }} {{ trans('index.article') }}" />
                 </div>
             </form>
         </div>
@@ -59,16 +73,19 @@
                     <form class="navbar-form">
                         <div class="form-group">
                             <div class="icon-placeholder">
-                                <i class="material-icons rounded-icon">search</i>
+                                <i class="material-icons rounded-icon">
+                                    {{ trans('index.search') }}
+                                </i>
                             </div>
-                            <input type="text" placeholder="Cari Produk atau Artikel" />
+                            <input type="text"
+                                placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.or') }} {{ trans('index.article') }}" />
                         </div>
                     </form>
                     <div class="clear-both"></div>
                 </div>
                 <div class="block lg:hidden">
                     <button type="button" id="hamburger-button">
-                        <i>menu</i>
+                        <i>{{ trans('index.menu') }}</i>
                     </button>
                 </div>
             </div>
@@ -76,29 +93,36 @@
 
         <div class="hidden lg:block mt-7">
             <ul class="menu-list">
+                @foreach ($pets as $pet)
+                    <li>
+                        <a draggable="false" class="uppercase" href="{{ route('pet.view', ['slug' => $pet->slug]) }}">
+                            {{ $pet->name }}
+                        </a>
+                    </li>
+                @endforeach
                 <li>
-                    <a href="#">ANJING</a>
-                </li>
-                <li>
-                    <a href="#">KUCING</a>
-                </li>
-                <li>
-                    <a href="#">PRODUK</a>
-                </li>
-                <li>
-                    <a href="#">TEMPAT MEMBELI</a>
-                </li>
-                <li>
-                    <a href="#">LAIN-LAIN</a>
-                </li>
-                <li>
-                    <a draggable="false" href="{{ route('about-us') }}" class="uppercase">
-                        {{ trans("index.about_us") }}
+                    <a draggable="false" class="uppercase" href="{{ route('product.index') }}">
+                        {{ trans('index.product') }}
                     </a>
                 </li>
                 <li>
-                    <a draggable="false" href="{{ route('contact-us') }}" class="uppercase">
-                        {{ trans("index.contact_us") }}
+                    <a draggable="false" class="uppercase" href="{{ route('event.index') }}">
+                        {{ trans('index.event') }}
+                    </a>
+                </li>
+                <li>
+                    <a draggable="false" class="uppercase" href="#">
+                        {{ trans('index.others') }}
+                    </a>
+                </li>
+                <li>
+                    <a draggable="false" class="uppercase" href="{{ route('about-us') }}">
+                        {{ trans('index.about_us') }}
+                    </a>
+                </li>
+                <li>
+                    <a draggable="false" class="uppercase" href="{{ route('contact-us') }}">
+                        {{ trans('index.contact_us') }}
                     </a>
                 </li>
             </ul>

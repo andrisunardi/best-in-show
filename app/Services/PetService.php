@@ -3,18 +3,16 @@
 namespace App\Services;
 
 use Andrisunardi\Library\Libraries\LivewireUpload;
-use App\Models\User;
-use Illuminate\Support\Arr;
+use App\Models\Pet;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class UserService
+class PetService
 {
     public function index(
         string $name = '',
-        string $email = '',
-        string $phone = '',
-        string $username = '',
+        string $name_idn = '',
+        string $youtube = '',
         array $is_active = [],
         string|int $role_id = '',
         string $permission_name = '',
@@ -24,11 +22,10 @@ class UserService
         int $per_page = 10,
         bool $trash = false,
     ): object {
-        $users = User::with('roles.permissions', 'roles', 'permissions')
+        $pets = Pet::query()
             ->when($name, fn ($q) => $q->where('name', 'LIKE', "%{$name}%"))
-            ->when($email, fn ($q) => $q->where('email', 'LIKE', "%{$email}%"))
-            ->when($phone, fn ($q) => $q->where('phone', 'LIKE', "%{$phone}%"))
-            ->when($username, fn ($q) => $q->where('username', 'LIKE', "%{$username}%"))
+            ->when($name_idn, fn ($q) => $q->where('name_idn', 'LIKE', "%{$name_idn}%"))
+            ->when($youtube, fn ($q) => $q->where('youtube', 'LIKE', "%{$youtube}%"))
             ->when($is_active, fn ($q) => $q->whereIn('is_active', $is_active))
             ->when($role_id, fn ($q) => $q->role($role_id))
             ->when($permission_name, fn ($q) => $q->permission($permission_name))
@@ -36,174 +33,167 @@ class UserService
             ->orderBy($orderBy, $sortBy);
 
         if ($paginate) {
-            return $users->paginate($per_page);
+            return $pets->paginate($per_page);
         }
 
-        return $users->get();
+        return $pets->get();
     }
 
-    public function add(array $data = []): User
+    public function add(array $data = []): Pet
     {
-        $roleIds = $data['role_ids'];
-        Arr::pull($data, 'role_ids');
-
-        $data['password'] = Hash::make($data['password']);
-
-        $data['image'] = LivewireUpload::upload(
-            file: $data['image'],
+        $data['product_image'] = LivewireUpload::upload(
+            file: $data['product_image'],
             name: $data['name'],
             disk: 'images',
-            directory: 'user',
+            directory: 'product-image',
             deleteAsset: false,
         );
 
-        $user = User::create($data);
-        $user->assignRole($roleIds);
-
-        return $user;
-    }
-
-    public function clone(array $data, User $user): User
-    {
-        $roleIds = $data['role_ids'];
-        Arr::pull($data, 'role_ids');
-
-        $data['password'] = Hash::make($data['password']);
-
         $data['image'] = LivewireUpload::upload(
             file: $data['image'],
             name: $data['name'],
             disk: 'images',
-            directory: 'user',
-            checkAsset: $user->checkImage(),
-            fileAsset: $user->image,
+            directory: 'pet',
             deleteAsset: false,
         );
 
-        $user = User::create($data);
-        $user->assignRole($roleIds);
+        $pet = Pet::create($data);
 
-        return $user;
+        return $pet;
     }
 
-    public function edit(User $user, array $data = []): User
+    public function clone(array $data, Pet $pet): Pet
     {
-        $roleIds = $data['role_ids'];
-        Arr::pull($data, 'role_ids');
+        $data['product_image'] = LivewireUpload::upload(
+            file: $data['product_image'],
+            name: $data['name'],
+            disk: 'images',
+            directory: 'product-image',
+            checkAsset: $pet->checkProductImage(),
+            fileAsset: $pet->image,
+            deleteAsset: false,
+        );
 
         $data['image'] = LivewireUpload::upload(
             file: $data['image'],
             name: $data['name'],
             disk: 'images',
-            directory: 'user',
-            checkAsset: $user->checkImage(),
-            fileAsset: $user->image,
+            directory: 'pet',
+            checkAsset: $pet->checkImage(),
+            fileAsset: $pet->image,
+            deleteAsset: false,
+        );
+
+        $pet = Pet::create($data);
+
+        return $pet;
+    }
+
+    public function edit(Pet $pet, array $data = []): Pet
+    {
+        $data['product_image'] = LivewireUpload::upload(
+            file: $data['product_image'],
+            name: $data['name'],
+            disk: 'images',
+            directory: 'product-image',
+            checkAsset: $pet->checkProductImage(),
+            fileAsset: $pet->image,
             deleteAsset: true,
         );
 
-        if ($data['password']) {
-            $data['password'] = Hash::make($data['password']);
-        } else {
-            Arr::pull($data, 'password');
-        }
+        $data['image'] = LivewireUpload::upload(
+            file: $data['image'],
+            name: $data['name'],
+            disk: 'images',
+            directory: 'pet',
+            checkAsset: $pet->checkImage(),
+            fileAsset: $pet->image,
+            deleteAsset: true,
+        );
 
-        $user->update($data);
-        $user->syncRoles($roleIds);
-        $user->refresh();
+        $pet->update($data);
+        $pet->refresh();
 
-        return $user;
+        return $pet;
     }
 
-    public function active(User $user): User
+    public function active(Pet $pet): Pet
     {
-        $user->is_active = ! $user->is_active;
-        $user->save();
-        $user->refresh();
+        $pet->is_active = ! $pet->is_active;
+        $pet->save();
+        $pet->refresh();
 
-        return $user;
+        return $pet;
     }
 
-    public function deleteImage(User $user)
+    public function deleteProductImage(Pet $pet)
     {
-        $user->deleteImage();
+        $pet->deleteProductImage();
 
-        $user->image = null;
-        $user->save();
-        $user->refresh();
+        $pet->product_image = null;
+        $pet->save();
+        $pet->refresh();
 
-        return $user;
+        return $pet;
     }
 
-    public function delete(User $user): bool
+    public function deleteImage(Pet $pet)
     {
-        return $user->delete();
+        $pet->deleteImage();
+
+        $pet->image = null;
+        $pet->save();
+        $pet->refresh();
+
+        return $pet;
     }
 
-    public function deleteAll(array $users = []): bool
+    public function delete(Pet $pet): bool
     {
-        return User::when($users, fn ($q) => $q->whereIn('id', $users))->delete();
+        return $pet->delete();
     }
 
-    public function restore(User $user): bool
+    public function deleteAll(array $pets = []): bool
     {
-        return $user->restore();
+        return Pet::when($pets, fn ($q) => $q->whereIn('id', $pets))->delete();
     }
 
-    public function restoreAll(array $users = []): bool
+    public function restore(Pet $pet): bool
     {
-        return User::when($users, fn ($q) => $q->whereIn('id', $users))->onlyTrashed()->restore();
+        return $pet->restore();
     }
 
-    public function deletePermanent(User $user): bool
+    public function restoreAll(array $pets = []): bool
     {
-        $user->deleteImage();
-
-        return $user->forceDelete();
+        return Pet::when($pets, fn ($q) => $q->whereIn('id', $pets))->onlyTrashed()->restore();
     }
 
-    public function deletePermanentAll(array $users = []): bool
+    public function deletePermanent(Pet $pet): bool
     {
-        $users = User::when($users, fn ($q) => $q->whereIn('id', $users))->onlyTrashed()->get();
+        $pet->deleteProductImage();
+        $pet->deleteImage();
 
-        foreach ($users as $user) {
-            $user->deleteImage();
-            $user->forceDelete();
+        return $pet->forceDelete();
+    }
+
+    public function deletePermanentAll(array $pets = []): bool
+    {
+        $pets = Pet::when($pets, fn ($q) => $q->whereIn('id', $pets))->onlyTrashed()->get();
+
+        foreach ($pets as $pet) {
+            $pet->deleteProductImage();
+            $pet->deleteImage();
+            $pet->forceDelete();
         }
 
         return true;
     }
 
-    public function editProfile(User $user, array $data = []): User
-    {
-        $data['image'] = LivewireUpload::upload(
-            file: $data['image'],
-            name: $data['name'],
-            disk: 'images',
-            directory: 'user',
-            checkAsset: $user->checkImage(),
-            fileAsset: $user->image,
-            deleteAsset: false,
-        );
-
-        $user->update($data);
-        $user->refresh();
-
-        return $user;
-    }
-
-    public function changePassword(User $user, array $data = []): User
-    {
-        $user->update(['password' => Hash::make($data['new_password'])]);
-        $user->refresh();
-
-        return $user;
-    }
-
-    public function resetPassword(User $user): string
+    public function resetPassword(Pet $pet): string
     {
         $password = Str::random(5);
-        $user->update(['password' => Hash::make($password)]);
-        $user->refresh();
+        $pet->update(['password' => Hash::make($password)]);
+        $pet->refresh();
 
         return $password;
     }

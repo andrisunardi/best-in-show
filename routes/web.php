@@ -10,6 +10,8 @@ use App\Livewire\Event\EventViewPage;
 use App\Livewire\Faq\FaqPage;
 use App\Livewire\Home\HomePage;
 use App\Livewire\OurCompany\OurCompanyPage;
+use App\Livewire\Pet\PetPage;
+use App\Livewire\Pet\PetViewPage;
 use App\Livewire\Product\ProductPage;
 use App\Livewire\Product\ProductViewPage;
 use App\Livewire\Promotion\PromotionPage;
@@ -52,10 +54,10 @@ Route::group(['prefix' => 'article', 'as' => 'article.'], function () {
     Route::any('{slug}', ArticleViewPage::class)->name('view');
 });
 
-// Route::group(['prefix' => 'pet', 'as' => 'pet.'], function () {
-//     Route::any('', PetPage::class)->name('index');
-//     Route::any('{slug}', PetViewPage::class)->name('view');
-// });
+Route::group(['prefix' => 'pet', 'as' => 'pet.'], function () {
+    Route::any('', PetPage::class)->name('index');
+    Route::any('{slug}', PetViewPage::class)->name('view');
+});
 
 Route::any('faq', FaqPage::class)->name('faq');
 Route::any('want-to-open-a-pet-shop', WantToOpenAPetShopPage::class)->name('want-to-open-a-pet-shop');
