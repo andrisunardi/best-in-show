@@ -13,7 +13,7 @@ class PetSeeder extends Seeder
         $data->name = 'Dog';
         $data->name_idn = 'Anjing';
         $data->image = 'dog.png';
-        $data->product_image = 'dog.png';
+        $data->product_image = 'dog.webp';
         $data->youtube = 'dog.png';
         $data->slug = 'dog';
         $data->save();
@@ -22,7 +22,7 @@ class PetSeeder extends Seeder
         $data->name = 'Cat';
         $data->name_idn = 'Kucing';
         $data->image = 'cat.png';
-        $data->product_image = 'cat.png';
+        $data->product_image = 'cat.webp';
         $data->youtube = 'cat.png';
         $data->slug = 'cat';
         $data->save();
@@ -31,7 +31,7 @@ class PetSeeder extends Seeder
         $data->name = 'Small Animal';
         $data->name_idn = 'Hewan Kecil';
         $data->image = 'small-animal.png';
-        $data->product_image = 'small-animal.png';
+        $data->product_image = 'small-animal.webp';
         $data->youtube = 'small-animal.png';
         $data->slug = 'small-animal';
         $data->save();
