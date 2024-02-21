@@ -1,0 +1,182 @@
+@section('title', trans('index.display_contest'))
+@section('icon', 'fas fa-bullhorn')
+
+<main>
+    <section id="contactBreadcrumb">
+        <div class="container">
+            <div class="breadcrumb">
+                <ol>
+                    <li>
+                        <a href="#">Beranda</a>
+                        <span class="mx-2 font-poppins-m">&gt;</span>
+                    </li>
+                    <li>
+                        <span class="current">Hubungi Kami</span>
+                    </li>
+                </ol>
+            </div>
+            <div class="my-6">
+                <hr class="border-t-2 border-primaryGray" />
+            </div>
+        </div>
+    </section>
+
+    <section id="contactHeader">
+        <div class="global-banner"
+            style="
+          background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.60) 0%,
+            rgba(0, 0, 0, 0.60) 100%
+          ),
+          url(images/banner/contact-banner.webp)
+          center / cover no-repeat fixed,
+          #D9D9D9;
+        ">
+            <div class="placement">
+                <h1>Hubungi Kami</h1>
+
+                <div class="container mt-10">
+                    <div class="contact-banner-detail">
+                        <div class="contact-banner-flexview">
+                            <div class="icon-wrapper">
+                                <div class="absolute top-1/2 left-1/2 translate-50">
+                                    <i>call</i>
+                                </div>
+                            </div>
+                            <a href="#">021 - 6258 518</a>
+                        </div>
+                        <div class="contact-banner-flexview">
+                            <div class="icon-wrapper">
+                                <div class="absolute top-1/2 left-1/2 translate-50">
+                                    <i>location_on</i>
+                                </div>
+                            </div>
+                            <a href="#">
+                                Jl. Pangeran Jayakarta No. 30 A <br />
+                                Jakarta Pusat 10730, Indonesia
+                            </a>
+                        </div>
+                        <div class="contact-banner-flexview">
+                            <div class="icon-wrapper">
+                                <div class="absolute top-1/2 left-1/2 translate-50">
+                                    <i>mail</i>
+                                </div>
+                            </div>
+                            <a href="#">info.pthmi@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactForm">
+        <div class="container mt-10">
+            <div class="text-left">
+                <h2 class="page-heading-2 text-primaryBlack">Informasi Kontak Anda</h2>
+            </div>
+            <div class="mb-10 divider"></div>
+
+            <form id="contact-form" action="">
+                <div class="contact-form-card">
+                    <div class="gridview-contact">
+                        <div class="form-group">
+                            <label for="contact-fname">Nama Depan Anda <span class="asterisk"></span></label>
+                            <input id="contact-fname" type="text" placeholder="Ketik Disini..." />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-lname">Nama Belakang Anda <span class="asterisk"></span></label>
+                            <input id="contact-lname" type="text" placeholder="Ketik Disini..." />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-email">Email Anda <span class="asterisk"></span></label>
+                            <input id="contact-email" type="email" placeholder="Ketik Disini..." />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-email">No Handphone <span class="asterisk"></span></label>
+                            <div class="flex flex-col md:flex-row items-center gap-2">
+                                <div class="w-full md:w-1/5">
+                                    <select>
+                                        <option value="">+62</option>
+                                    </select>
+                                </div>
+                                <div class="w-full md:w-4/5">
+                                    <input id="contact-number" type="number" placeholder="08xx" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-address">Alamat Anda (optional)</label>
+                            <input id="contact-address" type="text" placeholder="Ketik Disini..." />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-city">Kota Anda (optional)</label>
+                            <input id="contact-city" type="text" placeholder="Ketik Disini..." />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-city">Provinsi (optional)</label>
+                            <select id="contact-city">
+                                <option value="">Banten</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-postcode">Kode Pos (optional)</label>
+                            <input id="contact-postcode" type="number" placeholder="Ketik Disini..." />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 contact-form-card">
+                    <div class="gridview-contact">
+                        <div class="form-group col-span-2">
+                            <label for="contact-notes">Pesan Anda</label>
+                            <textarea id="contact-notes" rows="6" placeholder="Ketik Disini..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-file">Pilih File (optional)</label>
+                            <input id="contact-file" type="file" />
+
+                            <p class="mt-2 text-primaryGray text-sm font-poppins-r">
+                                Max. 4.3MB tiap file. Format yang disarankan: xps, pdf, doc, docx, rtf,
+                                txt, xls, clsx, csv, bmp, png, jpeg or jpg. Harap berikan lampiran untuk produk anda
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="my-10">
+                        <hr class="border-t border-[#BDBDBD]" />
+                    </div>
+
+                    <div class="flex justify-center items-center gap-20">
+                        <button type="button">
+                            <img src="images/icons/question.svg" />
+                        </button>
+                        <button type="button">
+                            <img src="images/icons/thumbs-up.svg" />
+                        </button>
+                        <button type="button">
+                            <img src="images/icons/thumbs-down.svg" />
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-10 lg:float-right">
+                    <div class="flex max-lg:justify-between items-center gap-6">
+                        <button type="button" class="btn-contact cancel">Batalkan</button>
+                        <button type="button" class="btn-contact send">Kirim Pesan</button>
+                    </div>
+                </div>
+                <div class="clear-both"></div>
+            </form>
+        </div>
+    </section>
+</main>
