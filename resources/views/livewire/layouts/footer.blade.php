@@ -2,22 +2,40 @@
     <div class="container">
         <div class="flexview-footer">
             <div class="footer-item">
-                <h5>Information</h5>
+                <h5>{{ trans('index.information') }}</h5>
                 <ul class="footer-menu">
                     <li>
-                        <a href="#">Want to Open a Pet Shop</a>
+                        <a draggable="false" href="{{ env('LINK_WANT_TO_OPEN_A_PET_SHOP') }}" target="_blank">
+                            @if (App::isLocale('en'))
+                                Want to Open a Pet Shop
+                            @else
+                                Ingin Membuka Petshop
+                            @endif
+                        </a>
                     </li>
                     <li>
-                        <a href="#">Want to Open an Online Shop</a>
+                        <a draggable="false" href="{{ env('LINK_WANT_TO_OPEN_A_ONLINE_SHOP') }}">
+                            @if (App::isLocale('en'))
+                                Want to Open an Online Shop
+                            @else
+                                Ingin Membuka Onlineshop
+                            @endif
+                        </a>
                     </li>
                     <li>
-                        <a href="#">Contact Us</a>
+                        <a draggable="false" href="{{ route('contact-us') }}">
+                            {{ trans('index.contact_us') }}
+                        </a>
                     </li>
                     <li>
-                        <a href="#">Where to Buy</a>
+                        <a draggable="false" href="{{ route('where-to-buy') }}">
+                            {{ trans('index.where_to_buy') }}
+                        </a>
                     </li>
                     <li>
-                        <a href="#">FAQ</a>
+                        <a draggable="false" href="{{ route('faq') }}">
+                            {{ trans('index.faq') }}
+                        </a>
                     </li>
                 </ul>
             </div>
