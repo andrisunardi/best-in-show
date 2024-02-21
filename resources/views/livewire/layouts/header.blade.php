@@ -96,7 +96,7 @@
                 @foreach ($pets as $pet)
                     <li>
                         <a draggable="false" class="uppercase" href="{{ route('pet.view', ['slug' => $pet->slug]) }}">
-                            {{ $pet->name }}
+                            {{ $pet->translate_name }}
                         </a>
                     </li>
                 @endforeach
