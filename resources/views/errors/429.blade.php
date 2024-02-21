@@ -1,6 +1,5 @@
-@extends('components::components.layouts.app')
+@extends('errors::minimal')
 
-@section("title", "429 - Too Many Requests")
-@section("code", "429")
-@section("message", "Too Many Requests")
-@section("description", "The user has sent too many requests in a given amount of time. Intended for use with rate-limiting schemes")
+@section('title', __('Too Many Requests'))
+@section('code', '429')
+@section('message', __('Too Many Requests'))

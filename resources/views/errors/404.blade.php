@@ -1,6 +1,5 @@
-@extends('components::components.layouts.app')
+@extends('errors::minimal')
 
-@section('title', '404 - Not Found')
+@section('title', __('Not Found'))
 @section('code', '404')
-@section('message', 'Not Found')
-@section('description', 'The requested page could not be found but may be available again in the future')
+@section('message', __('Not Found'))

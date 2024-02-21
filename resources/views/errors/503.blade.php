@@ -1,6 +1,5 @@
-@extends('components::components.layouts.app')
+@extends('errors::minimal')
 
-@section("title", "503 - Service Unavailable")
-@section("code", "503")
-@section("message", "Service Unavailable")
-@section("description", "The server is currently unavailable (overloaded or down)")
+@section('title', __('Service Unavailable'))
+@section('code', '503')
+@section('message', __('Service Unavailable'))

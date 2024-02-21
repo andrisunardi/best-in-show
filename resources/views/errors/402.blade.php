@@ -1,6 +1,5 @@
-@extends('components::components.layouts.app')
+@extends('errors::minimal')
 
-@section("title", "402 - Payment Required")
-@section("code", "402")
-@section("message", "Payment Required")
-@section("description", "Reserved for future use")
+@section('title', __('Payment Required'))
+@section('code', '402')
+@section('message', __('Payment Required'))
