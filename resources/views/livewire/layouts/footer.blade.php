@@ -80,7 +80,9 @@
                         <ul class="footer-company-detail">
                             <li>
                                 <p>
-                                    {!! env('CONTACT_ADDRESS') !!}
+                                    <a draggable="false" href="{{ env('CONTACT_GOOGLE_MAPS') }}" target="_blank">
+                                        {!! env('CONTACT_ADDRESS') !!}
+                                    </a>
                                 </p>
                             </li>
                             <li>

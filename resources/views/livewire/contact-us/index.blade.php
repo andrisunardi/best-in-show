@@ -1,5 +1,5 @@
-@section('title', trans('index.display_contest'))
-@section('icon', 'fas fa-bullhorn')
+@section('title', trans('index.contact_us'))
+@section('icon', 'fas fa-phone')
 
 <main>
     <section id="contactBreadcrumb">
@@ -7,11 +7,15 @@
             <div class="breadcrumb">
                 <ol>
                     <li>
-                        <a href="#">Beranda</a>
+                        <a draggable="false" href="{{ route('index') }}">
+                            {{ trans('index.home') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
-                        <span class="current">Hubungi Kami</span>
+                        <span class="current">
+                            @yield('title')
+                        </span>
                     </li>
                 </ol>
             </div>
@@ -29,12 +33,12 @@
             rgba(0, 0, 0, 0.60) 0%,
             rgba(0, 0, 0, 0.60) 100%
           ),
-          url(images/banner/contact-banner.webp)
+          url({{ asset('assets/images/banner/contact-banner.webp') }})
           center / cover no-repeat fixed,
           #D9D9D9;
         ">
             <div class="placement">
-                <h1>Hubungi Kami</h1>
+                <h1>@yield('title')</h1>
 
                 <div class="container mt-10">
                     <div class="contact-banner-detail">
@@ -44,7 +48,8 @@
                                     <i>call</i>
                                 </div>
                             </div>
-                            <a href="#">021 - 6258 518</a>
+                            <x-components::link.phone :value="env('CONTACT_PHONE')" :icon="''" />
+
                         </div>
                         <div class="contact-banner-flexview">
                             <div class="icon-wrapper">
@@ -52,9 +57,8 @@
                                     <i>location_on</i>
                                 </div>
                             </div>
-                            <a href="#">
-                                Jl. Pangeran Jayakarta No. 30 A <br />
-                                Jakarta Pusat 10730, Indonesia
+                            <a draggable="false" href="{{ route('index') }}" target="_blank">
+                                {!! env('CONTACT_ADDRESS') !!}
                             </a>
                         </div>
                         <div class="contact-banner-flexview">
@@ -63,7 +67,7 @@
                                     <i>mail</i>
                                 </div>
                             </div>
-                            <a href="#">info.pthmi@gmail.com</a>
+                            <x-components::link.email :value="env('CONTACT_EMAIL')" :icon="''" />
                         </div>
                     </div>
                 </div>
@@ -74,7 +78,9 @@
     <section id="contactForm">
         <div class="container mt-10">
             <div class="text-left">
-                <h2 class="page-heading-2 text-primaryBlack">Informasi Kontak Anda</h2>
+                <h2 class="page-heading-2 text-primaryBlack">
+                    Informasi Kontak Anda
+                </h2>
             </div>
             <div class="mb-10 divider"></div>
 

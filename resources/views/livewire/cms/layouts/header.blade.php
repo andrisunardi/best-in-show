@@ -9,7 +9,7 @@
 
             <a draggable="false" class="navbar-brand" href="{{ route('cms.index') }}" wire:navigate>
                 <img draggable="false" class="d-inline-block align-text-top" height="30"
-                    src="{{ asset('images/favicon.png') }}" alt="{{ trans('index.logo') }} - {{ env('APP_TITLE') }}">
+                    src="{{ asset('images/logo.png') }}" alt="{{ trans('index.logo') }} - {{ env('APP_TITLE') }}">
                 {{ env('APP_NAME') }}
             </a>
 

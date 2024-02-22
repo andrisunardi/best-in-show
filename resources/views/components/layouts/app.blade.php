@@ -14,9 +14,12 @@
 
     @stack('meta')
 
-    @vite('resources/css/app.css')
+    @if (Route::is('cms.*') || explode('.', request()->getHost())[1] == 'cms')
+    @else
+        @vite('resources/css/app.css')
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    @endif
 
     @if (Route::is('cms.*') || explode('.', request()->getHost())[1] == 'cms')
         @include('layouts.cms.vendors')
@@ -46,7 +49,10 @@
         @include('layouts.script')
     @endif
 
-    <script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
+    @if (Route::is('cms.*') || explode('.', request()->getHost())[1] == 'cms')
+    @else
+        <script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
+    @endif
 
     @stack('script')
 </body>
