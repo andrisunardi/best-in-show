@@ -3,7 +3,7 @@
     <div id="sidemenu" style="right: -100%;">
         <div class="p-4">
             <button type="button" id="sidemenu-close">
-                <i>{{ trans('index.close') }}</i>
+                <i>close</i>
             </button>
             <div class="clear-both"></div>
 
@@ -45,9 +45,7 @@
             <form class="navbar-form">
                 <div class="form-group">
                     <div class="icon-placeholder">
-                        <i class="material-icons rounded-icon">
-                            {{ trans('index.search') }}
-                        </i>
+                        <i class="material-icons rounded-icon">search</i>
                     </div>
                     <input type="text"
                         placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.or') }} {{ trans('index.article') }}" />
@@ -73,9 +71,7 @@
                     <form class="navbar-form">
                         <div class="form-group">
                             <div class="icon-placeholder">
-                                <i class="material-icons rounded-icon">
-                                    {{ trans('index.search') }}
-                                </i>
+                                <i class="material-icons rounded-icon">search</i>
                             </div>
                             <input type="text"
                                 placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.or') }} {{ trans('index.article') }}" />
@@ -85,7 +81,7 @@
                 </div>
                 <div class="block lg:hidden">
                     <button type="button" id="hamburger-button">
-                        <i>{{ trans('index.menu') }}</i>
+                        <i>menu</i>
                     </button>
                 </div>
             </div>
