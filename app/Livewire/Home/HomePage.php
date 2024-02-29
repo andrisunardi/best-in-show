@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Home;
 
+use App\Livewire\Component;
 use App\Models\Event;
 use App\Models\Promotion;
-use App\Livewire\Component;
 use App\Services\PetService;
 
 class HomePage extends Component

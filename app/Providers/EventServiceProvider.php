@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Contact;
 use App\Models\Setting;
 use App\Models\User;
+use App\Observers\ContactObserver;
 use App\Observers\PermissionObserver;
 use App\Observers\RoleObserver;
 use App\Observers\SettingObserver;
@@ -24,6 +26,7 @@ class EventServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        Contact::observe(ContactObserver::class);
         Permission::observe(PermissionObserver::class);
         Role::observe(RoleObserver::class);
         Setting::observe(SettingObserver::class);

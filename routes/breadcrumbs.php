@@ -42,6 +42,37 @@ Breadcrumbs::for('cms.index', function (BreadcrumbTrail $trail) {
     $trail->push(trans('index.home'), route('cms.index'), ['icon' => 'fas fa-home']);
 });
 
+// CONTACT
+Breadcrumbs::for('cms.contact.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.contact'), route('cms.contact.index'), ['icon' => 'fas fa-phone']);
+});
+
+Breadcrumbs::for('cms.contact.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.contact.index');
+    $trail->push(trans('index.add'), route('cms.contact.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.contact.clone', function (BreadcrumbTrail $trail, $contact) {
+    $trail->parent('cms.contact.index');
+    $trail->push(trans('index.clone'), route('cms.contact.clone', ['contact' => $contact]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.contact.edit', function (BreadcrumbTrail $trail, $contact) {
+    $trail->parent('cms.contact.index');
+    $trail->push(trans('index.edit'), route('cms.contact.edit', ['contact' => $contact]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.contact.view', function (BreadcrumbTrail $trail, $contact) {
+    $trail->parent('cms.contact.index');
+    $trail->push(trans('index.view'), route('cms.contact.view', ['contact' => $contact]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.contact.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.contact.index');
+    $trail->push(trans('index.trash'), route('cms.contact.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
 // CONFIGURATION
 Breadcrumbs::for('cms.configuration.index', function (BreadcrumbTrail $trail) {
     $trail->parent('cms.index');

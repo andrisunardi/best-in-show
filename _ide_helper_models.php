@@ -1,6 +1,7 @@
 <?php
 
 // @formatter:off
+// phpcs:ignoreFile
 /**
  * A helper file for your Eloquent Models
  * Copy the phpDocs from this file to the correct Model,
@@ -196,6 +197,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereUpdatedById($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereVideo($value)
  * @mixin \Eloquent
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
  */
 	class Event extends \Eloquent {}
 }
@@ -439,6 +442,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Pet whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pet whereUpdatedById($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pet whereYoutube($value)
+ * @property-read mixed $product_image_url
  * @mixin \Eloquent
  */
 	class Pet extends \Eloquent {}
@@ -725,6 +729,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereUpdatedById($value)
  * @mixin \Eloquent
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
  */
 	class Promotion extends \Eloquent {}
 }

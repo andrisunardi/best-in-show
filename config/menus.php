@@ -2,6 +2,16 @@
 
 return [
     [
+        'roles' => 'Super User|Admin|Contact',
+        'permissions' => 'Contact',
+        'name' => 'Contact',
+        'route' => 'cms.contact.index',
+        'icon' => 'fas fa-phone',
+        'table' => 'contacts',
+        'sidebar' => true,
+        'subMenus' => [],
+    ],
+    [
         'roles' => 'Super User',
         'permissions' => 'Configuration',
         'name' => 'Configuration',
