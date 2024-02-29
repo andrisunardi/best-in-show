@@ -146,7 +146,7 @@
                         <img src="{{ asset('assets/images/logo/blibli-logo.webp') }}" alt="Blibli">
                     </a>
                     <a href="https://www.tokopedia.com/" class="store">
-                        <img src="{{ asset('assets/images/logo/blibli-logo.webp') }}" alt="Blibli">
+                        <img src="{{ asset('assets/images/logo/lazada-logo.webp') }}" alt="Blibli">
                     </a>
                     <a href="https://www.tokopedia.com/" class="store">
                         <img src="{{ asset('assets/images/logo/shopee-logo.webp') }}" alt="Blibli">
@@ -166,15 +166,15 @@
 
                 <div class="mt-10">
                     <div class="sosmed-flex">
-                        <a href="#">
+                        <a href="https://www.instagram.com/">
                             <img src="assets/images/logo/instagram-logo.webp" alt="Instagram">
                             <p>Bestinshow.id</p>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/">
                             <img src="assets/images/logo/facebook-logo.webp" alt="Facebook">
                             <p>Best In Show Indonesia</p>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/">
                             <img src="assets/images/logo/youtube-logo.webp" alt="YouTube">
                             <p>Best In Show</p>
                         </a>
