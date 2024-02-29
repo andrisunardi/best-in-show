@@ -27,11 +27,11 @@
                             {{ trans('index.contact_us') }}
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a draggable="false" href="{{ route('where-to-buy') }}">
                             {{ trans('index.where_to_buy') }}
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a draggable="false" href="{{ route('faq') }}">
                             {{ trans('index.faq') }}

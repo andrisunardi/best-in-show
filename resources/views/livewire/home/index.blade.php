@@ -117,7 +117,8 @@
                     </div>
 
                     <div class="grid-item">
-                        <img src="images/thumbnail/sample-brand-info.png" class="w-52 mx-auto" alt="Info Kami">
+                        <img draggable="false" src="{{ asset('assets/images/thumbnail/sample-brand-info.png') }}"
+                            class="w-52 mx-auto" alt="Info Kami">
                     </div>
                 </div>
             </div>
