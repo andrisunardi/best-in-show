@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Support\Facades\App;
 
 /**
  * App\Models\Promotion
@@ -171,7 +172,7 @@ class Promotion extends Model
             return asset("images/promotion/{$this->image}");
         }
 
-        return asset('images/promotion.png');
+        return asset('images/image-not-available.png');
     }
 
     public function deleteImage()
@@ -191,4 +192,14 @@ class Promotion extends Model
     }
 
     public $appends = ['image_url'];
+
+    public function getTranslateNameAttribute()
+    {
+        return App::isLocale('en') ? $this->name : $this->name_idn;
+    }
+
+    public function getTranslateDescriptionAttribute()
+    {
+        return App::isLocale('en') ? $this->description : $this->description_idn;
+    }
 }

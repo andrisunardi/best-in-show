@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Support\Facades\App;
 
 /**
  * App\Models\Event
@@ -161,12 +162,12 @@ class Event extends Model
 
     public function altImage()
     {
-        return trans('index.banner')." - {$this->id} - ".env('APP_TITLE');
+        return trans('index.event')." - {$this->id} - ".env('APP_TITLE');
     }
 
     public function checkImage()
     {
-        if ($this->image && File::exists(public_path("images/banner/{$this->image}"))) {
+        if ($this->image && File::exists(public_path("images/event/{$this->image}"))) {
             return true;
         }
     }
@@ -174,23 +175,23 @@ class Event extends Model
     public function assetImage()
     {
         if ($this->checkImage()) {
-            return asset("images/banner/{$this->image}");
+            return asset("images/event/{$this->image}");
         }
 
-        return asset('images/banner.png');
+        return asset('images/image-not-available.png');
     }
 
     public function deleteImage()
     {
         if ($this->checkImage()) {
-            File::delete(public_path("images/banner/{$this->image}"));
+            File::delete(public_path("images/event/{$this->image}"));
         }
     }
 
     public function getImageUrlAttribute()
     {
         if ($this->checkImage()) {
-            return URL::to('/')."/images/banner/{$this->image}";
+            return URL::to('/')."/images/event/{$this->image}";
         }
 
         return null;
@@ -206,5 +207,15 @@ class Event extends Model
     public function eventVideos()
     {
         return $this->hasMany(EventVideo::class);
+    }
+
+    public function getTranslateNameAttribute()
+    {
+        return App::isLocale('en') ? $this->name : $this->name_idn;
+    }
+
+    public function getTranslateDescriptionAttribute()
+    {
+        return App::isLocale('en') ? $this->description : $this->description_idn;
     }
 }

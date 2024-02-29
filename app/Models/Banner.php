@@ -152,7 +152,7 @@ class Banner extends Model
             return asset("images/banner/{$this->image}");
         }
 
-        return asset('images/banner.png');
+        return asset('images/image-not-available.png');
     }
 
     public function deleteImage()

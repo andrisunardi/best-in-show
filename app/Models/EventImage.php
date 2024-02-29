@@ -152,7 +152,7 @@ class EventImage extends Model
             return asset("images/event/{$this->image}");
         }
 
-        return asset('images/event.png');
+        return asset('images/image-not-available.png');
     }
 
     public function deleteImage()

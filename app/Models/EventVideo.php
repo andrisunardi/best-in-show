@@ -152,7 +152,7 @@ class EventVideo extends Model
             return asset("videos/event/{$this->video}");
         }
 
-        return asset('videos/event.png');
+        return asset('videos/video.mp4');
     }
 
     public function deleteVideo()
