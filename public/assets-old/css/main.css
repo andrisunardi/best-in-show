@@ -81,10 +81,10 @@
     @apply flex items-center;
   }
   .breadcrumb ol li a {
-    @apply text-[#BDBDBD] hover:underline text-xs lg:text-base font-poppins-m;
+    @apply text-[#BDBDBD] hover:underline font-poppins-m;
   }
   .breadcrumb ol li span.current {
-    @apply text-primaryBlack text-xs lg:text-base font-poppins-m;
+    @apply text-primaryBlack font-poppins-m;
   }
 
   /* header */
@@ -195,30 +195,6 @@
   }
   .gridview-brand-info .grid-item .item-link {
     @apply underline text-primaryGray hover:text-primaryBlack duration-200 text-sm font-poppins-m;
-  }
-  .gridview-store {
-    @apply mt-6 grid grid-cols-2 lg:grid-cols-4 gap-4;
-  }
-  .gridview-store a.store {
-    @apply block w-full px-3 py-10 bg-gray-200 hover:scale-105 duration-200 rounded-[10px];
-  }
-  .gridview-store a.store img {
-    @apply w-2/3 mx-auto;
-  }
-  .sosmed-flex {
-    @apply flex flex-col lg:flex-row justify-center items-center gap-10;
-  }
-  .sosmed-flex a {
-    @apply flex items-center gap-2;
-  }
-  .sosmed-flex a:nth-child(2) {
-    @apply lg:border-x-4 lg:border-[#BDBDBD] lg:px-6;
-  }
-  .sosmed-flex a img {
-    @apply w-8;
-  }
-  .sosmed-flex a p {
-    @apply text-primaryGray font-poppins-sb;
   }
 
   /* about page */
@@ -398,121 +374,6 @@
     @apply material-icons rounded-icon text-xl lg:text-2xl;
   }
 
-  /* products page */
-  .btn-filter-product {
-    @apply p-1.5 rounded-[20px] shadow-shadowButton;
-  }
-  .btn-filter-product p {
-    @apply text-primaryBlack text-lg font-poppins-sb;
-  }
-  .filter-tag {
-    @apply hidden lg:block p-1.5 bg-primaryRed/15 rounded-[20px] border border-primaryRed shadow-shadowButton;
-  }
-  .filter-tag p {
-    @apply text-primaryBlack font-poppins-m;
-  }
-  .filter-tag button {
-    @apply text-2xl text-disabled;
-  }
-  .filter-card {
-    @apply w-full sticky top-0 left-0 py-3 px-4 rounded-[20px] shadow-shadowButton;
-  }
-  form.product-form h2 {
-    @apply text-primaryBlack text-base lg:text-xl font-poppins-sb;
-  }
-  form.product-form .form-group {
-    @apply mb-2 flex justify-between items-center;
-  }
-  form.product-form .form-group label {
-    @apply text-primaryBlack text-sm lg:text-lg font-poppins-m;
-  }
-  form.product-form input[type="text"] {
-  @apply w-full py-2 pr-2 pl-10 bg-[#F2F2F2] rounded-[10px] shadow-shadowButton outline-none focus:outline-blue-400 text-primaryBlack placeholder:text-primaryGray text-sm font-poppins-r;
-  }
-  form.product-form input[type="checkbox"] {
-  @apply accent-primaryRed size-5 cursor-pointer;
-  }
-  button.accordion {
-    @apply w-full py-2 border-t border-[#BDBDBD];
-  }
-  button.accordion:first-child {
-    @apply border-none;
-  }
-  button.accordion p {
-    @apply text-primaryBlack font-poppins-r;
-  }
-  button.accordion i.arrow {
-    @apply material-icons rounded-icon text-2xl text-primaryGray;
-  }
-  .gridview-product {
-    @apply grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4;
-  }
-  .gridview-product-item img {
-    @apply w-1/2 mx-auto;
-  }
-  .gridview-product-item a {
-    @apply text-primaryBlack hover:text-primaryRed hover:underline text-sm lg:text-lg font-poppins-m;
-  }
-  .gridview-product-item p {
-    @apply text-primaryBlack text-sm lg:text-lg font-poppins-sb;
-  }
-
-  /* product detail page */
-  .product-detail {
-    @apply flex flex-col lg:flex-row justify-between gap-8;
-  }
-  .product-detail .product-cover {
-    @apply w-full lg:w-1/3;
-  }
-  .product-detail .product-cover img {
-    @apply w-3/4 md:w-1/2 lg:w-full mx-auto p-6 rounded-[20px] shadow-shadowButton;
-  }
-  .product-detail .product-description {
-    @apply w-full lg:w-2/3;
-  }
-  .product-detail .product-description p.product-category {
-    @apply text-primaryGray text-sm lg:text-base font-poppins-r;
-  }
-  .product-detail .product-description h1.product-title {
-    @apply mt-3 text-primaryBlack text-2xl font-poppins-sb;
-  }
-  .product-detail .product-description p.product-caption {
-    @apply text-justify text-primaryBlack text-sm lg:text-base font-poppins-r;
-  }
-  .product-detail .product-description .product-variant {
-    @apply mb-6;
-  }
-  .product-detail .product-description .product-variant:last-child {
-    @apply mb-0;
-  }
-  .product-detail .product-description .product-variant h4 {
-    @apply mb-2 text-primaryBlack text-xl font-poppins-m;
-  }
-  .btn-product-variant {
-    @apply w-full py-3 px-2 bg-[#BDBDBD] hover:bg-primaryRed/75 duration-200 border-2 border-[#BDBDBD] rounded-full text-center text-primaryBlack text-sm lg:text-base font-poppins-r;
-  }
-  .btn-product-variant.active {
-    @apply bg-primaryRed/50 border-primaryRed font-poppins-m;
-  }
-  .btn-product-market {
-    @apply p-2 bg-transparent hover:bg-primaryGray/30 rounded-[20px] shadow-shadowButton duration-200;
-  }
-  .btn-product-market img {
-    @apply w-3/4 lg:w-1/2 mx-auto;
-  }
-  .gridview-product-detail {
-    @apply grid grid-cols-2 lg:grid-cols-5 gap-x-2 gap-y-6 lg:gap-x-4 lg:gap-y-4;
-  }
-  .gridview-product-detail-item img {
-    @apply w-3/4 p-3 lg:p-6 mx-auto shadow-shadowButton rounded-[20px];
-  }
-  .gridview-product-detail-item a {
-    @apply text-primaryBlack hover:text-primaryRed hover:underline text-sm lg:text-lg font-poppins-m;
-  }
-  .gridview-product-detail-item p {
-    @apply text-primaryBlack text-sm lg:text-lg font-poppins-sb;
-  }
-
   /* footer */
   footer {
     @apply mt-24 py-14 bg-primaryRed;
@@ -549,17 +410,6 @@
   }
   .footer-item ul.footer-company-detail li a, .footer-item ul.footer-company-detail li p {
     @apply text-primaryWhite hover:underline text-sm font-poppins-r;
-  }
-
-  /* modal */
-  .modal-wrapper {
-    @apply fixed inset-0 items-center justify-center z-50;
-  }
-  .modal-card {
-    @apply relative w-5/6 md:w-3/4 lg:w-1/3 xl:w-1/4 max-h-[90%] overflow-y-auto bg-primaryWhite p-6 rounded-lg shadow-lg;
-  }
-  button.close-modal {
-    @apply p-2 rounded-full;
   }
 }
 

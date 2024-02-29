@@ -124,4 +124,63 @@
             </div>
         </div>
     </section>
+
+    <section id="homeContact">
+        <div class="container mt-20">
+            <div class="text-center">
+                <h2 class="page-heading-2 text-secondaryRed">
+                    Temukan Produk BEST IN SHOW di Online Store <br />
+                    atau Toko-Toko Terdekat
+                </h2>
+            </div>
+
+            <div class="mt-10">
+                <div class="text-center">
+                    <p class="text-primaryGray text-sm lg:text-base font-poppins-sb">
+                        DAPATKAN DISKON DAN PROMO TERBAIK
+                    </p>
+                </div>
+
+                <div class="gridview-store">
+                    <a href="https://www.tokopedia.com/" class="store">
+                        <img src="{{ asset('assets/images/logo/blibli-logo.webp') }}" alt="Blibli">
+                    </a>
+                    <a href="https://www.tokopedia.com/" class="store">
+                        <img src="{{ asset('assets/images/logo/blibli-logo.webp') }}" alt="Blibli">
+                    </a>
+                    <a href="https://www.tokopedia.com/" class="store">
+                        <img src="{{ asset('assets/images/logo/shopee-logo.webp') }}" alt="Blibli">
+                    </a>
+                    <a href="https://www.tokopedia.com/" class="store">
+                        <img src="{{ asset('assets/images/logo/tokopedia-logo.webp') }}" alt="Blibli">
+                    </a>
+                </div>
+
+                <div class="my-10">
+                    <hr class="border-t-4 border-[#BDBDBD]" />
+                </div>
+
+                <div class="text-center">
+                    <h3 class="page-heading-2 text-primaryBlack">Sosial Media</h3>
+                </div>
+
+                <div class="mt-10">
+                    <div class="sosmed-flex">
+                        <a href="#">
+                            <img src="assets/images/logo/instagram-logo.webp" alt="Instagram">
+                            <p>Bestinshow.id</p>
+                        </a>
+                        <a href="#">
+                            <img src="assets/images/logo/facebook-logo.webp" alt="Facebook">
+                            <p>Best In Show Indonesia</p>
+                        </a>
+                        <a href="#">
+                            <img src="assets/images/logo/youtube-logo.webp" alt="YouTube">
+                            <p>Best In Show</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>

@@ -164,13 +164,13 @@
 
                     <div class="flex justify-center items-center gap-20">
                         <button type="button">
-                            <img src="images/icons/question.svg" />
+                            <img src="{{ asset('assets/images/icons/question.svg') }}" />
                         </button>
                         <button type="button">
-                            <img src="images/icons/thumbs-up.svg" />
+                            <img src="{{ asset('assets/images/icons/thumbs-up.svg') }}" />
                         </button>
                         <button type="button">
-                            <img src="images/icons/thumbs-down.svg" />
+                            <img src="{{ asset('assets/images/icons/thumbs-down.svg') }}" />
                         </button>
                     </div>
                 </div>
