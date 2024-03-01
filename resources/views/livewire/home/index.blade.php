@@ -165,21 +165,26 @@
                 </div>
 
                 <div class="text-center">
-                    <h3 class="page-heading-2 text-primaryBlack">Sosial Media</h3>
+                    <h3 class="page-heading-2 text-primaryBlack">
+                        {{ trans('index.social_media') }}
+                    </h3>
                 </div>
 
                 <div class="mt-10">
                     <div class="sosmed-flex">
-                        <a href="https://www.instagram.com/">
-                            <img src="assets/images/logo/instagram-logo.webp" alt="Instagram">
+                        <a draggable="false" href="{{ env('LINK_SOCIAL_MEDIA_INSTAGRAM') }}" target="_blank">
+                            <img draggable="false" src="{{ asset('assets/images/logo/instagram-logo.webp') }}"
+                                alt="Instagram - {{ env('APP_TITLE') }}">
                             <p>Bestinshow.id</p>
                         </a>
-                        <a href="https://www.instagram.com/">
-                            <img src="assets/images/logo/facebook-logo.webp" alt="Facebook">
+                        <a draggable="false" href="{{ env('LINK_SOCIAL_MEDIA_FACEBOOK') }}" target="_blank">
+                            <img draggable="false" src="{{ asset('assets/images/logo/facebook-logo.webp') }}"
+                                alt="Facebook - {{ env('APP_TITLE') }}">
                             <p>Best In Show Indonesia</p>
                         </a>
-                        <a href="https://www.instagram.com/">
-                            <img src="assets/images/logo/youtube-logo.webp" alt="YouTube">
+                        <a draggable="false" href="{{ env('LINK_SOCIAL_MEDIA_YOUTUBE') }}" target="_blank">
+                            <img draggable="false" src="{{ asset('assets/images/logo/youtube-logo.webp') }}"
+                                alt="YouTube - {{ env('APP_TITLE') }}">
                             <p>Best In Show</p>
                         </a>
                     </div>
