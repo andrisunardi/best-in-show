@@ -6,22 +6,14 @@
         <div class="container">
             <div class="text-center">
                 <h1 class="page-heading-1 text-secondaryRed">
-                    @if (App::isLocale('en'))
-                        Trust Your Animal's Life To
-                    @else
-                        Percayakan Kehidupan Hewan Anda Pada
-                    @endif
+                    {{ App::isLocale('en') ? "Trust Your Animal's Life To" : 'Percayakan Kehidupan Hewan Anda Pada' }}
                     <br />
                     {{ trans('index.product') }} {{ env('APP_NAME') }}
                 </h1>
             </div>
             <div class="mt-4 text-center">
                 <h4 class="text-primaryBlack font-poppins-r">
-                    @if (App::isLocale('en'))
-                        Discover the Differences You Can See and Feel in Your Favorite Animal
-                    @else
-                        Temukan Perbedaan yang Dapat Dilihat dan Dirasakan pada Hewan Kesayangan Anda
-                    @endif
+                    {{ App::isLocale('en') ? 'Discover the Differences You Can See and Feel in Your Favorite Animal' : 'Temukan Perbedaan yang Dapat Dilihat dan Dirasakan pada Hewan Kesayangan Anda' }}
                 </h4>
             </div>
             <div class="mt-4">
@@ -35,7 +27,10 @@
                 </div>
             </div>
             <div class="mt-8">
-                <img draggable="false" src="{{ asset('assets/images/banner/pet-categories.webp') }}" class="w-full" />
+                <a draggable="false" href="{{ route('pet.index') }}">
+                    <img draggable="false" src="{{ asset('assets/images/banner/pet-categories.webp') }}" class="w-full"
+                        alt="Pet Categories - {{ env('APP_TITLE') }}" />
+                </a>
             </div>
         </div>
     </section>
@@ -119,8 +114,10 @@
                     </div>
 
                     <div class="grid-item">
-                        <img draggable="false" src="{{ asset('assets/images/thumbnail/sample-brand-info.png') }}"
-                            class="w-52 mx-auto" alt="Info Kami">
+                        <a draggable="false" href="{{ route('pet.index') }}">
+                            <img draggable="false" src="{{ asset('assets/images/thumbnail/sample-brand-info.png') }}"
+                                class="w-52 mx-auto" alt="Info Kami">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -131,8 +128,9 @@
         <div class="container mt-20">
             <div class="text-center">
                 <h2 class="page-heading-2 text-secondaryRed">
-                    Temukan Produk BEST IN SHOW di Online Store <br />
-                    atau Toko-Toko Terdekat
+                    {{ App::isLocale('en') ? 'Find the BEST IN SHOW Products in the Online Store' : 'Temukan Produk BEST IN SHOW di Online Store' }}
+                    <br />
+                    {{ App::isLocale('en') ? 'or Nearest Shops' : 'atau Toko-Toko Terdekat' }}
                 </h2>
             </div>
 
@@ -144,17 +142,21 @@
                 </div>
 
                 <div class="gridview-store">
-                    <a href="https://www.tokopedia.com/" class="store">
-                        <img src="{{ asset('assets/images/logo/blibli-logo.webp') }}" alt="Blibli">
+                    <a draggable="false" href="{{ env('LINK_SHOP_BLIBLI') }}" class="store" target="_blank">
+                        <img draggable="false" src="{{ asset('assets/images/logo/blibli-logo.webp') }}"
+                            alt="Blibli - {{ env('APP_TITLE') }}">
                     </a>
-                    <a href="https://www.tokopedia.com/" class="store">
-                        <img src="{{ asset('assets/images/logo/lazada-logo.webp') }}" alt="Blibli">
+                    <a draggable="false" href="{{ env('LINK_SHOP_LAZADA') }}" class="store" target="_blank">
+                        <img draggable="false" src="{{ asset('assets/images/logo/lazada-logo.webp') }}"
+                            alt="Lazada - {{ env('APP_TITLE') }}">
                     </a>
-                    <a href="https://www.tokopedia.com/" class="store">
-                        <img src="{{ asset('assets/images/logo/shopee-logo.webp') }}" alt="Blibli">
+                    <a draggable="false" href="{{ env('LINK_SHOP_SHOPEE') }}" class="store" target="_blank">
+                        <img draggable="false" src="{{ asset('assets/images/logo/shopee-logo.webp') }}"
+                            alt="Shopee - {{ env('APP_TITLE') }}">
                     </a>
-                    <a href="https://www.tokopedia.com/" class="store">
-                        <img src="{{ asset('assets/images/logo/tokopedia-logo.webp') }}" alt="Blibli">
+                    <a draggable="false" href="{{ env('LINK_SHOP_TOKOPEDIA') }}" class="store" target="_blank">
+                        <img draggable="false" src="{{ asset('assets/images/logo/tokopedia-logo.webp') }}"
+                            alt="Tokopedia - {{ env('APP_TITLE') }}">
                     </a>
                 </div>
 
