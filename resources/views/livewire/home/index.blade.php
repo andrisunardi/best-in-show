@@ -139,7 +139,7 @@
             <div class="mt-10">
                 <div class="text-center">
                     <p class="text-primaryGray text-sm lg:text-base font-poppins-sb">
-                        DAPATKAN DISKON DAN PROMO TERBAIK
+                        {{ App::isLocale('en') ? 'GET THE BEST DISCOUNTS AND PROMOS' : 'DAPATKAN DISKON DAN PROMO TERBAIK' }}
                     </p>
                 </div>
 
