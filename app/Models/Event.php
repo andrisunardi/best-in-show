@@ -99,7 +99,7 @@ class Event extends Model
     protected $table = 'events';
 
     protected $casts = [
-        'name' => 'integer',
+        'name' => 'string',
         'name_idn' => 'string',
         'description' => 'string',
         'description_idn' => 'string',

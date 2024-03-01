@@ -89,30 +89,32 @@
             <div class="mt-6">
                 <div class="gridview-brand-info">
                     <div class="grid-item">
-                        <p class="item-title">SUPER PREMIUM</p>
+                        <p class="item-title">{{ $latestEvent->translate_name }}</p>
                         <div class="mt-4">
                             <p class="item-caption">
-                                Lorem ipsum dolor sit amet consectetur. Sit in feugiat tempus sit rhoncus orci aliquam.
-                                Fringilla neque fringilla suspendisse velit sed volutpat. Sit nisi integer rhoncus quis
-                                dolor phasellus varius semper consequat. Tincidunt
+                                {!! Str::limit(strip_tags($latestEvent->translate_description), 200) !!}
                             </p>
                         </div>
                         <div class="mt-6">
-                            <a href="#" class="item-link">Check Our Blog</a>
+                            <a draggable="false" href="{{ route('promotion.view', ['slug' => $latestEvent->slug]) }}"
+                                class="item-link">
+                                {{ App::isLocale('en') ? 'Check Our Latest Event' : 'Lihat Kegiatan Terbaru Kami' }}
+                            </a>
                         </div>
                     </div>
 
                     <div class="grid-item">
-                        <p class="item-title">SUPER PREMIUM</p>
+                        <p class="item-title">{{ $latestPromotion->translate_name }}</p>
                         <div class="mt-4">
                             <p class="item-caption">
-                                Lorem ipsum dolor sit amet consectetur. Sit in feugiat tempus sit rhoncus orci aliquam.
-                                Fringilla neque fringilla suspendisse velit sed volutpat. Sit nisi integer rhoncus quis
-                                dolor phasellus varius semper consequat. Tincidunt
+                                {!! Str::limit(strip_tags($latestPromotion->translate_description), 200) !!}
                             </p>
                         </div>
                         <div class="mt-6">
-                            <a href="#" class="item-link">Check Our Blog</a>
+                            <a draggable="false" href="{{ route('promotion.view', ['slug' => $latestEvent->slug]) }}"
+                                class="item-link">
+                                {{ App::isLocale('en') ? 'Check Our Latest Promotion' : 'Lihat Promosi Terbaru Kami' }}
+                            </a>
                         </div>
                     </div>
 
