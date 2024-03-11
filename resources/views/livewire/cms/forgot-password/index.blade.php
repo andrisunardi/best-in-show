@@ -57,7 +57,8 @@
                                 &copy; {{ trans('index.copyright') }}
                                 {{ env('APP_YEAR') && env('APP_YEAR') != now()->year ? env('APP_YEAR') . ' - ' : null }}
                                 {{ now()->year }} &reg;
-                                <a draggable="false" href="{{ route('index') }}" target="_blank" class="text-body text-decoration-none">
+                                <a draggable="false" href="{{ route('index') }}" target="_blank"
+                                    class="text-body text-decoration-none">
                                     <strong>{{ env('APP_NAME') }}</strong>&trade;
                                 </a>
                                 <br />

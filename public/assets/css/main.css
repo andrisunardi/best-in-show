@@ -63,7 +63,7 @@
   #overlay {
     @apply fixed inset-0 bg-black/60 z-40;
   }
-  
+
   .global-banner {
     @apply relative w-full h-[300px] md:h-[415px];
   }
@@ -131,6 +131,21 @@
   ul.menu-list li a:hover {
     box-shadow: inset 200px 0 0 0 #EA3223;;
   }
+  ul.menu-list li.dropdown {
+    @apply relative;
+  }
+  ul.menu-list li.dropdown .dropdown-content {
+    @apply hidden absolute w-40 bg-primaryWhite shadow-shadowButton;
+  }
+  ul.menu-list li.dropdown .dropdown-content a {
+    @apply block text-primaryBlack py-3 px-4;
+  }
+  ul.menu-list li.dropdown:hover .dropdown-content {
+    @apply block;
+  }
+  ul.menu-list li.dropdown:hover .dropdown-trigger {
+    @apply bg-[#EA3223];
+  }
   button#hamburger-button {
     @apply text-primaryBlack;
   }
@@ -154,6 +169,12 @@
   }
   ul.sidemenu-list li a {
     @apply text-primaryBlack font-poppins-sb;
+  }
+  .lang-selector a {
+    @apply text-primaryBlack text-sm font-poppins-r;
+  }
+  .lang-selector a.active {
+    @apply text-primaryRed text-sm font-poppins-sb;
   }
 
   /* home page */
@@ -266,7 +287,7 @@
   .article-latest-preview {
     @apply text-disabled text-sm md:text-base font-poppins-r;
   }
-  
+
   /* article detail page */
   .article-detail-cover {
     @apply bg-no-repeat bg-center bg-cover w-full aspect-wide rounded-[20px];
@@ -406,7 +427,7 @@
     @apply text-primaryBlack text-lg font-poppins-sb;
   }
   .filter-tag {
-    @apply hidden lg:block p-1.5 bg-primaryRed/15 rounded-[20px] border border-primaryRed shadow-shadowButton;
+    @apply hidden lg:block p-1.5 bg-primaryRed/20 rounded-[20px] border border-primaryRed shadow-shadowButton;
   }
   .filter-tag p {
     @apply text-primaryBlack font-poppins-m;
@@ -430,7 +451,7 @@
   @apply w-full py-2 pr-2 pl-10 bg-[#F2F2F2] rounded-[10px] shadow-shadowButton outline-none focus:outline-blue-400 text-primaryBlack placeholder:text-primaryGray text-sm font-poppins-r;
   }
   form.product-form input[type="checkbox"] {
-  @apply accent-primaryRed size-5 cursor-pointer;
+  @apply accent-primaryRed w-5 h-5 cursor-pointer;
   }
   button.accordion {
     @apply w-full py-2 border-t border-[#BDBDBD];

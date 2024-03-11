@@ -40,6 +40,19 @@
                         {{ trans('index.contact_us') }}
                     </a>
                 </li>
+                <li>
+                    <div class="lang-selector">
+                        <a draggable="false" href="{{ route('locale', ['locale' => 'id']) }}"
+                            class="{{ App::isLocale('en') ? null : 'active' }}">
+                            ID
+                        </a>
+                        <span>/</span>
+                        <a draggable="false" href="{{ route('locale', ['locale' => 'en']) }}"
+                            class="{{ App::isLocale('en') ? 'active' : null }}">
+                            EN
+                        </a>
+                    </div>
+                </li>
             </ul>
 
             <form class="navbar-form">
@@ -69,16 +82,30 @@
 
                 <div class="hidden lg:block w-2/6">
                     <form class="navbar-form">
-                        <div class="form-group">
-                            <div class="icon-placeholder">
-                                <i class="material-icons rounded-icon">search</i>
+                        <div class="flex items-center gap-4">
+                            <div class="lang-selector">
+                                <a draggable="false" href="{{ route('locale', ['locale' => 'id']) }}"
+                                    class="{{ App::isLocale('en') ? null : 'active' }}">
+                                    ID
+                                </a>
+                                <span>/</span>
+                                <a draggable="false" href="{{ route('locale', ['locale' => 'en']) }}"
+                                    class="{{ App::isLocale('en') ? 'active' : null }}">
+                                    EN
+                                </a>
                             </div>
-                            <input type="text"
-                                placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.or') }} {{ trans('index.article') }}" />
+                            <div class="form-group">
+                                <div class="icon-placeholder">
+                                    <i class="material-icons rounded-icon">search</i>
+                                </div>
+                                <input type="text"
+                                    placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.or') }} {{ trans('index.article') }}" />
+                            </div>
                         </div>
                     </form>
                     <div class="clear-both"></div>
                 </div>
+
                 <div class="block lg:hidden">
                     <button type="button" id="hamburger-button">
                         <i>menu</i>

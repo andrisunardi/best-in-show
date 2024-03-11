@@ -1,4 +1,4 @@
-<footer>
+<footer class="pb-20">
     <div class="container">
         <div class="flexview-footer">
             <div class="footer-item">
@@ -95,6 +95,25 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="mt-20 text-center">
+            <p class="text-primaryWhite text-sm font-poppins-r">
+                &copy; {{ trans('index.copyright') }}
+                {{ env('APP_YEAR') && env('APP_YEAR') != now()->year ? env('APP_YEAR') . ' - ' : null }}
+                {{ now()->year }} &reg;
+                <a draggable="false" href="{{ route('index') }}" target="_blank">
+                    <strong><span class="font-poppins-sb">{{ env('APP_NAME') }}</span></strong>&trade;
+                </a>
+                {{ trans('index.all_rights_reserved') }}.
+            </p>
+            <p class="mt-2 text-primaryWhite text-sm font-poppins-r">
+                {{ trans('index.created_and_designed_by') }}
+                <a draggable="false" href="https://www.diw.co.id" target="_blank">
+                    <img draggable="false" src="{{ asset('images/icon-diw.co.id.png') }}" class="inline-block w-20"
+                        alt="Icon DIW.co.id" title="{{ trans('index.created_and_designed_by') }} DIW.co.id">
+                </a>
+            </p>
         </div>
     </div>
 </footer>
