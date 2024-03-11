@@ -29,15 +29,15 @@
                 </button>
                 <button id="btn-aboutPinter" type="button" class="btn-about-tab"
                     onclick="switchSection('aboutPinter')">
-                    Pinter
+                    {{ App::isLocale('en') ? 'Smart' : 'Pinter' }}
                 </button>
                 <button id="btn-aboutDistribution" type="button" class="btn-about-tab"
                     onclick="switchSection('aboutDistribution')">
-                    Area Distribusi
+                    {{ App::isLocale('en') ? 'Distribution Aera' : 'Area Distribusi' }}
                 </button>
                 <button id="btn-aboutWarehouse" type="button" class="btn-about-tab"
                     onclick="switchSection('aboutWarehouse')">
-                    Gudang Kami
+                    {{ App::isLocale('en') ? 'Our Warehouse' : 'Gudang Kami' }}
                 </button>
             </div>
         </div>

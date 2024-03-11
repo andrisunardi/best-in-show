@@ -57,7 +57,7 @@
                                     <i>location_on</i>
                                 </div>
                             </div>
-                            <a draggable="false" href="{{ route('index') }}" target="_blank">
+                            <a draggable="false" href="{{ env('CONTACT_GOOGLE_MAPS') }}" target="_blank">
                                 {!! env('CONTACT_ADDRESS') !!}
                             </a>
                         </div>
@@ -79,7 +79,7 @@
         <div class="container mt-10">
             <div class="text-left">
                 <h2 class="page-heading-2 text-primaryBlack">
-                    Informasi Kontak Anda
+                    {{ App::isLocale('en') ? 'Your Contact Information' : 'Informasi Kontak Anda' }}
                 </h2>
             </div>
             <div class="mb-10 divider"></div>
@@ -88,17 +88,28 @@
                 <div class="contact-form-card">
                     <div class="gridview-contact">
                         <div class="form-group">
-                            <label for="contact-fname">Nama Depan Anda <span class="asterisk"></span></label>
-                            <input id="contact-fname" type="text" placeholder="Ketik Disini..." />
+                            <label for="first_name">
+                                {{ App::isLocale('en') ? 'Your First Name' : 'Nama Depan Anda' }}
+                                <span class="asterisk"></span>
+                            </label>
+                            <input wire:model="first_name" id="first_name" name="first_name" type="text"
+                                placeholder="{{ App::isLocale('en') ? 'Type Here' : 'Ketik Disini' }}..." />
                         </div>
 
                         <div class="form-group">
-                            <label for="contact-lname">Nama Belakang Anda <span class="asterisk"></span></label>
-                            <input id="contact-lname" type="text" placeholder="Ketik Disini..." />
+                            <label for="last_name">
+                                {{ App::isLocale('en') ? 'Your Last Name' : 'Nama Belakang Anda' }}
+                                <span class="asterisk"></span>
+                            </label>
+                            <input wire:model="last_name" id="last_name" name="last_name" type="text"
+                                placeholder="{{ App::isLocale('en') ? 'Type Here' : 'Ketik Disini' }}..." />
                         </div>
 
                         <div class="form-group">
-                            <label for="contact-email">Email Anda <span class="asterisk"></span></label>
+                            <label for="email">
+                                {{ App::isLocale('en') ? 'Your Email' : 'Email Anda' }}
+                                <span class="asterisk"></span>
+                            </label>
                             <input id="contact-email" type="email" placeholder="Ketik Disini..." />
                         </div>
 
@@ -177,8 +188,12 @@
 
                 <div class="mt-10 lg:float-right">
                     <div class="flex max-lg:justify-between items-center gap-6">
-                        <button type="button" class="btn-contact cancel">Batalkan</button>
-                        <button type="button" class="btn-contact send">Kirim Pesan</button>
+                        <button type="button" class="btn-contact cancel">
+                            {{ trans('index.cancel') }}
+                        </button>
+                        <button type="button" class="btn-contact send">
+                            {{ trans('index.send_message') }}
+                        </button>
                     </div>
                 </div>
                 <div class="clear-both"></div>
