@@ -26,8 +26,13 @@
                     </a>
                 </li>
                 <li>
-                    <a draggable="false" class="uppercase" href="#">
-                        {{ trans('index.others') }}
+                    <a draggable="false" class="uppercase" href="{{ route('promotion.index') }}">
+                        {{ trans('index.promotion') }}
+                    </a>
+                </li>
+                <li>
+                    <a draggable="false" class="uppercase" href="{{ route('article.index') }}">
+                        {{ trans('index.article') }}
                     </a>
                 </li>
                 <li>
@@ -134,10 +139,16 @@
                     </a>
                 </li>
                 <li class="dropdown" style="z-index: 1">
-                    <a draggable="false" href="javsacript:;" class="dropdown-trigger">{{ trans('index.others') }}</a>
+                    <a draggable="false" href="javsacript:;" class="dropdown-trigger uppercase">
+                        {{ trans('index.others') }}
+                    </a>
                     <div class="dropdown-content">
-                        <a draggable="false" href="{{ route('promotion.index') }}">{{ trans('index.promotion') }}</a>
-                        <a draggable="false" href="{{ route('article.index') }}">{{ trans('index.article') }}</a>
+                        <a draggable="false" class="uppercase" href="{{ route('promotion.index') }}">
+                            {{ trans('index.promotion') }}
+                        </a>
+                        <a draggable="false" class="uppercase" href="{{ route('article.index') }}">
+                            {{ trans('index.article') }}
+                        </a>
                     </div>
                 </li>
                 <li>
