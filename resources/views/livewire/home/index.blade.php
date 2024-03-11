@@ -187,6 +187,11 @@
                                 alt="YouTube - {{ env('APP_TITLE') }}">
                             <p>Best In Show</p>
                         </a>
+                        <a draggable="false" href="{{ env('LINK_SOCIAL_MEDIA_TIKTOK') }}" target="_blank">
+                            <img draggable="false" src="{{ asset('assets/images/logo/tiktok-logo.png') }}"
+                                alt="Tiktok - {{ env('APP_TITLE') }}">
+                            <p>bestinshow_id</p>
+                        </a>
                     </div>
                 </div>
             </div>
