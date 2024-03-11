@@ -47,10 +47,15 @@
                         <a draggable="false" href="{{ route('promotion.view', ['slug' => $promotion->slug]) }}">
                             <img draggable="false" src="{{ $promotion->assetImage() }}"
                                 alt="{{ $promotion->translate_name }}" />
-                            <div class="mt-3">
-                                <p class="promo-date">{{ $promotion->date->isoFormat('LL') }}</p>
-                                <p class="promo-title">{{ $promotion->translate_name }}</p>
-                            </div>
+                        </a>
+                        <div class="mt-3">
+                            <p class="promo-date">{{ $promotion->date->isoFormat('LL') }}</p>
+                            <p class="promo-title">
+                                <a draggable="false" href="{{ route('promotion.view', ['slug' => $promotion->slug]) }}">
+                                    {{ $promotion->translate_name }}
+                                </a>
+                            </p>
+                        </div>
                         </a>
                     </div>
                 @endforeach

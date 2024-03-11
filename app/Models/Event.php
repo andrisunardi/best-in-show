@@ -104,6 +104,7 @@ class Event extends Model
         'description' => 'string',
         'description_idn' => 'string',
         'date' => 'date',
+        'location' => 'string',
         'image' => 'string',
         'slug' => 'string',
         'is_active' => 'boolean',
@@ -118,6 +119,7 @@ class Event extends Model
         'description',
         'description_idn',
         'date',
+        'location',
         'image',
         'slug',
         'is_active',
@@ -200,7 +202,44 @@ class Event extends Model
         return null;
     }
 
-    public $appends = ['image_url'];
+    public function altVideo()
+    {
+        return trans('index.event')." - {$this->id} - ".env('APP_TITLE');
+    }
+
+    public function checkVideo()
+    {
+        if ($this->video && File::exists(public_path("videos/event/{$this->video}"))) {
+            return true;
+        }
+    }
+
+    public function assetVideo()
+    {
+        if ($this->checkVideo()) {
+            return asset("videos/event/{$this->video}");
+        }
+
+        return asset('videos/video-not-available.png');
+    }
+
+    public function deleteVideo()
+    {
+        if ($this->checkVideo()) {
+            File::delete(public_path("videos/event/{$this->video}"));
+        }
+    }
+
+    public function getVideoUrlAttribute()
+    {
+        if ($this->checkVideo()) {
+            return URL::to('/')."/videos/event/{$this->video}";
+        }
+
+        return null;
+    }
+
+    public $appends = ['image_url', 'video_url'];
 
     public function eventImages()
     {

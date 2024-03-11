@@ -19,6 +19,7 @@
         @vite('resources/css/app.css')
 
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}">
     @endif
 
     @if (Route::is('cms.*') || explode('.', request()->getHost())[1] == 'cms')
@@ -51,7 +52,10 @@
 
     @if (Route::is('cms.*') || explode('.', request()->getHost())[1] == 'cms')
     @else
+        @vite('resources/js/app.js')
+
         <script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     @endif
 
     @stack('script')

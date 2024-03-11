@@ -124,6 +124,47 @@
         </div>
     </section>
 
+    <section id="homeActivities">
+        <div class="relative container mt-20">
+            <div class="text-center">
+                <h2 class="page-heading-2 text-primaryBlack">Kegiatan Kami</h2>
+            </div>
+
+            <div class="mt-10 flex justify-between items-center gap-4 lg:gap-6">
+                <button type="button" class="articles-arrow articles-arrow-prev">
+                    <i class="material-icons rounded-icon">chevron_left</i>
+                </button>
+                <div class="swiper swiper-articles">
+                    <div class="swiper-wrapper">
+                        @foreach ($events as $event)
+                            <div class="swiper-slide article-item">
+                                <div class="article-image-thumbnail"
+                                    style="background: url({{ $event->assetImage() }}) center / cover no-repeat;">
+                                </div>
+
+                                <div class="mt-3">
+                                    <p class="article-latest-date">{{ $event->date->isoFormat('LL') }}</p>
+                                    <h2 class="article-latest-title">{{ $event->translate_name }}</h2>
+                                    <p class="article-latest-preview">
+                                        Lorem ipsum dolor sit amet consectetur.
+                                        Elit parturient in lorem urna sagittis a sit amet.
+                                        Arcu bibendum sagittis mattis rhoncus diam semper cras eget quis.
+                                        Adipiscing rutrum dui eros dictum commodo tincidunt venenatis.
+                                        Viverra adipiscing netus eget placerat aenean...
+                                        <a href="#" class="article-readmore">Read More</a>
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <button type="button" class="articles-arrow articles-arrow-next">
+                    <i class="material-icons rounded-icon">chevron_right</i>
+                </button>
+            </div>
+        </div>
+    </section>
+
     <section id="homeContact">
         <div class="container mt-20">
             <div class="text-center">

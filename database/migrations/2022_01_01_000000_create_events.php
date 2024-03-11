@@ -15,6 +15,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->text('description_idn')->nullable();
             $table->date('date')->nullable();
+            $table->string('location', 100)->nullable();
             $table->string('image', 130)->unique()->nullable();
             $table->string('video', 130)->unique()->nullable();
             $table->string('slug', 100)->unique()->nullable();

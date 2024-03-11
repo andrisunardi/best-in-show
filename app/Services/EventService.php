@@ -14,10 +14,9 @@ class EventService
         string $name_idn = '',
         string $description = '',
         string $description_idn = '',
+        string $location = '',
         string $date = '',
         array $is_active = [],
-        string|int $role_id = '',
-        string $permission_name = '',
         string $orderBy = 'id',
         string $sortBy = 'desc',
         bool $paginate = true,
@@ -27,10 +26,11 @@ class EventService
         $events = Event::query()
             ->when($name, fn ($q) => $q->where('name', 'LIKE', "%{$name}%"))
             ->when($name_idn, fn ($q) => $q->where('name_idn', 'LIKE', "%{$name_idn}%"))
-            ->when($youtube, fn ($q) => $q->where('youtube', 'LIKE', "%{$youtube}%"))
+            ->when($description, fn ($q) => $q->where('description', 'LIKE', "%{$description}%"))
+            ->when($description_idn, fn ($q) => $q->where('description_idn', 'LIKE', "%{$description_idn}%"))
+            ->when($location, fn ($q) => $q->where('location', 'LIKE', "%{$location}%"))
+            ->when($date, fn ($q) => $q->whereDate('date', $date))
             ->when($is_active, fn ($q) => $q->whereIn('is_active', $is_active))
-            ->when($role_id, fn ($q) => $q->role($role_id))
-            ->when($permission_name, fn ($q) => $q->permission($permission_name))
             ->when($trash, fn ($q) => $q->onlyTrashed())
             ->orderBy($orderBy, $sortBy);
 
@@ -43,14 +43,6 @@ class EventService
 
     public function add(array $data = []): Event
     {
-        $data['product_image'] = LivewireUpload::upload(
-            file: $data['product_image'],
-            name: $data['name'],
-            disk: 'images',
-            directory: 'product-image',
-            deleteAsset: false,
-        );
-
         $data['image'] = LivewireUpload::upload(
             file: $data['image'],
             name: $data['name'],
@@ -58,6 +50,16 @@ class EventService
             directory: 'event',
             deleteAsset: false,
         );
+
+        $data['video'] = LivewireUpload::upload(
+            file: $data['video'],
+            name: $data['name'],
+            disk: 'videos',
+            directory: 'event',
+            deleteAsset: false,
+        );
+
+        $data['slug'] = Str::slug($data['name']);
 
         $event = Event::create($data);
 
@@ -66,16 +68,6 @@ class EventService
 
     public function clone(array $data, Event $event): Event
     {
-        $data['product_image'] = LivewireUpload::upload(
-            file: $data['product_image'],
-            name: $data['name'],
-            disk: 'images',
-            directory: 'product-image',
-            checkAsset: $event->checkProductImage(),
-            fileAsset: $event->image,
-            deleteAsset: false,
-        );
-
         $data['image'] = LivewireUpload::upload(
             file: $data['image'],
             name: $data['name'],
@@ -85,6 +77,18 @@ class EventService
             fileAsset: $event->image,
             deleteAsset: false,
         );
+
+        $data['video'] = LivewireUpload::upload(
+            file: $data['video'],
+            name: $data['name'],
+            disk: 'videos',
+            directory: 'event',
+            checkAsset: $event->checkVideo(),
+            fileAsset: $event->video,
+            deleteAsset: false,
+        );
+
+        $data['slug'] = Str::slug($data['name']);
 
         $event = Event::create($data);
 
@@ -93,16 +97,6 @@ class EventService
 
     public function edit(Event $event, array $data = []): Event
     {
-        $data['product_image'] = LivewireUpload::upload(
-            file: $data['product_image'],
-            name: $data['name'],
-            disk: 'images',
-            directory: 'product-image',
-            checkAsset: $event->checkProductImage(),
-            fileAsset: $event->image,
-            deleteAsset: true,
-        );
-
         $data['image'] = LivewireUpload::upload(
             file: $data['image'],
             name: $data['name'],
@@ -112,6 +106,18 @@ class EventService
             fileAsset: $event->image,
             deleteAsset: true,
         );
+
+        $data['video'] = LivewireUpload::upload(
+            file: $data['video'],
+            name: $data['name'],
+            disk: 'videos',
+            directory: 'event',
+            checkAsset: $event->checkVideo(),
+            fileAsset: $event->video,
+            deleteAsset: true,
+        );
+
+        $data['slug'] = Str::slug($data['name']);
 
         $event->update($data);
         $event->refresh();
@@ -128,22 +134,22 @@ class EventService
         return $event;
     }
 
-    public function deleteProductImage(Event $event)
+    public function deleteImage(Event $event)
     {
-        $event->deleteProductImage();
+        $event->deleteImage();
 
-        $event->product_image = null;
+        $event->image = null;
         $event->save();
         $event->refresh();
 
         return $event;
     }
 
-    public function deleteImage(Event $event)
+    public function deleteVideo(Event $event)
     {
-        $event->deleteImage();
+        $event->deleteVideo();
 
-        $event->image = null;
+        $event->video = null;
         $event->save();
         $event->refresh();
 
@@ -172,8 +178,8 @@ class EventService
 
     public function deletePermanent(Event $event): bool
     {
-        $event->deleteProductImage();
         $event->deleteImage();
+        $event->deleteVideo();
 
         return $event->forceDelete();
     }
@@ -183,20 +189,11 @@ class EventService
         $events = Event::when($events, fn ($q) => $q->whereIn('id', $events))->onlyTrashed()->get();
 
         foreach ($events as $event) {
-            $event->deleteProductImage();
             $event->deleteImage();
+            $event->deleteVideo();
             $event->forceDelete();
         }
 
         return true;
-    }
-
-    public function resetPassword(Event $event): string
-    {
-        $password = Str::random(5);
-        $event->update(['password' => Hash::make($password)]);
-        $event->refresh();
-
-        return $password;
     }
 }
