@@ -67,3 +67,37 @@ function swiperArticles() {
         },
     });
 }
+
+document.addEventListener("DOMContentLoaded", function (event) {
+    swiperActivity();
+});
+
+function swiperActivity() {
+    const swiperActivity = new Swiper(".swiper-activity", {
+        loop: false,
+        rewind: true,
+        keyboard: {
+            enabled: true,
+        },
+        speed: 1500,
+        autoHeight: true,
+        breakpoints: {
+            1280: {
+                slidesPerView: 3,
+                spaceBetween: 15,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+        },
+        navigation: {
+            prevEl: ".articles-arrow-prev",
+            nextEl: ".articles-arrow-next",
+        },
+    });
+}

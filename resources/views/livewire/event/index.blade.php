@@ -46,7 +46,7 @@
                     <div class="activities-item">
                         <div class="cover-image" style="background-image: url({{ $event->assetImage() }});"></div>
 
-                        <a draggable="false" href="#" class="activity-title">
+                        <a draggable="false" href="{{ route('event.view', ['slug' => $event->slug]) }}" class="activity-title">
                             {{ $event->translate_name }}
                         </a>
 

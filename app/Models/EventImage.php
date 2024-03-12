@@ -141,7 +141,7 @@ class EventImage extends Model
 
     public function checkImage()
     {
-        if ($this->image && File::exists(public_path("images/event/{$this->image}"))) {
+        if ($this->image && File::exists(public_path("images/event/image/{$this->image}"))) {
             return true;
         }
     }
@@ -149,7 +149,7 @@ class EventImage extends Model
     public function assetImage()
     {
         if ($this->checkImage()) {
-            return asset("images/event/{$this->image}");
+            return asset("images/event/image/{$this->image}");
         }
 
         return asset('images/image-not-available.png');
@@ -158,14 +158,14 @@ class EventImage extends Model
     public function deleteImage()
     {
         if ($this->checkImage()) {
-            File::delete(public_path("images/event/{$this->image}"));
+            File::delete(public_path("images/event/image/{$this->image}"));
         }
     }
 
     public function getImageUrlAttribute()
     {
         if ($this->checkImage()) {
-            return URL::to('/')."/images/event/{$this->image}";
+            return URL::to('/')."/images/event/image/{$this->image}";
         }
 
         return null;

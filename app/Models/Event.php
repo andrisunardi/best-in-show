@@ -245,14 +245,14 @@ class Event extends Model
 
     public $appends = ['image_url', 'video_url'];
 
-    public function eventImages()
+    public function images()
     {
-        return $this->hasMany(EventImage::class);
+        return $this->hasMany(EventImage::class, 'event_id');
     }
 
-    public function eventVideos()
+    public function videos()
     {
-        return $this->hasMany(EventVideo::class);
+        return $this->hasMany(EventVideo::class, 'event_id');
     }
 
     public function getTranslateNameAttribute()
