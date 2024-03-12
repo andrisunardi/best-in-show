@@ -6,9 +6,9 @@ use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\App;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -79,6 +79,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereVariant($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereVariantIdn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereWeight($value)
+ *
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
+ * @property-read mixed $translate_variant
  *
  * @mixin \Eloquent
  */

@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pet_id')->nullable()->unsigned();
+            $table->string('link', 100)->nullable();
             $table->string('image', 130)->nullable();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);
             $table->foreignId('created_by_id')->nullable()->unsigned();

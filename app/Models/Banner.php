@@ -53,6 +53,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedById($value)
  *
+ * @property string|null $link
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereLink($value)
+ *
  * @mixin \Eloquent
  */
 class Banner extends Model
@@ -81,6 +85,7 @@ class Banner extends Model
 
     protected $casts = [
         'pet_id' => 'integer',
+        'link' => 'string',
         'image' => 'string',
         'is_active' => 'boolean',
         'created_at' => 'datetime',
@@ -90,6 +95,7 @@ class Banner extends Model
 
     protected $fillable = [
         'pet_id',
+        'link',
         'image',
         'is_active',
     ];

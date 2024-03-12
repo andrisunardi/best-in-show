@@ -76,6 +76,11 @@ use Spatie\Activitylog\Traits\LogsActivity;
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereLocation($value)
  *
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\EventImage> $images
+ * @property-read int|null $images_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\EventVideo> $videos
+ * @property-read int|null $videos_count
+ *
  * @mixin \Eloquent
  */
 class Event extends Model

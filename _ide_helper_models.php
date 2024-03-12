@@ -51,6 +51,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedById($value)
  * @mixin \Eloquent
+ * @property string|null $link
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereLink($value)
  */
 	class Banner extends \Eloquent {}
 }
@@ -196,9 +198,16 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereUpdatedById($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereVideo($value)
- * @mixin \Eloquent
  * @property-read mixed $translate_description
  * @property-read mixed $translate_name
+ * @property string|null $location
+ * @property-read mixed $video_url
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereLocation($value)
+ * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\EventImage> $images
+ * @property-read int|null $images_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\EventVideo> $videos
+ * @property-read int|null $videos_count
  */
 	class Event extends \Eloquent {}
 }
@@ -564,6 +573,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereVariantIdn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereWeight($value)
  * @mixin \Eloquent
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
+ * @property-read mixed $translate_variant
  */
 	class Product extends \Eloquent {}
 }
@@ -728,9 +740,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereUpdatedById($value)
- * @mixin \Eloquent
  * @property-read mixed $translate_description
  * @property-read mixed $translate_name
+ * @mixin \Eloquent
  */
 	class Promotion extends \Eloquent {}
 }

@@ -12,6 +12,16 @@ return [
         'subMenus' => [],
     ],
     [
+        'roles' => 'Super User|Admin|Banner',
+        'permissions' => 'Banner',
+        'name' => 'Banner',
+        'route' => 'cms.banner.index',
+        'icon' => 'fas fa-images',
+        'table' => 'banners',
+        'sidebar' => true,
+        'subMenus' => [],
+    ],
+    [
         'roles' => 'Super User',
         'permissions' => 'Configuration',
         'name' => 'Configuration',
