@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Promotion;
 
-use App\Models\Promotion;
 use App\Livewire\Component;
+use App\Models\Promotion;
 
 class PromotionViewPage extends Component
 {

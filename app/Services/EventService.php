@@ -4,7 +4,6 @@ namespace App\Services;
 
 use Andrisunardi\Library\Libraries\LivewireUpload;
 use App\Models\Event;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class EventService

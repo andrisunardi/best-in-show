@@ -71,6 +71,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
  *
  * @property-read mixed $translate_description
  * @property-read mixed $translate_name
+ * @property string|null $location
+ * @property-read mixed $video_url
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereLocation($value)
  *
  * @mixin \Eloquent
  */

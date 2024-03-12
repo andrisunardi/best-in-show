@@ -127,7 +127,9 @@
     <section id="homeActivities">
         <div class="relative container mt-20">
             <div class="text-center">
-                <h2 class="page-heading-2 text-primaryBlack">Kegiatan Kami</h2>
+                <h2 class="page-heading-2 text-primaryBlack">
+                    {{ trans('index.our_events') }}
+                </h2>
             </div>
 
             <div class="mt-10 flex justify-between items-center gap-4 lg:gap-6">
@@ -136,22 +138,22 @@
                 </button>
                 <div class="swiper swiper-articles">
                     <div class="swiper-wrapper">
-                        @foreach ($events as $event)
+                        @foreach ($latestEvents as $latestEvent)
                             <div class="swiper-slide article-item">
                                 <div class="article-image-thumbnail"
-                                    style="background: url({{ $event->assetImage() }}) center / cover no-repeat;">
+                                    style="background: url({{ $latestEvent->assetImage() }}) center / cover no-repeat;">
                                 </div>
 
                                 <div class="mt-3">
-                                    <p class="article-latest-date">{{ $event->date->isoFormat('LL') }}</p>
-                                    <h2 class="article-latest-title">{{ $event->translate_name }}</h2>
+                                    <p class="article-latest-date">{{ $latestEvent->date->isoFormat('LL') }}</p>
+                                    <h2 class="article-latest-title">{{ $latestEvent->translate_name }}</h2>
                                     <p class="article-latest-preview">
-                                        Lorem ipsum dolor sit amet consectetur.
-                                        Elit parturient in lorem urna sagittis a sit amet.
-                                        Arcu bibendum sagittis mattis rhoncus diam semper cras eget quis.
-                                        Adipiscing rutrum dui eros dictum commodo tincidunt venenatis.
-                                        Viverra adipiscing netus eget placerat aenean...
-                                        <a href="#" class="article-readmore">Read More</a>
+                                        {{ Str::limit(strip_tags($latestEvent->translate_description), 100) }}</li>
+                                        <a draggable="false"
+                                            href="{{ route('event.view', ['slug' => $latestEvent->slug]) }}"
+                                            class="article-readmore">
+                                            {{ trans('index.read_more') }}
+                                        </a>
                                     </p>
                                 </div>
                             </div>

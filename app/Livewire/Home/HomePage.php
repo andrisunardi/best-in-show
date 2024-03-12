@@ -24,9 +24,9 @@ class HomePage extends Component
         return Promotion::latest()->first();
     }
 
-    public function getEvents()
+    public function getLatestEvents()
     {
-        return Event::active()->get();
+        return Event::latest()->active()->get();
     }
 
     public function render()
@@ -35,7 +35,7 @@ class HomePage extends Component
             'pets' => $this->getPets(),
             'latestEvent' => $this->getLatestEvent(),
             'latestPromotion' => $this->getLatestPromotion(),
-            'events' => $this->getEvents(),
+            'latestEvents' => $this->getLatestEvents(),
         ]);
     }
 }

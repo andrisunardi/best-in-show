@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Event;
 
-use App\Models\Event;
 use App\Livewire\Component;
+use App\Models\Event;
 
 class EventPage extends Component
 {

@@ -2,8 +2,8 @@
 
 namespace App\Livewire\ContactUs;
 
-use App\Livewire\Component;
 use App\Enums\ContactCategory;
+use App\Livewire\Component;
 use App\Services\ContactService;
 use Illuminate\Validation\Rules\Enum;
 
