@@ -9,32 +9,57 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-components::search :key="'name'" :title="trans('validation.attributes.name')" :icon="'fas fa-user'" />
+            <div class="row g-3 mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search.enum :key="'category'" :title="trans('validation.attributes.category')" :icon="'fas fa-list'"
+                        :datas="$contactCategories" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-components::search :key="'company'" :title="trans('validation.attributes.company')" :icon="'fas fa-building'" />
-                </div>
-
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-components::search :key="'email'" :title="trans('validation.attributes.email')" :icon="'fas fa-envelope'" />
-                </div>
-
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-components::search :key="'phone'" :title="trans('validation.attributes.phone')" :icon="'fas fa-phone'" />
-                </div>
-
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-components::search :key="'subject'" :title="trans('validation.attributes.subject')" :icon="'fas fa-pencil'" />
-                </div>
-
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'message'" :title="trans('validation.attributes.message')" :icon="'fas fa-message'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search :key="'first_name'" :title="trans('validation.attributes.first_name')" :icon="'fas fa-user'" />
+                </div>
+
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search :key="'last_name'" :title="trans('validation.attributes.last_name')" :icon="'fas fa-user'" />
+                </div>
+
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search :key="'email'" :title="trans('validation.attributes.email')" :icon="'fas fa-envelope'" />
+                </div>
+
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search :key="'address'" :title="trans('validation.attributes.address')" :icon="'fas fa-home'" />
+                </div>
+
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search :key="'city'" :title="trans('validation.attributes.city')" :icon="'fas fa-city'" />
+                </div>
+
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search :key="'province'" :title="trans('validation.attributes.province')" :icon="'fas fa-globe'" />
+                </div>
+
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search :key="'postal_code'" :title="trans('validation.attributes.postal_code')" :icon="'fas fa-envelopes-bulk'" />
+                </div>
+
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search :key="'platform'" :title="trans('validation.attributes.platform')" :icon="'fas fa-list'" />
+                </div>
+
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search :key="'phone_country'" :title="trans('validation.attributes.phone_country')" :icon="'fas fa-flag'" />
+                </div>
+
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search :key="'phone'" :title="trans('validation.attributes.phone')" :icon="'fas fa-phone'" />
+                </div>
+
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search.is-active />
                 </div>
             </div>
@@ -57,12 +82,6 @@
 
         <div class="card-body">
             <div class="row">
-                @can('Contact Add')
-                    <div class="col-6 col-sm-auto mb-3">
-                        <x-components::link.add :href="route('cms.contact.add')" />
-                    </div>
-                @endcan
-
                 @can('Contact Trash')
                     <div class="col-6 col-sm-auto mb-3">
                         <x-components::link.trash :href="route('cms.contact.trash')" />
@@ -76,11 +95,18 @@
                         <tr class="text-center align-middle">
                             <th width="1%">{{ trans('index.#') }}</th>
                             <th width="1%">{{ trans('index.id') }}</th>
-                            <th>{{ trans('index.name') }}</th>
-                            <th>{{ trans('index.company') }}</th>
-                            <th>{{ trans('index.email') }}</th>
-                            <th>{{ trans('index.phone') }}</th>
-                            <th width="1%">{{ trans('index.active') }}</th>
+                            <th width="1%">{{ trans('index.category') }}</th>
+                            <th width="1%">{{ trans('index.attachment') }}</th>
+                            <th>{{ trans('index.first_name') }}</th>
+                            <th>{{ trans('index.last_name') }}</th>
+                            <th width="1%">{{ trans('index.email') }}</th>
+                            <th width="1%">{{ trans('index.address') }}</th>
+                            <th width="1%">{{ trans('index.city') }}</th>
+                            <th width="1%">{{ trans('index.province') }}</th>
+                            <th width="1%">{{ trans('index.postal_code') }}</th>
+                            <th width="1%">{{ trans('index.platform') }}</th>
+                            <th width="1%">{{ trans('index.phone_country') }}</th>
+                            <th width="1%">{{ trans('index.phone') }}</th>
                             <th width="1%">{{ trans('index.action') }}</th>
                         </tr>
                     </thead>
@@ -91,16 +117,27 @@
                                     {{ ($contacts->currentPage() - 1) * $contacts->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-components::link :href="route('cms.contact.view', ['contact' => $contact->id])" :text="$contact->id" />
+                                    <x-components::link :href="route('cms.contact.view', [
+                                        'contact' => $contact->id,
+                                    ])" :text="$contact->id" />
                                 </td>
-                                <td class="text-wrap">{{ $contact->name }}</td>
-                                <td class="text-wrap">{{ $contact->company }}</td>
+                                <td class="text-center">{{ $contact->category?->name }}</td>
                                 <td>
-                                    <x-components::link.email :value="$contact->email" />
+                                    @if ($contact->checkAttachment())
+                                        <x-components::link.external-link :href="$contact->assetAttachment()" :text="$contact->attachment"
+                                            :target="'_blank'" :navigate="false" />
+                                    @endif
                                 </td>
-                                <td>
-                                    <x-components::link.whatsapp :value="$contact->phone" />
-                                </td>
+                                <td>{{ $contact->first_name }}</td>
+                                <td>{{ $contact->last_name }}</td>
+                                <td><x-components::link.email :value="$contact->email" /></td>
+                                <td>{{ $contact->address }}</td>
+                                <td>{{ $contact->city }}</td>
+                                <td>{{ $contact->province }}</td>
+                                <td>{{ $contact->postal_code }}</td>
+                                <td>{{ $contact->platform }}</td>
+                                <td>{{ $contact->phone_country }}</td>
+                                <td><x-components::link.whatsapp :value="$contact->phone" /></td>
                                 <td class="text-center">
                                     <span class="badge bg-{{ Utils::successDanger($contact->is_active) }}">
                                         {{ Utils::translate(Utils::yesNo($contact->is_active)) }}
@@ -121,25 +158,12 @@
                                                 ])" />
                                             </li>
                                         @endcan
-                                        @can('Contact Clone')
-                                            <li>
-                                                <x-components::link.clone :class="'dropdown-item'" :href="route('cms.contact.clone', [
-                                                    'contact' => $contact->id,
-                                                ])" />
-                                            </li>
-                                        @endcan
-                                        @can('Contact Edit')
-                                            <li>
-                                                <x-components::link.edit :class="'dropdown-item'" :href="route('cms.contact.edit', [
-                                                    'contact' => $contact->id,
-                                                ])" />
-                                            </li>
-                                        @endcan
                                         @can('Contact Active')
                                             <li>
                                                 <x-components::link.active :class="'dropdown-item'" :href="route('cms.contact.active', [
                                                     'contact' => $contact->id,
-                                                ])" :value="$contact->is_active" />
+                                                ])"
+                                                    :value="$contact->is_active" />
                                             </li>
                                         @endcan
                                         @can('Contact Delete')

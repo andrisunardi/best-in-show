@@ -26,50 +26,10 @@
 
             <div class="row mb-2">
                 <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                    <h6>{{ trans('index.name') }}</h6>
+                    <h6>{{ trans('index.category') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    {{ $contact->name }}
-                </div>
-            </div>
-
-            <div class="row mb-2">
-                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                    <h6>{{ trans('index.company') }}</h6>
-                </div>
-                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    {{ $contact->company }}
-                </div>
-            </div>
-
-            <div class="row mb-2">
-                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                    <h6>{{ trans('index.email') }}</h6>
-                </div>
-                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <a draggable="false" href="mailto:{{ $contact->email }}">
-                        {{ $contact->email }}
-                    </a>
-                </div>
-            </div>
-
-            <div class="row mb-2">
-                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                    <h6>{{ trans('index.phone') }}</h6>
-                </div>
-                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Utils::phone($contact->phone) }}">
-                        {{ $contact->phone }}
-                    </a>
-                </div>
-            </div>
-
-            <div class="row mb-2">
-                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                    <h6>{{ trans('index.subject') }}</h6>
-                </div>
-                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    {{ $contact->subject }}
+                    {{ $contact->category?->name }}
                 </div>
             </div>
 
@@ -79,6 +39,111 @@
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                     {!! $contact->message !!}
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.attachment') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    @if ($contact->checkAttachment())
+                        <x-components::link.external-link :href="$contact->assetAttachment()" :text="$contact->attachment" :target="'_blank'"
+                            :navigate="false" />
+                    @endif
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.first_name') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    {{ $contact->first_name }}
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.last_name') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    {{ $contact->last_name }}
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.email') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    <x-components::link.email :value="$contact->email" />
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.address') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    {{ $contact->address }}
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.city') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    {{ $contact->city }}
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.province') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    {{ $contact->province }}
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.postal_code') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    {{ $contact->postal_code }}
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.platform') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    {{ $contact->platform }}
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.phone_country') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    {{ $contact->phone_country }}
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.phone') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    <a draggable="false"
+                        href="https://api.whatsapp.com/send?phone={{ Utils::phone($contact->phone) }}">
+                        {{ $contact->phone }}
+                    </a>
                 </div>
             </div>
 
@@ -192,22 +257,6 @@
                             <x-components::link.active :href="route('cms.contact.active', [
                                 'contact' => $contact->id,
                             ])" :value="$contact->is_active" />
-                        </div>
-                    @endcan
-
-                    @can('Contact Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                            <x-components::link.clone :href="route('cms.contact.clone', [
-                                'contact' => $contact->id,
-                            ])" />
-                        </div>
-                    @endcan
-
-                    @can('Contact Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                            <x-components::link.edit :href="route('cms.contact.edit', [
-                                'contact' => $contact->id,
-                            ])" />
                         </div>
                     @endcan
 

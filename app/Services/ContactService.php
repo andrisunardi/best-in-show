@@ -7,12 +7,18 @@ use App\Models\Contact;
 class ContactService
 {
     public function index(
-        string $name = '',
-        string $company = '',
-        string $email = '',
-        string $phone = '',
-        string $subject = '',
+        string|int|null $category = '',
         string $message = '',
+        string $first_name = '',
+        string $last_name = '',
+        string $email = '',
+        string $address = '',
+        string $city = '',
+        string $province = '',
+        string $postal_code = '',
+        string $platform = '',
+        string $phone_country = '',
+        string $phone = '',
         array $is_active = [],
         string $orderBy = 'id',
         string $sortBy = 'desc',
@@ -21,12 +27,18 @@ class ContactService
         bool $trash = false,
     ): object {
         $contacts = Contact::query()
-            ->when($name, fn ($q) => $q->where('name', 'LIKE', "%{$name}%"))
-            ->when($company, fn ($q) => $q->where('company', 'LIKE', "%{$company}%"))
-            ->when($email, fn ($q) => $q->where('email', 'LIKE', "%{$email}%"))
-            ->when($phone, fn ($q) => $q->where('phone', 'LIKE', "%{$phone}%"))
-            ->when($subject, fn ($q) => $q->where('subject', 'LIKE', "%{$subject}%"))
+            ->when($category, fn ($q) => $q->where('category', $category))
             ->when($message, fn ($q) => $q->where('message', 'LIKE', "%{$message}%"))
+            ->when($first_name, fn ($q) => $q->where('first_name', 'LIKE', "%{$first_name}%"))
+            ->when($last_name, fn ($q) => $q->where('last_name', 'LIKE', "%{$last_name}%"))
+            ->when($email, fn ($q) => $q->where('email', 'LIKE', "%{$email}%"))
+            ->when($address, fn ($q) => $q->where('address', 'LIKE', "%{$address}%"))
+            ->when($city, fn ($q) => $q->where('city', 'LIKE', "%{$city}%"))
+            ->when($province, fn ($q) => $q->where('province', 'LIKE', "%{$province}%"))
+            ->when($postal_code, fn ($q) => $q->where('postal_code', 'LIKE', "%{$postal_code}%"))
+            ->when($platform, fn ($q) => $q->where('platform', 'LIKE', "%{$platform}%"))
+            ->when($phone_country, fn ($q) => $q->where('phone_country', 'LIKE', "%{$phone_country}%"))
+            ->when($phone, fn ($q) => $q->where('phone', 'LIKE', "%{$phone}%"))
             ->when($is_active, fn ($q) => $q->whereIn('is_active', $is_active))
             ->when($trash, fn ($q) => $q->onlyTrashed())
             ->orderBy($orderBy, $sortBy);

@@ -7,6 +7,8 @@ use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\URL;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -71,6 +73,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereProvince($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedById($value)
+ *
+ * @property-read mixed $attachment_url
  *
  * @mixin \Eloquent
  */
@@ -176,4 +180,43 @@ class Contact extends Model
     {
         return $this->belongsTo(User::class, 'deleted_by_id', 'id');
     }
+
+    public function altAttachment()
+    {
+        return trans('index.contact')." - {$this->id} - ".env('APP_TITLE');
+    }
+
+    public function checkAttachment()
+    {
+        if ($this->attachment && File::exists(public_path("files/contact/{$this->attachment}"))) {
+            return true;
+        }
+    }
+
+    public function assetAttachment()
+    {
+        if ($this->checkAttachment()) {
+            return asset("files/contact/{$this->attachment}");
+        }
+
+        return asset('files/image-not-available.png');
+    }
+
+    public function deleteAttachment()
+    {
+        if ($this->checkAttachment()) {
+            File::delete(public_path("files/contact/{$this->attachment}"));
+        }
+    }
+
+    public function getAttachmentUrlAttribute()
+    {
+        if ($this->checkAttachment()) {
+            return URL::to('/')."/files/contact/{$this->attachment}";
+        }
+
+        return null;
+    }
+
+    public $appends = ['attachment_url'];
 }
