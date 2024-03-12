@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\App;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -202,7 +203,7 @@ class Product extends Model
             return asset("images/product/{$this->image}");
         }
 
-        return asset('images/product.png');
+        return asset('images/image-not-available.png');
     }
 
     public function deleteImage()
@@ -236,5 +237,20 @@ class Product extends Model
     public function productCategory()
     {
         return $this->belongsTo(ProductCategory::class);
+    }
+
+    public function getTranslateNameAttribute()
+    {
+        return App::isLocale('en') ? $this->name : $this->name_idn;
+    }
+
+    public function getTranslateDescriptionAttribute()
+    {
+        return App::isLocale('en') ? $this->description : $this->description_idn;
+    }
+
+    public function getTranslateVariantAttribute()
+    {
+        return App::isLocale('en') ? $this->variant : $this->variant_idn;
     }
 }

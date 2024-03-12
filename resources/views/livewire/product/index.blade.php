@@ -1,5 +1,5 @@
-@section('title', trans('index.about_us'))
-@section('icon', 'fas fa-building')
+@section('title', trans('index.product'))
+@section('icon', 'fas fa-box')
 
 <main>
     <section id="productsBreadcrumb">
@@ -7,15 +7,11 @@
             <div class="breadcrumb">
                 <ol>
                     <li>
-                        <a href="#">Home</a>
+                        <a draggable="false" href="{{ route('index') }}">{{ trans('index.home') }}</a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
-                        <a href="#">Anjing</a>
-                        <span class="mx-2 font-poppins-m">&gt;</span>
-                    </li>
-                    <li>
-                        <span class="current">Produk</span>
+                        <span class="current">@yield('title')</span>
                     </li>
                 </ol>
             </div>
@@ -137,34 +133,18 @@
 
                     <div class="w-full lg:w-3/4">
                         <div class="gridview-product">
-                            <div class="gridview-product-item">
-                                <img src="images/thumbnail/dummy-product.png" alt="Good Dog Puppy Lamb & Rice" />
-                                <div class="text-center">
-                                    <a href="#">Good Dog Puppy Lamb & Rice</a>
-                                    <p>Available 18Kg</p>
+                            @foreach ($products as $product)
+                                <div class="gridview-product-item">
+                                    <img draggable="false" src="{{ $product->assetImage() }}"
+                                        alt="{{ $product->altImage() }}" />
+                                    <div class="text-center">
+                                        <a href="#">
+                                            {{ $product->translate_name }}
+                                        </a>
+                                        <p>Available 18Kg</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="gridview-product-item">
-                                <img src="images/thumbnail/dummy-product.png" alt="Good Dog Puppy Lamb & Rice" />
-                                <div class="text-center">
-                                    <a href="#">Good Dog Puppy Lamb & Rice</a>
-                                    <p>Available 18Kg</p>
-                                </div>
-                            </div>
-                            <div class="gridview-product-item">
-                                <img src="images/thumbnail/dummy-product.png" alt="Good Dog Puppy Lamb & Rice" />
-                                <div class="text-center">
-                                    <a href="#">Good Dog Puppy Lamb & Rice</a>
-                                    <p>Available 18Kg</p>
-                                </div>
-                            </div>
-                            <div class="gridview-product-item">
-                                <img src="images/thumbnail/dummy-product.png" alt="Good Dog Puppy Lamb & Rice" />
-                                <div class="text-center">
-                                    <a href="#">Good Dog Puppy Lamb & Rice</a>
-                                    <p>Available 18Kg</p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -173,7 +153,8 @@
             <div class="block lg:hidden mt-10">
                 <div class="text-right">
                     <p class="text-primaryGray text-sm font-poppins-r">
-                        Menampilkan 1 &ndash; 16 dari 50 item
+                        {{ trans('index.show') }} 1 &ndash; {{ $products->count() }} {{ trans('index.from') }}
+                        {{ $products->count() }} {{ trans('index.product') }}
                     </p>
                 </div>
             </div>

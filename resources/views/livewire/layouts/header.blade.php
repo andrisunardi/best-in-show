@@ -66,7 +66,7 @@
                         <i class="material-icons rounded-icon">search</i>
                     </div>
                     <input type="text"
-                        placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.or') }} {{ trans('index.article') }}" />
+                        placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.here') }}" />
                 </div>
             </form>
         </div>
@@ -104,7 +104,7 @@
                                     <i class="material-icons rounded-icon">search</i>
                                 </div>
                                 <input type="text"
-                                    placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.or') }} {{ trans('index.article') }}" />
+                                    placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.here') }}" />
                             </div>
                         </div>
                     </form>
