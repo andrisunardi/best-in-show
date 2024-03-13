@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('size', 100)->nullable();
             $table->foreignId('weight')->nullable()->unsigned();
             $table->string('color', 100)->nullable();
+            $table->string('blibli', 100)->nullable();
+            $table->string('lazada', 100)->nullable();
+            $table->string('shopee', 100)->nullable();
+            $table->string('tokopedia', 100)->nullable();
             $table->string('image', 200)->nullable();
             $table->string('slug', 400)->nullable();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);
