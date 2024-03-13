@@ -8,6 +8,12 @@ return new class extends Migration
 {
     public function up(): void
     {
+        Schema::table('articles', function (Blueprint $table) {
+            $table->foreign('created_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('updated_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('deleted_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
+        });
+
         Schema::table('banners', function (Blueprint $table) {
             $table->foreign('pet_id')->references('id')->on('pets')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('created_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
@@ -135,6 +141,12 @@ return new class extends Migration
     public function down(): void
     {
         if (env('APP_ENV') != 'testing') {
+            Schema::table('articles', function (Blueprint $table) {
+                $table->dropConstrainedForeignId('created_by_id');
+                $table->dropConstrainedForeignId('updated_by_id');
+                $table->dropConstrainedForeignId('deleted_by_id');
+            });
+
             Schema::table('banners', function (Blueprint $table) {
                 $table->dropConstrainedForeignId('pet_id');
                 $table->dropConstrainedForeignId('created_by_id');
