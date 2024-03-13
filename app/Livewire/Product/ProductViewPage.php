@@ -14,7 +14,7 @@ class ProductViewPage extends Component
         $this->product = Product::where('slug', $slug)->active()->firstOrFail();
     }
 
-    public function getRelatedProducts()
+    public function getOtherProducts()
     {
         return Product::where('id', '!=', $this->product->id)
             ->active()
@@ -26,7 +26,7 @@ class ProductViewPage extends Component
     public function render()
     {
         return view('livewire.product.view', [
-            'relatedProducts' => $this->getRelatedProducts(),
+            'otherProducts' => $this->getOtherProducts(),
         ]);
     }
 }

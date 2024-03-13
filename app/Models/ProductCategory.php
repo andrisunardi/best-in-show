@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Support\Facades\App;
 
 /**
  * App\Models\ProductCategory
@@ -212,5 +213,10 @@ class ProductCategory extends Model
     public function productWeights()
     {
         return $this->hasMany(Product::class)->orderByDesc('weight');
+    }
+
+    public function getTranslateNameAttribute()
+    {
+        return App::isLocale('en') ? $this->name : $this->name_idn;
     }
 }

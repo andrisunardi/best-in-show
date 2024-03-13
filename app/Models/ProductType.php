@@ -5,6 +5,7 @@ namespace App\Models;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
@@ -151,7 +152,7 @@ class ProductType extends Model
 
     public function altImage()
     {
-        return trans('index.product')." - {$this->id} - ".env('APP_TITLE');
+        return trans('index.product') . " - {$this->id} - " . env('APP_TITLE');
     }
 
     public function checkImage()
@@ -180,7 +181,7 @@ class ProductType extends Model
     public function getImageUrlAttribute()
     {
         if ($this->checkImage()) {
-            return URL::to('/')."/images/product/type/{$this->image}";
+            return URL::to('/') . "/images/product/type/{$this->image}";
         }
 
         return null;
@@ -206,5 +207,10 @@ class ProductType extends Model
     public function products()
     {
         return $this->hasManyThrough(Product::class, ProductCategory::class);
+    }
+
+    public function getTranslateNameAttribute()
+    {
+        return App::isLocale('en') ? $this->name : $this->name_idn;
     }
 }

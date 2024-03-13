@@ -37,7 +37,9 @@
                 </div>
 
                 <div class="product-description">
-                    <p class="product-category">(Makanan Kering - Super Premium)</p>
+                    <p class="product-category">
+                        ({{ $product->category->translate_name }} - {{ $product->type->translate_name }})
+                    </p>
                     <h1 class="product-title">
                         {{ $product->translate_name }}
                     </h1>
@@ -130,7 +132,9 @@
     <section id="otherProducts">
         <div class="container">
             <div class="text-center">
-                <h2 class="page-heading-2 text-primaryBlack">Produk Lainnya</h2>
+                <h2 class="page-heading-2 text-primaryBlack">
+                    {{ trans('index.other_products') }}
+                </h2>
             </div>
             <div class="mt-6">
                 <div class="gridview-product-detail">

@@ -28,7 +28,7 @@
                     <button type="button" class="btn-filter-product" onclick="toggleModal()">
                         <div class="flex items-center gap-3">
                             <i class="material-icons rounded-icon text-2xl">tune</i>
-                            <p>Filter</p>
+                            <p>{{ trans('index.filters') }}</p>
                         </div>
                     </button>
 
@@ -52,7 +52,8 @@
 
                 <div class="hidden lg:block">
                     <p class="text-primaryGray text-sm font-poppins-r">
-                        Menampilkan 1 &ndash; 16 dari 50 item
+                        {{ trans('index.showing') }} 1 &ndash; 16 {{ trans('index.from') }} 50
+                        {{ trans('index.product') }}
                     </p>
                 </div>
             </div>
@@ -144,7 +145,7 @@
                                             href="{{ route('product.view', ['slug' => $product->slug]) }}">
                                             {{ $product->translate_name }}
                                         </a>
-                                        <p>Available 18Kg</p>
+                                        <p>{{ trans('index.available') }} {{ $product->size }}</p>
                                     </div>
                                 </div>
                             @endforeach
