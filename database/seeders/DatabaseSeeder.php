@@ -14,12 +14,15 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
 
             PetSeeder::class,
-            BannerSeeder::class,
+
             ProductTypeSeeder::class,
             ProductCategorySeeder::class,
             ProductSeeder::class,
+
+            ArticleSeeder::class,
+            BannerSeeder::class,
             PromotionSeeder::class,
-            // SliderSeeder::class,
+            SliderSeeder::class,
             StoreSeeder::class,
         ]);
     }
