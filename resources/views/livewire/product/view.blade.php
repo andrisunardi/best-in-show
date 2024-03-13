@@ -138,41 +138,15 @@
             </div>
             <div class="mt-6">
                 <div class="gridview-product-detail">
-                    <div class="gridview-product-detail-item">
-                        <img src="{{ $product->assetImage() }}" alt="Good Dog Puppy Lamb & Rice" />
-                        <div class="mt-2 text-center">
-                            <a href="#">Good Dog Puppy Lamb & Rice</a>
-                            <p>Available 18Kg</p>
+                    @foreach ($otherProducts as $otherProduct)
+                        <div class="gridview-product-detail-item">
+                            <img src="{{ $product->assetImage() }}" alt="Good Dog Puppy Lamb & Rice" />
+                            <div class="mt-2 text-center">
+                                <a href="#">Good Dog Puppy Lamb & Rice</a>
+                                <p>Available 18Kg</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="gridview-product-detail-item">
-                        <img src="{{ $product->assetImage() }}" alt="Good Dog Puppy Lamb & Rice" />
-                        <div class="mt-2 text-center">
-                            <a href="#">Good Dog Puppy Lamb & Rice</a>
-                            <p>Available 18Kg</p>
-                        </div>
-                    </div>
-                    <div class="gridview-product-detail-item">
-                        <img src="{{ $product->assetImage() }}" alt="Good Dog Puppy Lamb & Rice" />
-                        <div class="mt-2 text-center">
-                            <a href="#">Good Dog Puppy Lamb & Rice</a>
-                            <p>Available 18Kg</p>
-                        </div>
-                    </div>
-                    <div class="gridview-product-detail-item">
-                        <img src="{{ $product->assetImage() }}" alt="Good Dog Puppy Lamb & Rice" />
-                        <div class="mt-2 text-center">
-                            <a href="#">Good Dog Puppy Lamb & Rice</a>
-                            <p>Available 18Kg</p>
-                        </div>
-                    </div>
-                    <div class="gridview-product-detail-item">
-                        <img src="{{ $product->assetImage() }}" alt="Good Dog Puppy Lamb & Rice" />
-                        <div class="mt-2 text-center">
-                            <a href="#">Good Dog Puppy Lamb & Rice</a>
-                            <p>Available 18Kg</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

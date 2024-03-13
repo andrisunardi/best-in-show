@@ -4,6 +4,8 @@ namespace App\Livewire\ContactUs;
 
 use App\Enums\ContactCategory;
 use App\Livewire\Component;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 use App\Services\ContactService;
 use Illuminate\Validation\Rules\Enum;
 
@@ -56,7 +58,8 @@ class ContactUsPage extends Component
         return [
             'category' => ['required', 'integer', new Enum(ContactCategory::class)],
             'message' => 'required|string|max:1000',
-            'attachment' => 'nullable|file',
+            // 'attachment' => 'nullable|file',
+            "attachment" => "nullable|file|mimes:xps,pdf,doc,docx,rtf,txt,xls,clsx,csv,bmp,png,jpeg,jpg|max:4300",
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
             'email' => "required|string|max:50|email:rfc,dns|regex:/^\S*$/u",
@@ -72,9 +75,16 @@ class ContactUsPage extends Component
 
     public function submit()
     {
-        (new ContactService())->add(data: $this->validate());
+        $contact = (new ContactService())->add(data: $this->validate());
 
-        return $this->alert('success', trans('index.success'), [
+        if (env('APP_ENV') == 'production') {
+            Mail::to('contact@'.env('APP_DOMAIN'))->send(new ContactMail($contact));
+            Mail::to(env('CONTACT_EMAIL'))->send(new ContactMail($contact));
+        }
+
+        $this->resetFields();
+
+        return $this->alert('success', trans('index.contact_success'), [
             'html' => trans('index.thank_you_for_contacting_us_we_will_answer_as_soon_as_possible'),
         ]);
     }

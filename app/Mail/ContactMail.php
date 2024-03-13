@@ -25,7 +25,7 @@ class ContactMail extends Mailable
     {
         return new Envelope(
             from: new Address(env('MAIL_FROM_ADDRESS'), env('APP_NAME')),
-            subject: "New Contact From {$this->contact->name}",
+            subject: "New Contact From {$this->contact->first_name} {$this->contact->last_name}",
         );
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Andrisunardi\Library\Libraries\LivewireUpload;
 use App\Models\Contact;
 
 class ContactService
@@ -52,16 +53,50 @@ class ContactService
 
     public function add(array $data = []): Contact
     {
+        $name = "{$data['first_name']} {$data['last_name']}";
+
+        $data['attachment'] = LivewireUpload::upload(
+            file: $data['attachment'],
+            name: $name,
+            disk: 'files',
+            directory: 'contact',
+            deleteAsset: false,
+        );
+
         return Contact::create($data);
     }
 
     public function clone(array $data, Contact $contact): Contact
     {
+        $name = "{$data['first_name']} {$data['last_name']}";
+
+        $data['image'] = LivewireUpload::upload(
+            file: $data['attachment'],
+            name: $name,
+            disk: 'files',
+            directory: 'contact',
+            checkAsset: $contact->checkAttachment(),
+            fileAsset: $contact->attachment,
+            deleteAsset: false,
+        );
+
         return Contact::create($data);
     }
 
     public function edit(Contact $contact, array $data = []): Contact
     {
+        $name = "{$data['first_name']} {$data['last_name']}";
+
+        $data['image'] = LivewireUpload::upload(
+            file: $data['attachment'],
+            name: $name,
+            disk: 'files',
+            directory: 'contact',
+            checkAsset: $contact->checkAttachment(),
+            fileAsset: $contact->attachment,
+            deleteAsset: true,
+        );
+
         $contact->update($data);
         $contact->refresh();
 
@@ -82,6 +117,17 @@ class ContactService
         return $contact->delete();
     }
 
+    public function deleteAttachment(Contact $contact)
+    {
+        $contact->deleteImage();
+
+        $contact->image = null;
+        $contact->save();
+        $contact->refresh();
+
+        return $contact;
+    }
+
     public function deleteAll(array $contacts = []): bool
     {
         return Contact::when($contacts, fn ($q) => $q->whereIn('id', $contacts))->delete();
@@ -99,11 +145,20 @@ class ContactService
 
     public function deletePermanent(Contact $contact): bool
     {
+        $contact->deleteImage();
+
         return $contact->forceDelete();
     }
 
     public function deletePermanentAll(array $contacts = []): bool
     {
-        return Contact::when($contacts, fn ($q) => $q->whereIn('id', $contacts))->onlyTrashed()->forceDelete();
+        $contacts = Contact::when($contacts, fn ($q) => $q->whereIn('id', $contacts))->onlyTrashed()->get();
+
+        foreach ($contacts as $contact) {
+            $contact->deleteImage();
+            $contact->forceDelete();
+        }
+
+        return true;
     }
 }
