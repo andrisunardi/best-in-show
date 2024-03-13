@@ -140,10 +140,14 @@
                 <div class="gridview-product-detail">
                     @foreach ($otherProducts as $otherProduct)
                         <div class="gridview-product-detail-item">
-                            <img src="{{ $product->assetImage() }}" alt="Good Dog Puppy Lamb & Rice" />
+                            <img draggable="false" src="{{ $otherProduct->assetImage() }}"
+                                alt="{{ $otherProduct->altImage() }}" />
                             <div class="mt-2 text-center">
-                                <a href="#">Good Dog Puppy Lamb & Rice</a>
-                                <p>Available 18Kg</p>
+                                <a draggable="false"
+                                    href="{{ route('product.view', ['slug' => $otherProduct->slug]) }}">
+                                    {{ $otherProduct->translate_name }}
+                                </a>
+                                <p>{{ trans('index.available') }} {{ $otherProduct->size }}</p>
                             </div>
                         </div>
                     @endforeach
