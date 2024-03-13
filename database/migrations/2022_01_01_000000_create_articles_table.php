@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100)->unique()->nullable();
-            $table->string('name_idn', 100)->unique()->nullable();
+            $table->string('title', 100)->unique()->nullable();
+            $table->string('title_idn', 100)->unique()->nullable();
             $table->text('description')->nullable();
             $table->text('description_idn')->nullable();
             $table->date('date')->nullable();
@@ -23,12 +23,6 @@ return new class extends Migration
             $table->foreignId('deleted_by_id')->nullable()->unsigned();
             $table->timestamps();
             $table->softDeletes();
-        });
-
-        Schema::table('articles', function (Blueprint $table) {
-            $table->foreign('created_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreign('updated_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreign('deleted_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
         });
 
     }

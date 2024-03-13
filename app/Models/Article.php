@@ -37,8 +37,8 @@ class Article extends Model
     protected $table = 'articles';
 
     protected $casts = [
-        'name' => 'string',
-        'name_idn' => 'string',
+        'title' => 'string',
+        'title_idn' => 'string',
         'description' => 'string',
         'description_idn' => 'string',
         'date' => 'date',
@@ -51,8 +51,8 @@ class Article extends Model
     ];
 
     protected $fillable = [
-        'name',
-        'name_idn',
+        'title',
+        'title_idn',
         'description',
         'description_idn',
         'date',
@@ -140,9 +140,9 @@ class Article extends Model
 
     public $appends = ['image_url'];
 
-    public function getTranslateNameAttribute()
+    public function getTranslateTitleAttribute()
     {
-        return App::isLocale('en') ? $this->name : $this->name_idn;
+        return App::isLocale('en') ? $this->title : $this->title_idn;
     }
 
     public function getTranslateDescriptionAttribute()
