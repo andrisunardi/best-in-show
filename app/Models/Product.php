@@ -83,6 +83,15 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property-read mixed $translate_description
  * @property-read mixed $translate_name
  * @property-read mixed $translate_variant
+ * @property string|null $blibli
+ * @property string|null $lazada
+ * @property string|null $shopee
+ * @property string|null $tokopedia
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereBlibli($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereLazada($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereShopee($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereTokopedia($value)
  *
  * @mixin \Eloquent
  */

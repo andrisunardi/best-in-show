@@ -12,6 +12,59 @@ use Illuminate\Support\Facades\URL;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
+/**
+ * App\Models\Article
+ *
+ * @property int $id
+ * @property string|null $title
+ * @property string|null $title_idn
+ * @property string|null $description
+ * @property string|null $description_idn
+ * @property \Illuminate\Support\Carbon|null $date
+ * @property string|null $image
+ * @property string|null $slug
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Activitylog\Models\Activity> $activities
+ * @property-read int|null $activities_count
+ * @property-read \App\Models\User|null $createdBy
+ * @property-read \App\Models\User|null $deletedBy
+ * @property-read mixed $image_url
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_title
+ * @property-read \App\Models\User|null $updatedBy
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Article active()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article inActive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereDescriptionIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereTitleIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article withoutTrashed()
+ *
+ * @mixin \Eloquent
+ */
 class Article extends Model
 {
     use HasFactory;
