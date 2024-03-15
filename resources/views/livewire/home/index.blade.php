@@ -19,7 +19,7 @@
             <div class="mt-4">
                 <div class="flex flex-col lg:flex-row justify-center items-center gap-6">
                     @foreach ($pets as $pet)
-                        <a draggable="false" href="{{ route('pet.view', ['slug' => $pet->slug]) }}"
+                        <a draggable="false" href="{{ route('product.index') }}"
                             class="btn-intro-category">
                             {{ $pet->translate_name }}
                         </a>
@@ -62,7 +62,7 @@
                             </a>
 
                             <div class="mt-4 text-center">
-                                <a draggable="false" href="{{ route('pet.view', ['slug' => $pet->slug]) }}"
+                                <a draggable="false" href="{{ route('product.index') }}"
                                     class="category-link">
                                     {{ trans('index.explore') }} {{ trans('index.products') }}
                                 </a>

@@ -10,7 +10,8 @@
             <ul class="sidemenu-list">
                 @foreach ($pets as $pet)
                     <li>
-                        <a draggable="false" class="uppercase" href="{{ route('pet.view', ['slug' => $pet->slug]) }}">
+                        {{-- <a draggable="false" class="uppercase" href="{{ route('pet.view', ['slug' => $pet->slug]) }}"> --}}
+                        <a draggable="false" class="uppercase" href="{{ route('product.index') }}">
                             {{ $pet->translate_name }}
                         </a>
                     </li>
@@ -123,7 +124,8 @@
             <ul class="menu-list">
                 @foreach ($pets as $pet)
                     <li>
-                        <a draggable="false" class="uppercase" href="{{ route('pet.view', ['slug' => $pet->slug]) }}">
+                        {{-- <a draggable="false" class="uppercase" href="{{ route('pet.view', ['slug' => $pet->slug]) }}"> --}}
+                        <a draggable="false" class="uppercase" href="{{ route('product.index') }}">
                             {{ $pet->translate_name }}
                         </a>
                     </li>
