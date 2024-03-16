@@ -348,32 +348,3 @@ Route::any('displaycontest', DisplayContestPage::class)->name('displaycontest');
 //             Route::any("delete-permanent-all", $controller . "@delete_permanent_all")->name("delete-permanent-all");
 //             Route::any("delete-permanent/{id}", $controller . "@delete_permanent")->name("delete-permanent");
 //         });
-
-//         $prefix = "Slider";
-//         Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//             $controller = Str::studly($prefix) . "Controller";
-//             Route::any("", $controller . "@index")->name("index");
-//             Route::any("add", $controller . "@add")->name("add");
-//             Route::any("edit/{id}", $controller . "@edit")->name("edit");
-//             Route::any("delete/{id}", $controller . "@delete")->name("delete");
-//             Route::any("trash", $controller . "@trash")->name("trash");
-//             Route::any("restore-all", $controller . "@restore_all")->name("restore-all");
-//             Route::any("restore/{id}", $controller . "@restore")->name("restore");
-//             Route::any("delete-permanent-all", $controller . "@delete_permanent_all")->name("delete-permanent-all");
-//             Route::any("delete-permanent/{id}", $controller . "@delete_permanent")->name("delete-permanent");
-//         });
-
-//         $prefix = "Profile";
-//         Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//             $controller = Str::studly($prefix) . "Controller";
-//             Route::any("edit-profile", $controller . "@edit_profile")->name("edit-profile");
-//             Route::any("change-password", $controller . "@change_password")->name("change-password");
-//         });
-
-//         $prefix = "Logout";
-//         Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//             $controller = Str::studly($prefix) . "Controller";
-//             Route::any("", $controller . "@index")->name("index");
-//         });
-//     });
-// });

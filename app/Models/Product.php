@@ -93,6 +93,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereShopee($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereTokopedia($value)
  *
+ * @property-read \App\Models\ProductCategory|null $category
+ * @property-read \App\Models\ProductType|null $type
+ *
  * @mixin \Eloquent
  */
 class Product extends Model

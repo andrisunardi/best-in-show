@@ -77,10 +77,6 @@ class Slider extends Model
     protected $table = 'sliders';
 
     protected $casts = [
-        'name' => 'string',
-        'name_idn' => 'string',
-        'description' => 'string',
-        'description_idn' => 'string',
         'image' => 'string',
         'is_active' => 'boolean',
         'created_at' => 'datetime',
@@ -89,10 +85,6 @@ class Slider extends Model
     ];
 
     protected $fillable = [
-        'name',
-        'name_idn',
-        'description',
-        'description_idn',
         'image',
         'is_active',
     ];

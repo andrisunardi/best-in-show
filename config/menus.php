@@ -22,6 +22,16 @@ return [
         'subMenus' => [],
     ],
     [
+        'roles' => 'Super User|Admin|Slider',
+        'permissions' => 'Slider',
+        'name' => 'Slider',
+        'route' => 'cms.slider.index',
+        'icon' => 'fas fa-sliders',
+        'table' => 'sliders',
+        'sidebar' => true,
+        'subMenus' => [],
+    ],
+    [
         'roles' => 'Super User',
         'permissions' => 'Configuration',
         'name' => 'Configuration',

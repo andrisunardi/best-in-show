@@ -5,8 +5,8 @@ namespace App\Models;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\App;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Spatie\Activitylog\LogOptions;
@@ -64,6 +64,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereUpdatedById($value)
+ *
+ * @property-read mixed $translate_name
  *
  * @mixin \Eloquent
  */
@@ -152,7 +154,7 @@ class ProductType extends Model
 
     public function altImage()
     {
-        return trans('index.product') . " - {$this->id} - " . env('APP_TITLE');
+        return trans('index.product')." - {$this->id} - ".env('APP_TITLE');
     }
 
     public function checkImage()
@@ -181,7 +183,7 @@ class ProductType extends Model
     public function getImageUrlAttribute()
     {
         if ($this->checkImage()) {
-            return URL::to('/') . "/images/product/type/{$this->image}";
+            return URL::to('/')."/images/product/type/{$this->image}";
         }
 
         return null;

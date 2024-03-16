@@ -6,11 +6,11 @@ use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
-use Illuminate\Support\Facades\App;
 
 /**
  * App\Models\ProductCategory
@@ -66,6 +66,8 @@ use Illuminate\Support\Facades\App;
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedById($value)
+ *
+ * @property-read mixed $translate_name
  *
  * @mixin \Eloquent
  */

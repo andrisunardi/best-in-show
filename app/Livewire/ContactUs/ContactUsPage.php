@@ -5,8 +5,8 @@ namespace App\Livewire\ContactUs;
 use App\Enums\ContactCategory;
 use App\Livewire\Component;
 use App\Mail\ContactMail;
-use Illuminate\Support\Facades\Mail;
 use App\Services\ContactService;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules\Enum;
 
 class ContactUsPage extends Component
@@ -59,7 +59,7 @@ class ContactUsPage extends Component
             'category' => ['required', 'integer', new Enum(ContactCategory::class)],
             'message' => 'required|string|max:1000',
             // 'attachment' => 'nullable|file',
-            "attachment" => "nullable|file|mimes:xps,pdf,doc,docx,rtf,txt,xls,clsx,csv,bmp,png,jpeg,jpg|max:4300",
+            'attachment' => 'nullable|file|mimes:xps,pdf,doc,docx,rtf,txt,xls,clsx,csv,bmp,png,jpeg,jpg|max:4300',
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
             'email' => "required|string|max:50|email:rfc,dns|regex:/^\S*$/u",

@@ -13,6 +13,61 @@
 
 namespace App\Models{
 /**
+ * App\Models\Article
+ *
+ * @property int $id
+ * @property string|null $title
+ * @property string|null $title_idn
+ * @property string|null $description
+ * @property string|null $description_idn
+ * @property \Illuminate\Support\Carbon|null $date
+ * @property string|null $image
+ * @property string|null $slug
+ * @property bool|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Activitylog\Models\Activity> $activities
+ * @property-read int|null $activities_count
+ * @property-read \App\Models\User|null $createdBy
+ * @property-read \App\Models\User|null $deletedBy
+ * @property-read mixed $image_url
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_title
+ * @property-read \App\Models\User|null $updatedBy
+ * @method static \Illuminate\Database\Eloquent\Builder|Article active()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article inActive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereDescriptionIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereTitleIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Article withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Article withoutTrashed()
+ * @mixin \Eloquent
+ */
+	class Article extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Banner
  *
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Activitylog\Models\Activity> $activities
@@ -50,9 +105,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Banner wherePetId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedById($value)
- * @mixin \Eloquent
  * @property string|null $link
  * @method static \Illuminate\Database\Eloquent\Builder|Banner whereLink($value)
+ * @mixin \Eloquent
  */
 	class Banner extends \Eloquent {}
 }
@@ -116,6 +171,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereProvince($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedById($value)
+ * @property-read mixed $attachment_url
  * @mixin \Eloquent
  */
 	class Contact extends \Eloquent {}
@@ -203,11 +259,11 @@ namespace App\Models{
  * @property string|null $location
  * @property-read mixed $video_url
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereLocation($value)
- * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\EventImage> $images
  * @property-read int|null $images_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\EventVideo> $videos
  * @property-read int|null $videos_count
+ * @mixin \Eloquent
  */
 	class Event extends \Eloquent {}
 }
@@ -572,10 +628,20 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereVariant($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereVariantIdn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereWeight($value)
- * @mixin \Eloquent
  * @property-read mixed $translate_description
  * @property-read mixed $translate_name
  * @property-read mixed $translate_variant
+ * @property string|null $blibli
+ * @property string|null $lazada
+ * @property string|null $shopee
+ * @property string|null $tokopedia
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereBlibli($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereLazada($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereShopee($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereTokopedia($value)
+ * @mixin \Eloquent
+ * @property-read \App\Models\ProductCategory|null $category
+ * @property-read \App\Models\ProductType|null $type
  */
 	class Product extends \Eloquent {}
 }
@@ -633,6 +699,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedById($value)
  * @mixin \Eloquent
+ * @property-read mixed $translate_name
  */
 	class ProductCategory extends \Eloquent {}
 }
@@ -688,6 +755,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereUpdatedById($value)
  * @mixin \Eloquent
+ * @property-read mixed $translate_name
  */
 	class ProductType extends \Eloquent {}
 }
