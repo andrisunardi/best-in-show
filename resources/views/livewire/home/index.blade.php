@@ -106,7 +106,7 @@
                             </p>
                         </div>
                         <div class="mt-6">
-                            <a draggable="false" href="{{ route('promotion.view', ['slug' => $latestEvent->slug]) }}"
+                            <a draggable="false" href="{{ route('promotion.view', ['slug' => $latestPromotion->slug]) }}"
                                 class="item-link">
                                 {{ App::isLocale('en') ? 'Check Our Latest Promotion' : 'Lihat Promosi Terbaru Kami' }}
                             </a>
