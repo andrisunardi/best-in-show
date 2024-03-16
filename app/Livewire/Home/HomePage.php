@@ -3,6 +3,7 @@
 namespace App\Livewire\Home;
 
 use App\Livewire\Component;
+use App\Models\Article;
 use App\Models\Event;
 use App\Models\Promotion;
 use App\Services\PetService;
@@ -14,9 +15,9 @@ class HomePage extends Component
         return (new PetService())->index(orderBy: 'id', sortBy: 'asc', paginate: false);
     }
 
-    public function getLatestEvent()
+    public function getLatestArticle()
     {
-        return Event::latest()->first();
+        return Article::latest()->first();
     }
 
     public function getLatestPromotion()
@@ -33,7 +34,7 @@ class HomePage extends Component
     {
         return view('livewire.home.index', [
             'pets' => $this->getPets(),
-            'latestEvent' => $this->getLatestEvent(),
+            'latestArticle' => $this->getLatestArticle(),
             'latestPromotion' => $this->getLatestPromotion(),
             'latestEvents' => $this->getLatestEvents(),
         ]);

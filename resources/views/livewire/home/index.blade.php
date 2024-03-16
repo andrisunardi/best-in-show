@@ -84,16 +84,16 @@
             <div class="mt-6">
                 <div class="gridview-brand-info">
                     <div class="grid-item">
-                        <p class="item-title">{{ $latestEvent->translate_name }}</p>
+                        <p class="item-title">{{ $latestArticle->translate_title }}</p>
                         <div class="mt-4">
                             <p class="item-caption">
-                                {!! Str::limit(strip_tags($latestEvent->translate_description), 200) !!}
+                                {!! Str::limit(strip_tags($latestArticle->translate_description), 200) !!}
                             </p>
                         </div>
                         <div class="mt-6">
-                            <a draggable="false" href="{{ route('promotion.view', ['slug' => $latestEvent->slug]) }}"
+                            <a draggable="false" href="{{ route('article.view', ['slug' => $latestArticle->slug]) }}"
                                 class="item-link">
-                                {{ App::isLocale('en') ? 'Check Our Latest Event' : 'Lihat Kegiatan Terbaru Kami' }}
+                                {{ App::isLocale('en') ? 'Check Our Latest Article' : 'Lihat Artikel Terbaru Kami' }}
                             </a>
                         </div>
                     </div>
