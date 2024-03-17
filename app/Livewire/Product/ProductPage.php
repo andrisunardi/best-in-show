@@ -17,7 +17,7 @@ class ProductPage extends Component
     {
         return Product::when($this->search, function ($query) {
             $query->where('name', $this->search);
-        })->latest()->active()->get();
+        })->latest()->active()->paginate(12);
     }
 
     public function render()

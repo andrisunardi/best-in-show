@@ -64,7 +64,7 @@
                     @livewire('product.product-sidebar')
 
                     <div class="w-full lg:w-3/4">
-                        <div class="gridview-product">
+                        <div class="gridview-product mb-10">
                             @foreach ($products as $product)
                                 <div class="gridview-product-item">
                                     <a draggable="false" href="{{ route('product.view', ['slug' => $product->slug]) }}">
@@ -81,6 +81,8 @@
                                 </div>
                             @endforeach
                         </div>
+
+                        {{ $products->links() }}
                     </div>
                 </div>
             </div>
