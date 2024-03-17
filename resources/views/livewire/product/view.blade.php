@@ -58,7 +58,7 @@
                         <hr class="border-t border-[#BDBDBD]" />
                     </div>
 
-                    <div class="product-variant">
+                    {{-- <div class="product-variant">
                         <h4>Variant</h4>
                         <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
                             <a href="#" class="btn-product-variant active">
@@ -71,9 +71,9 @@
                                 Adult &ndash; Beef
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="product-variant">
+                    {{-- <div class="product-variant">
                         <h4>Ukuran</h4>
                         <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
                             <a href="#" class="btn-product-variant active">
@@ -86,7 +86,7 @@
                                 100 Gr
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="my-6">
                         <hr class="border-t border-[#BDBDBD]" />
