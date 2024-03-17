@@ -19,7 +19,7 @@
             <div class="mt-4">
                 <div class="flex flex-col lg:flex-row justify-center items-center gap-6">
                     @foreach ($pets as $pet)
-                        <a draggable="false" href="{{ route('product.index') }}"
+                        <a draggable="false" href="{{ route('pet.view', ['slug' => $pet->slug]) }}"
                             class="btn-intro-category">
                             {{ $pet->translate_name }}
                         </a>
@@ -46,7 +46,8 @@
                 <div class="gridview-category">
                     @foreach ($pets as $pet)
                         <div class="grid-item">
-                            <a href="#" class="category-thumbnail"
+                            <a draggable="false" href="{{ route('pet.view', ['slug' => $pet->slug]) }}"
+                                class="category-thumbnail"
                                 style="background: linear-gradient(
                         0deg,
                         rgba(29, 29, 29, 0.40) 0%,
@@ -62,7 +63,7 @@
                             </a>
 
                             <div class="mt-4 text-center">
-                                <a draggable="false" href="{{ route('product.index') }}"
+                                <a draggable="false" href="{{ route('pet.view', ['slug' => $pet->slug]) }}"
                                     class="category-link">
                                     {{ trans('index.explore') }} {{ trans('index.products') }}
                                 </a>
@@ -106,7 +107,8 @@
                             </p>
                         </div>
                         <div class="mt-6">
-                            <a draggable="false" href="{{ route('promotion.view', ['slug' => $latestPromotion->slug]) }}"
+                            <a draggable="false"
+                                href="{{ route('promotion.view', ['slug' => $latestPromotion->slug]) }}"
                                 class="item-link">
                                 {{ App::isLocale('en') ? 'Check Our Latest Promotion' : 'Lihat Promosi Terbaru Kami' }}
                             </a>

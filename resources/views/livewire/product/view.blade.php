@@ -11,7 +11,9 @@
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
-                        <a href="#">Anjing</a>
+                        <a draggable="false" href="{{ route('pet.view', ['slug' => $product->pet->slug]) }}">
+                            {{ $product->pet->translate_name }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
