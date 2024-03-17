@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Pet;
 
+use App\Livewire\Component;
 use App\Models\Pet;
 use App\Models\Product;
-use App\Livewire\Component;
 
 class PetViewPage extends Component
 {

@@ -64,7 +64,7 @@
             <div class="mt-10">
                 <div class="relative flex gap-6">
 
-                    @livewire('product.product-sidebar')
+                    @livewire('pet.pet-sidebar', ['pet' => $pet])
 
                     <div class="w-full lg:w-3/4">
                         <div class="gridview-product mb-10">
