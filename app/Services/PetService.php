@@ -22,7 +22,7 @@ class PetService
         int $per_page = 10,
         bool $trash = false,
     ): object {
-        $pets = Pet::query()
+        $pets = Pet::with('productTypes', 'productCategories')
             ->when($name, fn ($q) => $q->where('name', 'LIKE', "%{$name}%"))
             ->when($name_idn, fn ($q) => $q->where('name_idn', 'LIKE', "%{$name_idn}%"))
             ->when($youtube, fn ($q) => $q->where('youtube', 'LIKE', "%{$youtube}%"))

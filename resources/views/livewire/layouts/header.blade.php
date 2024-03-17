@@ -60,12 +60,12 @@
                 </li>
             </ul>
 
-            <form class="navbar-form">
+            <form class="navbar-form" method="get" action="{{ route('product.index') }}">
                 <div class="form-group">
                     <div class="icon-placeholder">
                         <i class="material-icons rounded-icon">search</i>
                     </div>
-                    <input type="text"
+                    <input type="text" name="search" value="{{ Request::get('search') }}"
                         placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.here') }}" />
                 </div>
             </form>
@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="hidden lg:block w-2/6">
-                    <form class="navbar-form">
+                    <form class="navbar-form" method="get" action="{{ route('product.index') }}">
                         <div class="flex items-center gap-4">
                             <div class="lang-selector">
                                 <a draggable="false" href="{{ route('locale', ['locale' => 'id']) }}"
@@ -103,7 +103,7 @@
                                 <div class="icon-placeholder">
                                     <i class="material-icons rounded-icon">search</i>
                                 </div>
-                                <input type="text"
+                                <input type="text" name="search" value="{{ Request::get('search') }}"
                                     placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.here') }}" />
                             </div>
                         </div>

@@ -5,30 +5,24 @@ namespace App\Livewire\Product;
 use App\Livewire\Component;
 use App\Models\Product;
 
-class ProductPage extends Component
+class ProductModal extends Component
 {
     public $search = '';
 
-    public $page = 1;
-
-    protected $paginationTheme = 'tailwind';
-
     public $queryString = [
         'search',
-        'page',
     ];
 
     public function getProducts()
     {
         return Product::when($this->search, function ($query) {
-            $query->where('name', 'like', "%{$this->search}%")
-                ->where('name_idn', 'like', "%{$this->search}%");
-        })->latest()->active()->paginate(12);
+            $query->where('name', $this->search);
+        })->latest()->active()->get();
     }
 
     public function render()
     {
-        return view('livewire.product.index', [
+        return view('livewire.product.modal', [
             'products' => $this->getProducts(),
         ]);
     }

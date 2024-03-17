@@ -53,7 +53,8 @@
                 <div class="hidden lg:block">
                     <p class="text-primaryGray text-sm font-poppins-r">
                         {{ trans('index.showing') }}
-                        1 &ndash; {{ $products->count() }}
+                        {{ 1 + $page * $products->count() - $products->count() }} &ndash;
+                        {{ $page * $products->count() }}
                         {{ trans('index.from') }}
                         {{ $products->total() }}
                         {{ trans('index.product') }}
@@ -71,7 +72,7 @@
                             @foreach ($products as $product)
                                 <div class="gridview-product-item">
                                     <a draggable="false" href="{{ route('product.view', ['slug' => $product->slug]) }}">
-                                        <img draggable="false" src="{{ $product->assetImage() }}"
+                                        <img draggable="false" class="h-min" src="{{ $product->assetImage() }}"
                                             alt="{{ $product->altImage() }}" />
                                     </a>
                                     <div class="text-center">
@@ -93,11 +94,17 @@
             <div class="block lg:hidden mt-10">
                 <div class="text-right">
                     <p class="text-primaryGray text-sm font-poppins-r">
-                        {{ trans('index.show') }} 1 &ndash; {{ $products->count() }} {{ trans('index.from') }}
-                        {{ $products->count() }} {{ trans('index.product') }}
+                        {{ trans('index.showing') }}
+                        {{ 1 + $page * $products->count() - $products->count() }} &ndash;
+                        {{ $page * $products->count() }}
+                        {{ trans('index.from') }}
+                        {{ $products->total() }}
+                        {{ trans('index.product') }}
                     </p>
                 </div>
             </div>
         </div>
     </section>
+
+    @livewire('product.product-modal')
 </main>

@@ -3,7 +3,7 @@
 namespace App\Livewire\Product;
 
 use App\Livewire\Component;
-use App\Models\Product;
+use App\Services\PetService;
 
 class ProductSidebar extends Component
 {
@@ -13,17 +13,15 @@ class ProductSidebar extends Component
         'search',
     ];
 
-    public function getProducts()
+    public function getPets()
     {
-        return Product::when($this->search, function ($query) {
-            $query->where('name', $this->search);
-        })->latest()->active()->get();
+        return (new PetService())->index(orderBy: 'id', sortBy: 'asc', paginate: false);
     }
 
     public function render()
     {
         return view('livewire.product.sidebar', [
-            'products' => $this->getProducts(),
+            'pets' => $this->getPets(),
         ]);
     }
 }
