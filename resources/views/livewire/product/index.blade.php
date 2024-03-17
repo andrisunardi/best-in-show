@@ -52,7 +52,10 @@
 
                 <div class="hidden lg:block">
                     <p class="text-primaryGray text-sm font-poppins-r">
-                        {{ trans('index.showing') }} 1 &ndash; 16 {{ trans('index.from') }} 50
+                        {{ trans('index.showing') }}
+                        1 &ndash; {{ $products->count() }}
+                        {{ trans('index.from') }}
+                        {{ $products->total() }}
                         {{ trans('index.product') }}
                     </p>
                 </div>
