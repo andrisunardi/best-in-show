@@ -135,6 +135,37 @@ Breadcrumbs::for('cms.slider.trash', function (BreadcrumbTrail $trail) {
     $trail->push(trans('index.trash'), route('cms.slider.trash'), ['icon' => 'fas fa-dumpster']);
 });
 
+// STORE
+Breadcrumbs::for('cms.store.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.store'), route('cms.store.index'), ['icon' => 'fas fa-store']);
+});
+
+Breadcrumbs::for('cms.store.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.store.index');
+    $trail->push(trans('index.add'), route('cms.store.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.store.clone', function (BreadcrumbTrail $trail, $store) {
+    $trail->parent('cms.store.index');
+    $trail->push(trans('index.clone'), route('cms.store.clone', ['store' => $store]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.store.edit', function (BreadcrumbTrail $trail, $store) {
+    $trail->parent('cms.store.index');
+    $trail->push(trans('index.edit'), route('cms.store.edit', ['store' => $store]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.store.view', function (BreadcrumbTrail $trail, $store) {
+    $trail->parent('cms.store.index');
+    $trail->push(trans('index.view'), route('cms.store.view', ['store' => $store]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.store.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.store.index');
+    $trail->push(trans('index.trash'), route('cms.store.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
 // CONFIGURATION
 Breadcrumbs::for('cms.configuration.index', function (BreadcrumbTrail $trail) {
     $trail->parent('cms.index');

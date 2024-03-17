@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\StoreCategory;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -54,6 +55,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Store whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Store whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Store whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Store petShop()
+ * @method static \Illuminate\Database\Eloquent\Builder|Store superMarket()
  *
  * @mixin \Eloquent
  */
@@ -82,7 +85,7 @@ class Store extends Model
     protected $table = 'stores';
 
     protected $casts = [
-        'category' => 'string',
+        'category' => StoreCategory::class,
         'name' => 'string',
         'address' => 'string',
         'google_maps_iframe' => 'string',
@@ -140,5 +143,15 @@ class Store extends Model
     public function deletedBy()
     {
         return $this->belongsTo(User::class, 'deleted_by_id', 'id');
+    }
+
+    public function scopePetShop($query)
+    {
+        return $query->where('category', StoreCategory::PetShop);
+    }
+
+    public function scopeSuperMarket($query)
+    {
+        return $query->where('category', StoreCategory::SuperMarket);
     }
 }

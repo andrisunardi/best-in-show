@@ -172,6 +172,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedById($value)
  * @property-read mixed $attachment_url
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact bad()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact good()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact question()
  * @mixin \Eloquent
  */
 	class Contact extends \Eloquent {}
@@ -639,9 +642,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereLazada($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereShopee($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereTokopedia($value)
- * @mixin \Eloquent
  * @property-read \App\Models\ProductCategory|null $category
  * @property-read \App\Models\ProductType|null $type
+ * @mixin \Eloquent
  */
 	class Product extends \Eloquent {}
 }
@@ -698,8 +701,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedById($value)
- * @mixin \Eloquent
  * @property-read mixed $translate_name
+ * @mixin \Eloquent
  */
 	class ProductCategory extends \Eloquent {}
 }
@@ -754,8 +757,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereUpdatedById($value)
- * @mixin \Eloquent
  * @property-read mixed $translate_name
+ * @mixin \Eloquent
  */
 	class ProductType extends \Eloquent {}
 }
@@ -982,31 +985,11 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Store whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Store whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Store whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Store petShop()
+ * @method static \Illuminate\Database\Eloquent\Builder|Store superMarket()
  * @mixin \Eloquent
  */
 	class Store extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- * App\Models\SubProduct
- *
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Activitylog\Models\Activity> $activities
- * @property-read int|null $activities_count
- * @property-read \App\Models\User $createdBy
- * @property-read \App\Models\User $deletedBy
- * @property-read \App\Models\User $updatedBy
- * @method static \Illuminate\Database\Eloquent\Builder|SubProduct active()
- * @method static \Illuminate\Database\Eloquent\Builder|SubProduct inActive()
- * @method static \Illuminate\Database\Eloquent\Builder|SubProduct newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|SubProduct newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|SubProduct onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|SubProduct query()
- * @method static \Illuminate\Database\Eloquent\Builder|SubProduct withTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|SubProduct withoutTrashed()
- * @mixin \Eloquent
- */
-	class SubProduct extends \Eloquent {}
 }
 
 namespace App\Models{

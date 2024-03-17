@@ -76,6 +76,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
  *
  * @property-read mixed $attachment_url
  *
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact bad()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact good()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact question()
+ *
  * @mixin \Eloquent
  */
 class Contact extends Model
@@ -219,4 +223,19 @@ class Contact extends Model
     }
 
     public $appends = ['attachment_url'];
+
+    public function scopeQuestion($query)
+    {
+        return $query->where('category', ContactCategory::Question);
+    }
+
+    public function scopeGood($query)
+    {
+        return $query->where('category', ContactCategory::Good);
+    }
+
+    public function scopeBad($query)
+    {
+        return $query->where('category', ContactCategory::Bad);
+    }
 }

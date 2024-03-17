@@ -32,6 +32,16 @@ return [
         'subMenus' => [],
     ],
     [
+        'roles' => 'Super User|Admin|Store',
+        'permissions' => 'Store',
+        'name' => 'Store',
+        'route' => 'cms.store.index',
+        'icon' => 'fas fa-store',
+        'table' => 'stores',
+        'sidebar' => true,
+        'subMenus' => [],
+    ],
+    [
         'roles' => 'Super User',
         'permissions' => 'Configuration',
         'name' => 'Configuration',

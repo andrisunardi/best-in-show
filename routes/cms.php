@@ -32,6 +32,10 @@ Route::group(['middleware' => ['auth', 'role:'.config('app.route_cms_roles')]], 
         ->middleware(['role:Super User|Admin|Slider'])
         ->group(base_path('routes/cms/slider.php'));
 
+    Route::prefix('store')->name('store.')->as('store.')
+        ->middleware(['role:Super User|Admin|Slider'])
+        ->group(base_path('routes/cms/store.php'));
+
     Route::prefix('configuration')->name('configuration.')->as('configuration.')
         ->middleware(['role:Super User|Configuration'])
         ->group(base_path('routes/cms/configuration.php'));
