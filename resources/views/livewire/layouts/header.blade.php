@@ -65,7 +65,7 @@
                     <div class="icon-placeholder">
                         <i class="material-icons rounded-icon">search</i>
                     </div>
-                    <input type="text" name="search" value="{{ Request::get('search') }}"
+                    <input type="text" name="search" value="{{ Request::get('search') }}" required
                         placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.here') }}" />
                 </div>
             </form>
@@ -103,7 +103,7 @@
                                 <div class="icon-placeholder">
                                     <i class="material-icons rounded-icon">search</i>
                                 </div>
-                                <input type="text" name="search" value="{{ Request::get('search') }}"
+                                <input type="text" name="search" value="{{ Request::get('search') }}" required
                                     placeholder="{{ trans('index.search') }} {{ trans('index.product') }} {{ trans('index.here') }}" />
                             </div>
                         </div>

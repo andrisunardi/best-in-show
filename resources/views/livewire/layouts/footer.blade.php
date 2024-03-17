@@ -51,12 +51,12 @@
                         </li>
                     @endforeach
                     <li>
-                        <a draggable="false" href="{{ route('product.index') }}">
+                        <a draggable="false" href="{{ route('product.index', ['search' => 'treatment']) }}">
                             {{ trans('index.treatment') }}
                         </a>
                     </li>
                     <li>
-                        <a draggable="false" href="{{ route('product.index') }}">
+                        <a draggable="false" href="{{ route('product.index', ['search' => 'accessories']) }}">
                             {{ trans('index.accessories') }}
                         </a>
                     </li>
