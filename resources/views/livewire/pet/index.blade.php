@@ -32,7 +32,8 @@
                 <div class="gridview-category">
                     @foreach ($pets as $pet)
                         <div class="grid-item">
-                            <a href="#" class="category-thumbnail"
+                            <a draggable="false" href="{{ route('pet.view', ['slug' => $pet->slug]) }}"
+                                class="category-thumbnail"
                                 style="background: linear-gradient(
                         0deg,
                         rgba(29, 29, 29, 0.40) 0%,
@@ -48,7 +49,8 @@
                             </a>
 
                             <div class="mt-4 text-center">
-                                <a draggable="false" href="{{ route('product.index') }}" class="category-link">
+                                <a draggable="false" href="{{ route('pet.view', ['slug' => $pet->slug]) }}"
+                                    class="category-link">
                                     {{ trans('index.explore') }} {{ trans('index.products') }}
                                 </a>
                             </div>
