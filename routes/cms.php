@@ -24,6 +24,10 @@ Route::group(['middleware' => ['auth', 'role:'.config('app.route_cms_roles')]], 
         ->middleware(['role:Super User|Admin|Contact'])
         ->group(base_path('routes/cms/contact.php'));
 
+    Route::prefix('article')->name('article.')->as('article.')
+        ->middleware(['role:Super User|Admin|Article'])
+        ->group(base_path('routes/cms/article.php'));
+
     Route::prefix('banner')->name('banner.')->as('banner.')
         ->middleware(['role:Super User|Admin|Banner'])
         ->group(base_path('routes/cms/banner.php'));

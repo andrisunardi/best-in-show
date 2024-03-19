@@ -12,6 +12,16 @@ return [
         'subMenus' => [],
     ],
     [
+        'roles' => 'Super User|Admin|Article',
+        'permissions' => 'Article',
+        'name' => 'Article',
+        'route' => 'cms.article.index',
+        'icon' => 'fas fa-newspaper',
+        'table' => 'articles',
+        'sidebar' => true,
+        'subMenus' => [],
+    ],
+    [
         'roles' => 'Super User|Admin|Banner',
         'permissions' => 'Banner',
         'name' => 'Banner',

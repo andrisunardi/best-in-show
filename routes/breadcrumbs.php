@@ -48,21 +48,6 @@ Breadcrumbs::for('cms.contact.index', function (BreadcrumbTrail $trail) {
     $trail->push(trans('index.contact'), route('cms.contact.index'), ['icon' => 'fas fa-phone']);
 });
 
-Breadcrumbs::for('cms.contact.add', function (BreadcrumbTrail $trail) {
-    $trail->parent('cms.contact.index');
-    $trail->push(trans('index.add'), route('cms.contact.add'), ['icon' => 'fas fa-plus']);
-});
-
-Breadcrumbs::for('cms.contact.clone', function (BreadcrumbTrail $trail, $contact) {
-    $trail->parent('cms.contact.index');
-    $trail->push(trans('index.clone'), route('cms.contact.clone', ['contact' => $contact]), ['icon' => 'fas fa-clone']);
-});
-
-Breadcrumbs::for('cms.contact.edit', function (BreadcrumbTrail $trail, $contact) {
-    $trail->parent('cms.contact.index');
-    $trail->push(trans('index.edit'), route('cms.contact.edit', ['contact' => $contact]), ['icon' => 'fas fa-edit']);
-});
-
 Breadcrumbs::for('cms.contact.view', function (BreadcrumbTrail $trail, $contact) {
     $trail->parent('cms.contact.index');
     $trail->push(trans('index.view'), route('cms.contact.view', ['contact' => $contact]), ['icon' => 'fas fa-eye']);
@@ -71,6 +56,37 @@ Breadcrumbs::for('cms.contact.view', function (BreadcrumbTrail $trail, $contact)
 Breadcrumbs::for('cms.contact.trash', function (BreadcrumbTrail $trail) {
     $trail->parent('cms.contact.index');
     $trail->push(trans('index.trash'), route('cms.contact.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
+// ARTICLE
+Breadcrumbs::for('cms.article.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.article'), route('cms.article.index'), ['icon' => 'fas fa-newspaper']);
+});
+
+Breadcrumbs::for('cms.article.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.article.index');
+    $trail->push(trans('index.add'), route('cms.article.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.article.clone', function (BreadcrumbTrail $trail, $article) {
+    $trail->parent('cms.article.index');
+    $trail->push(trans('index.clone'), route('cms.article.clone', ['article' => $article]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.article.edit', function (BreadcrumbTrail $trail, $article) {
+    $trail->parent('cms.article.index');
+    $trail->push(trans('index.edit'), route('cms.article.edit', ['article' => $article]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.article.view', function (BreadcrumbTrail $trail, $article) {
+    $trail->parent('cms.article.index');
+    $trail->push(trans('index.view'), route('cms.article.view', ['article' => $article]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.article.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.article.index');
+    $trail->push(trans('index.trash'), route('cms.article.trash'), ['icon' => 'fas fa-dumpster']);
 });
 
 // BANNER

@@ -11,7 +11,7 @@
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
-                        <a draggable="false" href="{{ route('promotion.index') }}">{{ trans('index.promotion') }}</a>
+                        <a draggable="false" href="{{ route('article.index') }}">{{ trans('index.article') }}</a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
