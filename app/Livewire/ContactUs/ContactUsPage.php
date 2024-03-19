@@ -11,7 +11,7 @@ use Illuminate\Validation\Rules\Enum;
 
 class ContactUsPage extends Component
 {
-    public $category;
+    public $category = ContactCategory::Question->value;
 
     public $message;
 
@@ -31,7 +31,7 @@ class ContactUsPage extends Component
 
     public $postal_code;
 
-    public $phone_country;
+    // public $phone_country;
 
     public $phone;
 
@@ -48,7 +48,7 @@ class ContactUsPage extends Component
             'city',
             'province',
             'postal_code',
-            'phone_country',
+            // 'phone_country',
             'phone',
         ]);
     }
@@ -56,9 +56,8 @@ class ContactUsPage extends Component
     public function rules()
     {
         return [
-            'category' => ['required', 'integer', new Enum(ContactCategory::class)],
+            // 'category' => ['required', 'integer', new Enum(ContactCategory::class)],
             'message' => 'required|string|max:1000',
-            // 'attachment' => 'nullable|file',
             'attachment' => 'nullable|file|mimes:xps,pdf,doc,docx,rtf,txt,xls,clsx,csv,bmp,png,jpeg,jpg|max:4300',
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
@@ -67,15 +66,20 @@ class ContactUsPage extends Component
             'city' => 'nullable|string|max:50',
             'province' => 'nullable|string|max:50',
             'postal_code' => 'nullable|integer|digits:5',
-            'platform' => 'nullable|string|max:200',
-            'phone_country' => 'required|string|max:5',
+            // 'phone_country' => 'required|string|max:5',
             'phone' => 'required|string|max:15',
         ];
     }
 
     public function submit()
     {
-        $contact = (new ContactService())->add(data: $this->validate());
+        $data = $this->validate();
+
+        $data['category'] = $this->category;
+        $data['phone_country'] = '+62';
+        $data['platform'] = 'E-Mail';
+
+        $contact = (new ContactService())->add(data: $data);
 
         if (env('APP_ENV') == 'production') {
             Mail::to('contact@'.env('APP_DOMAIN'))->send(new ContactMail($contact));
@@ -87,6 +91,16 @@ class ContactUsPage extends Component
         return $this->alert('success', trans('index.contact_success'), [
             'html' => trans('index.thank_you_for_contacting_us_we_will_answer_as_soon_as_possible'),
         ]);
+    }
+
+    public function cancel()
+    {
+        $this->resetFields();
+    }
+
+    public function changeCategory($value)
+    {
+        $this->category = $value;
     }
 
     public function render()

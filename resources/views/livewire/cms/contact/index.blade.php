@@ -124,7 +124,7 @@
                                 <td class="text-center">{{ $contact->category?->name }}</td>
                                 <td>
                                     @if ($contact->checkAttachment())
-                                        <x-components::link.external-link :href="$contact->assetAttachment()" :text="$contact->attachment"
+                                        <x-components::link.external-link :href="$contact->assetAttachment()" :text="trans('index.attachment')"
                                             :target="'_blank'" :navigate="false" />
                                     @endif
                                 </td>

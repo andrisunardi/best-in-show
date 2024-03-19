@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('category')->unsigned()->nullable();
             $table->text('message')->nullable();
-            $table->string('attachment', 20)->nullable();
+            $table->string('attachment', 130)->nullable();
             $table->string('first_name', 50)->nullable();
             $table->string('last_name', 50)->nullable();
             $table->string('email', 50)->nullable();
