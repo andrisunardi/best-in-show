@@ -6,6 +6,7 @@ use App\Livewire\CMS\Login\LoginPage;
 use App\Livewire\CMS\Logout;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 Route::any('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
@@ -39,6 +40,10 @@ Route::group(['middleware' => ['auth', 'role:'.config('app.route_cms_roles')]], 
     Route::prefix('store')->name('store.')->as('store.')
         ->middleware(['role:Super User|Admin|Slider'])
         ->group(base_path('routes/cms/store.php'));
+
+    Route::prefix('pet')->name('pet.')->as('pet.')
+        ->middleware(['role:Super User|Admin|Contact'])
+        ->group(base_path('routes/cms/pet.php'));
 
     Route::prefix('configuration')->name('configuration.')->as('configuration.')
         ->middleware(['role:Super User|Configuration'])

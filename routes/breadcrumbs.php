@@ -182,6 +182,37 @@ Breadcrumbs::for('cms.store.trash', function (BreadcrumbTrail $trail) {
     $trail->push(trans('index.trash'), route('cms.store.trash'), ['icon' => 'fas fa-dumpster']);
 });
 
+// PET
+Breadcrumbs::for('cms.pet.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.pet'), route('cms.pet.index'), ['icon' => 'fas fa-dog']);
+});
+
+Breadcrumbs::for('cms.pet.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.pet.index');
+    $trail->push(trans('index.add'), route('cms.pet.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.pet.clone', function (BreadcrumbTrail $trail, $pet) {
+    $trail->parent('cms.pet.index');
+    $trail->push(trans('index.clone'), route('cms.pet.clone', ['pet' => $pet]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.pet.edit', function (BreadcrumbTrail $trail, $pet) {
+    $trail->parent('cms.pet.index');
+    $trail->push(trans('index.edit'), route('cms.pet.edit', ['pet' => $pet]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.pet.view', function (BreadcrumbTrail $trail, $pet) {
+    $trail->parent('cms.pet.index');
+    $trail->push(trans('index.view'), route('cms.pet.view', ['pet' => $pet]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.pet.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.pet.index');
+    $trail->push(trans('index.trash'), route('cms.pet.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
 // CONFIGURATION
 Breadcrumbs::for('cms.configuration.index', function (BreadcrumbTrail $trail) {
     $trail->parent('cms.index');

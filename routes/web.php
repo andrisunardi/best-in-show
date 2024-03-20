@@ -67,75 +67,6 @@ Route::any('search', SearchPage::class)->name('search');
 
 Route::any('displaycontest', DisplayContestPage::class)->name('displaycontest');
 
-//     $prefix = "Pet";
-//     Route::group(["prefix" => "{pet_slug}", "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//         $controller = Str::studly($prefix) . "Controller";
-//         Route::any("", $controller . "@index")->name("index");
-
-//         $prefix = "Product";
-//         Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//             $controller = Str::studly($prefix) . "Controller";
-//             Route::any("", $controller . "@all")->name("all");
-//         });
-
-//         $prefix = "Product Type";
-//         Route::group(["prefix" => "{product_type_slug}", "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//             $controller = Str::studly($prefix) . "Controller";
-//             Route::any("", $controller . "@index")->name("index");
-
-//             $prefix = "Product Category";
-//             Route::group(["prefix" => "{product_category_slug}", "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//                 $controller = Str::studly($prefix) . "Controller";
-//                 Route::any("", $controller . "@index")->name("index");
-
-//                 $prefix = "Product";
-//                 Route::group(["prefix" => "{product_slug}", "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//                     $controller = Str::studly($prefix) . "Controller";
-//                     Route::any("", $controller . "@index")->name("index");
-//                 });
-//             });
-//         });
-//     });
-// });
-
-// $prefix = "Ajax";
-// Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//     $controller = Str::studly($prefix) . "Controller";
-//     Route::any("pet/{pet_id}", $controller . "@pet")->name("pet");
-//     Route::any("product-type/{product_type_id}", $controller . "@product_type")->name("product-type");
-//     Route::any("product-category/{product_category_id}", $controller . "@product_category")->name("product-category");
-//     Route::any("product/{product_name}", $controller . "@product")->name("product");
-// });
-
-// Route::group(["prefix" => Str::substr(Request::url(), 7, 9) == "localhost" || Str::substr(Request::url(), 7, 9) == "127.0.0.1" ? "displaycontest" : "", "namespace" => "DisplayContest", "as" => "displaycontest.", "domain" => Str::substr(Request::url(), 7, 9) == "localhost" || Str::substr(Request::url(), 7, 9) == "127.0.0.1" ? "" : "www.displaycontest." . env("APP_DOMAIN")], function () {
-//     $prefix = "Home";
-//     Route::group(["prefix" => $prefix == "Home" ? "" : Str::slug($prefix), "as" => $prefix == "Home" ? "" : Str::slug($prefix)], function () use ($prefix) {
-//         $controller = Str::studly($prefix) . "Controller";
-//         Route::any("", $controller . "@index")->name("index");
-//     });
-// });
-
-// Route::group(["prefix" => Str::substr(Request::url(), 7, 9) == "localhost" || Str::substr(Request::url(), 7, 9) == "127.0.0.1" ? "cms" : "", "namespace" => "CMS", "as" => "cms.", "domain" => Str::substr(Request::url(), 7, 9) == "localhost" || Str::substr(Request::url(), 7, 9) == "127.0.0.1" ? "" : "www.cms." . env("APP_DOMAIN")], function () {
-//     $prefix = "Login";
-//     Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//         $controller = Str::studly($prefix) . "Controller";
-//         Route::any("", $controller . "@index")->name("index");
-//     });
-
-//     $prefix = "Forgot Password";
-//     Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//         $controller = Str::studly($prefix) . "Controller";
-//         Route::any("", $controller . "@index")->name("index");
-//     });
-
-//     Route::group(["middleware" => "auth:user"], function () {
-
-//         $prefix = "Dashboard";
-//         Route::group(["prefix" => $prefix == "Dashboard" ? "" : Str::slug($prefix), "as" => $prefix == "Dashboard" ? "" : Str::slug($prefix)], function () use ($prefix) {
-//             $controller = Str::studly($prefix) . "Controller";
-//             Route::any("", $controller . "@index")->name("index");
-//         });
-
 //         $prefix = "Display Contest";
 //         Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
 //             $controller = Str::studly($prefix) . "Controller";
@@ -152,20 +83,6 @@ Route::any('displaycontest', DisplayContestPage::class)->name('displaycontest');
 //         });
 
 //         $prefix = "Sign Up";
-//         Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//             $controller = Str::studly($prefix) . "Controller";
-//             Route::any("", $controller . "@index")->name("index");
-//             Route::any("add", $controller . "@add")->name("add");
-//             Route::any("edit/{id}", $controller . "@edit")->name("edit");
-//             Route::any("delete/{id}", $controller . "@delete")->name("delete");
-//             Route::any("trash", $controller . "@trash")->name("trash");
-//             Route::any("restore-all", $controller . "@restore_all")->name("restore-all");
-//             Route::any("restore/{id}", $controller . "@restore")->name("restore");
-//             Route::any("delete-permanent-all", $controller . "@delete_permanent_all")->name("delete-permanent-all");
-//             Route::any("delete-permanent/{id}", $controller . "@delete_permanent")->name("delete-permanent");
-//         });
-
-//         $prefix = "Contact";
 //         Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
 //             $controller = Str::studly($prefix) . "Controller";
 //             Route::any("", $controller . "@index")->name("index");
@@ -249,21 +166,6 @@ Route::any('displaycontest', DisplayContestPage::class)->name('displaycontest');
 //         //     Route::any("delete-permanent/{id}", $controller . "@delete_permanent")->name("delete-permanent");
 //         // });
 
-//         $prefix = "User";
-//         Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//             $controller = Str::studly($prefix) . "Controller";
-//             Route::any("", $controller . "@index")->name("index");
-//             Route::any("add", $controller . "@add")->name("add");
-//             Route::any("view/{id}", $controller . "@view")->name("view");
-//             Route::any("edit/{id}", $controller . "@edit")->name("edit");
-//             Route::any("delete/{id}", $controller . "@delete")->name("delete");
-//             Route::any("trash", $controller . "@trash")->name("trash");
-//             Route::any("restore-all", $controller . "@restore_all")->name("restore-all");
-//             Route::any("restore/{id}", $controller . "@restore")->name("restore");
-//             Route::any("delete-permanent-all", $controller . "@delete_permanent_all")->name("delete-permanent-all");
-//             Route::any("delete-permanent/{id}", $controller . "@delete_permanent")->name("delete-permanent");
-//         });
-
 //         $prefix = "Product Type";
 //         Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
 //             $controller = Str::studly($prefix) . "Controller";
@@ -293,20 +195,6 @@ Route::any('displaycontest', DisplayContestPage::class)->name('displaycontest');
 //         });
 
 //         $prefix = "Product";
-//         Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
-//             $controller = Str::studly($prefix) . "Controller";
-//             Route::any("", $controller . "@index")->name("index");
-//             Route::any("add", $controller . "@add")->name("add");
-//             Route::any("edit/{id}", $controller . "@edit")->name("edit");
-//             Route::any("delete/{id}", $controller . "@delete")->name("delete");
-//             Route::any("trash", $controller . "@trash")->name("trash");
-//             Route::any("restore-all", $controller . "@restore_all")->name("restore-all");
-//             Route::any("restore/{id}", $controller . "@restore")->name("restore");
-//             Route::any("delete-permanent-all", $controller . "@delete_permanent_all")->name("delete-permanent-all");
-//             Route::any("delete-permanent/{id}", $controller . "@delete_permanent")->name("delete-permanent");
-//         });
-
-//         $prefix = "Pet";
 //         Route::group(["prefix" => Str::slug($prefix), "as" => Str::slug($prefix) . "."], function () use ($prefix) {
 //             $controller = Str::studly($prefix) . "Controller";
 //             Route::any("", $controller . "@index")->name("index");

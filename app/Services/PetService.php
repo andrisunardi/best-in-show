@@ -57,6 +57,8 @@ class PetService
             deleteAsset: false,
         );
 
+        $data['slug'] = Str::slug($data['name']);
+
         $pet = Pet::create($data);
 
         return $pet;
@@ -84,6 +86,8 @@ class PetService
             deleteAsset: false,
         );
 
+        $data['slug'] = Str::slug($data['name']);
+
         $pet = Pet::create($data);
 
         return $pet;
@@ -110,6 +114,8 @@ class PetService
             fileAsset: $pet->image,
             deleteAsset: true,
         );
+
+        $data['slug'] = Str::slug($data['name']);
 
         $pet->update($data);
         $pet->refresh();

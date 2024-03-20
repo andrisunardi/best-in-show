@@ -52,6 +52,16 @@ return [
         'subMenus' => [],
     ],
     [
+        'roles' => 'Super User|Admin|Pet',
+        'permissions' => 'Pet',
+        'name' => 'Pet',
+        'route' => 'cms.pet.index',
+        'icon' => 'fas fa-dog',
+        'table' => 'pets',
+        'sidebar' => true,
+        'subMenus' => [],
+    ],
+    [
         'roles' => 'Super User',
         'permissions' => 'Configuration',
         'name' => 'Configuration',

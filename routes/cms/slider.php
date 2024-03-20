@@ -13,6 +13,7 @@ use App\Livewire\CMS\Slider\SliderRestore;
 use App\Livewire\CMS\Slider\SliderRestoreAll;
 use App\Livewire\CMS\Slider\SliderTrashPage;
 use App\Livewire\CMS\Slider\SliderViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', SliderPage::class)->name('index')->middleware('permission:Slider');
 Route::any('add', SliderAddPage::class)->name('add')->middleware('permission:Slider Add');

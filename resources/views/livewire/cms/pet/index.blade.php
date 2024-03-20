@@ -1,5 +1,5 @@
-@section('title', trans('index.banner'))
-@section('icon', 'fas fa-images')
+@section('title', trans('index.pet'))
+@section('icon', 'fas fa-pets')
 
 <div>
     <div class="card">
@@ -9,17 +9,16 @@
         </div>
 
         <div class="card-body">
-            <div class="row g-3 mb-3">
-                <div class="col-sm-4 col-lg-3 col-xl-auto">
-                    <x-components::search.select :key="'pet_id'" :title="trans('validation.attributes.pet_id')" :icon="'fas fa-dog'"
-                        :datas="$pets" />
+            <div class="row">
+                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                    <x-components::search :key="'name'" :title="trans('validation.attributes.name')" :icon="'fas fa-font'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto">
-                    <x-components::search :key="'link'" :title="trans('validation.attributes.link')" :icon="'fas fa-link'" />
+                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                    <x-components::search :key="'name_idn'" :title="trans('validation.attributes.name_idn')" :icon="'fas fa-font'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
                     <x-components::search.is-active />
                 </div>
             </div>
@@ -42,15 +41,15 @@
 
         <div class="card-body">
             <div class="row">
-                @can('Banner Add')
+                @can('Pet Add')
                     <div class="col-6 col-sm-auto mb-3">
-                        <x-components::link.add :href="route('cms.banner.add')" />
+                        <x-components::link.add :href="route('cms.pet.add')" />
                     </div>
                 @endcan
 
-                @can('Banner Trash')
+                @can('Pet Trash')
                     <div class="col-6 col-sm-auto mb-3">
-                        <x-components::link.trash :href="route('cms.banner.trash')" />
+                        <x-components::link.trash :href="route('cms.pet.trash')" />
                     </div>
                 @endcan
             </div>
@@ -62,48 +61,49 @@
                             <th width="1%">{{ trans('index.#') }}</th>
                             <th width="1%">{{ trans('index.id') }}</th>
                             <th width="1%">{{ trans('index.image') }}</th>
-                            <th width="1%">{{ trans('index.pet') }}</th>
-                            <th>{{ trans('index.link') }}</th>
+                            <th width="1%">{{ trans('index.product_image') }}</th>
+                            <th>{{ trans('index.name') }}</th>
+                            <th>{{ trans('index.name_idn') }}</th>
                             <th width="1%">{{ trans('index.active') }}</th>
                             <th width="1%">{{ trans('index.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($banners as $banner)
-                            <tr wire:key="{{ $banner->id }}">
+                        @forelse ($pets as $pet)
+                            <tr wire:key="{{ $pet->id }}">
                                 <td class="text-center">
-                                    {{ ($banners->currentPage() - 1) * $banners->perPage() + $loop->iteration }}
+                                    {{ ($pets->currentPage() - 1) * $pets->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-components::link :href="route('cms.banner.view', [
-                                        'banner' => $banner->id,
-                                    ])" :text="$banner->id" />
+                                    <x-components::link :href="route('cms.pet.view', [
+                                        'pet' => $pet->id,
+                                    ])" :text="$pet->id" />
                                 </td>
                                 <td>
-                                    @if ($banner->checkImage())
-                                        <x-components::image :src="$banner->assetImage()" :alt="$banner->altImage()" />
+                                    @if ($pet->checkImage())
+                                        <x-components::image :src="$pet->assetImage()" :alt="$pet->altImage()" />
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($pet->checkProductImage())
+                                        <x-components::image :src="$pet->assetProductImage()" :alt="$pet->altProductImage()" />
                                     @endif
                                 </td>
                                 <td class="text-wrap">
-                                    @if ($banner->pet)
-                                        <x-components::link :href="route('cms.pet.view', [
-                                            'pet' => $banner->pet->id,
-                                        ])" :text="$banner->pet->name" />
-
-                                        <x-components::link.external-link :href="route('pet.view', [
-                                            'slug' => $banner->pet->slug,
-                                        ])" />
-                                    @endif
+                                    {{ $pet->name }}
+                                    <x-components::link.external-link :href="route('pet.view', [
+                                        'slug' => $pet->slug,
+                                    ])" />
                                 </td>
                                 <td class="text-wrap">
-                                    @if ($banner->link)
-                                        <x-components::link.external-link :href="$banner->link" :text="$banner->link"
-                                            :target="'_blank'" :navigate="false" />
-                                    @endif
+                                    {{ $pet->name_idn }}
+                                    <x-components::link.external-link :href="route('pet.view', [
+                                        'slug' => $pet->slug,
+                                    ])" />
                                 </td>
                                 <td class="text-center">
-                                    <span class="badge bg-{{ Utils::successDanger($banner->is_active) }}">
-                                        {{ Utils::translate(Utils::yesNo($banner->is_active)) }}
+                                    <span class="badge bg-{{ Utils::successDanger($pet->is_active) }}">
+                                        {{ Utils::translate(Utils::yesNo($pet->is_active)) }}
                                     </span>
                                 </td>
                                 <td>
@@ -114,39 +114,39 @@
                                     </button>
 
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        @can('Banner View')
+                                        @can('Pet View')
                                             <li>
-                                                <x-components::link.view :class="'dropdown-item'" :href="route('cms.banner.view', [
-                                                    'banner' => $banner->id,
+                                                <x-components::link.view :class="'dropdown-item'" :href="route('cms.pet.view', [
+                                                    'pet' => $pet->id,
                                                 ])" />
                                             </li>
                                         @endcan
-                                        @can('Banner Clone')
+                                        @can('Pet Clone')
                                             <li>
-                                                <x-components::link.clone :class="'dropdown-item'" :href="route('cms.banner.clone', [
-                                                    'banner' => $banner->id,
+                                                <x-components::link.clone :class="'dropdown-item'" :href="route('cms.pet.clone', [
+                                                    'pet' => $pet->id,
                                                 ])" />
                                             </li>
                                         @endcan
-                                        @can('Banner Edit')
+                                        @can('Pet Edit')
                                             <li>
-                                                <x-components::link.edit :class="'dropdown-item'" :href="route('cms.banner.edit', [
-                                                    'banner' => $banner->id,
+                                                <x-components::link.edit :class="'dropdown-item'" :href="route('cms.pet.edit', [
+                                                    'pet' => $pet->id,
                                                 ])" />
                                             </li>
                                         @endcan
-                                        @can('Banner Active')
+                                        @can('Pet Active')
                                             <li>
-                                                <x-components::link.active :class="'dropdown-item'" :href="route('cms.banner.active', [
-                                                    'banner' => $banner->id,
+                                                <x-components::link.active :class="'dropdown-item'" :href="route('cms.pet.active', [
+                                                    'pet' => $pet->id,
                                                 ])"
-                                                    :value="$banner->is_active" />
+                                                    :value="$pet->is_active" />
                                             </li>
                                         @endcan
-                                        @can('Banner Delete')
+                                        @can('Pet Delete')
                                             <li>
-                                                <x-components::link.delete :class="'dropdown-item'" :href="route('cms.banner.delete', [
-                                                    'banner' => $banner->id,
+                                                <x-components::link.delete :class="'dropdown-item'" :href="route('cms.pet.delete', [
+                                                    'pet' => $pet->id,
                                                 ])" />
                                             </li>
                                         @endcan
@@ -164,7 +164,7 @@
                 </table>
             </div>
 
-            {{ $banners->links('components::components.layouts.pagination') }}
+            {{ $pets->links('components::components.layouts.pagination') }}
         </div>
 
         <div class="card-footer bg-primary-subtle"></div>
