@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                     {{ $productType->name }}
-                    <x-components::link.external-link :href="route('productType.view', ['slug' => $productType->slug])" />
+                    {{-- <x-components::link.external-link :href="route('productType.view', ['slug' => $productType->slug])" /> --}}
                 </div>
             </div>
 
@@ -64,36 +64,25 @@
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                     {{ $productType->name_idn }}
-                    <x-components::link.external-link :href="route('productType.view', ['slug' => $productType->slug])" />
+                    {{-- <x-components::link.external-link :href="route('productType.view', ['slug' => $productType->slug])" /> --}}
                 </div>
             </div>
 
             <div class="row mb-2">
                 <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                    <h6>{{ trans('index.description') }}</h6>
+                    <h6>{{ trans('index.total') }} {{ trans('index.product_category') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <div class="text-pre-wrap">{!! $productType->description !!}</div>
+                    {{ $productType->productCategories->count() }}
                 </div>
             </div>
 
             <div class="row mb-2">
                 <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                    <h6>{{ trans('index.description_idn') }}</h6>
+                    <h6>{{ trans('index.total') }} {{ trans('index.product') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    <div class="text-pre-wrap">{!! $productType->description_idn !!}</div>
-                </div>
-            </div>
-
-            <div class="row mb-2">
-                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                    <h6>{{ trans('index.date') }}</h6>
-                </div>
-                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    @if ($productType->date)
-                        {{ $productType->date->isoFormat('LL') }}
-                    @endif
+                    {{ $productType->products->count() }}
                 </div>
             </div>
 

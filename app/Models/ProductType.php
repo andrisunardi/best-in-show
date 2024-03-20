@@ -97,6 +97,7 @@ class ProductType extends Model
         'pet_id' => 'integer',
         'name' => 'string',
         'name_idn' => 'string',
+        'image' => 'string',
         'slug' => 'string',
         'is_active' => 'boolean',
         'created_at' => 'datetime',
@@ -108,6 +109,7 @@ class ProductType extends Model
         'pet_id',
         'name',
         'name_idn',
+        'image',
         'slug',
         'is_active',
     ];
