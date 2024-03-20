@@ -115,6 +115,7 @@ class Event extends Model
         'date' => 'date',
         'location' => 'string',
         'image' => 'string',
+        'video' => 'string',
         'slug' => 'string',
         'is_active' => 'boolean',
         'created_at' => 'datetime',
@@ -130,6 +131,7 @@ class Event extends Model
         'date',
         'location',
         'image',
+        'video',
         'slug',
         'is_active',
     ];

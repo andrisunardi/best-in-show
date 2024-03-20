@@ -120,6 +120,37 @@ Breadcrumbs::for('cms.article.trash', function (BreadcrumbTrail $trail) {
     $trail->push(trans('index.trash'), route('cms.article.trash'), ['icon' => 'fas fa-dumpster']);
 });
 
+// EVENT
+Breadcrumbs::for('cms.event.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.event'), route('cms.event.index'), ['icon' => 'fas fa-calendar']);
+});
+
+Breadcrumbs::for('cms.event.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.event.index');
+    $trail->push(trans('index.add'), route('cms.event.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.event.clone', function (BreadcrumbTrail $trail, $event) {
+    $trail->parent('cms.event.index');
+    $trail->push(trans('index.clone'), route('cms.event.clone', ['event' => $event]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.event.edit', function (BreadcrumbTrail $trail, $event) {
+    $trail->parent('cms.event.index');
+    $trail->push(trans('index.edit'), route('cms.event.edit', ['event' => $event]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.event.view', function (BreadcrumbTrail $trail, $event) {
+    $trail->parent('cms.event.index');
+    $trail->push(trans('index.view'), route('cms.event.view', ['event' => $event]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.event.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.event.index');
+    $trail->push(trans('index.trash'), route('cms.event.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
 // PROMOTION
 Breadcrumbs::for('cms.promotion.index', function (BreadcrumbTrail $trail) {
     $trail->parent('cms.index');

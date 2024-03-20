@@ -33,6 +33,10 @@ Route::group(['middleware' => ['auth', 'role:'.config('app.route_cms_roles')]], 
         ->middleware(['role:Super User|Admin|Article'])
         ->group(base_path('routes/cms/article.php'));
 
+    Route::prefix('event')->name('event.')->as('event.')
+        ->middleware(['role:Super User|Admin|Event'])
+        ->group(base_path('routes/cms/event.php'));
+
     Route::prefix('promotion')->name('promotion.')->as('promotion.')
         ->middleware(['role:Super User|Admin|Promotion'])
         ->group(base_path('routes/cms/promotion.php'));

@@ -32,6 +32,16 @@ return [
         'subMenus' => [],
     ],
     [
+        'roles' => 'Super User|Admin|Event',
+        'permissions' => 'Event',
+        'name' => 'Event',
+        'route' => 'cms.event.index',
+        'icon' => 'fas fa-calendar',
+        'table' => 'events',
+        'sidebar' => true,
+        'subMenus' => [],
+    ],
+    [
         'roles' => 'Super User|Admin|Promotion',
         'permissions' => 'Promotion',
         'name' => 'Promotion',
