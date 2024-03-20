@@ -120,6 +120,37 @@ Breadcrumbs::for('cms.article.trash', function (BreadcrumbTrail $trail) {
     $trail->push(trans('index.trash'), route('cms.article.trash'), ['icon' => 'fas fa-dumpster']);
 });
 
+// PROMOTION
+Breadcrumbs::for('cms.promotion.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.promotion'), route('cms.promotion.index'), ['icon' => 'fas fa-gift']);
+});
+
+Breadcrumbs::for('cms.promotion.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.promotion.index');
+    $trail->push(trans('index.add'), route('cms.promotion.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.promotion.clone', function (BreadcrumbTrail $trail, $promotion) {
+    $trail->parent('cms.promotion.index');
+    $trail->push(trans('index.clone'), route('cms.promotion.clone', ['promotion' => $promotion]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.promotion.edit', function (BreadcrumbTrail $trail, $promotion) {
+    $trail->parent('cms.promotion.index');
+    $trail->push(trans('index.edit'), route('cms.promotion.edit', ['promotion' => $promotion]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.promotion.view', function (BreadcrumbTrail $trail, $promotion) {
+    $trail->parent('cms.promotion.index');
+    $trail->push(trans('index.view'), route('cms.promotion.view', ['promotion' => $promotion]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.promotion.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.promotion.index');
+    $trail->push(trans('index.trash'), route('cms.promotion.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
 // BANNER
 Breadcrumbs::for('cms.banner.index', function (BreadcrumbTrail $trail) {
     $trail->parent('cms.index');

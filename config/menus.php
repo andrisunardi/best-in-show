@@ -32,6 +32,16 @@ return [
         'subMenus' => [],
     ],
     [
+        'roles' => 'Super User|Admin|Promotion',
+        'permissions' => 'Promotion',
+        'name' => 'Promotion',
+        'route' => 'cms.promotion.index',
+        'icon' => 'fas fa-gift',
+        'table' => 'promotions',
+        'sidebar' => true,
+        'subMenus' => [],
+    ],
+    [
         'roles' => 'Super User|Admin|Banner',
         'permissions' => 'Banner',
         'name' => 'Banner',
