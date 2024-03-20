@@ -11,23 +11,16 @@
         <div class="card-body">
             <div class="row g-3 mb-3">
                 <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search.select :key="'pet_id'" :title="trans('validation.attributes.pet_id')" :icon="'fas fa-dog'"
+                        :datas="$pets" />
+                </div>
+
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'name'" :title="trans('validation.attributes.name')" :icon="'fas fa-font'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'name-idn'" :title="trans('validation.attributes.name-idn')" :icon="'fas fa-font'" />
-                </div>
-
-                <div class="col-sm-4 col-lg-3 col-xl-auto">
-                    <x-components::search :key="'description'" :title="trans('validation.attributes.description')" :icon="'fas fa-file-text'" />
-                </div>
-
-                <div class="col-sm-4 col-lg-3 col-xl-auto">
-                    <x-components::search :key="'description_idn'" :title="trans('validation.attributes.description_idn')" :icon="'fas fa-file-text'" />
-                </div>
-
-                <div class="col-sm-4 col-lg-3 col-xl-auto">
-                    <x-components::search.date />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto">
@@ -81,9 +74,11 @@
                             <th width="1%">{{ trans('index.#') }}</th>
                             <th width="1%">{{ trans('index.id') }}</th>
                             <th width="1%">{{ trans('index.image') }}</th>
+                            <th width="1%">{{ trans('index.pet') }}</th>
                             <th>{{ trans('index.name') }}</th>
                             <th>{{ trans('index.name_idn') }}</th>
-                            <th width="1%">{{ trans('index.date') }}</th>
+                            <th width="1%">{{ trans('index.total') }} {{ trans('index.product_category') }}</th>
+                            <th width="1%">{{ trans('index.total') }} {{ trans('index.product') }}</th>
                             <th width="1%">{{ trans('index.active') }}</th>
                             <th width="1%">{{ trans('index.action') }}</th>
                         </tr>
@@ -95,23 +90,43 @@
                                     {{ ($productTypes->currentPage() - 1) * $productTypes->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-components::link :href="route('cms.product-type.view', ['productType' => $productType->id])" :text="$productType->id" />
+                                    <x-components::link :href="route('cms.product-type.view', [
+                                        'productType' => $productType->id,
+                                    ])" :text="$productType->id" />
                                 </td>
                                 <td>
                                     @if ($productType->checkImage())
                                         <x-components::image :src="$productType->assetImage()" :alt="$productType->altImage()" />
                                     @endif
                                 </td>
+                                <td>
+                                    @if ($productType->pet)
+                                        <x-components::link :href="route('cms.pet.view', [
+                                            'pet' => $productType->pet->id,
+                                        ])" :text="$productType->pet->name" />
+
+                                        <x-components::link.external-link :href="route('pet.view', [
+                                            'slug' => $productType->pet->slug,
+                                        ])" />
+                                    @endif
+                                </td>
                                 <td class="text-wrap">
                                     {{ $productType->name }}
-                                    <x-components::link.external-link :href="route('productType.view', ['slug' => $productType->slug])" />
+                                    {{-- <x-components::link.external-link :href="route('productType.view', [
+                                        'slug' => $productType->slug,
+                                    ])" /> --}}
                                 </td>
                                 <td class="text-wrap">
                                     {{ $productType->name_idn }}
-                                    <x-components::link.external-link :href="route('productType.view', ['slug' => $productType->slug])" />
+                                    {{-- <x-components::link.external-link :href="route('productType.view', [
+                                        'slug' => $productType->slug,
+                                    ])" /> --}}
                                 </td>
                                 <td class="text-center">
-                                    {{ $productType->date?->isoFormat('LL') }}
+                                    {{ $productType->productCategories->count() }}
+                                </td>
+                                <td class="text-center">
+                                    {{ $productType->products->count() }}
                                 </td>
                                 <td class="text-center">
                                     <span class="badge bg-{{ Utils::successDanger($productType->is_active) }}">

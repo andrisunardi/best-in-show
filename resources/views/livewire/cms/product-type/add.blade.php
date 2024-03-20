@@ -21,6 +21,13 @@
 
                 <div class="row g-3 mb-3">
                     <div class="col-sm-6">
+                        <x-components::form.select :key="'pet_id'" :title="trans('validation.attributes.pet_id')" :icon="'fas fa-dog'"
+                            :datas="$pets" :required="true" />
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-6">
                         <x-components::form.name :maxlength="100" :required="true" :autofocus="true" />
                     </div>
 
@@ -31,20 +38,6 @@
                 </div>
 
                 <div class="row g-3 mb-3">
-                    <div class="col-sm-6">
-                        <x-components::form.description />
-                    </div>
-
-                    <div class="col-sm-6">
-                        <x-components::form.description :key="'description_idn'" :title="trans('validation.attributes.description_idn')" />
-                    </div>
-                </div>
-
-                <div class="row g-3 mb-3">
-                    <div class="col-sm-6">
-                        <x-components::form.date />
-                    </div>
-
                     <div class="col-sm-6">
                         <x-components::form.image />
 
