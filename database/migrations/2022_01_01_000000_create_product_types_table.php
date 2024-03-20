@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('name', 100)->nullable();
             $table->string('name_idn', 100)->nullable();
             $table->string('image', 100)->nullable();
-            $table->string('slug', 200)->nullable();
+            $table->string('slug', 100)->nullable();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);
             $table->foreignId('created_by_id')->nullable()->unsigned();
             $table->foreignId('updated_by_id')->nullable()->unsigned();

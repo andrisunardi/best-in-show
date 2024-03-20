@@ -159,7 +159,7 @@ class ProductType extends Model
 
     public function checkImage()
     {
-        if ($this->image && File::exists(public_path("images/product/type/{$this->image}"))) {
+        if ($this->image && File::exists(public_path("images/product-type/{$this->image}"))) {
             return true;
         }
     }
@@ -167,7 +167,7 @@ class ProductType extends Model
     public function assetImage()
     {
         if ($this->checkImage()) {
-            return asset("images/product/type/{$this->image}");
+            return asset("images/product-type/{$this->image}");
         }
 
         return asset('images/product.png');
@@ -176,14 +176,14 @@ class ProductType extends Model
     public function deleteImage()
     {
         if ($this->checkImage()) {
-            File::delete(public_path("images/product/type/{$this->image}"));
+            File::delete(public_path("images/product-type/{$this->image}"));
         }
     }
 
     public function getImageUrlAttribute()
     {
         if ($this->checkImage()) {
-            return URL::to('/')."/images/product/type/{$this->image}";
+            return URL::to('/')."/images/product-type/{$this->image}";
         }
 
         return null;
@@ -198,7 +198,7 @@ class ProductType extends Model
 
     public function productCategories()
     {
-        return $this->belongsTo(ProductCategory::class);
+        return $this->hasMany(ProductCategory::class);
     }
 
     public function productCategoryGroupByName()

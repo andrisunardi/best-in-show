@@ -151,6 +151,68 @@ Breadcrumbs::for('cms.event.trash', function (BreadcrumbTrail $trail) {
     $trail->push(trans('index.trash'), route('cms.event.trash'), ['icon' => 'fas fa-dumpster']);
 });
 
+// EVENT IMAGE
+Breadcrumbs::for('cms.event-image.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.event_image'), route('cms.event-image.index'), ['icon' => 'fas fa-image']);
+});
+
+Breadcrumbs::for('cms.event-image.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.event-image.index');
+    $trail->push(trans('index.add'), route('cms.event-image.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.event-image.clone', function (BreadcrumbTrail $trail, $eventImage) {
+    $trail->parent('cms.event-image.index');
+    $trail->push(trans('index.clone'), route('cms.event-image.clone', ['eventImage' => $eventImage]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.event-image.edit', function (BreadcrumbTrail $trail, $eventImage) {
+    $trail->parent('cms.event-image.index');
+    $trail->push(trans('index.edit'), route('cms.event-image.edit', ['eventImage' => $eventImage]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.event-image.view', function (BreadcrumbTrail $trail, $eventImage) {
+    $trail->parent('cms.event-image.index');
+    $trail->push(trans('index.view'), route('cms.event-image.view', ['eventImage' => $eventImage]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.event-image.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.event-image.index');
+    $trail->push(trans('index.trash'), route('cms.event-image.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
+// EVENT VIDEO
+Breadcrumbs::for('cms.event-video.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.event_video'), route('cms.event-video.index'), ['icon' => 'fas fa-video']);
+});
+
+Breadcrumbs::for('cms.event-video.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.event-video.index');
+    $trail->push(trans('index.add'), route('cms.event-video.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.event-video.clone', function (BreadcrumbTrail $trail, $eventVideo) {
+    $trail->parent('cms.event-video.index');
+    $trail->push(trans('index.clone'), route('cms.event-video.clone', ['eventVideo' => $eventVideo]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.event-video.edit', function (BreadcrumbTrail $trail, $eventVideo) {
+    $trail->parent('cms.event-video.index');
+    $trail->push(trans('index.edit'), route('cms.event-video.edit', ['eventVideo' => $eventVideo]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.event-video.view', function (BreadcrumbTrail $trail, $eventVideo) {
+    $trail->parent('cms.event-video.index');
+    $trail->push(trans('index.view'), route('cms.event-video.view', ['eventVideo' => $eventVideo]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.event-video.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.event-video.index');
+    $trail->push(trans('index.trash'), route('cms.event-video.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
 // PROMOTION
 Breadcrumbs::for('cms.promotion.index', function (BreadcrumbTrail $trail) {
     $trail->parent('cms.index');
@@ -180,6 +242,99 @@ Breadcrumbs::for('cms.promotion.view', function (BreadcrumbTrail $trail, $promot
 Breadcrumbs::for('cms.promotion.trash', function (BreadcrumbTrail $trail) {
     $trail->parent('cms.promotion.index');
     $trail->push(trans('index.trash'), route('cms.promotion.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
+// PRODUCT
+Breadcrumbs::for('cms.product.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.product'), route('cms.product.index'), ['icon' => 'fas fa-box']);
+});
+
+Breadcrumbs::for('cms.product.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.product.index');
+    $trail->push(trans('index.add'), route('cms.product.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.product.clone', function (BreadcrumbTrail $trail, $product) {
+    $trail->parent('cms.product.index');
+    $trail->push(trans('index.clone'), route('cms.product.clone', ['product' => $product]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.product.edit', function (BreadcrumbTrail $trail, $product) {
+    $trail->parent('cms.product.index');
+    $trail->push(trans('index.edit'), route('cms.product.edit', ['product' => $product]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.product.view', function (BreadcrumbTrail $trail, $product) {
+    $trail->parent('cms.product.index');
+    $trail->push(trans('index.view'), route('cms.product.view', ['product' => $product]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.product.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.product.index');
+    $trail->push(trans('index.trash'), route('cms.product.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
+// PRODUCT CATEGORY
+Breadcrumbs::for('cms.product-category.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.product_category'), route('cms.product-category.index'), ['icon' => 'fas fa-tag']);
+});
+
+Breadcrumbs::for('cms.product-category.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.product-category.index');
+    $trail->push(trans('index.add'), route('cms.product-category.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.product-category.clone', function (BreadcrumbTrail $trail, $productCategory) {
+    $trail->parent('cms.product-category.index');
+    $trail->push(trans('index.clone'), route('cms.product-category.clone', ['productCategory' => $productCategory]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.product-category.edit', function (BreadcrumbTrail $trail, $productCategory) {
+    $trail->parent('cms.product-category.index');
+    $trail->push(trans('index.edit'), route('cms.product-category.edit', ['productCategory' => $productCategory]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.product-category.view', function (BreadcrumbTrail $trail, $productCategory) {
+    $trail->parent('cms.product-category.index');
+    $trail->push(trans('index.view'), route('cms.product-category.view', ['productCategory' => $productCategory]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.product-category.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.product-category.index');
+    $trail->push(trans('index.trash'), route('cms.product-category.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
+// PRODUCT TYPE
+Breadcrumbs::for('cms.product-type.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.product_type'), route('cms.product-type.index'), ['icon' => 'fas fa-tags']);
+});
+
+Breadcrumbs::for('cms.product-type.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.product-type.index');
+    $trail->push(trans('index.add'), route('cms.product-type.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.product-type.clone', function (BreadcrumbTrail $trail, $productType) {
+    $trail->parent('cms.product-type.index');
+    $trail->push(trans('index.clone'), route('cms.product-type.clone', ['productType' => $productType]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.product-type.edit', function (BreadcrumbTrail $trail, $productType) {
+    $trail->parent('cms.product-type.index');
+    $trail->push(trans('index.edit'), route('cms.product-type.edit', ['productType' => $productType]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.product-type.view', function (BreadcrumbTrail $trail, $productType) {
+    $trail->parent('cms.product-type.index');
+    $trail->push(trans('index.view'), route('cms.product-type.view', ['productType' => $productType]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.product-type.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.product-type.index');
+    $trail->push(trans('index.trash'), route('cms.product-type.trash'), ['icon' => 'fas fa-dumpster']);
 });
 
 // BANNER
