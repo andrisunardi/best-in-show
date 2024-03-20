@@ -62,6 +62,16 @@ return [
         'subMenus' => [],
     ],
     [
+        'roles' => 'Super User|Admin|Faq',
+        'permissions' => 'Faq',
+        'name' => 'Faq',
+        'route' => 'cms.faq.index',
+        'icon' => 'fas fa-question',
+        'table' => 'faqs',
+        'sidebar' => true,
+        'subMenus' => [],
+    ],
+    [
         'roles' => 'Super User|Admin|Pet',
         'permissions' => 'Pet',
         'name' => 'Pet',

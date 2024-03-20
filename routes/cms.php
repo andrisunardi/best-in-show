@@ -45,6 +45,10 @@ Route::group(['middleware' => ['auth', 'role:'.config('app.route_cms_roles')]], 
         ->middleware(['role:Super User|Admin|Slider'])
         ->group(base_path('routes/cms/store.php'));
 
+    Route::prefix('faq')->name('faq.')->as('faq.')
+        ->middleware(['role:Super User|Admin|Faq'])
+        ->group(base_path('routes/cms/faq.php'));
+
     Route::prefix('pet')->name('pet.')->as('pet.')
         ->middleware(['role:Super User|Admin|Contact'])
         ->group(base_path('routes/cms/pet.php'));
