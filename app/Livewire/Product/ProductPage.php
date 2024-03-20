@@ -35,9 +35,13 @@ class ProductPage extends Component
         $this->product_categories = $product_categories ?: $this->product_categories;
 
         return Product::when($this->search, function ($query) {
-            $query->where('name', 'like', "%{$this->search}%")
-                ->where('name_idn', 'like', "%{$this->search}%");
-        })
+            $query->where(function ($query) {
+                $query->where('name', 'like', "%{$this->search}%")
+                    ->orWhere('name_idn', 'like', "%{$this->search}%")
+                    ->orWhere('description', 'like', "%{$this->search}%")
+                    ->orWhere('description_idn', 'like', "%{$this->search}%");
+                });
+            })
             ->when($this->product_types, function ($query) {
                 $query->whereIn('product_type_id', $this->product_types);
             })
