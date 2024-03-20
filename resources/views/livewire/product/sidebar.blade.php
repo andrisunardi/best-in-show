@@ -7,7 +7,7 @@
                 <div class="absolute top-1/2 left-3 -translate-y-1/2">
                     <i class="material-icons rounded-icon">search</i>
                 </div>
-                <input type="text" wire:model.lazy="search"
+                <input type="text" wire:model.live="search"
                     placeholder="{{ trans('index.search') }} {{ trans('index.product') }}" required />
             </div>
 

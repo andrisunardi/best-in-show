@@ -7,12 +7,6 @@ use App\Models\Product;
 
 class ProductPage extends Component
 {
-    protected $listeners = [
-        'updated' => 'getProducts',
-    ];
-
-    protected $paginationTheme = 'tailwind';
-
     public $search = '';
 
     public $product_types = [];
@@ -20,6 +14,12 @@ class ProductPage extends Component
     public $product_categories = [];
 
     public $page = 1;
+
+    protected $listeners = [
+        'updated' => 'getProducts',
+    ];
+
+    protected $paginationTheme = 'tailwind';
 
     public $queryString = [
         'search',

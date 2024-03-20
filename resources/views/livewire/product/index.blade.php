@@ -32,7 +32,7 @@
                         </div>
                     </button>
 
-                    <div class="filter-tag">
+                    {{-- <div class="filter-tag">
                         <div class="flex items-center gap-3">
                             <p>Super Premium</p>
                             <button type="button">
@@ -47,7 +47,7 @@
                                 <i class="material-icons rounded-icon">close</i>
                             </button>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div class="hidden lg:block">

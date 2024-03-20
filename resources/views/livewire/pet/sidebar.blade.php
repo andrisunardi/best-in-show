@@ -1,16 +1,17 @@
 <div class="hidden lg:block w-1/4">
     <div class="filter-card">
-        <form action="" class="product-form">
+        <form wire:submit.prevent role="form" autocomplete="off" class="product-form">
             <h2>{{ trans('index.search') }} {{ trans('index.product') }}</h2>
 
             <div class="relative mt-4">
                 <div class="absolute top-1/2 left-3 -translate-y-1/2">
                     <i class="material-icons rounded-icon">search</i>
                 </div>
-                <input type="text" placeholder="{{ trans('index.search') }} {{ trans('index.product') }}" />
+                <input type="text" wire:model.live="search"
+                    placeholder="{{ trans('index.search') }} {{ trans('index.product') }}" required />
             </div>
 
-            <div class="relative mt-6">
+            <div class="relative mt-6" wire:ignore>
                 <h2>{{ trans('index.category') }}</h2>
 
                 <div class="mt-3">
@@ -23,15 +24,22 @@
                     <div class="panel" style="display: none; overflow: hidden;">
                         @foreach ($pet->productTypes as $productType)
                             <div class="form-group">
-                                <label for="">{{ $productType->translate_name }}</label>
-                                <input id="" type="checkbox" />
+                                <label for="product_type_{{ $productType->id }}">
+                                    {{ $productType->translate_name }}
+                                </label>
+                                <input id="product_type_{{ $productType->id }}" name="product_types" type="checkbox"
+                                    wire:model.live="product_types" value="{{ $productType->id }}" />
                             </div>
                         @endforeach
 
                         @foreach ($pet->productCategories as $productCategory)
                             <div class="form-group">
-                                <label for="">{{ $productCategory->translate_name }}</label>
-                                <input id="" type="checkbox" />
+                                <label for="product_category_{{ $productCategory->id }}">
+                                    {{ $productCategory->translate_name }}
+                                </label>
+                                <input id="product_category_{{ $productCategory->id }}" name="product_categories"
+                                    type="checkbox" wire:model.live="product_categories"
+                                    value="{{ $productCategory->id }}" />
                             </div>
                         @endforeach
                     </div>
