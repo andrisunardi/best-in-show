@@ -58,6 +58,37 @@ Breadcrumbs::for('cms.contact.trash', function (BreadcrumbTrail $trail) {
     $trail->push(trans('index.trash'), route('cms.contact.trash'), ['icon' => 'fas fa-dumpster']);
 });
 
+// SIGN UP
+Breadcrumbs::for('cms.sign-up.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.index');
+    $trail->push(trans('index.sign_up'), route('cms.sign-up.index'), ['icon' => 'fas fa-pencil']);
+});
+
+Breadcrumbs::for('cms.sign-up.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.sign-up.index');
+    $trail->push(trans('index.add'), route('cms.sign-up.add'), ['icon' => 'fas fa-plus']);
+});
+
+Breadcrumbs::for('cms.sign-up.clone', function (BreadcrumbTrail $trail, $signUp) {
+    $trail->parent('cms.sign-up.index');
+    $trail->push(trans('index.clone'), route('cms.sign-up.clone', ['signUp' => $signUp]), ['icon' => 'fas fa-clone']);
+});
+
+Breadcrumbs::for('cms.sign-up.edit', function (BreadcrumbTrail $trail, $signUp) {
+    $trail->parent('cms.sign-up.index');
+    $trail->push(trans('index.edit'), route('cms.sign-up.edit', ['signUp' => $signUp]), ['icon' => 'fas fa-edit']);
+});
+
+Breadcrumbs::for('cms.sign-up.view', function (BreadcrumbTrail $trail, $signUp) {
+    $trail->parent('cms.sign-up.index');
+    $trail->push(trans('index.view'), route('cms.sign-up.view', ['signUp' => $signUp]), ['icon' => 'fas fa-eye']);
+});
+
+Breadcrumbs::for('cms.sign-up.trash', function (BreadcrumbTrail $trail) {
+    $trail->parent('cms.sign-up.index');
+    $trail->push(trans('index.trash'), route('cms.sign-up.trash'), ['icon' => 'fas fa-dumpster']);
+});
+
 // ARTICLE
 Breadcrumbs::for('cms.article.index', function (BreadcrumbTrail $trail) {
     $trail->parent('cms.index');

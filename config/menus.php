@@ -12,6 +12,16 @@ return [
         'subMenus' => [],
     ],
     [
+        'roles' => 'Super User|Admin|Sign Up',
+        'permissions' => 'Sign Up',
+        'name' => 'Sign Up',
+        'route' => 'cms.sign-up.index',
+        'icon' => 'fas fa-pencil',
+        'table' => 'sign_ups',
+        'sidebar' => true,
+        'subMenus' => [],
+    ],
+    [
         'roles' => 'Super User|Admin|Article',
         'permissions' => 'Article',
         'name' => 'Article',
