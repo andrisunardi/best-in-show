@@ -38,6 +38,11 @@ class PetViewPage extends Component
         $this->pet = Pet::where('slug', $slug)->active()->firstOrFail();
     }
 
+    public function updatedPage($page)
+    {
+        $this->page = $page;
+    }
+
     // public function getProducts(string $search = '', array $product_types = [], array $product_categories = [])
     // {
     //     $this->search = $search ?: $this->search;
@@ -118,11 +123,6 @@ class PetViewPage extends Component
         }
 
         $this->product_categories = array_values($this->product_categories);
-    }
-
-    public function updatedPage($page)
-    {
-        $this->page = $page;
     }
 
     public function render()

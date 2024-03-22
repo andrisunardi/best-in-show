@@ -32,22 +32,29 @@
                         </div>
                     </button>
 
-                    {{-- <div class="filter-tag">
-                        <div class="flex items-center gap-3">
-                            <p>Super Premium</p>
-                            <button type="button">
-                                <i class="material-icons rounded-icon">close</i>
-                            </button>
+                    @foreach ($filterProductTypes as $filterProductType)
+                        <div class="filter-tag">
+                            <div class="flex items-center gap-3">
+                                <p>{{ $filterProductType->translate_name }}</p>
+                                <button type="button"
+                                    wire:click="removeFilterProductTypes({{ $filterProductType->id }})">
+                                    <i class="material-icons rounded-icon">close</i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="filter-tag">
-                        <div class="flex items-center gap-3">
-                            <p>Holistic</p>
-                            <button type="button">
-                                <i class="material-icons rounded-icon">close</i>
-                            </button>
+                    @endforeach
+
+                    @foreach ($filterProductCategories as $filterProductCategory)
+                        <div class="filter-tag">
+                            <div class="flex items-center gap-3">
+                                <p>{{ $filterProductCategory->translate_name }}</p>
+                                <button type="button"
+                                    wire:click="removeFilterProductCategories({{ $filterProductCategory->id }})">
+                                    <i class="material-icons rounded-icon">close</i>
+                                </button>
+                            </div>
                         </div>
-                    </div> --}}
+                    @endforeach
                 </div>
 
                 <div class="hidden lg:block">
@@ -65,13 +72,15 @@
             <div class="mt-10">
                 <div class="relative flex gap-6">
 
-                    @livewire('product.product-sidebar')
+                    {{-- @livewire('product.product-sidebar') --}}
+                    @include('livewire.product.sidebar')
 
                     <div class="w-full lg:w-3/4">
                         <div class="gridview-product mb-10">
                             @foreach ($products as $product)
                                 <div class="gridview-product-item">
-                                    <a draggable="false" href="{{ route('product.view', ['slug' => $product->slug]) }}">
+                                    <a draggable="false"
+                                        href="{{ route('product.view', ['slug' => $product->slug]) }}">
                                         <img draggable="false" class="h-min" src="{{ $product->assetImage() }}"
                                             alt="{{ $product->altImage() }}" />
                                     </a>
@@ -106,5 +115,6 @@
         </div>
     </section>
 
-    @livewire('product.product-modal')
+    {{-- @livewire('product.product-modal') --}}
+    @include('livewire.product.modal')
 </main>
