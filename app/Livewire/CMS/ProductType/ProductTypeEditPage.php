@@ -2,9 +2,9 @@
 
 namespace App\Livewire\CMS\ProductType;
 
+use App\Livewire\CMS\Component;
 use App\Models\ProductType;
 use App\Services\PetService;
-use App\Livewire\CMS\Component;
 use App\Services\ProductTypeService;
 
 class ProductTypeEditPage extends Component

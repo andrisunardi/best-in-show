@@ -5,9 +5,12 @@ namespace App\Livewire\Pet;
 use App\Livewire\Component;
 use App\Models\Pet;
 use App\Models\Product;
+use App\Models\ProductType;
 
 class PetViewPage extends Component
 {
+    public $pet;
+
     public $search = '';
 
     public $product_types = [];
@@ -16,16 +19,9 @@ class PetViewPage extends Component
 
     public $page = 1;
 
-    public $pet;
-
-    public function mount($slug)
-    {
-        $this->pet = Pet::where('slug', $slug)->active()->firstOrFail();
-    }
-
-    protected $listeners = [
-        'updated' => 'getProducts',
-    ];
+    // protected $listeners = [
+    //     'updated' => 'getProducts',
+    // ];
 
     protected $paginationTheme = 'tailwind';
 
@@ -36,12 +32,37 @@ class PetViewPage extends Component
         'page',
     ];
 
-    public function getProducts(string $search = '', array $product_types = [], array $product_categories = [])
+    public function mount($slug)
     {
-        $this->search = $search ?: $this->search;
-        $this->product_types = $product_types ?: $this->product_types;
-        $this->product_categories = $product_categories ?: $this->product_categories;
+        $this->pet = Pet::where('slug', $slug)->active()->firstOrFail();
+    }
 
+    // public function getProducts(string $search = '', array $product_types = [], array $product_categories = [])
+    // {
+    //     $this->search = $search ?: $this->search;
+    //     $this->product_types = $product_types ?: $this->product_types;
+    //     $this->product_categories = $product_categories ?: $this->product_categories;
+
+    //     return Product::where('pet_id', $this->pet->id)
+    //         ->when($this->search, function ($query) {
+    //             $query->where(function ($query) {
+    //                 $query->where('name', 'like', "%{$this->search}%")
+    //                     ->orWhere('name_idn', 'like', "%{$this->search}%")
+    //                     ->orWhere('description', 'like', "%{$this->search}%")
+    //                     ->orWhere('description_idn', 'like', "%{$this->search}%");
+    //                 });
+    //             })
+    //         ->when($this->product_types, function ($query) {
+    //             $query->whereIn('product_type_id', $this->product_types);
+    //         })
+    //         ->when($this->product_categories, function ($query) {
+    //             $query->whereIn('product_category_id', $this->product_categories);
+    //         })
+    //         ->latest()->active()->paginate(12);
+    // }
+
+    public function getProducts()
+    {
         return Product::where('pet_id', $this->pet->id)
             ->when($this->search, function ($query) {
                 $query->where(function ($query) {
@@ -49,8 +70,8 @@ class PetViewPage extends Component
                         ->orWhere('name_idn', 'like', "%{$this->search}%")
                         ->orWhere('description', 'like', "%{$this->search}%")
                         ->orWhere('description_idn', 'like', "%{$this->search}%");
-                    });
-                })
+                });
+            })
             ->when($this->product_types, function ($query) {
                 $query->whereIn('product_type_id', $this->product_types);
             })
@@ -60,9 +81,30 @@ class PetViewPage extends Component
             ->latest()->active()->paginate(12);
     }
 
+    public function getFilterProductTypes()
+    {
+        return ProductType::where('pet_id', $this->pet->id)
+            ->whereIn('id', $this->product_types)
+            ->orderBy('name')
+            ->active()
+            ->get();
+    }
+
+    public function removeFilterProductTypes(ProductType $productType)
+    {
+        unset($this->product_types[$productType->id]);
+        $this->product_types = array_values($this->product_types);
+    }
+
+    public function updatedPage($page)
+    {
+        $this->page = $page;
+    }
+
     public function render()
     {
         return view('livewire.pet.view', [
+            'filterProductTypes' => $this->getFilterProductTypes(),
             'products' => $this->getProducts(),
         ]);
     }

@@ -2,8 +2,8 @@
 
 namespace App\Livewire\CMS\ProductType;
 
-use App\Services\PetService;
 use App\Livewire\CMS\Component;
+use App\Services\PetService;
 use App\Services\ProductTypeService;
 
 class ProductTypePage extends Component

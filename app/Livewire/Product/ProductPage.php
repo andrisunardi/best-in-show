@@ -40,8 +40,8 @@ class ProductPage extends Component
                     ->orWhere('name_idn', 'like', "%{$this->search}%")
                     ->orWhere('description', 'like', "%{$this->search}%")
                     ->orWhere('description_idn', 'like', "%{$this->search}%");
-                });
-            })
+            });
+        })
             ->when($this->product_types, function ($query) {
                 $query->whereIn('product_type_id', $this->product_types);
             })

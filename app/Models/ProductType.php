@@ -66,6 +66,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereUpdatedById($value)
  *
  * @property-read mixed $translate_name
+ * @property-read int|null $product_categories_count
  *
  * @mixin \Eloquent
  */
