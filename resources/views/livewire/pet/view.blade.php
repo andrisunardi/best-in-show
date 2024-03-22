@@ -44,16 +44,17 @@
                         </div>
                     @endforeach
 
-                    {{-- @foreach ($filters as $filter)
+                    @foreach ($filterProductCategories as $filterProductCategory)
                         <div class="filter-tag">
                             <div class="flex items-center gap-3">
-                                <p>{{ $filter->translate_name }}</p>
-                                <button type="button">
+                                <p>{{ $filterProductCategory->translate_name }}</p>
+                                <button type="button"
+                                    wire:click="removeFilterProductCategories({{ $filterProductCategory->id }})">
                                     <i class="material-icons rounded-icon">close</i>
                                 </button>
                             </div>
                         </div>
-                    @endforeach --}}
+                    @endforeach
                 </div>
 
                 <div class="hidden lg:block">

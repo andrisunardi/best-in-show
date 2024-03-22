@@ -5,6 +5,7 @@ namespace App\Livewire\Pet;
 use App\Livewire\Component;
 use App\Models\Pet;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use App\Models\ProductType;
 
 class PetViewPage extends Component
@@ -85,15 +86,38 @@ class PetViewPage extends Component
     {
         return ProductType::where('pet_id', $this->pet->id)
             ->whereIn('id', $this->product_types)
-            ->orderBy('name')
+            ->active()
+            ->get();
+    }
+
+    public function getFilterProductCategories()
+    {
+        return ProductCategory::where('pet_id', $this->pet->id)
+            ->whereIn('id', $this->product_categories)
             ->active()
             ->get();
     }
 
     public function removeFilterProductTypes(ProductType $productType)
     {
-        unset($this->product_types[$productType->id]);
+        $key = array_search($productType->id, $this->product_types);
+
+        if ($key !== false) {
+            unset($this->product_types[$key]);
+        }
+
         $this->product_types = array_values($this->product_types);
+    }
+
+    public function removeFilterProductCategories(ProductCategory $productCategory)
+    {
+        $key = array_search($productCategory->id, $this->product_categories);
+
+        if ($key !== false) {
+            unset($this->product_categories[$key]);
+        }
+
+        $this->product_categories = array_values($this->product_categories);
     }
 
     public function updatedPage($page)
@@ -105,6 +129,7 @@ class PetViewPage extends Component
     {
         return view('livewire.pet.view', [
             'filterProductTypes' => $this->getFilterProductTypes(),
+            'filterProductCategories' => $this->getFilterProductCategories(),
             'products' => $this->getProducts(),
         ]);
     }
