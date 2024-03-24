@@ -13,6 +13,7 @@ use App\Livewire\CMS\Configuration\User\UserRestore;
 use App\Livewire\CMS\Configuration\User\UserRestoreAll;
 use App\Livewire\CMS\Configuration\User\UserTrashPage;
 use App\Livewire\CMS\Configuration\User\UserViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', UserPage::class)->name('index')->middleware('permission:User');
 Route::any('add', UserAddPage::class)->name('add')->middleware('permission:User Add');

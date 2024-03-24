@@ -12,6 +12,7 @@ use App\Livewire\CMS\Store\StoreRestore;
 use App\Livewire\CMS\Store\StoreRestoreAll;
 use App\Livewire\CMS\Store\StoreTrashPage;
 use App\Livewire\CMS\Store\StoreViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', StorePage::class)->name('index')->middleware('permission:Store');
 Route::any('add', StoreAddPage::class)->name('add')->middleware('permission:Store Add');

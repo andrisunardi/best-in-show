@@ -13,6 +13,7 @@ use App\Livewire\CMS\EventImage\EventImageRestore;
 use App\Livewire\CMS\EventImage\EventImageRestoreAll;
 use App\Livewire\CMS\EventImage\EventImageTrashPage;
 use App\Livewire\CMS\EventImage\EventImageViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', EventImagePage::class)->name('index')->middleware('permission:Event Image');
 Route::any('add', EventImageAddPage::class)->name('add')->middleware('permission:Event Image Add');

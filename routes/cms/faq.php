@@ -12,6 +12,7 @@ use App\Livewire\CMS\Faq\FaqRestore;
 use App\Livewire\CMS\Faq\FaqRestoreAll;
 use App\Livewire\CMS\Faq\FaqTrashPage;
 use App\Livewire\CMS\Faq\FaqViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', FaqPage::class)->name('index')->middleware('permission:Faq');
 Route::any('add', FaqAddPage::class)->name('add')->middleware('permission:Faq Add');

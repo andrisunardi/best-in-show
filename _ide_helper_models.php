@@ -758,6 +758,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductType whereUpdatedById($value)
  * @property-read mixed $translate_name
+ * @property-read int|null $product_categories_count
  * @mixin \Eloquent
  */
 	class ProductType extends \Eloquent {}

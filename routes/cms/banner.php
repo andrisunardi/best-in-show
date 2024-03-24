@@ -13,6 +13,7 @@ use App\Livewire\CMS\Banner\BannerRestore;
 use App\Livewire\CMS\Banner\BannerRestoreAll;
 use App\Livewire\CMS\Banner\BannerTrashPage;
 use App\Livewire\CMS\Banner\BannerViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', BannerPage::class)->name('index')->middleware('permission:Banner');
 Route::any('add', BannerAddPage::class)->name('add')->middleware('permission:Banner Add');

@@ -13,6 +13,7 @@ use App\Livewire\CMS\Article\ArticleRestore;
 use App\Livewire\CMS\Article\ArticleRestoreAll;
 use App\Livewire\CMS\Article\ArticleTrashPage;
 use App\Livewire\CMS\Article\ArticleViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', ArticlePage::class)->name('index')->middleware('permission:Article');
 Route::any('add', ArticleAddPage::class)->name('add')->middleware('permission:Article Add');

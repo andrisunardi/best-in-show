@@ -14,6 +14,7 @@ use App\Livewire\CMS\Event\EventRestore;
 use App\Livewire\CMS\Event\EventRestoreAll;
 use App\Livewire\CMS\Event\EventTrashPage;
 use App\Livewire\CMS\Event\EventViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', EventPage::class)->name('index')->middleware('permission:Event');
 Route::any('add', EventAddPage::class)->name('add')->middleware('permission:Event Add');

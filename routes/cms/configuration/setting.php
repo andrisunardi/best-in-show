@@ -12,6 +12,7 @@ use App\Livewire\CMS\Configuration\Setting\SettingRestore;
 use App\Livewire\CMS\Configuration\Setting\SettingRestoreAll;
 use App\Livewire\CMS\Configuration\Setting\SettingTrashPage;
 use App\Livewire\CMS\Configuration\Setting\SettingViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', SettingPage::class)->name('index')->middleware('permission:Setting');
 Route::any('add', SettingAddPage::class)->name('add')->middleware('permission:Setting Add');

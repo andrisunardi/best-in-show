@@ -13,6 +13,7 @@ use App\Livewire\CMS\EventVideo\EventVideoRestore;
 use App\Livewire\CMS\EventVideo\EventVideoRestoreAll;
 use App\Livewire\CMS\EventVideo\EventVideoTrashPage;
 use App\Livewire\CMS\EventVideo\EventVideoViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', EventVideoPage::class)->name('index')->middleware('permission:Event Video');
 Route::any('add', EventVideoAddPage::class)->name('add')->middleware('permission:Event Video Add');

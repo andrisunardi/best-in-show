@@ -6,6 +6,7 @@ use App\Livewire\CMS\Configuration\Permission\PermissionDelete;
 use App\Livewire\CMS\Configuration\Permission\PermissionEditPage;
 use App\Livewire\CMS\Configuration\Permission\PermissionPage;
 use App\Livewire\CMS\Configuration\Permission\PermissionViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', PermissionPage::class)->name('index')->middleware('permission:Permission');
 Route::any('add', PermissionAddPage::class)->name('add')->middleware('permission:Permission Add');

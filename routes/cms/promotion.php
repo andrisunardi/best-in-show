@@ -13,6 +13,7 @@ use App\Livewire\CMS\Promotion\PromotionRestore;
 use App\Livewire\CMS\Promotion\PromotionRestoreAll;
 use App\Livewire\CMS\Promotion\PromotionTrashPage;
 use App\Livewire\CMS\Promotion\PromotionViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', PromotionPage::class)->name('index')->middleware('permission:Promotion');
 Route::any('add', PromotionAddPage::class)->name('add')->middleware('permission:Promotion Add');

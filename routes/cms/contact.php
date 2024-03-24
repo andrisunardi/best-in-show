@@ -9,6 +9,7 @@ use App\Livewire\CMS\Contact\ContactRestore;
 use App\Livewire\CMS\Contact\ContactRestoreAll;
 use App\Livewire\CMS\Contact\ContactTrashPage;
 use App\Livewire\CMS\Contact\ContactViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', ContactPage::class)->name('index')->middleware('permission:Contact');
 Route::any('delete/{contact}', ContactDelete::class)->name('delete')->middleware('permission:Contact Delete');

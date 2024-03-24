@@ -2,6 +2,7 @@
 
 use App\Livewire\CMS\Configuration\ActivityPage;
 use App\Livewire\CMS\Configuration\ConfigurationPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', ConfigurationPage::class)->name('index')->middleware('permission:Configuration');
 Route::any('activity', ActivityPage::class)->name('activity')->middleware('permission:Activity');

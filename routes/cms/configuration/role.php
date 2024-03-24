@@ -6,6 +6,7 @@ use App\Livewire\CMS\Configuration\Role\RoleDelete;
 use App\Livewire\CMS\Configuration\Role\RoleEditPage;
 use App\Livewire\CMS\Configuration\Role\RolePage;
 use App\Livewire\CMS\Configuration\Role\RoleViewPage;
+use Illuminate\Support\Facades\Route;
 
 Route::any('', RolePage::class)->name('index')->middleware('permission:Role');
 Route::any('add', RoleAddPage::class)->name('add')->middleware('permission:Role Add');
