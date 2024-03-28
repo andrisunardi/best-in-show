@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class ProductTypeService
 {
     public function index(
-        string|int $pet_id = '',
+        string|int|null $pet_id = null,
         string $name = '',
         string $name_idn = '',
         array $is_active = [],

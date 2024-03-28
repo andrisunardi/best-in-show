@@ -6,12 +6,15 @@ use App\Livewire\CMS\Component;
 use App\Models\ProductCategory;
 use App\Services\PetService;
 use App\Services\ProductCategoryService;
+use App\Services\ProductTypeService;
 
 class ProductCategoryClonePage extends Component
 {
     public $productCategory;
 
     public $pet_id;
+
+    public $product_type_id;
 
     public $name;
 
@@ -24,6 +27,7 @@ class ProductCategoryClonePage extends Component
     public function mount(ProductCategory $productCategory)
     {
         $this->pet_id = $productCategory->pet_id;
+        $this->product_type_id = $productCategory->product_type_id;
         $this->name = "{$productCategory->name} (Copy)";
         $this->name_idn = "{$productCategory->name_idn} (Copy)";
         $this->is_active = $productCategory->is_active;
@@ -32,6 +36,7 @@ class ProductCategoryClonePage extends Component
     public function resetFields()
     {
         $this->pet_id = $this->productCategory->pet_id;
+        $this->product_type_id = $this->productCategory->product_type_id;
         $this->name = "{$this->productCategory->name} (Copy)";
         $this->name_idn = "{$this->productCategory->name_idn} (Copy)";
         $this->is_active = $this->productCategory->is_active;
@@ -41,6 +46,7 @@ class ProductCategoryClonePage extends Component
     {
         return [
             'pet_id' => 'required|integer|exists:pets,id',
+            'product_type_id' => 'required|integer|exists:product_types,id',
             'name' => 'required|string|max:100|unique:product_categories,name',
             'name_idn' => 'required|string|max:100|unique:product_categories,name_idn',
             'image' => 'nullable|max:'.env('MAX_IMAGE').'|mimes:'.env('MIMES_IMAGE'),
@@ -64,10 +70,26 @@ class ProductCategoryClonePage extends Component
         return (new PetService())->index(is_active: [true], orderBy: 'name', sortBy: 'asc', paginate: false);
     }
 
+    public function getProductTypes()
+    {
+        if (! $this->pet_id) {
+            return collect();
+        }
+
+        return (new ProductTypeService())->index(
+            pet_id: $this->pet_id,
+            is_active: [true],
+            orderBy: 'name',
+            sortBy: 'asc',
+            paginate: false,
+        );
+    }
+
     public function render()
     {
         return view('livewire.cms.product-category.clone', [
             'pets' => $this->getPets(),
+            'productTypes' => $this->getProductTypes(),
         ]);
     }
 }

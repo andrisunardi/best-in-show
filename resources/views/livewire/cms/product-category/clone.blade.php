@@ -26,8 +26,8 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <x-components::form.select :key="'product_category_id'" :title="trans('validation.attributes.product_category_id')" :icon="'fas fa-tags'"
-                            :datas="$productCategories" :required="true" />
+                        <x-components::form.select :key="'product_type_id'" :title="trans('validation.attributes.product_type_id')" :icon="'fas fa-tags'"
+                            :datas="$productTypes" :required="true" />
                     </div>
                 </div>
 

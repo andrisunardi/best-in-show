@@ -42,7 +42,7 @@ class ProductCategoryService
             file: $data['image'],
             name: $data['name'],
             disk: 'images',
-            directory: 'product/category',
+            directory: 'product-category',
             deleteAsset: false,
         );
 
@@ -57,7 +57,7 @@ class ProductCategoryService
             file: $data['image'],
             name: $data['name'],
             disk: 'images',
-            directory: 'product/category',
+            directory: 'product-category',
             checkAsset: $productCategory->checkImage(),
             fileAsset: $productCategory->image,
             deleteAsset: false,
@@ -74,7 +74,7 @@ class ProductCategoryService
             file: $data['image'],
             name: $data['name'],
             disk: 'images',
-            directory: 'product/category',
+            directory: 'product-category',
             checkAsset: $productCategory->checkImage(),
             fileAsset: $productCategory->image,
             deleteAsset: true,

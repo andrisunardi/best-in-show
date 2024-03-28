@@ -165,7 +165,7 @@ class ProductCategory extends Model
 
     public function checkImage()
     {
-        if ($this->image && File::exists(public_path("images/product/category/{$this->image}"))) {
+        if ($this->image && File::exists(public_path("images/product-category/{$this->image}"))) {
             return true;
         }
     }
@@ -173,23 +173,23 @@ class ProductCategory extends Model
     public function assetImage()
     {
         if ($this->checkImage()) {
-            return asset("images/product/category/{$this->image}");
+            return asset("images/product-category/{$this->image}");
         }
 
-        return asset('images/product.png');
+        return asset('images/image-not-available.png');
     }
 
     public function deleteImage()
     {
         if ($this->checkImage()) {
-            File::delete(public_path("images/product/category/{$this->image}"));
+            File::delete(public_path("images/product-category/{$this->image}"));
         }
     }
 
     public function getImageUrlAttribute()
     {
         if ($this->checkImage()) {
-            return URL::to('/')."/images/product/category/{$this->image}";
+            return URL::to('/')."/images/product-category/{$this->image}";
         }
 
         return null;

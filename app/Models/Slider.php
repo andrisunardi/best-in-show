@@ -147,7 +147,7 @@ class Slider extends Model
             return asset("images/slider/{$this->image}");
         }
 
-        return asset('images/slider.png');
+        return asset('images/image-not-available.png');
     }
 
     public function deleteImage()

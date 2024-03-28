@@ -173,7 +173,7 @@ class ProductType extends Model
             return asset("images/product-type/{$this->image}");
         }
 
-        return asset('images/product.png');
+        return asset('images/image-not-available.png');
     }
 
     public function deleteImage()

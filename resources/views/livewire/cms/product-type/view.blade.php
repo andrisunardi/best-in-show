@@ -50,6 +50,23 @@
 
             <div class="row mb-2">
                 <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <h6>{{ trans('index.pet') }}</h6>
+                </div>
+                <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                    @if ($productType->pet)
+                        <x-components::link :href="route('cms.pet.view', [
+                            'pet' => $productType->pet->id,
+                        ])" :text="$productType->pet->translate_name" />
+
+                        <x-components::link.external-link :href="route('pet.view', [
+                            'slug' => $productType->pet->slug,
+                        ])" />
+                    @endif
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2">
                     <h6>{{ trans('index.name') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
