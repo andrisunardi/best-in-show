@@ -12,9 +12,9 @@ class EventImageRestoreAll extends Component
         (new EventImageService())->restoreAll();
 
         $this->flash('success', trans('index.restore_success'), [
-            'html' => trans('index.all').' - '.trans('index.eventImage').' - '.trans('index.restored'),
+            'html' => trans('index.all').' - '.trans('index.event_image').' - '.trans('index.restored'),
         ]);
 
-        return redirect()->route('cms.eventImage.trash');
+        return redirect()->route('cms.event-image.trash');
     }
 }

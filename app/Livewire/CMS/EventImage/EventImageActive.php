@@ -14,7 +14,7 @@ class EventImageActive extends Component
         (new EventImageService())->active(eventImage: $eventImage);
 
         $this->flash('success', trans('index.active_success'), [
-            'html' => trans('index.eventImage')." - {$eventImage->id} - ".Utils::translate(Utils::active($eventImage->is_active)),
+            'html' => trans('index.event_image')." - {$eventImage->id} - ".Utils::translate(Utils::active($eventImage->is_active)),
         ]);
 
         return redirect(url()->previous());

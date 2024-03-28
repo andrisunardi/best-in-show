@@ -5,15 +5,13 @@ namespace App\Livewire\CMS\EventImage;
 use App\Livewire\CMS\Component;
 use App\Models\EventImage;
 use App\Services\EventImageService;
-use App\Services\PetService;
+use App\Services\EventService;
 
 class EventImageClonePage extends Component
 {
     public $eventImage;
 
-    public $pet_id;
-
-    public $link;
+    public $event_id;
 
     public $image;
 
@@ -21,23 +19,20 @@ class EventImageClonePage extends Component
 
     public function mount(EventImage $eventImage)
     {
-        $this->pet_id = $eventImage->pet_id;
-        $this->link = $eventImage->link;
+        $this->event_id = $eventImage->event_id;
         $this->is_active = $eventImage->is_active;
     }
 
     public function resetFields()
     {
-        $this->pet_id = $this->eventImage->pet_id;
-        $this->link = $this->eventImage->link;
+        $this->event_id = $this->eventImage->event_id;
         $this->is_active = $this->eventImage->is_active;
     }
 
     public function rules()
     {
         return [
-            'pet_id' => 'required|integer|exists:pets,id',
-            'link' => 'nullable|string|max:100',
+            'event_id' => 'required|integer|exists:events,id',
             'image' => 'nullable|max:'.env('MAX_IMAGE').'|mimes:'.env('MIMES_IMAGE'),
             'is_active' => 'required|boolean',
         ];
@@ -48,21 +43,21 @@ class EventImageClonePage extends Component
         $eventImage = (new EventImageService())->clone(data: $this->validate(), eventImage: $this->eventImage);
 
         $this->flash('success', trans('index.clone_success'), [
-            'html' => trans('index.eventImage')." - {$eventImage->id} - ".trans('index.cloned'),
+            'html' => trans('index.event_image')." - {$eventImage->id} - ".trans('index.cloned'),
         ]);
 
-        return redirect()->route('cms.eventImage.index');
+        return redirect()->route('cms.event-image.index');
     }
 
-    public function getPets()
+    public function getEvents()
     {
-        return (new PetService())->index(is_active: [true], orderBy: 'name', sortBy: 'asc', paginate: false);
+        return (new EventService())->index(is_active: [true], orderBy: 'name', sortBy: 'asc', paginate: false);
     }
 
     public function render()
     {
-        return view('livewire.cms.eventImage.clone', [
-            'pets' => $this->getPets(),
+        return view('livewire.cms.event-image.clone', [
+            'events' => $this->getEvents(),
         ]);
     }
 }

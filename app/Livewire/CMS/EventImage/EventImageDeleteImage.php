@@ -13,7 +13,7 @@ class EventImageDeleteImage extends Component
         (new EventImageService())->deleteImage(eventImage: $eventImage);
 
         $this->flash('success', trans('index.delete_success'), [
-            'html' => trans('index.eventImage')." - {$eventImage->id} - ".trans('index.deleted'),
+            'html' => trans('index.event_image')." - {$eventImage->id} - ".trans('index.deleted'),
         ]);
 
         return redirect(url()->previous());

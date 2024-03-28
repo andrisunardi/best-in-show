@@ -1,4 +1,4 @@
-@section('title', trans('index.banner'))
+@section('title', trans('index.event_image'))
 @section('icon', 'fas fa-images')
 
 <div>
@@ -11,12 +11,8 @@
         <div class="card-body">
             <div class="row g-3 mb-3">
                 <div class="col-sm-4 col-lg-3 col-xl-auto">
-                    <x-components::search.select :key="'pet_id'" :title="trans('validation.attributes.pet_id')" :icon="'fas fa-dog'"
-                        :datas="$pets" />
-                </div>
-
-                <div class="col-sm-4 col-lg-3 col-xl-auto">
-                    <x-components::search :key="'link'" :title="trans('validation.attributes.link')" :icon="'fas fa-link'" />
+                    <x-components::search.select :key="'event_id'" :title="trans('validation.attributes.event_id')" :icon="'fas fa-calendar'"
+                        :datas="$events" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto">
@@ -42,15 +38,15 @@
 
         <div class="card-body">
             <div class="row">
-                @can('Banner Add')
+                @can('Event Image Add')
                     <div class="col-6 col-sm-auto mb-3">
-                        <x-components::link.add :href="route('cms.banner.add')" />
+                        <x-components::link.add :href="route('cms.event-image.add')" />
                     </div>
                 @endcan
 
-                @can('Banner Trash')
+                @can('Event Image Trash')
                     <div class="col-6 col-sm-auto mb-3">
-                        <x-components::link.trash :href="route('cms.banner.trash')" />
+                        <x-components::link.trash :href="route('cms.event-image.trash')" />
                     </div>
                 @endcan
             </div>
@@ -62,48 +58,41 @@
                             <th width="1%">{{ trans('index.#') }}</th>
                             <th width="1%">{{ trans('index.id') }}</th>
                             <th width="1%">{{ trans('index.image') }}</th>
-                            <th width="1%">{{ trans('index.pet') }}</th>
-                            <th>{{ trans('index.link') }}</th>
+                            <th>{{ trans('index.event') }}</th>
                             <th width="1%">{{ trans('index.active') }}</th>
                             <th width="1%">{{ trans('index.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($banners as $banner)
-                            <tr wire:key="{{ $banner->id }}">
+                        @forelse ($eventImages as $eventImage)
+                            <tr wire:key="{{ $eventImage->id }}">
                                 <td class="text-center">
-                                    {{ ($banners->currentPage() - 1) * $banners->perPage() + $loop->iteration }}
+                                    {{ ($eventImages->currentPage() - 1) * $eventImages->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-components::link :href="route('cms.banner.view', [
-                                        'banner' => $banner->id,
-                                    ])" :text="$banner->id" />
+                                    <x-components::link :href="route('cms.event-image.view', [
+                                        'eventImage' => $eventImage->id,
+                                    ])" :text="$eventImage->id" />
                                 </td>
                                 <td>
-                                    @if ($banner->checkImage())
-                                        <x-components::image :src="$banner->assetImage()" :alt="$banner->altImage()" />
+                                    @if ($eventImage->checkImage())
+                                        <x-components::image :src="$eventImage->assetImage()" :alt="$eventImage->altImage()" />
                                     @endif
                                 </td>
                                 <td class="text-wrap">
-                                    @if ($banner->pet)
-                                        <x-components::link :href="route('cms.pet.view', [
-                                            'pet' => $banner->pet->id,
-                                        ])" :text="$banner->pet->name" />
+                                    @if ($eventImage->event)
+                                        <x-components::link :href="route('cms.event.view', [
+                                            'event' => $eventImage->event->id,
+                                        ])" :text="$eventImage->event->name" />
 
-                                        <x-components::link.external-link :href="route('pet.view', [
-                                            'slug' => $banner->pet->slug,
+                                        <x-components::link.external-link :href="route('event.view', [
+                                            'slug' => $eventImage->event->slug,
                                         ])" />
                                     @endif
                                 </td>
-                                <td class="text-wrap">
-                                    @if ($banner->link)
-                                        <x-components::link.external-link :href="$banner->link" :text="$banner->link"
-                                            :target="'_blank'" :navigate="false" />
-                                    @endif
-                                </td>
                                 <td class="text-center">
-                                    <span class="badge bg-{{ Utils::successDanger($banner->is_active) }}">
-                                        {{ Utils::translate(Utils::yesNo($banner->is_active)) }}
+                                    <span class="badge bg-{{ Utils::successDanger($eventImage->is_active) }}">
+                                        {{ Utils::translate(Utils::yesNo($eventImage->is_active)) }}
                                     </span>
                                 </td>
                                 <td>
@@ -114,39 +103,39 @@
                                     </button>
 
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        @can('Banner View')
+                                        @can('Event Image View')
                                             <li>
-                                                <x-components::link.view :class="'dropdown-item'" :href="route('cms.banner.view', [
-                                                    'banner' => $banner->id,
+                                                <x-components::link.view :class="'dropdown-item'" :href="route('cms.event-image.view', [
+                                                    'eventImage' => $eventImage->id,
                                                 ])" />
                                             </li>
                                         @endcan
-                                        @can('Banner Clone')
+                                        @can('Event Image Clone')
                                             <li>
-                                                <x-components::link.clone :class="'dropdown-item'" :href="route('cms.banner.clone', [
-                                                    'banner' => $banner->id,
+                                                <x-components::link.clone :class="'dropdown-item'" :href="route('cms.event-image.clone', [
+                                                    'eventImage' => $eventImage->id,
                                                 ])" />
                                             </li>
                                         @endcan
-                                        @can('Banner Edit')
+                                        @can('Event Image Edit')
                                             <li>
-                                                <x-components::link.edit :class="'dropdown-item'" :href="route('cms.banner.edit', [
-                                                    'banner' => $banner->id,
+                                                <x-components::link.edit :class="'dropdown-item'" :href="route('cms.event-image.edit', [
+                                                    'eventImage' => $eventImage->id,
                                                 ])" />
                                             </li>
                                         @endcan
-                                        @can('Banner Active')
+                                        @can('Event Image Active')
                                             <li>
-                                                <x-components::link.active :class="'dropdown-item'" :href="route('cms.banner.active', [
-                                                    'banner' => $banner->id,
+                                                <x-components::link.active :class="'dropdown-item'" :href="route('cms.event-image.active', [
+                                                    'eventImage' => $eventImage->id,
                                                 ])"
-                                                    :value="$banner->is_active" />
+                                                    :value="$eventImage->is_active" />
                                             </li>
                                         @endcan
-                                        @can('Banner Delete')
+                                        @can('Event Image Delete')
                                             <li>
-                                                <x-components::link.delete :class="'dropdown-item'" :href="route('cms.banner.delete', [
-                                                    'banner' => $banner->id,
+                                                <x-components::link.delete :class="'dropdown-item'" :href="route('cms.event-image.delete', [
+                                                    'eventImage' => $eventImage->id,
                                                 ])" />
                                             </li>
                                         @endcan
@@ -164,7 +153,7 @@
                 </table>
             </div>
 
-            {{ $banners->links('components::components.layouts.pagination') }}
+            {{ $eventImages->links('components::components.layouts.pagination') }}
         </div>
 
         <div class="card-footer bg-primary-subtle"></div>

@@ -12,9 +12,9 @@ class EventImageDeletePermanentAll extends Component
         (new EventImageService())->deletePermanentAll();
 
         $this->flash('success', trans('index.delete_permanent_success'), [
-            'html' => trans('index.all').' - '.trans('index.eventImage').' - '.trans('index.deleted_permanently'),
+            'html' => trans('index.all').' - '.trans('index.event_image').' - '.trans('index.deleted_permanently'),
         ]);
 
-        return redirect()->route('cms.eventImage.trash');
+        return redirect()->route('cms.event-image.trash');
     }
 }

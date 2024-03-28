@@ -16,6 +16,6 @@ class EventImageViewPage extends Component
 
     public function render()
     {
-        return view('livewire.cms.eventImage.view');
+        return view('livewire.cms.event-image.view');
     }
 }

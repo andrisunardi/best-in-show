@@ -4,13 +4,11 @@ namespace App\Livewire\CMS\EventImage;
 
 use App\Livewire\CMS\Component;
 use App\Services\EventImageService;
-use App\Services\PetService;
+use App\Services\EventService;
 
 class EventImageAddPage extends Component
 {
-    public $pet_id;
-
-    public $link;
+    public $event_id;
 
     public $image;
 
@@ -19,8 +17,7 @@ class EventImageAddPage extends Component
     public function resetFields()
     {
         $this->reset([
-            'pet_id',
-            'link',
+            'event_id',
             'image',
             'is_active',
         ]);
@@ -29,8 +26,7 @@ class EventImageAddPage extends Component
     public function rules()
     {
         return [
-            'pet_id' => 'required|integer|exists:pets,id',
-            'link' => 'nullable|active_url|max:100',
+            'event_id' => 'required|integer|exists:events,id',
             'image' => 'nullable|max:'.env('MAX_IMAGE').'|mimes:'.env('MIMES_IMAGE'),
             'is_active' => 'required|boolean',
         ];
@@ -41,21 +37,21 @@ class EventImageAddPage extends Component
         $eventImage = (new EventImageService())->add(data: $this->validate());
 
         $this->flash('success', trans('index.add_success'), [
-            'html' => trans('index.eventImage')." - {$eventImage->id} - ".trans('index.added'),
+            'html' => trans('index.event_image')." - {$eventImage->id} - ".trans('index.added'),
         ]);
 
-        return redirect()->route('cms.eventImage.index');
+        return redirect()->route('cms.event-image.index');
     }
 
-    public function getPets()
+    public function getEvents()
     {
-        return (new PetService())->index(is_active: [true], orderBy: 'name', sortBy: 'asc', paginate: false);
+        return (new EventService())->index(is_active: [true], orderBy: 'name', sortBy: 'asc', paginate: false);
     }
 
     public function render()
     {
-        return view('livewire.cms.eventImage.add', [
-            'pets' => $this->getPets(),
+        return view('livewire.cms.event-image.add', [
+            'events' => $this->getEvents(),
         ]);
     }
 }

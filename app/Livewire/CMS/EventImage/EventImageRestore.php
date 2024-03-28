@@ -15,7 +15,7 @@ class EventImageRestore extends Component
         (new EventImageService())->restore(eventImage: $eventImage);
 
         $this->flash('success', trans('index.restore_success'), [
-            'html' => trans('index.eventImage')." - {$eventImage->id} - ".trans('index.restored'),
+            'html' => trans('index.event_image')." - {$eventImage->id} - ".trans('index.restored'),
         ]);
 
         return redirect(url()->previous());

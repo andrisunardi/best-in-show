@@ -4,19 +4,16 @@ namespace App\Livewire\CMS\EventImage;
 
 use App\Livewire\CMS\Component;
 use App\Services\EventImageService;
-use App\Services\PetService;
+use App\Services\EventService;
 
 class EventImageTrashPage extends Component
 {
-    public $pet_id = '';
-
-    public $link = '';
+    public $event_id = '';
 
     public $is_active = [];
 
     public $queryString = [
-        'pet_id',
-        'link',
+        'event_id',
         'is_active',
     ];
 
@@ -30,22 +27,20 @@ class EventImageTrashPage extends Component
         $this->resetPage();
 
         $this->reset([
-            'pet_id',
-            'link',
+            'event_id',
             'is_active',
         ]);
     }
 
-    public function getPets()
+    public function getEvents()
     {
-        return (new PetService())->index(is_active: [true], orderBy: 'name', sortBy: 'asc', paginate: false);
+        return (new EventService())->index(is_active: [true], orderBy: 'name', sortBy: 'asc', paginate: false);
     }
 
     public function getEventImages()
     {
         return (new EventImageService())->index(
-            pet_id: $this->pet_id,
-            link: $this->link,
+            event_id: $this->event_id,
             is_active: $this->is_active,
             trash: true,
         );
@@ -53,8 +48,8 @@ class EventImageTrashPage extends Component
 
     public function render()
     {
-        return view('livewire.cms.eventImage.trash', [
-            'pets' => $this->getPets(),
+        return view('livewire.cms.event-image.trash', [
+            'events' => $this->getEvents(),
             'eventImages' => $this->getEventImages(),
         ]);
     }

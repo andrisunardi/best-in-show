@@ -16,13 +16,13 @@ class EventImageDeletePermanent extends Component
         (new EventImageService())->deletePermanent(eventImage: $eventImage);
 
         $this->flash('success', trans('index.delete_permanent_success'), [
-            'html' => trans('index.eventImage')." - {$eventImage->id} - ".trans('index.deleted_permanently'),
+            'html' => trans('index.event_image')." - {$eventImage->id} - ".trans('index.deleted_permanently'),
         ]);
 
         if (Str::endsWith(url()->previous(), 'trash')) {
-            return redirect()->route('cms.eventImage.trash');
+            return redirect()->route('cms.event-image.trash');
         }
 
-        return redirect()->route('cms.eventImage.index');
+        return redirect()->route('cms.event-image.index');
     }
 }

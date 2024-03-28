@@ -37,9 +37,9 @@ Route::group(['middleware' => ['auth', 'role:'.config('app.route_cms_roles')]], 
         ->middleware(['role:Super User|Admin|Event'])
         ->group(base_path('routes/cms/event.php'));
 
-    // Route::prefix('event-image')->name('event-image.')->as('event-image.')
-    //     ->middleware(['role:Super User|Admin|Event Image'])
-    //     ->group(base_path('routes/cms/event-image.php'));
+    Route::prefix('event-image')->name('event-image.')->as('event-image.')
+        ->middleware(['role:Super User|Admin|Event Image'])
+        ->group(base_path('routes/cms/event-image.php'));
 
     // Route::prefix('event-video')->name('event-video.')->as('event-video.')
     //     ->middleware(['role:Super User|Admin|Event Video'])
