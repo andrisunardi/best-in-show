@@ -10,6 +10,7 @@ class ProductCategoryService
 {
     public function index(
         string|int $pet_id = '',
+        string|int $product_type_id = '',
         string $name = '',
         string $name_idn = '',
         array $is_active = [],
@@ -21,6 +22,7 @@ class ProductCategoryService
     ): object {
         $productCategories = ProductCategory::with('pet', 'productType.pet', 'products')
             ->when($pet_id, fn ($q) => $q->where('pet_id', $pet_id))
+            ->when($product_type_id, fn ($q) => $q->where('product_type_id', $product_type_id))
             ->when($name, fn ($q) => $q->where('name', 'LIKE', "%{$name}%"))
             ->when($name_idn, fn ($q) => $q->where('name_idn', 'LIKE', "%{$name_idn}%"))
             ->when($is_active, fn ($q) => $q->whereIn('is_active', $is_active))
@@ -40,7 +42,7 @@ class ProductCategoryService
             file: $data['image'],
             name: $data['name'],
             disk: 'images',
-            directory: 'product-category',
+            directory: 'product/category',
             deleteAsset: false,
         );
 
@@ -55,7 +57,7 @@ class ProductCategoryService
             file: $data['image'],
             name: $data['name'],
             disk: 'images',
-            directory: 'product-category',
+            directory: 'product/category',
             checkAsset: $productCategory->checkImage(),
             fileAsset: $productCategory->image,
             deleteAsset: false,
@@ -72,7 +74,7 @@ class ProductCategoryService
             file: $data['image'],
             name: $data['name'],
             disk: 'images',
-            directory: 'product-category',
+            directory: 'product/category',
             checkAsset: $productCategory->checkImage(),
             fileAsset: $productCategory->image,
             deleteAsset: true,

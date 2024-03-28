@@ -59,6 +59,7 @@ class ProductCategoryTrashPage extends Component
     {
         return (new ProductCategoryService())->index(
             pet_id: $this->pet_id,
+            product_type_id: $this->product_type_id,
             name: $this->name,
             name_idn: $this->name_idn,
             is_active: $this->is_active,
