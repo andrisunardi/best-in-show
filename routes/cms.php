@@ -53,6 +53,10 @@ Route::group(['middleware' => ['auth', 'role:'.config('app.route_cms_roles')]], 
         ->middleware(['role:Super User|Admin|Product Type'])
         ->group(base_path('routes/cms/product-type.php'));
 
+    Route::prefix('product-category')->name('product-category.')->as('product-category.')
+        ->middleware(['role:Super User|Admin|Product Category'])
+        ->group(base_path('routes/cms/product-category.php'));
+
     Route::prefix('banner')->name('banner.')->as('banner.')
         ->middleware(['role:Super User|Admin|Banner'])
         ->group(base_path('routes/cms/banner.php'));

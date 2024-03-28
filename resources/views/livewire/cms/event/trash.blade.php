@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto">
-                    <x-components::search :key="'name-idn'" :title="trans('validation.attributes.name-idn')" :icon="'fas fa-font'" />
+                    <x-components::search :key="'name_idn'" :title="trans('validation.attributes.name_idn')" :icon="'fas fa-font'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto">

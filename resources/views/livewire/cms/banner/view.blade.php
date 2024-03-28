@@ -56,7 +56,7 @@
                     @if ($banner->pet)
                         <x-components::link :href="route('cms.pet.view', [
                             'pet' => $banner->pet->id,
-                        ])" :text="$banner->pet->name" />
+                        ])" :text="$banner->pet->translate_name" />
 
                         <x-components::link.external-link :href="route('pet.view', [
                             'slug' => $banner->pet->slug,

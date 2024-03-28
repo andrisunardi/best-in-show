@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto">
-                    <x-components::search :key="'name-idn'" :title="trans('validation.attributes.name-idn')" :icon="'fas fa-font'" />
+                    <x-components::search :key="'name_idn'" :title="trans('validation.attributes.name_idn')" :icon="'fas fa-font'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto">
@@ -112,21 +112,33 @@
                                 </td>
                                 <td class="text-wrap">
                                     {{ $productType->name }}
-                                    {{-- <x-components::link.external-link :href="route('productType.view', [
-                                        'slug' => $productType->slug,
-                                    ])" /> --}}
+
+                                    @if ($productType->pet)
+                                        <a draggable="false" target="_blank"
+                                            href="{{ route('pet.view', ['slug' => $productType->pet->slug]) . '?product_types[0]=' . $productType->id }}">
+                                            <span class="fas fa-external-link"></span>
+                                        </a>
+                                    @endif
                                 </td>
                                 <td class="text-wrap">
                                     {{ $productType->name_idn }}
-                                    {{-- <x-components::link.external-link :href="route('productType.view', [
-                                        'slug' => $productType->slug,
-                                    ])" /> --}}
+
+                                    @if ($productType->pet)
+                                        <a draggable="false" target="_blank"
+                                            href="{{ route('pet.view', ['slug' => $productType->pet->slug]) . '?product_types[0]=' . $productType->id }}">
+                                            <span class="fas fa-external-link"></span>
+                                        </a>
+                                    @endif
                                 </td>
                                 <td class="text-center">
-                                    {{ $productType->productCategories->count() }}
+                                    <x-components::link :href="route('cms.product-category.index', [
+                                        'product_type_id' => $productType->id,
+                                    ])" :text="$productType->productCategories->count()" />
                                 </td>
                                 <td class="text-center">
-                                    {{ $productType->products->count() }}
+                                    {{-- <x-components::link :href="route('cms.product.index', [
+                                        'product_type_id' => $productType->id,
+                                    ])" :text="$productType->products->count()" /> --}}
                                 </td>
                                 <td class="text-center">
                                     <span class="badge bg-{{ Utils::successDanger($productType->is_active) }}">

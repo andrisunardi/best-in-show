@@ -1,11 +1,11 @@
-@section('title', trans('index.trash') . ' - ' . trans('index.product_type'))
+@section('title', trans('index.trash') . ' - ' . trans('index.product_category'))
 @section('icon', 'fas fa-dumpster')
 
 <div>
     <div class="card">
         <div class="card-header bg-danger-subtle">
             <span class="fas fa-search fa-fw"></span>
-            {{ trans('index.search') }} {{ trans('index.product_type') }}
+            {{ trans('index.search') }} {{ trans('index.product_category') }}
         </div>
 
         <div class="card-body">
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto">
-                    <x-components::search :key="'name-idn'" :title="trans('validation.attributes.name-idn')" :icon="'fas fa-font'" />
+                    <x-components::search :key="'name_idn'" :title="trans('validation.attributes.name_idn')" :icon="'fas fa-font'" />
                 </div>
 
                 <div class="col-sm-4 col-lg-3 col-xl-auto">
@@ -46,27 +46,27 @@
     <div class="card my-3">
         <div class="card-header bg-danger-subtle">
             <span class="fas fa-table fa-fw"></span>
-            {{ trans('index.data') }} {{ trans('index.trash') }} {{ trans('index.product_type') }}
+            {{ trans('index.data') }} {{ trans('index.trash') }} {{ trans('index.product_category') }}
         </div>
 
         <div class="card-body">
             <div class="row">
                 <div class="col-12 col-sm-auto mb-3">
-                    <x-components::link.back :href="route('cms.product-type.index')" />
+                    <x-components::link.back :href="route('cms.product-category.index')" />
                 </div>
 
-                @can('Product Type Restore')
-                    @if ($productTypes->count())
+                @can('Product Category Restore')
+                    @if ($productCategories->count())
                         <div class="col-12 col-sm-auto mb-3">
-                            <x-components::link.restore-all :href="route('cms.product-type.restore-all')" />
+                            <x-components::link.restore-all :href="route('cms.product-category.restore-all')" />
                         </div>
                     @endif
                 @endcan
 
-                @can('Product Type Delete Permanent')
-                    @if ($productTypes->count())
+                @can('Product Category Delete Permanent')
+                    @if ($productCategories->count())
                         <div class="col-12 col-sm-auto mb-3">
-                            <x-components::link.delete-permanent-all :href="route('cms.product-type.delete-permanent-all')" />
+                            <x-components::link.delete-permanent-all :href="route('cms.product-category.delete-permanent-all')" />
                         </div>
                     @endif
                 @endcan
@@ -80,62 +80,83 @@
                             <th width="1%">{{ trans('index.id') }}</th>
                             <th width="1%">{{ trans('index.image') }}</th>
                             <th width="1%">{{ trans('index.pet') }}</th>
+                            <th width="1%">{{ trans('index.product_type') }}</th>
                             <th>{{ trans('index.name') }}</th>
                             <th>{{ trans('index.name_idn') }}</th>
-                            <th width="1%">{{ trans('index.total') }} {{ trans('index.product_category') }}</th>
                             <th width="1%">{{ trans('index.total') }} {{ trans('index.product') }}</th>
                             <th width="1%">{{ trans('index.active') }}</th>
                             <th width="1%">{{ trans('index.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($productTypes as $productType)
-                            <tr wire:key="{{ $productType->id }}">
+                        @forelse ($productCategories as $productCategory)
+                            <tr wire:key="{{ $productCategory->id }}">
                                 <td class="text-center">
-                                    {{ ($productTypes->currentPage() - 1) * $productTypes->perPage() + $loop->iteration }}
+                                    {{ ($productCategories->currentPage() - 1) * $productCategories->perPage() + $loop->iteration }}
                                 </td>
                                 <td class="text-center">
-                                    <x-components::link :href="route('cms.product-type.view', [
-                                        'productType' => $productType->id,
-                                    ])" :text="$productType->id" />
+                                    <x-components::link :href="route('cms.product-category.view', [
+                                        'productCategory' => $productCategory->id,
+                                    ])" :text="$productCategory->id" />
                                 </td>
                                 <td>
-                                    @if ($productType->checkImage())
-                                        <x-components::image :src="$productType->assetImage()" :alt="$productType->altImage()" />
+                                    @if ($productCategory->checkImage())
+                                        <x-components::image :src="$productCategory->assetImage()" :alt="$productCategory->altImage()" />
                                     @endif
                                 </td>
                                 <td>
-                                    @if ($productType->pet)
+                                    @if ($productCategory->pet)
                                         <x-components::link :href="route('cms.pet.view', [
-                                            'pet' => $productType->pet->id,
-                                        ])" :text="$productType->pet->name" />
+                                            'pet' => $productCategory->pet->id,
+                                        ])" :text="$productCategory->pet->translate_name" />
 
                                         <x-components::link.external-link :href="route('pet.view', [
-                                            'slug' => $productType->pet->slug,
+                                            'slug' => $productCategory->pet->slug,
                                         ])" />
                                     @endif
                                 </td>
-                                <td class="text-wrap">
-                                    {{ $productType->name }}
-                                    {{-- <x-components::link.external-link :href="route('productType.view', [
-                                        'slug' => $productType->slug,
-                                    ])" /> --}}
+                                <td>
+                                    @if ($productCategory->productType)
+                                        <x-components::link :href="route('cms.product-type.view', [
+                                            'productType' => $productCategory->productType->id,
+                                        ])" :text="$productCategory->productType->translate_name" />
+
+                                        @if ($productCategory->productType->pet)
+                                            <a draggable="false" target="_blank"
+                                                href="{{ route('pet.view', ['slug' => $productCategory->productType->pet->slug]) . '?product_types[0]=' . $productCategory->productType->id }}">
+                                                <span class="fas fa-external-link"></span>
+                                            </a>
+                                        @endif
+                                    @endif
                                 </td>
                                 <td class="text-wrap">
-                                    {{ $productType->name_idn }}
-                                    {{-- <x-components::link.external-link :href="route('productType.view', [
-                                        'slug' => $productType->slug,
-                                    ])" /> --}}
+                                    {{ $productCategory->name }}
+
+                                    @if ($productCategory->pet)
+                                        <a draggable="false" target="_blank"
+                                            href="{{ route('pet.view', ['slug' => $productCategory->pet->slug]) . '?product_categories[0]=' . $productCategory->id }}">
+                                            <span class="fas fa-external-link"></span>
+                                        </a>
+                                    @endif
+                                </td>
+                                <td class="text-wrap">
+                                    {{ $productCategory->name_idn }}
+
+                                    @if ($productCategory->pet)
+                                        <a draggable="false" target="_blank"
+                                            href="{{ route('pet.view', ['slug' => $productCategory->pet->slug]) . '?product_categories[0]=' . $productCategory->id }}">
+                                            <span class="fas fa-external-link"></span>
+                                        </a>
+                                    @endif
                                 </td>
                                 <td class="text-center">
-                                    {{ $productType->productCategories->count() }}
+                                    {{-- <x-components::link :href="route('cms.product.index', [
+                                        'product_category_id' => $productCategory->id,
+                                    ])" :text="$productCategory->products->count()" /> --}}
                                 </td>
                                 <td class="text-center">
-                                    {{ $productType->products->count() }}
-                                </td>
-                                <td class="text-center">
-                                    <span class="badge bg-{{ Utils::successDanger($productType->is_active) }}">
-                                        {{ Utils::translate(Utils::yesNo($productType->is_active)) }}
+                                    <span class="badge bg-{{ Utils::successDanger($productCategory->is_active) }}">
+                                        {{ Utils::translate(Utils::yesNo($productCategory->is_active)) }}
                                     </span>
                                 </td>
                                 <td>
@@ -146,18 +167,18 @@
                                     </button>
 
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        @can('Product Type Restore')
+                                        @can('Product Category Restore')
                                             <li>
-                                                <x-components::link.restore :class="'dropdown-item'" :href="route('cms.product-type.restore', [
-                                                    'productType' => $productType->id,
+                                                <x-components::link.restore :class="'dropdown-item'" :href="route('cms.product-category.restore', [
+                                                    'productCategory' => $productCategory->id,
                                                 ])" />
                                             </li>
                                         @endcan
-                                        @can('Product Type Delete Permanent')
+                                        @can('Product Category Delete Permanent')
                                             <li>
                                                 <x-components::link.delete-permanent :class="'dropdown-item'"
-                                                    :href="route('cms.product-type.delete-permanent', [
-                                                        'productType' => $productType->id,
+                                                    :href="route('cms.product-category.delete-permanent', [
+                                                        'productCategory' => $productCategory->id,
                                                     ])" />
                                             </li>
                                         @endcan
@@ -175,7 +196,7 @@
                 </table>
             </div>
 
-            {{ $productTypes->links('components::components.layouts.pagination') }}
+            {{ $productCategories->links('components::components.layouts.pagination') }}
         </div>
 
         <div class="card-footer bg-danger-subtle"></div>

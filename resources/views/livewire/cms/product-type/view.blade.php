@@ -54,7 +54,13 @@
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                     {{ $productType->name }}
-                    {{-- <x-components::link.external-link :href="route('productType.view', ['slug' => $productType->slug])" /> --}}
+
+                    @if ($productType->pet)
+                        <a draggable="false" target="_blank"
+                            href="{{ route('pet.view', ['slug' => $productType->pet->slug]) . '?product_types[0]=' . $productType->id }}">
+                            <span class="fas fa-external-link"></span>
+                        </a>
+                    @endif
                 </div>
             </div>
 
@@ -64,7 +70,13 @@
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
                     {{ $productType->name_idn }}
-                    {{-- <x-components::link.external-link :href="route('productType.view', ['slug' => $productType->slug])" /> --}}
+
+                    @if ($productType->pet)
+                        <a draggable="false" target="_blank"
+                            href="{{ route('pet.view', ['slug' => $productType->pet->slug]) . '?product_types[0]=' . $productType->id }}">
+                            <span class="fas fa-external-link"></span>
+                        </a>
+                    @endif
                 </div>
             </div>
 
@@ -73,7 +85,9 @@
                     <h6>{{ trans('index.total') }} {{ trans('index.product_category') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    {{ $productType->productCategories->count() }}
+                    <x-components::link :href="route('cms.product-category.index', [
+                        'product_type_id' => $productType->id,
+                    ])" :text="$productType->productCategories->count()" />
                 </div>
             </div>
 
@@ -82,7 +96,9 @@
                     <h6>{{ trans('index.total') }} {{ trans('index.product') }}</h6>
                 </div>
                 <div class="col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                    {{ $productType->products->count() }}
+                    {{-- <x-components::link :href="route('cms.product.index', [
+                        'product_type_id' => $productType->id,
+                    ])" :text="$productType->products->count()" /> --}}
                 </div>
             </div>
 

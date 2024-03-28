@@ -1,17 +1,17 @@
-@section('title', trans('index.clone') . ' - ' . trans('index.product_type'))
+@section('title', trans('index.clone') . ' - ' . trans('index.product_category'))
 @section('icon', 'fas fa-clone')
 
 <div>
     <div class="card mb-3">
         <div class="card-header bg-info text-white">
             <span class="fas fa-clone fa-fw"></span>
-            {{ trans('index.clone') }} {{ trans('index.product_type') }}
+            {{ trans('index.clone') }} {{ trans('index.product_category') }}
         </div>
 
         <div class="card-body">
             <div class="row">
                 <div class="col-6 col-sm-auto mb-3">
-                    <x-components::link.back :href="route('cms.product-type.index')" />
+                    <x-components::link.back :href="route('cms.product-category.index')" />
                 </div>
             </div>
 
@@ -26,8 +26,8 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <x-components::form.select :key="'product_type_id'" :title="trans('validation.attributes.product_type_id')" :icon="'fas fa-tags'"
-                            :datas="$productTypes" :required="true" />
+                        <x-components::form.select :key="'product_category_id'" :title="trans('validation.attributes.product_category_id')" :icon="'fas fa-tags'"
+                            :datas="$productCategories" :required="true" />
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@
                     <div class="col-sm-6">
                         <x-components::form.image />
 
-                        <x-components::preview.image :image="$image" :data="$productType" />
+                        <x-components::preview.image :image="$image" :data="$productCategory" />
                     </div>
                 </div>
 

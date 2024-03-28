@@ -1,5 +1,5 @@
 @section('title', trans('index.event_video'))
-@section('icon', 'fas fa-videos')
+@section('icon', 'fas fa-video')
 
 <div>
     <div class="card">

@@ -91,7 +91,7 @@
                                     @if ($eventImage->event)
                                         <x-components::link :href="route('cms.event.view', [
                                             'event' => $eventImage->event->id,
-                                        ])" :text="$eventImage->event->name" />
+                                        ])" :text="$eventImage->event->translate_name" />
 
                                         <x-components::link.external-link :href="route('event.view', [
                                             'slug' => $eventImage->event->slug,
