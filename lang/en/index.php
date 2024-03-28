@@ -563,6 +563,7 @@ return [
     'event_category_id' => 'Event Category',
     'event_id' => 'Event',
     'event_image' => 'Event Image',
+    'event_video' => 'Event Video',
     'events' => 'Events',
     'example' => 'Example',
     'excel' => 'Excel',

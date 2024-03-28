@@ -563,6 +563,7 @@ return [
     'event_category_id' => 'Kategori Acara',
     'event_id' => 'Acara',
     'event_image' => 'Gambar Acara',
+    'event_video' => 'Video Acara',
     'events' => 'Acara',
     'example' => 'Contoh',
     'excel' => 'Excel',

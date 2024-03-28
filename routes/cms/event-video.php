@@ -20,7 +20,7 @@ Route::any('add', EventVideoAddPage::class)->name('add')->middleware('permission
 Route::any('clone/{eventVideo}', EventVideoClonePage::class)->name('clone')->middleware('permission:Event Video Clone');
 Route::any('edit/{eventVideo}', EventVideoEditPage::class)->name('edit')->middleware('permission:Event Video Edit');
 Route::any('delete/{eventVideo}', EventVideoDelete::class)->name('delete')->middleware('permission:Event Video Delete');
-Route::any('delete-image/{eventVideo}', EventVideoDeleteVideo::class)->name('delete-image')->middleware('permission:Event Video Edit');
+Route::any('delete-video/{eventVideo}', EventVideoDeleteVideo::class)->name('delete-video')->middleware('permission:Event Video Edit');
 Route::any('active/{eventVideo}', EventVideoActive::class)->name('active')->middleware('permission:Event Video Active');
 Route::any('view/{eventVideo}', EventVideoViewPage::class)->name('view')->middleware('permission:Event Video View');
 Route::any('trash', EventVideoTrashPage::class)->name('trash')->middleware('permission:Event Video Trash');
