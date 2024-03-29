@@ -26,8 +26,6 @@ class EventEditPage extends Component
 
     public $video;
 
-    public $image_mobile;
-
     public $is_active = true;
 
     public function mount(Event $event)

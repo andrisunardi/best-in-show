@@ -22,8 +22,6 @@ class ArticleEditPage extends Component
 
     public $image;
 
-    public $image_mobile;
-
     public $is_active = true;
 
     public function mount(Article $article)

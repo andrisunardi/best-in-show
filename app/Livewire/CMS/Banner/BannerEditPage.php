@@ -17,8 +17,6 @@ class BannerEditPage extends Component
 
     public $image;
 
-    public $image_mobile;
-
     public $is_active = true;
 
     public function mount(Banner $banner)

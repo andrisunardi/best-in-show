@@ -49,6 +49,10 @@ Route::group(['middleware' => ['auth', 'role:'.config('app.route_cms_roles')]], 
         ->middleware(['role:Super User|Admin|Promotion'])
         ->group(base_path('routes/cms/promotion.php'));
 
+    Route::prefix('product')->name('product.')->as('product.')
+        ->middleware(['role:Super User|Admin|Product'])
+        ->group(base_path('routes/cms/product.php'));
+
     Route::prefix('product-type')->name('product-type.')->as('product-type.')
         ->middleware(['role:Super User|Admin|Product Type'])
         ->group(base_path('routes/cms/product-type.php'));
