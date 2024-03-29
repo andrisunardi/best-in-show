@@ -1703,6 +1703,7 @@ return [
     'to_register_as_a_donor_please_contact_us' => 'To register as a donor, please contact us',
     'today' => 'Today',
     'toggle_navigation' => 'Toggle Navigation',
+    'tokopedia' => 'Tokopedia',
     'tomorrow' => 'Tomorrow',
     'too_many_login_attempts_please_try_again_in_seconds' => 'Too many login attempts. Please try again in :seconds seconds',
     'tools' => 'Tools',

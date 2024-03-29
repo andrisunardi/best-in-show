@@ -1703,6 +1703,7 @@ return [
     'to_register_as_a_donor_please_contact_us' => 'Untuk pendaftaran menjadi donatur, harap hubungi kami',
     'today' => 'Hari Ini',
     'toggle_navigation' => 'Alihkan Navigasi',
+    'tokopedia' => 'Tokopedia',
     'tomorrow' => 'Besok',
     'too_many_login_attempts_please_try_again_in_seconds' => 'Terlalu banyak upaya login. Silakan coba lagi dalam :detik detik',
     'tools' => 'Peralatan',
