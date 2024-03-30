@@ -58,20 +58,20 @@
                         <hr class="border-t border-[#BDBDBD]" />
                     </div>
 
-                    {{-- <div class="product-variant">
-                        <h4>Variant</h4>
-                        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
-                            <a href="#" class="btn-product-variant active">
-                                Puppy &ndash; Lamb &amp; Rice
-                            </a>
-                            <a href="#" class="btn-product-variant">
-                                Adult &ndash; Lamb &amp; Rice
-                            </a>
-                            <a href="#" class="btn-product-variant">
-                                Adult &ndash; Beef
-                            </a>
+                    @if ($productColors->count())
+                        <div class="product-variant">
+                            <h4>{{ trans('index.color') }}</h4>
+                            <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
+                                @foreach ($productColors as $productColor)
+                                    <a draggable="false"
+                                        href="{{ route('product.view', ['slug' => $productColor->slug]) }}"
+                                        class="btn-product-variant {{ $product->id == $productColor->id ? 'active' : null }}">
+                                        {{ $productColor->color }}
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
-                    </div> --}}
+                    @endif
 
                     {{-- <div class="product-variant">
                         <h4>Ukuran</h4>
