@@ -57,6 +57,7 @@
                             <th width="1%">{{ trans('index.#') }}</th>
                             <th width="1%">{{ trans('index.id') }}</th>
                             <th>{{ trans('index.email') }}</th>
+                            <th width="1%">{{ trans('index.created_at') }}</th>
                             <th width="1%">{{ trans('index.active') }}</th>
                             <th width="1%">{{ trans('index.action') }}</th>
                         </tr>
@@ -71,6 +72,7 @@
                                     <x-components::link :href="route('cms.sign-up.view', ['signUp' => $signUp->id])" :text="$signUp->id" />
                                 </td>
                                 <td><x-components::link.email :value="$signUp->email" /></td>
+                                <td>{{ $signUp->created_at->format('d M Y H:i') }}</td>
                                 <td class="text-center">
                                     <span class="badge bg-{{ Utils::successDanger($signUp->is_active) }}">
                                         {{ Utils::translate(Utils::yesNo($signUp->is_active)) }}
@@ -109,7 +111,8 @@
                                             <li>
                                                 <x-components::link.active :class="'dropdown-item'" :href="route('cms.sign-up.active', [
                                                     'signUp' => $signUp->id,
-                                                ])" :value="$signUp->is_active" />
+                                                ])"
+                                                    :value="$signUp->is_active" />
                                             </li>
                                         @endcan
                                         @can('Sign Up Delete')

@@ -107,6 +107,8 @@
                             <th width="1%">{{ trans('index.platform') }}</th>
                             <th width="1%">{{ trans('index.phone_country') }}</th>
                             <th width="1%">{{ trans('index.phone') }}</th>
+                            <th width="1%">{{ trans('index.created_at') }}</th>
+                            <th width="1%">{{ trans('index.active') }}</th>
                             <th width="1%">{{ trans('index.action') }}</th>
                         </tr>
                     </thead>
@@ -138,6 +140,7 @@
                                 <td>{{ $contact->platform }}</td>
                                 <td>{{ $contact->phone_country }}</td>
                                 <td><x-components::link.whatsapp :value="$contact->phone" /></td>
+                                <td>{{ $contact->created_at->format('d M Y H:i') }}</td>
                                 <td class="text-center">
                                     <span class="badge bg-{{ Utils::successDanger($contact->is_active) }}">
                                         {{ Utils::translate(Utils::yesNo($contact->is_active)) }}
