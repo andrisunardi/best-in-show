@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li>
-                        <a draggable="false" href="{{ route('contact-us') }}">
+                        <a draggable="false" href="{{ route('contact-us') }}" wire:navigate>
                             {{ trans('index.contact_us') }}
                         </a>
                     </li>
@@ -33,7 +33,7 @@
                         </a>
                     </li> --}}
                     <li>
-                        <a draggable="false" href="{{ route('faq') }}">
+                        <a draggable="false" href="{{ route('faq') }}" wire:navigate>
                             {{ trans('index.faq') }}
                         </a>
                     </li>
@@ -51,12 +51,12 @@
                         </li>
                     @endforeach
                     <li>
-                        <a draggable="false" href="{{ route('product.index', ['search' => 'treatment']) }}">
+                        <a draggable="false" href="{{ route('product.index', ['search' => 'treatment']) }}" wire:navigate>
                             {{ trans('index.treatment') }}
                         </a>
                     </li>
                     <li>
-                        <a draggable="false" href="{{ route('product.index', ['search' => 'accessories']) }}">
+                        <a draggable="false" href="{{ route('product.index', ['search' => 'accessories']) }}" wire:navigate>
                             {{ trans('index.accessories') }}
                         </a>
                     </li>

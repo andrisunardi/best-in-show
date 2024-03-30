@@ -10,38 +10,38 @@
             <ul class="sidemenu-list">
                 @foreach ($pets as $pet)
                     <li>
-                        <a draggable="false" class="uppercase" href="{{ route('pet.view', ['slug' => $pet->slug]) }}">
+                        <a draggable="false" class="uppercase" href="{{ route('pet.view', ['slug' => $pet->slug]) }}" wire:navigate>
                             {{ $pet->translate_name }}
                         </a>
                     </li>
                 @endforeach
                 <li>
-                    <a draggable="false" class="uppercase" href="{{ route('product.index') }}">
+                    <a draggable="false" class="uppercase" href="{{ route('product.index') }}" wire:navigate>
                         {{ trans('index.product') }}
                     </a>
                 </li>
                 <li>
-                    <a draggable="false" class="uppercase" href="{{ route('event.index') }}">
+                    <a draggable="false" class="uppercase" href="{{ route('event.index') }}" wire:navigate>
                         {{ trans('index.event') }}
                     </a>
                 </li>
                 <li>
-                    <a draggable="false" class="uppercase" href="{{ route('promotion.index') }}">
+                    <a draggable="false" class="uppercase" href="{{ route('promotion.index') }}" wire:navigate>
                         {{ trans('index.promotion') }}
                     </a>
                 </li>
                 <li>
-                    <a draggable="false" class="uppercase" href="{{ route('article.index') }}">
+                    <a draggable="false" class="uppercase" href="{{ route('article.index') }}" wire:navigate>
                         {{ trans('index.article') }}
                     </a>
                 </li>
                 <li>
-                    <a draggable="false" class="uppercase" href="{{ route('about-us') }}">
+                    <a draggable="false" class="uppercase" href="{{ route('about-us') }}" wire:navigate>
                         {{ trans('index.about_us') }}
                     </a>
                 </li>
                 <li>
-                    <a draggable="false" class="uppercase" href="{{ route('contact-us') }}">
+                    <a draggable="false" class="uppercase" href="{{ route('contact-us') }}" wire:navigate>
                         {{ trans('index.contact_us') }}
                     </a>
                 </li>
@@ -79,7 +79,7 @@
             <div class="header-wrapper">
                 <div class="hidden lg:block w-2/6">&nbsp;</div>
                 <div class="lg:w-4/6">
-                    <a draggable="false" href="{{ route('index') }}">
+                    <a draggable="false" href="{{ route('index') }}" wire:navigate>
                         <img draggable="false" src="{{ asset('assets/images/logo/bis-logo.webp') }}"
                             alt="{{ trans('index.logo') }} - {{ env('APP_TITLE') }}" />
                     </a>
@@ -123,18 +123,18 @@
             <ul class="menu-list">
                 @foreach ($pets as $pet)
                     <li>
-                        <a draggable="false" class="uppercase" href="{{ route('pet.view', ['slug' => $pet->slug]) }}">
+                        <a draggable="false" class="uppercase" href="{{ route('pet.view', ['slug' => $pet->slug]) }}" wire:navigate>
                             {{ $pet->translate_name }}
                         </a>
                     </li>
                 @endforeach
                 <li>
-                    <a draggable="false" class="uppercase" href="{{ route('product.index') }}">
+                    <a draggable="false" class="uppercase" href="{{ route('product.index') }}" wire:navigate>
                         {{ trans('index.product') }}
                     </a>
                 </li>
                 <li>
-                    <a draggable="false" class="uppercase" href="{{ route('event.index') }}">
+                    <a draggable="false" class="uppercase" href="{{ route('event.index') }}" wire:navigate>
                         {{ trans('index.event') }}
                     </a>
                 </li>
@@ -143,21 +143,21 @@
                         {{ trans('index.others') }}
                     </a>
                     <div class="dropdown-content">
-                        <a draggable="false" class="uppercase" href="{{ route('promotion.index') }}">
+                        <a draggable="false" class="uppercase" href="{{ route('promotion.index') }}" wire:navigate>
                             {{ trans('index.promotion') }}
                         </a>
-                        <a draggable="false" class="uppercase" href="{{ route('article.index') }}">
+                        <a draggable="false" class="uppercase" href="{{ route('article.index') }}" wire:navigate>
                             {{ trans('index.article') }}
                         </a>
                     </div>
                 </li>
                 <li>
-                    <a draggable="false" class="uppercase" href="{{ route('about-us') }}">
+                    <a draggable="false" class="uppercase" href="{{ route('about-us') }}" wire:navigate>
                         {{ trans('index.about_us') }}
                     </a>
                 </li>
                 <li>
-                    <a draggable="false" class="uppercase" href="{{ route('contact-us') }}">
+                    <a draggable="false" class="uppercase" href="{{ route('contact-us') }}" wire:navigate>
                         {{ trans('index.contact_us') }}
                     </a>
                 </li>

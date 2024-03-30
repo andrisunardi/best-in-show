@@ -65,7 +65,8 @@
                                 @foreach ($productColors as $productColor)
                                     <a draggable="false"
                                         href="{{ route('product.view', ['slug' => $productColor->slug]) }}"
-                                        class="btn-product-variant {{ $product->id == $productColor->id ? 'active' : null }}">
+                                        class="btn-product-variant {{ $product->id == $productColor->id ? 'active' : null }}"
+                                        wire:navigate>
                                         {{ $productColor->color }}
                                     </a>
                                 @endforeach
@@ -73,20 +74,21 @@
                         </div>
                     @endif
 
-                    {{-- <div class="product-variant">
-                        <h4>Ukuran</h4>
-                        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
-                            <a href="#" class="btn-product-variant active">
-                                18 Kg
-                            </a>
-                            <a href="#" class="btn-product-variant">
-                                1.6 Kg
-                            </a>
-                            <a href="#" class="btn-product-variant">
-                                100 Gr
-                            </a>
+                    @if ($productSizes->count())
+                        <div class="product-variant">
+                            <h4>{{ trans('index.size') }}</h4>
+                            <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
+                                @foreach ($productSizes as $productSize)
+                                    <a draggable="false"
+                                        href="{{ route('product.view', ['slug' => $productSize->slug]) }}"
+                                        class="btn-product-variant {{ $product->id == $productSize->id ? 'active' : null }}"
+                                        wire:navigate>
+                                        {{ $productSize->size }}
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
-                    </div> --}}
+                    @endif
 
                     <div class="my-6">
                         <hr class="border-t border-[#BDBDBD]" />

@@ -28,6 +28,19 @@ class ProductViewPage extends Component
             ->get();
     }
 
+    public function getProductSizes()
+    {
+        return Product::where("pet_id", $this->product->pet->id)
+            ->where("product_type_id", $this->product->type->id)
+            ->where("product_category_id", $this->product->category->id)
+            ->where("name", $this->product->name)
+            ->where("variant", $this->product->variant)
+            ->where("size", "!=", "Product Category")
+            ->groupBy("size")
+            ->orderByDesc("weight", "variant")
+            ->get();
+    }
+
     public function getOtherProducts()
     {
         return Product::where('id', '!=', $this->product->id)
@@ -41,6 +54,7 @@ class ProductViewPage extends Component
     {
         return view('livewire.product.view', [
             'productColors' => $this->getProductColors(),
+            'productSizes' => $this->getProductSizes(),
             'otherProducts' => $this->getOtherProducts(),
         ]);
     }
