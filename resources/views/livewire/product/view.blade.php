@@ -63,6 +63,22 @@
                         <hr class="border-t border-[#BDBDBD]" />
                     </div>
 
+                    @if ($productVariants->count())
+                        <div class="product-variant">
+                            <h4>{{ trans('index.variant') }}</h4>
+                            <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
+                                @foreach ($productVariants as $productVariant)
+                                    <a draggable="false"
+                                        href="{{ route('product.view', ['slug' => $productVariant->slug]) }}"
+                                        class="btn-product-variant {{ $product->id == $productVariant->id ? 'active' : null }}"
+                                        wire:navigate>
+                                        {{ $productVariant->translate_variant }}
+                                    </a>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+
                     @if ($productColors->count())
                         <div class="product-variant">
                             <h4>{{ trans('index.color') }}</h4>
@@ -99,36 +115,38 @@
                         <hr class="border-t border-[#BDBDBD]" />
                     </div>
 
-                    <p class="text-primaryBlack text-xl font-poppins-m">Belanja di:</p>
-                    <div class="mt-2 grid grid-cols-2 gap-3 lg:gap-6">
-                        @if ($product->blibli)
-                            <a draggable="false" href="{{ $product->blibli }}" class="btn-product-market"
-                                target="_blank">
-                                <img src="{{ asset('assets/images/logo/blibli-logo.webp') }}" alt="Blibli">
-                            </a>
-                        @endif
+                    @if ($product->blibli || $product->lazada || $product->shopee || $product->tokopedia)
+                        <p class="text-primaryBlack text-xl font-poppins-m">Belanja di:</p>
+                        <div class="mt-2 grid grid-cols-2 gap-3 lg:gap-6">
+                            @if ($product->blibli)
+                                <a draggable="false" href="{{ $product->blibli }}" class="btn-product-market"
+                                    target="_blank">
+                                    <img src="{{ asset('assets/images/logo/blibli-logo.webp') }}" alt="Blibli">
+                                </a>
+                            @endif
 
-                        @if ($product->lazada)
-                            <a draggable="false" href="{{ $product->lazada }}" class="btn-product-market"
-                                target="_blank">
-                                <img src="{{ asset('assets/images/logo/lazada-logo.webp') }}" alt="Lazada">
-                            </a>
-                        @endif
+                            @if ($product->lazada)
+                                <a draggable="false" href="{{ $product->lazada }}" class="btn-product-market"
+                                    target="_blank">
+                                    <img src="{{ asset('assets/images/logo/lazada-logo.webp') }}" alt="Lazada">
+                                </a>
+                            @endif
 
-                        @if ($product->shopee)
-                            <a draggable="false" href="{{ $product->shopee }}" class="btn-product-market"
-                                target="_blank">
-                                <img src="{{ asset('assets/images/logo/shopee-logo.webp') }}" alt="Shopee">
-                            </a>
-                        @endif
+                            @if ($product->shopee)
+                                <a draggable="false" href="{{ $product->shopee }}" class="btn-product-market"
+                                    target="_blank">
+                                    <img src="{{ asset('assets/images/logo/shopee-logo.webp') }}" alt="Shopee">
+                                </a>
+                            @endif
 
-                        @if ($product->tokopedia)
-                            <a draggable="false" href="{{ $product->tokopedia }}" class="btn-product-market"
-                                target="_blank">
-                                <img src="{{ asset('assets/images/logo/tokopedia-logo.webp') }}" alt="Tokopedia">
-                            </a>
-                        @endif
-                    </div>
+                            @if ($product->tokopedia)
+                                <a draggable="false" href="{{ $product->tokopedia }}" class="btn-product-market"
+                                    target="_blank">
+                                    <img src="{{ asset('assets/images/logo/tokopedia-logo.webp') }}" alt="Tokopedia">
+                                </a>
+                            @endif
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

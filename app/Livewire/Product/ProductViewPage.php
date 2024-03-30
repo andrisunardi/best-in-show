@@ -14,6 +14,42 @@ class ProductViewPage extends Component
         $this->product = Product::where('slug', $slug)->active()->firstOrFail();
     }
 
+    public function getProductGalleries()
+    {
+        return Product::where('pet_id', $this->product->pet->id)
+            ->where('product_type_id', $this->product->type->id)
+            ->where('product_category_id', $this->product->category->id)
+            ->where('name', $this->product->name)
+            ->where('size', '!=', 'Product Category')
+            ->orderByDesc('weight', 'variant')
+            ->get();
+    }
+
+    public function getProductVariants()
+    {
+        if (
+            ($this->product->pet->name == 'Dog' && $this->product->type->name == 'Dry Food' && $this->product->category->name == 'Every Day') ||
+            $this->product->type->name == 'Accessories' || $this->product->type->name == 'Treatment'
+        ) {
+            return Product::where('pet_id', $this->product->pet->id)
+                ->where('product_type_id', $this->product->type->id)
+                ->where('product_category_id', $this->product->category->id)
+                ->where('name', $this->product->name)
+                ->where('size', '!=', 'Product Category')
+                ->groupBy('variant')
+                ->orderByDesc('weight', 'variant')
+                ->get();
+        } else {
+            return Product::where('pet_id', $this->product->pet->id)
+                ->where('product_type_id', $this->product->type->id)
+                ->where('product_category_id', $this->product->category->id)
+                ->where('name', $this->product->name)
+                ->where('size', '!=', 'Product Category')
+                ->orderByDesc('weight', 'variant')
+                ->get();
+        }
+    }
+
     public function getProductColors()
     {
         return Product::where('pet_id', $this->product->pet->id)
@@ -53,6 +89,8 @@ class ProductViewPage extends Component
     public function render()
     {
         return view('livewire.product.view', [
+            'productGalleries' => $this->getProductGalleries(),
+            'productVariants' => $this->getProductVariants(),
             'productColors' => $this->getProductColors(),
             'productSizes' => $this->getProductSizes(),
             'otherProducts' => $this->getOtherProducts(),
