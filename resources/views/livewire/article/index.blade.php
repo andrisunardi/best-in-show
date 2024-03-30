@@ -7,7 +7,9 @@
             <div class="breadcrumb">
                 <ol>
                     <li>
-                        <a draggable="false" href="{{ route('index') }}">{{ trans('index.home') }}</a>
+                        <a draggable="false" href="{{ route('index') }}" wire:navigate>
+                            {{ trans('index.home') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
@@ -93,7 +95,7 @@
                             <p class="article-latest-preview">
                                 {!! Str::limit(strip_tags($article->translate_description), 200) !!}
                                 <a draggable="false" href="{{ route('article.view', ['slug' => $article->slug]) }}"
-                                    class="article-readmore">
+                                    class="article-readmore" wire:navigate>
                                     {{ trans('index.read_more') }}
                                 </a>
                             </p>

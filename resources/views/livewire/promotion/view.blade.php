@@ -7,11 +7,15 @@
             <div class="breadcrumb">
                 <ol>
                     <li>
-                        <a draggable="false" href="{{ route('index') }}">{{ trans('index.home') }}</a>
+                        <a draggable="false" href="{{ route('index') }}" wire:navigate>
+                            {{ trans('index.home') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
-                        <a draggable="false" href="{{ route('promotion.index') }}">{{ trans('index.promotion') }}</a>
+                        <a draggable="false" href="{{ route('promotion.index') }}" wire:navigate>
+                            {{ trans('index.promotion') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
@@ -91,7 +95,7 @@
                     @foreach ($relatedPromotions as $relatedPromotion)
                         <div class="gridview-promotion-item">
                             <a draggable="false"
-                                href="{{ route('promotion.view', ['slug' => $relatedPromotion->slug]) }}">
+                                href="{{ route('promotion.view', ['slug' => $relatedPromotion->slug]) }}" wire:navigate>
                                 <img draggable="false" src="{{ $relatedPromotion->assetImage() }}"
                                     alt="{{ $relatedPromotion->translate_name }}" />
                             </a>
@@ -99,7 +103,8 @@
                                 <p class="promo-date">{{ $relatedPromotion->date->isoFormat('LL') }}</p>
                                 <p class="promo-title">
                                     <a draggable="false"
-                                        href="{{ route('promotion.view', ['slug' => $relatedPromotion->slug]) }}">
+                                        href="{{ route('promotion.view', ['slug' => $relatedPromotion->slug]) }}"
+                                        wire:navigate>
                                         {{ $relatedPromotion->translate_name }}
                                     </a>
                                 </p>

@@ -7,7 +7,9 @@
             <div class="breadcrumb">
                 <ol>
                     <li>
-                        <a draggable="false" href="{{ route('index') }}">{{ trans('index.home') }}</a>
+                        <a draggable="false" href="{{ route('index') }}" wire:navigate>
+                            {{ trans('index.home') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
@@ -79,14 +81,15 @@
                         <div class="gridview-product mb-10">
                             @foreach ($products as $product)
                                 <div class="gridview-product-item">
-                                    <a draggable="false"
-                                        href="{{ route('product.view', ['slug' => $product->slug]) }}">
+                                    <a draggable="false" href="{{ route('product.view', ['slug' => $product->slug]) }}"
+                                        wire:navigate>
                                         <img draggable="false" class="h-min" src="{{ $product->assetImage() }}"
                                             alt="{{ $product->altImage() }}" />
                                     </a>
                                     <div class="text-center">
                                         <a draggable="false"
-                                            href="{{ route('product.view', ['slug' => $product->slug]) }}">
+                                            href="{{ route('product.view', ['slug' => $product->slug]) }}"
+                                            wire:navigate>
                                             {{ $product->translate_name }}
                                         </a>
                                         <p>{{ trans('index.available') }} {{ $product->size }}</p>

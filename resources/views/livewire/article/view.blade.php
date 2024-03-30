@@ -7,11 +7,15 @@
             <div class="breadcrumb">
                 <ol>
                     <li>
-                        <a draggable="false" href="{{ route('index') }}">{{ trans('index.home') }}</a>
+                        <a draggable="false" href="{{ route('index') }}" wire:navigate>
+                            {{ trans('index.home') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
-                        <a draggable="false" href="{{ route('article.index') }}">{{ trans('index.article') }}</a>
+                        <a draggable="false" href="{{ route('article.index') }}" wire:navigate>
+                            {{ trans('index.article') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>

@@ -30,14 +30,14 @@ class ProductViewPage extends Component
 
     public function getProductSizes()
     {
-        return Product::where("pet_id", $this->product->pet->id)
-            ->where("product_type_id", $this->product->type->id)
-            ->where("product_category_id", $this->product->category->id)
-            ->where("name", $this->product->name)
-            ->where("variant", $this->product->variant)
-            ->where("size", "!=", "Product Category")
-            ->groupBy("size")
-            ->orderByDesc("weight", "variant")
+        return Product::where('pet_id', $this->product->pet->id)
+            ->where('product_type_id', $this->product->type->id)
+            ->where('product_category_id', $this->product->category->id)
+            ->where('name', $this->product->name)
+            ->where('variant', $this->product->variant)
+            ->where('size', '!=', 'Product Category')
+            ->groupBy('size')
+            ->orderByDesc('weight', 'variant')
             ->get();
     }
 

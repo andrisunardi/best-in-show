@@ -7,7 +7,7 @@
             <div class="breadcrumb">
                 <ol>
                     <li>
-                        <a draggable="false" href="{{ route('index') }}">{{ trans('index.home') }}</a>
+                        <a draggable="false" href="{{ route('index') }}" wire:navigate>{{ trans('index.home') }}</a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
@@ -23,14 +23,8 @@
 
     <section id="promotionHeader">
         <div class="global-banner"
-            style="
-          background: linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.60) 0%,
-            rgba(0, 0, 0, 0.60) 100%
-          ),
-          url({{ asset('assets/images/banner/promotion-banner.webp') }})
-          center / cover no-repeat fixed,
+            style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%),
+            url({{ asset('assets/images/banner/promotion-banner.webp') }}) center / cover no-repeat fixed,
           #D9D9D9;
         ">
             <div class="placement">
@@ -44,14 +38,16 @@
             <div class="gridview-promotion">
                 @foreach ($promotions as $promotion)
                     <div class="gridview-promotion-item">
-                        <a draggable="false" href="{{ route('promotion.view', ['slug' => $promotion->slug]) }}">
+                        <a draggable="false" href="{{ route('promotion.view', ['slug' => $promotion->slug]) }}"
+                            wire:navigate>
                             <img draggable="false" src="{{ $promotion->assetImage() }}"
                                 alt="{{ $promotion->translate_name }}" />
                         </a>
                         <div class="mt-3">
                             <p class="promo-date">{{ $promotion->date->isoFormat('LL') }}</p>
                             <p class="promo-title">
-                                <a draggable="false" href="{{ route('promotion.view', ['slug' => $promotion->slug]) }}">
+                                <a draggable="false" href="{{ route('promotion.view', ['slug' => $promotion->slug]) }}"
+                                    wire:navigate>
                                     {{ $promotion->translate_name }}
                                 </a>
                             </p>

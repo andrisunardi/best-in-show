@@ -7,7 +7,9 @@
             <div class="breadcrumb">
                 <ol>
                     <li>
-                        <a draggable="false" href="{{ route('index') }}">{{ trans('index.home') }}</a>
+                        <a draggable="false" href="{{ route('index') }}" wire:navigate>
+                            {{ trans('index.home') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
@@ -46,7 +48,8 @@
                     <div class="activities-item">
                         <div class="cover-image" style="background-image: url({{ $event->assetImage() }});"></div>
 
-                        <a draggable="false" href="{{ route('event.view', ['slug' => $event->slug]) }}" class="activity-title">
+                        <a draggable="false" href="{{ route('event.view', ['slug' => $event->slug]) }}"
+                            class="activity-title" wire:navigate>
                             {{ $event->translate_name }}
                         </a>
 

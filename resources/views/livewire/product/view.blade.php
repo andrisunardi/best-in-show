@@ -7,17 +7,22 @@
             <div class="breadcrumb">
                 <ol>
                     <li>
-                        <a draggable="false" href="{{ route('index') }}">{{ trans('index.home') }}</a>
+                        <a draggable="false" href="{{ route('index') }}" wire:navigate>
+                            {{ trans('index.home') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
-                        <a draggable="false" href="{{ route('pet.view', ['slug' => $product->pet->slug]) }}">
+                        <a draggable="false" href="{{ route('pet.view', ['slug' => $product->pet->slug]) }}"
+                            wire:navigate>
                             {{ $product->pet->translate_name }}
                         </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
-                        <a draggable="false" href="{{ route('product.index') }}">{{ trans('index.product') }}</a>
+                        <a draggable="false" href="{{ route('product.index') }}" wire:navigate>
+                            {{ trans('index.product') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
@@ -148,7 +153,7 @@
                                 alt="{{ $otherProduct->altImage() }}" />
                             <div class="mt-2 text-center">
                                 <a draggable="false"
-                                    href="{{ route('product.view', ['slug' => $otherProduct->slug]) }}">
+                                    href="{{ route('product.view', ['slug' => $otherProduct->slug]) }}" wire:navigate>
                                     {{ $otherProduct->translate_name }}
                                 </a>
                                 <p>{{ trans('index.available') }} {{ $otherProduct->size }}</p>

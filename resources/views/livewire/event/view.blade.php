@@ -7,11 +7,15 @@
             <div class="breadcrumb">
                 <ol>
                     <li>
-                        <a draggable="false" href="{{ route('index') }}">{{ trans('index.home') }}</a>
+                        <a draggable="false" href="{{ route('index') }}" wire:navigate>
+                            {{ trans('index.home') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
-                        <a draggable="false" href="{{ route('event.index') }}">{{ trans('index.event') }}</a>
+                        <a draggable="false" href="{{ route('event.index') }}" wire:navigate>
+                            {{ trans('index.event') }}
+                        </a>
                         <span class="mx-2 font-poppins-m">&gt;</span>
                     </li>
                     <li>
@@ -134,7 +138,7 @@
                         </div>
 
                         <a draggable="false" href="{{ route('event.view', ['slug' => $relatedEvent->slug]) }}"
-                            class="activity-title">
+                            class="activity-title" wire:navigate>
                             {{ $event->translate_name }}
                         </a>
 
