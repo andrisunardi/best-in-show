@@ -79,6 +79,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Contact bad()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact good()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact question()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact information()
  *
  * @mixin \Eloquent
  */
@@ -224,9 +225,9 @@ class Contact extends Model
 
     public $appends = ['attachment_url'];
 
-    public function scopeQuestion($query)
+    public function scopeInformation($query)
     {
-        return $query->where('category', ContactCategory::Question);
+        return $query->where('category', ContactCategory::Information);
     }
 
     public function scopeGood($query)

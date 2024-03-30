@@ -4,7 +4,7 @@ namespace App\Enums;
 
 enum ContactCategory: string
 {
-    case Question = '1';
+    case Information = '1';
 
     case Good = '2';
 

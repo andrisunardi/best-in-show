@@ -11,7 +11,7 @@ use Illuminate\Validation\Rules\Enum;
 
 class ContactUsPage extends Component
 {
-    public $category = ContactCategory::Question->value;
+    public $category = ContactCategory::Information->value;
 
     public $message;
 

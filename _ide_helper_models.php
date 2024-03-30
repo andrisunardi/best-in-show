@@ -176,6 +176,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Contact good()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact question()
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact information()
  */
 	class Contact extends \Eloquent {}
 }
