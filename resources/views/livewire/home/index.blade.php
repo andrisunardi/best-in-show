@@ -28,7 +28,7 @@
             </div>
             <div class="mt-8">
                 <a draggable="false" href="{{ route('pet.index') }}">
-                    <img draggable="false" src="{{ asset('assets/images/banner/pet-categories.webp') }}" class="w-full"
+                    <img draggable="false" src="{{ asset('images/pet-categories.png') }}" class="w-full"
                         alt="Pet Categories - {{ env('APP_TITLE') }}" />
                 </a>
             </div>
