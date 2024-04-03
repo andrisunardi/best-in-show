@@ -31,6 +31,11 @@ class ProductPage extends Component
         'page',
     ];
 
+    public function updating()
+    {
+        $this->resetPage();
+    }
+
     public function updatedPage($page)
     {
         $this->page = $page;

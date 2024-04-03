@@ -38,6 +38,11 @@ class PetViewPage extends Component
         $this->pet = Pet::where('slug', $slug)->active()->firstOrFail();
     }
 
+    public function updating()
+    {
+        $this->resetPage();
+    }
+
     public function updatedPage($page)
     {
         $this->page = $page;
