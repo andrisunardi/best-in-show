@@ -177,10 +177,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($pet->trashed())
                     @can('Pet Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.pet.restore', [
                                 'pet' => $pet->id,
                             ])" />
@@ -188,7 +188,7 @@
                     @endcan
 
                     @can('Pet Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.pet.delete-permanent', [
                                 'pet' => $pet->id,
                             ])" />
@@ -196,7 +196,7 @@
                     @endcan
                 @else
                     @can('Pet Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.pet.active', [
                                 'pet' => $pet->id,
                             ])" :value="$pet->is_active" />
@@ -204,7 +204,7 @@
                     @endcan
 
                     @can('Pet Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.pet.clone', [
                                 'pet' => $pet->id,
                             ])" />
@@ -212,7 +212,7 @@
                     @endcan
 
                     @can('Pet Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.pet.edit', [
                                 'pet' => $pet->id,
                             ])" />
@@ -220,7 +220,7 @@
                     @endcan
 
                     @can('Pet Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.pet.delete', [
                                 'pet' => $pet->id,
                             ])" />
