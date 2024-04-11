@@ -32,14 +32,14 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-sm-auto">
                     <x-components::link.back :href="route('cms.slider.index')" />
                 </div>
 
                 @can('Slider Restore')
                     @if ($sliders->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore-all :href="route('cms.slider.restore-all')" />
                         </div>
                     @endif
@@ -47,7 +47,7 @@
 
                 @can('Slider Delete Permanent')
                     @if ($sliders->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent-all :href="route('cms.slider.delete-permanent-all')" />
                         </div>
                     @endif

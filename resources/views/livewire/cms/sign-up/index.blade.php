@@ -9,12 +9,12 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'email'" :title="trans('validation.attributes.email')" :icon="'fas fa-envelope'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search.is-active />
                 </div>
             </div>
@@ -36,15 +36,15 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
+            <div class="row g-3 mb-3">
                 @can('Sign Up Add')
-                    <div class="col-6 col-sm-auto mb-3">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.add :href="route('cms.sign-up.add')" />
                     </div>
                 @endcan
 
                 @can('Sign Up Trash')
-                    <div class="col-6 col-sm-auto mb-3">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.trash :href="route('cms.sign-up.trash')" />
                     </div>
                 @endcan

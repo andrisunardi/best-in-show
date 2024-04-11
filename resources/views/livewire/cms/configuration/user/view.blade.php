@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.configuration.user.index')" />
                 </div>
             </div>
@@ -193,10 +193,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($user->trashed())
                     @can('User Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.configuration.user.restore', [
                                 'user' => $user->id,
                             ])" />
@@ -204,7 +204,7 @@
                     @endcan
 
                     @can('User Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.configuration.user.delete-permanent', [
                                 'user' => $user->id,
                             ])" />
@@ -212,7 +212,7 @@
                     @endcan
                 @else
                     @can('User Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.configuration.user.active', [
                                 'user' => $user->id,
                             ])" :value="$user->is_active" />
@@ -220,7 +220,7 @@
                     @endcan
 
                     @can('User Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.configuration.user.clone', [
                                 'user' => $user->id,
                             ])" />
@@ -228,7 +228,7 @@
                     @endcan
 
                     @can('User Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.configuration.user.edit', [
                                 'user' => $user->id,
                             ])" />
@@ -236,7 +236,7 @@
                     @endcan
 
                     @can('User Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.configuration.user.delete', [
                                 'user' => $user->id,
                             ])" />

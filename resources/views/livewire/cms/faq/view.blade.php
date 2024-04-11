@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.faq.index')" />
                 </div>
             </div>
@@ -147,10 +147,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($faq->trashed())
                     @can('Faq Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.faq.restore', [
                                 'faq' => $faq->id,
                             ])" />
@@ -158,7 +158,7 @@
                     @endcan
 
                     @can('Faq Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.faq.delete-permanent', [
                                 'faq' => $faq->id,
                             ])" />
@@ -166,7 +166,7 @@
                     @endcan
                 @else
                     @can('Faq Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.faq.active', [
                                 'faq' => $faq->id,
                             ])" :value="$faq->is_active" />
@@ -174,7 +174,7 @@
                     @endcan
 
                     @can('Faq Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.faq.clone', [
                                 'faq' => $faq->id,
                             ])" />
@@ -182,7 +182,7 @@
                     @endcan
 
                     @can('Faq Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.faq.edit', [
                                 'faq' => $faq->id,
                             ])" />
@@ -190,7 +190,7 @@
                     @endcan
 
                     @can('Faq Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.faq.delete', [
                                 'faq' => $faq->id,
                             ])" />

@@ -99,14 +99,14 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-sm-auto">
                     <x-components::link.back :href="route('cms.product.index')" />
                 </div>
 
                 @can('Product Restore')
                     @if ($products->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore-all :href="route('cms.product.restore-all')" />
                         </div>
                     @endif
@@ -114,7 +114,7 @@
 
                 @can('Product Delete Permanent')
                     @if ($products->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent-all :href="route('cms.product.delete-permanent-all')" />
                         </div>
                     @endif

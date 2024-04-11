@@ -9,21 +9,22 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-                    <x-components::search.select :key="'role_id'" :title="trans('validation.attributes.role_id')" :icon="'fas fa-briefcase'" :datas="$roles" />
+            <div class="row g-3 mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
+                    <x-components::search.select :key="'role_id'" :title="trans('validation.attributes.role_id')" :icon="'fas fa-briefcase'"
+                        :datas="$roles" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'name'" :title="trans('validation.attributes.name')" :icon="'fas fa-key'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'guard_name'" :title="trans('validation.attributes.guard_name')" :icon="'fas fa-shield'" />
                 </div>
             </div>
 
-            <div class="row mt-2">
+            <div class="row">
                 <div class="col-auto">
                     <x-components::form.reset :text="trans('index.reset_filter')" />
                 </div>
@@ -40,9 +41,9 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
+            <div class="row g-3 mb-3">
                 @can('Permission Add')
-                    <div class="col-6 col-sm-auto mb-3">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.add :href="route('cms.configuration.permission.add')" />
                     </div>
                 @endcan

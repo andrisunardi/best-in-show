@@ -9,24 +9,24 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'question'" :title="trans('validation.attributes.question')" :icon="'fas fa-font'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'question_idn'" :title="trans('validation.attributes.question_idn')" :icon="'fas fa-font'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'answer'" :title="trans('validation.attributes.answer')" :icon="'fas fa-file-lines'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'answer_idn'" :title="trans('validation.attributes.answer_idn')" :icon="'fas fa-file-lines'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search.is-active />
                 </div>
             </div>
@@ -48,14 +48,14 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-sm-auto">
                     <x-components::link.back :href="route('cms.faq.index')" />
                 </div>
 
                 @can('Faq Restore')
                     @if ($faqs->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore-all :href="route('cms.faq.restore-all')" />
                         </div>
                     @endif
@@ -63,7 +63,7 @@
 
                 @can('Faq Delete Permanent')
                     @if ($faqs->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent-all :href="route('cms.faq.delete-permanent-all')" />
                         </div>
                     @endif
@@ -115,9 +115,10 @@
                                         @endcan
                                         @can('Faq Delete Permanent')
                                             <li>
-                                                <x-components::link.delete-permanent :class="'dropdown-item'" :href="route('cms.faq.delete-permanent', [
-                                                    'faq' => $faq->id,
-                                                ])" />
+                                                <x-components::link.delete-permanent :class="'dropdown-item'"
+                                                    :href="route('cms.faq.delete-permanent', [
+                                                        'faq' => $faq->id,
+                                                    ])" />
                                             </li>
                                         @endcan
                                     </ul>

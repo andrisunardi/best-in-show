@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.sign-up.index')" />
                 </div>
             </div>
@@ -120,10 +120,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($signUp->trashed())
                     @can('Sign Up Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.sign-up.restore', [
                                 'signUp' => $signUp->id,
                             ])" />
@@ -131,7 +131,7 @@
                     @endcan
 
                     @can('Sign Up Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.sign-up.delete-permanent', [
                                 'signUp' => $signUp->id,
                             ])" />
@@ -139,7 +139,7 @@
                     @endcan
                 @else
                     @can('Sign Up Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.sign-up.active', [
                                 'signUp' => $signUp->id,
                             ])" :value="$signUp->is_active" />
@@ -147,7 +147,7 @@
                     @endcan
 
                     @can('Sign Up Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.sign-up.clone', [
                                 'signUp' => $signUp->id,
                             ])" />
@@ -155,7 +155,7 @@
                     @endcan
 
                     @can('Sign Up Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.sign-up.edit', [
                                 'signUp' => $signUp->id,
                             ])" />
@@ -163,7 +163,7 @@
                     @endcan
 
                     @can('Sign Up Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.sign-up.delete', [
                                 'signUp' => $signUp->id,
                             ])" />

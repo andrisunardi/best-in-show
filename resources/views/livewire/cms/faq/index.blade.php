@@ -9,24 +9,24 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'question'" :title="trans('validation.attributes.question')" :icon="'fas fa-font'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'question_idn'" :title="trans('validation.attributes.question_idn')" :icon="'fas fa-font'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'answer'" :title="trans('validation.attributes.answer')" :icon="'fas fa-file-lines'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'answer_idn'" :title="trans('validation.attributes.answer_idn')" :icon="'fas fa-file-lines'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search.is-active />
                 </div>
             </div>
@@ -123,7 +123,8 @@
                                             <li>
                                                 <x-components::link.active :class="'dropdown-item'" :href="route('cms.faq.active', [
                                                     'faq' => $faq->id,
-                                                ])" :value="$faq->is_active" />
+                                                ])"
+                                                    :value="$faq->is_active" />
                                             </li>
                                         @endcan
                                         @can('Faq Delete')

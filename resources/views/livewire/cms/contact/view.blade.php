@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.contact.index')" />
                 </div>
             </div>
@@ -234,10 +234,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($contact->trashed())
                     @can('Contact Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.contact.restore', [
                                 'contact' => $contact->id,
                             ])" />
@@ -245,7 +245,7 @@
                     @endcan
 
                     @can('Contact Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.contact.delete-permanent', [
                                 'contact' => $contact->id,
                             ])" />
@@ -253,7 +253,7 @@
                     @endcan
                 @else
                     @can('Contact Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.contact.active', [
                                 'contact' => $contact->id,
                             ])" :value="$contact->is_active" />
@@ -261,7 +261,7 @@
                     @endcan
 
                     @can('Contact Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.contact.delete', [
                                 'contact' => $contact->id,
                             ])" />

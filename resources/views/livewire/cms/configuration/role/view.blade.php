@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.configuration.role.index')" />
                 </div>
             </div>
@@ -86,9 +86,9 @@
                 </div>
             </div>
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @can('Role Clone')
-                    <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.clone :href="route('cms.configuration.role.clone', [
                             'role' => $role->id,
                         ])" />
@@ -96,7 +96,7 @@
                 @endcan
 
                 @can('Role Edit')
-                    <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.edit :href="route('cms.configuration.role.edit', [
                             'role' => $role->id,
                         ])" />
@@ -104,7 +104,7 @@
                 @endcan
 
                 @can('Role Delete')
-                    <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.delete :href="route('cms.configuration.role.delete', [
                             'role' => $role->id,
                         ])" />

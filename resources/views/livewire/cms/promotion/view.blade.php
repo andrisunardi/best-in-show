@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.promotion.index')" />
                 </div>
             </div>
@@ -184,10 +184,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($promotion->trashed())
                     @can('Promotion Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.promotion.restore', [
                                 'promotion' => $promotion->id,
                             ])" />
@@ -195,7 +195,7 @@
                     @endcan
 
                     @can('Promotion Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.promotion.delete-permanent', [
                                 'promotion' => $promotion->id,
                             ])" />
@@ -203,7 +203,7 @@
                     @endcan
                 @else
                     @can('Promotion Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.promotion.active', [
                                 'promotion' => $promotion->id,
                             ])" :value="$promotion->is_active" />
@@ -211,7 +211,7 @@
                     @endcan
 
                     @can('Promotion Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.promotion.clone', [
                                 'promotion' => $promotion->id,
                             ])" />
@@ -219,7 +219,7 @@
                     @endcan
 
                     @can('Promotion Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.promotion.edit', [
                                 'promotion' => $promotion->id,
                             ])" />
@@ -227,7 +227,7 @@
                     @endcan
 
                     @can('Promotion Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.promotion.delete', [
                                 'promotion' => $promotion->id,
                             ])" />

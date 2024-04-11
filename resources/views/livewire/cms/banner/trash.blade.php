@@ -41,14 +41,14 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-sm-auto">
                     <x-components::link.back :href="route('cms.banner.index')" />
                 </div>
 
                 @can('Banner Restore')
                     @if ($banners->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore-all :href="route('cms.banner.restore-all')" />
                         </div>
                     @endif
@@ -56,7 +56,7 @@
 
                 @can('Banner Delete Permanent')
                     @if ($banners->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent-all :href="route('cms.banner.delete-permanent-all')" />
                         </div>
                     @endif

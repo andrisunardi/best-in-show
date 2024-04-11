@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.store.index')" />
                 </div>
             </div>
@@ -157,10 +157,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($store->trashed())
                     @can('Store Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.store.restore', [
                                 'store' => $store->id,
                             ])" />
@@ -168,7 +168,7 @@
                     @endcan
 
                     @can('Store Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.store.delete-permanent', [
                                 'store' => $store->id,
                             ])" />
@@ -176,7 +176,7 @@
                     @endcan
                 @else
                     @can('Store Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.store.active', [
                                 'store' => $store->id,
                             ])" :value="$store->is_active" />
@@ -184,7 +184,7 @@
                     @endcan
 
                     @can('Store Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.store.clone', [
                                 'store' => $store->id,
                             ])" />
@@ -192,7 +192,7 @@
                     @endcan
 
                     @can('Store Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.store.edit', [
                                 'store' => $store->id,
                             ])" />
@@ -200,7 +200,7 @@
                     @endcan
 
                     @can('Store Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.store.delete', [
                                 'store' => $store->id,
                             ])" />

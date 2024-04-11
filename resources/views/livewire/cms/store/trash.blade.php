@@ -54,14 +54,14 @@
             </div>
 
             <div class="card-body">
-                <div class="row">
-                    <div class="col-12 col-sm-auto mb-3">
+                <div class="row g-3 mb-3">
+                    <div class="col-12 col-sm-auto">
                         <x-components::link.back :href="route('cms.store.index')" />
                     </div>
 
                     @can('Store Restore')
                         @if ($stores->count())
-                            <div class="col-12 col-sm-auto mb-3">
+                            <div class="col-12 col-sm-auto">
                                 <x-components::link.restore-all :href="route('cms.store.restore-all')" />
                             </div>
                         @endif
@@ -69,7 +69,7 @@
 
                     @can('Store Delete Permanent')
                         @if ($stores->count())
-                            <div class="col-12 col-sm-auto mb-3">
+                            <div class="col-12 col-sm-auto">
                                 <x-components::link.delete-permanent-all :href="route('cms.store.delete-permanent-all')" />
                             </div>
                         @endif

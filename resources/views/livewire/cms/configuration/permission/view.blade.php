@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.configuration.permission.index')" />
                 </div>
             </div>
@@ -86,9 +86,9 @@
                 </div>
             </div>
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @can('Permission Clone')
-                    <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.clone :href="route('cms.configuration.permission.clone', [
                             'permission' => $permission->id,
                         ])" />
@@ -96,7 +96,7 @@
                 @endcan
 
                 @can('Permission Edit')
-                    <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.edit :href="route('cms.configuration.permission.edit', [
                             'permission' => $permission->id,
                         ])" />
@@ -104,7 +104,7 @@
                 @endcan
 
                 @can('Permission Delete')
-                    <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.delete :href="route('cms.configuration.permission.delete', [
                             'permission' => $permission->id,
                         ])" />

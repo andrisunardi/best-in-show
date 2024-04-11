@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.event-video.index')" />
                 </div>
             </div>
@@ -152,10 +152,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($eventVideo->trashed())
                     @can('Event Video Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.event-video.restore', [
                                 'eventVideo' => $eventVideo->id,
                             ])" />
@@ -163,7 +163,7 @@
                     @endcan
 
                     @can('Event Video Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.event-video.delete-permanent', [
                                 'eventVideo' => $eventVideo->id,
                             ])" />
@@ -171,7 +171,7 @@
                     @endcan
                 @else
                     @can('Event Video Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.event-video.active', [
                                 'eventVideo' => $eventVideo->id,
                             ])" :value="$eventVideo->is_active" />
@@ -179,7 +179,7 @@
                     @endcan
 
                     @can('Event Video Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.event-video.clone', [
                                 'eventVideo' => $eventVideo->id,
                             ])" />
@@ -187,7 +187,7 @@
                     @endcan
 
                     @can('Event Video Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.event-video.edit', [
                                 'eventVideo' => $eventVideo->id,
                             ])" />
@@ -195,7 +195,7 @@
                     @endcan
 
                     @can('Event Video Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.event-video.delete', [
                                 'eventVideo' => $eventVideo->id,
                             ])" />

@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.article.index')" />
                 </div>
             </div>
@@ -184,10 +184,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($article->trashed())
                     @can('Article Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.article.restore', [
                                 'article' => $article->id,
                             ])" />
@@ -195,7 +195,7 @@
                     @endcan
 
                     @can('Article Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.article.delete-permanent', [
                                 'article' => $article->id,
                             ])" />
@@ -203,7 +203,7 @@
                     @endcan
                 @else
                     @can('Article Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.article.active', [
                                 'article' => $article->id,
                             ])" :value="$article->is_active" />
@@ -211,7 +211,7 @@
                     @endcan
 
                     @can('Article Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.article.clone', [
                                 'article' => $article->id,
                             ])" />
@@ -219,7 +219,7 @@
                     @endcan
 
                     @can('Article Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.article.edit', [
                                 'article' => $article->id,
                             ])" />
@@ -227,7 +227,7 @@
                     @endcan
 
                     @can('Article Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.article.delete', [
                                 'article' => $article->id,
                             ])" />

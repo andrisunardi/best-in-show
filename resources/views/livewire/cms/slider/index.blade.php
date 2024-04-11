@@ -32,15 +32,15 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
+            <div class="row g-3 mb-3">
                 @can('Slider Add')
-                    <div class="col-6 col-sm-auto mb-3">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.add :href="route('cms.slider.add')" />
                     </div>
                 @endcan
 
                 @can('Slider Trash')
-                    <div class="col-6 col-sm-auto mb-3">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.trash :href="route('cms.slider.trash')" />
                     </div>
                 @endcan

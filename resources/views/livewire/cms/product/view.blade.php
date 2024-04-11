@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.product.index')" />
                 </div>
             </div>
@@ -317,10 +317,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($product->trashed())
                     @can('Product Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.product.restore', [
                                 'product' => $product->id,
                             ])" />
@@ -328,7 +328,7 @@
                     @endcan
 
                     @can('Product Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.product.delete-permanent', [
                                 'product' => $product->id,
                             ])" />
@@ -336,7 +336,7 @@
                     @endcan
                 @else
                     @can('Product Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.product.active', [
                                 'product' => $product->id,
                             ])" :value="$product->is_active" />
@@ -344,7 +344,7 @@
                     @endcan
 
                     @can('Product Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.product.clone', [
                                 'product' => $product->id,
                             ])" />
@@ -352,7 +352,7 @@
                     @endcan
 
                     @can('Product Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.product.edit', [
                                 'product' => $product->id,
                             ])" />
@@ -360,7 +360,7 @@
                     @endcan
 
                     @can('Product Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.product.delete', [
                                 'product' => $product->id,
                             ])" />

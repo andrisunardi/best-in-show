@@ -81,14 +81,14 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-sm-auto">
                     <x-components::link.back :href="route('cms.contact.index')" />
                 </div>
 
                 @can('Contact Restore')
                     @if ($contacts->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore-all :href="route('cms.contact.restore-all')" />
                         </div>
                     @endif
@@ -96,7 +96,7 @@
 
                 @can('Contact Delete Permanent')
                     @if ($contacts->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent-all :href="route('cms.contact.delete-permanent-all')" />
                         </div>
                     @endif

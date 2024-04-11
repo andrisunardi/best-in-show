@@ -56,15 +56,15 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
+            <div class="row g-3 mb-3">
                 @can('Event Add')
-                    <div class="col-6 col-sm-auto mb-3">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.add :href="route('cms.event.add')" />
                     </div>
                 @endcan
 
                 @can('Event Trash')
-                    <div class="col-6 col-sm-auto mb-3">
+                    <div class="col-6 col-sm-auto">
                         <x-components::link.trash :href="route('cms.event.trash')" />
                     </div>
                 @endcan

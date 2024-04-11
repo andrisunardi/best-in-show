@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.pet.index')" />
                 </div>
             </div>
@@ -25,7 +25,8 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <x-components::form.name :key="'name_idn'" :title="trans('validation.attributes.name_idn')" :maxlength="100" :required="true" />
+                        <x-components::form.name :key="'name_idn'" :title="trans('validation.attributes.name_idn')" :maxlength="100"
+                            :required="true" />
                     </div>
                 </div>
 

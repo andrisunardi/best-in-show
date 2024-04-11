@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.product-type.index')" />
                 </div>
             </div>
@@ -206,10 +206,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($productType->trashed())
                     @can('Product Type Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.product-type.restore', [
                                 'productType' => $productType->id,
                             ])" />
@@ -217,7 +217,7 @@
                     @endcan
 
                     @can('Product Type Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.product-type.delete-permanent', [
                                 'productType' => $productType->id,
                             ])" />
@@ -225,7 +225,7 @@
                     @endcan
                 @else
                     @can('Product Type Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.product-type.active', [
                                 'productType' => $productType->id,
                             ])" :value="$productType->is_active" />
@@ -233,7 +233,7 @@
                     @endcan
 
                     @can('Product Type Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.product-type.clone', [
                                 'productType' => $productType->id,
                             ])" />
@@ -241,7 +241,7 @@
                     @endcan
 
                     @can('Product Type Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.product-type.edit', [
                                 'productType' => $productType->id,
                             ])" />
@@ -249,7 +249,7 @@
                     @endcan
 
                     @can('Product Type Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.product-type.delete', [
                                 'productType' => $productType->id,
                             ])" />

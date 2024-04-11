@@ -9,44 +9,44 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search.select :key="'log_name'" :title="trans('validation.attributes.log_name')" :icon="'fas fa-font'" :datas="$activityLogNames" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'description'" :title="trans('validation.attributes.description')" :icon="'fas fa-file-lines'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search.select :key="'event'" :title="trans('validation.attributes.event')" :icon="'fas fa-font'" :datas="$activityEvents" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search.select :key="'subject_type'" :title="trans('validation.attributes.subject_type')" :icon="'fas fa-list'" :datas="$activitySubjectTypes" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'subject_id'" :title="trans('validation.attributes.subject_id')" :icon="'fas fa-barcode'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search.select :key="'causer_type'" :title="trans('validation.attributes.causer_type')" :icon="'fas fa-list'" :datas="$activityCauserTypes" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'causer_id'" :title="trans('validation.attributes.causer_id')" :icon="'fas fa-barcode'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'properties'" :title="trans('validation.attributes.properties')" :icon="'fas fa-file-lines'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'batch_uuid'" :title="trans('validation.attributes.batch_uuid')" :icon="'fas fa-barcode'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search.select :key="'user_id'" :title="trans('validation.attributes.user_id')" :icon="'fas fa-user'" :datas="$users" />
                 </div>
             </div>

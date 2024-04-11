@@ -9,21 +9,21 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'key'" :title="trans('validation.attributes.key')" :icon="'fas fa-key'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search :key="'value'" :title="trans('validation.attributes.value')" :icon="'fas fa-file-lines'" />
                 </div>
 
-                <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
+                <div class="col-sm-4 col-lg-3 col-xl-auto">
                     <x-components::search.is-active />
                 </div>
             </div>
 
-            <div class="row mt-2">
+            <div class="row">
                 <div class="col-auto">
                     <x-components::form.reset :text="trans('index.reset_filter')" />
                 </div>
@@ -40,14 +40,14 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-sm-auto">
                     <x-components::link.back :href="route('cms.configuration.setting.index')" />
                 </div>
 
                 @can('Setting Restore')
                     @if ($settings->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore-all :href="route('cms.configuration.setting.restore-all')" />
                         </div>
                     @endif
@@ -55,7 +55,7 @@
 
                 @can('Setting Delete Permanent')
                     @if ($settings->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent-all :href="route('cms.configuration.setting.delete-permanent-all')" />
                         </div>
                     @endif

@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.slider.index')" />
                 </div>
             </div>
@@ -135,10 +135,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($slider->trashed())
                     @can('Slider Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.slider.restore', [
                                 'slider' => $slider->id,
                             ])" />
@@ -146,7 +146,7 @@
                     @endcan
 
                     @can('Slider Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.slider.delete-permanent', [
                                 'slider' => $slider->id,
                             ])" />
@@ -154,7 +154,7 @@
                     @endcan
                 @else
                     @can('Slider Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.slider.active', [
                                 'slider' => $slider->id,
                             ])" :value="$slider->is_active" />
@@ -162,7 +162,7 @@
                     @endcan
 
                     @can('Slider Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.slider.clone', [
                                 'slider' => $slider->id,
                             ])" />
@@ -170,7 +170,7 @@
                     @endcan
 
                     @can('Slider Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.slider.edit', [
                                 'slider' => $slider->id,
                             ])" />
@@ -178,7 +178,7 @@
                     @endcan
 
                     @can('Slider Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.slider.delete', [
                                 'slider' => $slider->id,
                             ])" />

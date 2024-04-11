@@ -52,14 +52,14 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-sm-auto">
                     <x-components::link.back :href="route('cms.article.index')" />
                 </div>
 
                 @can('Article Restore')
                     @if ($articles->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore-all :href="route('cms.article.restore-all')" />
                         </div>
                     @endif
@@ -67,7 +67,7 @@
 
                 @can('Article Delete Permanent')
                     @if ($articles->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent-all :href="route('cms.article.delete-permanent-all')" />
                         </div>
                     @endif

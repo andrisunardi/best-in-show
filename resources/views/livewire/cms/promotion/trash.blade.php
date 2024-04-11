@@ -52,14 +52,14 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-sm-auto">
                     <x-components::link.back :href="route('cms.promotion.index')" />
                 </div>
 
                 @can('Promotion Restore')
                     @if ($promotions->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore-all :href="route('cms.promotion.restore-all')" />
                         </div>
                     @endif
@@ -67,7 +67,7 @@
 
                 @can('Promotion Delete Permanent')
                     @if ($promotions->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent-all :href="route('cms.promotion.delete-permanent-all')" />
                         </div>
                     @endif

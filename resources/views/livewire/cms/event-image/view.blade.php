@@ -9,8 +9,8 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-6 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-auto">
                     <x-components::link.back :href="route('cms.event-image.index')" />
                 </div>
             </div>
@@ -152,10 +152,10 @@
                 </div>
             @endif
 
-            <div class="row mt-3">
+            <div class="row g-3">
                 @if ($eventImage->trashed())
                     @can('Event Image Restore')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore :href="route('cms.event-image.restore', [
                                 'eventImage' => $eventImage->id,
                             ])" />
@@ -163,7 +163,7 @@
                     @endcan
 
                     @can('Event Image Delete Permanent')
-                        <div class="col-12 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent :href="route('cms.event-image.delete-permanent', [
                                 'eventImage' => $eventImage->id,
                             ])" />
@@ -171,7 +171,7 @@
                     @endcan
                 @else
                     @can('Event Image Active')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.active :href="route('cms.event-image.active', [
                                 'eventImage' => $eventImage->id,
                             ])" :value="$eventImage->is_active" />
@@ -179,7 +179,7 @@
                     @endcan
 
                     @can('Event Image Clone')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.clone :href="route('cms.event-image.clone', [
                                 'eventImage' => $eventImage->id,
                             ])" />
@@ -187,7 +187,7 @@
                     @endcan
 
                     @can('Event Image Edit')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.edit :href="route('cms.event-image.edit', [
                                 'eventImage' => $eventImage->id,
                             ])" />
@@ -195,7 +195,7 @@
                     @endcan
 
                     @can('Event Image Delete')
-                        <div class="col-6 col-sm-auto mt-3 mt-sm-0">
+                        <div class="col-6 col-sm-auto">
                             <x-components::link.delete :href="route('cms.event-image.delete', [
                                 'eventImage' => $eventImage->id,
                             ])" />

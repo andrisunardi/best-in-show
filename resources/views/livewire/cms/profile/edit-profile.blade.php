@@ -18,28 +18,29 @@
 
                         <x-components::form.alert />
 
-                        <div class="row">
-                            <div class="col-sm-6 mb-3">
-                                <x-components::form.name :icon="'fas fa-id-card'" :maxlength="50" :required="true" :autofocus="true" />
+                        <div class="row g-3 mb-3">
+                            <div class="col-sm-6">
+                                <x-components::form.name :icon="'fas fa-id-card'" :maxlength="50" :required="true"
+                                    :autofocus="true" />
                             </div>
 
-                            <div class="col-sm-6 mb-3">
+                            <div class="col-sm-6">
                                 <x-components::form.username :maxlength="50" :required="true" />
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-6 mb-3">
+                        <div class="row g-3 mb-3">
+                            <div class="col-sm-6">
                                 <x-components::form.email :maxlength="50" :required="true" :autocapitalize="'none'" />
                             </div>
 
-                            <div class="col-sm-6 mb-3">
+                            <div class="col-sm-6">
                                 <x-components::form.phone :maxlength="15" :required="true" />
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-6 mb-3">
+                        <div class="row g-3 mb-3">
+                            <div class="col-sm-6">
                                 <x-components::form.image />
 
                                 <x-components::preview.image :image="$image" :data="Auth::user()" />

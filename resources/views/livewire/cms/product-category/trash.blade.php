@@ -50,14 +50,14 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-sm-auto mb-3">
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-sm-auto">
                     <x-components::link.back :href="route('cms.product-category.index')" />
                 </div>
 
                 @can('Product Category Restore')
                     @if ($productCategories->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.restore-all :href="route('cms.product-category.restore-all')" />
                         </div>
                     @endif
@@ -65,7 +65,7 @@
 
                 @can('Product Category Delete Permanent')
                     @if ($productCategories->count())
-                        <div class="col-12 col-sm-auto mb-3">
+                        <div class="col-12 col-sm-auto">
                             <x-components::link.delete-permanent-all :href="route('cms.product-category.delete-permanent-all')" />
                         </div>
                     @endif
